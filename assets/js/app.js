@@ -24,8 +24,8 @@ import "phoenix_html"
 // Establish Phoenix Socket and LiveView configuration.
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
-import autocomplete from "@tarekraafat/autocomplete.js"
 import topbar from "../vendor/topbar"
+import autoComplete from "@tarekraafat/autocomplete.js"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
@@ -45,8 +45,12 @@ liveSocket.connect()
 window.liveSocket = liveSocket
 
 document.addEventListener("DOMContentLoaded", function () {
-	const config = {
-		selector: ".has-autocomplete"
-	}
-  const autoCompleteJS = new autoComplete({ config });
+	// TODO: File bug with 
+	// const config = {
+	// 	selector: ".has-autocomplete",
+	// 	data: {
+	// 		src: ["foo", "bar", "baz"]
+	// 	}
+	// }
+ //  const autoCompleteJS = new autoComplete({ config });
 })
