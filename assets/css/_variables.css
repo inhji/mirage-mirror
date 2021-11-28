@@ -1,0 +1,22 @@
+:root {
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-6: 1.5rem;
+
+  --border-radius: 3px;
+  --border: 1px solid var(--b-low);
+
+  --background: #352b31;
+
+  --f-high: #f5f5d4;
+  --f-med: #70838c;
+  --f-low: #4a6b83;
+  --f-inv: #352b31;
+
+  --b-high: #96cf85;
+  --b-med: #5a6970;
+  --b-low: #4a3b44;
+  --b-inv: #f5f5d4;
+}

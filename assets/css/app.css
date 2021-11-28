@@ -1,3 +1,12 @@
 /* This file is for your main application CSS */
-@import "./phoenix.css";
+@import "./_normalize.css";
+@import "./_phoenix.css";
+@import "./_variables.css";
 
+body {
+  color: var(--f-high);
+  background: var(--background);
+}
+
+header {
+}
