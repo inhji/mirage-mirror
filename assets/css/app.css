@@ -6,6 +6,10 @@
 @import "./_forms.css";
 @import "./_variables.css";
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: 'Inter', sans-serif;
 }
@@ -21,15 +25,15 @@ a, a:link, a:visited, a:focus {
 
 /* HEADER */
 
-header {
+body > header {
   background: var(--b-low);
 }
 
-header nav {
+body > header nav {
   padding: var(--spacing-3);
 }
 
-header nav ul {
+body > header nav ul {
   display: flex;
   gap: var(--spacing-3);
   padding: 0;
