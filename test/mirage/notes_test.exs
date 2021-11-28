@@ -8,11 +8,21 @@ defmodule Mirage.NotesTest do
 
     import Mirage.NotesFixtures
 
-    @invalid_attrs %{content: nil, content_html: nil, published_at: nil, slug: nil, title: nil, viewed_at: nil, views: nil}
+    @invalid_attrs %{
+      content: nil,
+      title: nil
+    }
 
     test "list_notes/0 returns all notes" do
       note = note_fixture()
       assert Notes.list_notes() == [note]
+    end
+
+    test "search_notes/1 returns a list of results" do
+      note = note_fixture()
+      assert Notes.search_notes(note.title) == [note]
+      assert String.slice(note.title, 0..5) |> Notes.search_notes() == [note]
+      assert String.slice(note.title, 1..5) |> Notes.search_notes() == [note]
     end
 
     test "get_note!/1 returns the note with given id" do
@@ -21,34 +31,58 @@ defmodule Mirage.NotesTest do
     end
 
     test "create_note/1 with valid data creates a note" do
-      valid_attrs = %{content: "some content", content_html: "some content_html", published_at: ~N[2021-11-27 14:08:00], slug: "some slug", title: "some title", viewed_at: ~N[2021-11-27 14:08:00], views: 42}
+      valid_attrs = %{
+        content: "some content",
+        title: "some title"
+      }
 
       assert {:ok, %Note{} = note} = Notes.create_note(valid_attrs)
       assert note.content == "some content"
-      assert note.content_html == "some content_html"
-      assert note.published_at == ~N[2021-11-27 14:08:00]
-      assert note.slug == "some slug"
       assert note.title == "some title"
-      assert note.viewed_at == ~N[2021-11-27 14:08:00]
-      assert note.views == 42
+    end
+
+    test "create_note/1 with valid data creates a slug" do
+      valid_attrs = %{
+        title: "some title",
+        content: "some content"
+      }
+
+      assert {:ok, %Note{} = note} = Notes.create_note(valid_attrs)
+      assert note.title == "some title"
+      assert note.slug == "some-title"
     end
 
     test "create_note/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Notes.create_note(@invalid_attrs)
+      assert {:error, %Ecto.Changeset{}} =
+               Notes.create_note(%{
+                 content: nil,
+                 title: "some updated title"
+               })
+
+      assert {:error, %Ecto.Changeset{}} =
+               Notes.create_note(%{
+                 content: "some updated content",
+                 title: nil
+               })
+
+      assert {:error, %Ecto.Changeset{}} =
+               Notes.create_note(%{
+                 content: nil,
+                 title: nil
+               })
     end
 
     test "update_note/2 with valid data updates the note" do
       note = note_fixture()
-      update_attrs = %{content: "some updated content", content_html: "some updated content_html", published_at: ~N[2021-11-28 14:08:00], slug: "some updated slug", title: "some updated title", viewed_at: ~N[2021-11-28 14:08:00], views: 43}
+
+      update_attrs = %{
+        content: "some updated content",
+        title: "some updated title"
+      }
 
       assert {:ok, %Note{} = note} = Notes.update_note(note, update_attrs)
       assert note.content == "some updated content"
-      assert note.content_html == "some updated content_html"
-      assert note.published_at == ~N[2021-11-28 14:08:00]
-      assert note.slug == "some updated slug"
       assert note.title == "some updated title"
-      assert note.viewed_at == ~N[2021-11-28 14:08:00]
-      assert note.views == 43
     end
 
     test "update_note/2 with invalid data returns error changeset" do
