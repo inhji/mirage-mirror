@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.5.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.5.0...v0.5.1) (2021-11-28)
+
+
+
+
+### Bug Fixes:
+
+* set aside autocomplete for now
+
+* warnings
+
 ## [v0.5.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.4.1...v0.5.0) (2021-11-28)
 
 
