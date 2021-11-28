@@ -27,6 +27,8 @@ defmodule MirageWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     resources "/notes", NoteController
+    get "/notes/:id/publish", NoteController, :publish
+    get "/notes/:id/unpublish", NoteController, :unpublish
   end
 
   # Other scopes may use custom stacks.

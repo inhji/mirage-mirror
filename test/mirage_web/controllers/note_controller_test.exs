@@ -90,6 +90,26 @@ defmodule MirageWeb.NoteControllerTest do
     end
   end
 
+  describe "publish note" do
+    setup [:create_note]
+
+    test "publishes a note", %{conn: conn, note: note} do
+      conn = get(conn, Routes.note_path(conn, :publish, note), id: note.id)
+      assert redirected_to(conn) == Routes.note_path(conn, :show, note)
+
+      conn = get(conn, Routes.note_path(conn, :show, note))
+      assert html_response(conn, 200) =~ "Unpublish"
+    end
+
+    test "unpublishes a note", %{conn: conn, note: note} do
+      conn = get(conn, Routes.note_path(conn, :unpublish, note), id: note.id)
+      assert redirected_to(conn) == Routes.note_path(conn, :show, note)
+
+      conn = get(conn, Routes.note_path(conn, :show, note))
+      assert html_response(conn, 200) =~ "Publish"
+    end
+  end
+
   describe "delete note" do
     setup [:create_note]
 

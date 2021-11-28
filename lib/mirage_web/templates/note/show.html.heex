@@ -40,4 +40,9 @@
 </ul>
 
 <span><%= link "Edit", to: Routes.note_path(@conn, :edit, @note) %></span> |
+<%= if is_nil(@note.published_at) do %>
+<span><%= link "Publish", to: Routes.note_path(@conn, :publish, @note) %></span> |
+<% else %>
+<span><%= link "Unpublish", to: Routes.note_path(@conn, :unpublish, @note) %></span> |
+<% end %>
 <span><%= link "Back", to: Routes.note_path(@conn, :index) %></span>

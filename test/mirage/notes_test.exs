@@ -95,6 +95,18 @@ defmodule Mirage.NotesTest do
       assert note == Notes.get_note!(note.id)
     end
 
+    test "publish_note/1 publishes a note by setting published_at" do
+      note = note_fixture()
+      assert {:ok, %Note{} = note} = Notes.publish_note(note)
+      assert not is_nil(note.published_at)
+    end
+
+    test "unpublish_note/1 unpublishes a note by setting published_at to nil" do
+      note = note_fixture()
+      assert {:ok, %Note{} = note} = Notes.unpublish_note(note)
+      assert is_nil(note.published_at)
+    end
+
     test "delete_note/1 deletes the note" do
       note = note_fixture()
       assert {:ok, %Note{}} = Notes.delete_note(note)

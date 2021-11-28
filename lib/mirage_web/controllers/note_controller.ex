@@ -51,6 +51,34 @@ defmodule MirageWeb.NoteController do
     end
   end
 
+  def publish(conn, %{"id" => id}) do
+    note = Notes.get_note!(id)
+
+    case Notes.publish_note(note) do
+      {:ok, note} ->
+        conn
+        |> put_flash(:info, "Note published successfully.")
+        |> redirect(to: Routes.note_path(conn, :show, note))
+
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        render(conn, "show.html", note: note)
+    end
+  end
+
+  def unpublish(conn, %{"id" => id}) do
+    note = Notes.get_note!(id)
+
+    case Notes.unpublish_note(note) do
+      {:ok, note} ->
+        conn
+        |> put_flash(:info, "Note unpublished successfully.")
+        |> redirect(to: Routes.note_path(conn, :show, note))
+
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        render(conn, "show.html", note: note)
+    end
+  end
+
   def delete(conn, %{"id" => id}) do
     note = Notes.get_note!(id)
     {:ok, _note} = Notes.delete_note(note)

@@ -93,6 +93,32 @@ defmodule Mirage.Notes do
   end
 
   @doc """
+  Publishes a not by setting published_at to utc_now
+
+  ## Examples
+
+      iex> publish_note(note)
+      {:ok, %Note{}}
+      
+  """
+  def publish_note(%Note{} = note) do
+    update_note(note, %{published_at: DateTime.utc_now()})
+  end
+
+  @doc """
+  Unpublishes a not by setting published_at to nil
+
+  ## Examples
+
+      iex> publish_note(note)
+      {:ok, %Note{}}
+      
+  """
+  def unpublish_note(%Note{} = note) do
+    update_note(note, %{published_at: nil})
+  end
+
+  @doc """
   Deletes a note.
 
   ## Examples
