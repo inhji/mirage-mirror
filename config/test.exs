@@ -8,7 +8,7 @@ import Config
 config :mirage, Mirage.Repo,
   username: "postgres",
   password: "postgres",
-  database: "mirage_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "mirage2_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10

@@ -4,7 +4,7 @@ import Config
 config :mirage, Mirage.Repo,
   username: "postgres",
   password: "postgres",
-  database: "mirage_dev",
+  database: "mirage2_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
