@@ -6,8 +6,8 @@ defmodule Mirage.Repo.Migrations.CreateNotes do
       add :id, :binary_id, primary_key: true
       add :title, :string
       add :slug, :string
-      add :content, :string
-      add :content_html, :string
+      add :content, :text
+      add :content_html, :text
       add :views, :integer
       add :viewed_at, :naive_datetime
       add :published_at, :naive_datetime

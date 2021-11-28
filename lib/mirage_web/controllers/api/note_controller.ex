@@ -4,10 +4,12 @@ defmodule MirageWeb.API.V1.NoteController do
   alias Mirage.Notes
   alias Mirage.Notes.Note
 
-  def search(conn, params) do
+  def search(conn, %{"query" => query} = params) do
+    notes = Mirage.Notes.search_notes(query)
+
     json(conn, %{
       ok: true,
-      data: []
+      data: notes
     })
   end
 end

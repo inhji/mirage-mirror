@@ -2,8 +2,11 @@ defmodule Mirage.Notes.Note do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @public_fields [:title, :slug, :content, :content_html, :published_at, :views, :viewed_at]
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
+  @derive {Jason.Encoder, only: @public_fields}
   schema "notes" do
     field :title, :string
     # field :slug, Mirage.Notes.NoteSlug.Type
