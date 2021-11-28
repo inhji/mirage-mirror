@@ -2,6 +2,7 @@
 @import "./_normalize.css";
 @import "./_inter.css";
 @import "./_phoenix.css";
+@import "./_helpers.css";
 @import "./_variables.css";
 
 html {
@@ -11,8 +12,32 @@ html {
 body {
   color: var(--f-high);
   background: var(--background);
-
 }
 
+a, a:link, a:visited, a:focus {
+  color: var(--f-high);
+}
+
+/* HEADER */
+
 header {
+  background: var(--b-low);
+}
+
+header nav {
+  padding: var(--spacing-3);
+}
+
+header nav ul {
+  display: flex;
+  gap: var(--spacing-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* MAIN */
+
+main {
+  padding: var(--spacing-3);
 }
