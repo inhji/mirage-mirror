@@ -1,13 +1,11 @@
 defmodule Mirage.NotesTest do
   use Mirage.DataCase
 
+  import Mirage.NotesFixtures
   alias Mirage.Notes
+  alias Mirage.Notes.Note
 
   describe "notes" do
-    alias Mirage.Notes.Note
-
-    import Mirage.NotesFixtures
-
     @invalid_attrs %{
       content: nil,
       title: nil
