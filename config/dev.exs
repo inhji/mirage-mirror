@@ -28,6 +28,19 @@ config :mirage, MirageWeb.Endpoint,
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
+config :git_ops,
+  mix_project: Mix.Project.get!(),
+  changelog_file: "CHANGELOG.md",
+  repository_url: "http://10.0.0.11/inhji/mirage2.git",
+  types: [],
+  # Instructs the tool to manage your mix version in your `mix.exs` file
+  # See below for more information
+  manage_mix_version?: true,
+  # Instructs the tool to manage the version in your README.md
+  # Pass in `true` to use `"README.md"` or a string to customize
+  manage_readme_version: false,
+  version_tag_prefix: "v"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
