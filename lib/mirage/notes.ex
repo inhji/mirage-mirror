@@ -4,6 +4,7 @@ defmodule Mirage.Notes do
   """
 
   import Ecto.Query, warn: false
+  import Mirage.Macros
   alias Mirage.Repo
 
   alias Mirage.Notes.Note
@@ -19,6 +20,24 @@ defmodule Mirage.Notes do
   """
   def list_notes do
     Repo.all(Note)
+  end
+
+  @doc """
+  Returns list of notes containg the given query_string
+
+  ## Examplex
+
+      iex> search_notes("foo")
+      [%Note{}, ...]
+
+  """
+  def search_notes(query_string) do
+    q =
+      from n in Note,
+        where: contains(n.content, ^query_string),
+        or_where: contains(n.title, ^query_string)
+
+    Repo.all(q)
   end
 
   @doc """

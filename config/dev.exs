@@ -38,7 +38,7 @@ config :git_ops,
   manage_mix_version?: true,
   # Instructs the tool to manage the version in your README.md
   # Pass in `true` to use `"README.md"` or a string to customize
-  manage_readme_version: false,
+  manage_readme_version: "README.md",
   version_tag_prefix: "v"
 
 # ## SSL Support

@@ -18,7 +18,7 @@ defmodule Mirage.NotesTest do
       assert Notes.list_notes() == [note]
     end
 
-    test "search_notes/1 returns a list of results" do
+    test "search_notes/1 returns a list of results matching the search query" do
       note = note_fixture()
       assert Notes.search_notes(note.title) == [note]
       assert String.slice(note.title, 0..5) |> Notes.search_notes() == [note]

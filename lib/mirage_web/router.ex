@@ -30,9 +30,13 @@ defmodule MirageWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", MirageWeb do
-  #   pipe_through :api
-  # end
+  scope path: "/api/v1", as: :api_v1, alias: MirageWeb.API.V1 do
+    pipe_through :api
+
+    scope "/notes" do
+      get "/search", NoteController, :search
+    end
+  end
 
   # Enables LiveDashboard only for development
   #
