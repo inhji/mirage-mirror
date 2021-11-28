@@ -28,5 +28,6 @@ defmodule Mirage.Notes.Note do
     |> unique_constraint(:title)
     |> Mirage.Notes.NoteSlug.maybe_generate_slug()
     |> Mirage.Notes.NoteSlug.unique_constraint()
+    |> Mirage.Markdown.maybe_render(:content, :content_html)
   end
 end

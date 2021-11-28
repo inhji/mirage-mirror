@@ -56,6 +56,16 @@ defmodule Mirage.NotesTest do
       assert note.slug == "some-title"
     end
 
+    test "create_note/1 with valid data renders markdown" do
+      valid_attrs = %{
+        title: "some title",
+        content: "some **content**"
+      }
+
+      assert {:ok, %Note{} = note} = Notes.create_note(valid_attrs)
+      assert note.content_html =~ "<strong>content</strong>"
+    end
+
     test "create_note/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} =
                Notes.create_note(%{
