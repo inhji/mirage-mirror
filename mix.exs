@@ -1,10 +1,12 @@
 defmodule Mirage.MixProject do
   use Mix.Project
 
+  @version "0.4.0"
+
   def project do
     [
       app: :mirage,
-      version: "0.3.0",
+      version: @version,
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:gettext] ++ Mix.compilers(),
