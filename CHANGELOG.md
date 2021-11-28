@@ -5,6 +5,27 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.5.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.4.1...v0.5.0) (2021-11-28)
+
+
+
+
+### Features:
+
+* simple note search
+
+* markdown rendering
+
+* publish/unpublish notes
+
+* improve alert styles
+
+### Bug Fixes:
+
+* small tweaks
+
+* box-sizing and better header styles
+
 ## [v0.4.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.4.0...v0.4.1) (2021-11-28)
 
 
