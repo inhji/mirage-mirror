@@ -1,28 +1,17 @@
-<h1>Listing Notes</h1>
+<h1>Notes</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Slug</th>
-      <th>Content</th>
-      <th>Content html</th>
-      <th>Views</th>
-      <th>Viewed at</th>
-      <th>Published at</th>
-
-      <th></th>
+      <th>Published</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
 <%= for note <- @notes do %>
     <tr>
       <td><%= note.title %></td>
-      <td><%= note.slug %></td>
-      <td><%= note.content %></td>
-      <td><%= note.content_html %></td>
-      <td><%= note.views %></td>
-      <td><%= note.viewed_at %></td>
       <td><%= note.published_at %></td>
 
       <td>

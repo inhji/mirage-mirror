@@ -36,7 +36,7 @@ defmodule MirageWeb.NoteControllerTest do
   describe "index" do
     test "lists all notes", %{conn: conn} do
       conn = get(conn, Routes.note_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Notes"
+      assert html_response(conn, 200) =~ "Notes"
     end
   end
 
