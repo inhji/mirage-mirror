@@ -1,3 +1,10 @@
-alert:empty {
+.alert {
+  background: var(--b-inv);
+  color: var(--f-inv);
+  padding: var(--spacing-3);
+}
+
+.alert:empty {
   display: none;
+  padding: 0;
 }
