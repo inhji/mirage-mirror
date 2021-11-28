@@ -1,0 +1,43 @@
+<h1>Show Note</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @note.title %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @note.slug %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @note.content %>
+  </li>
+
+  <li>
+    <strong>Content html:</strong>
+    <%= @note.content_html %>
+  </li>
+
+  <li>
+    <strong>Views:</strong>
+    <%= @note.views %>
+  </li>
+
+  <li>
+    <strong>Viewed at:</strong>
+    <%= @note.viewed_at %>
+  </li>
+
+  <li>
+    <strong>Published at:</strong>
+    <%= @note.published_at %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.note_path(@conn, :edit, @note) %></span> |
+<span><%= link "Back", to: Routes.note_path(@conn, :index) %></span>

@@ -23,6 +23,12 @@ defmodule MirageWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/admin", MirageWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    resources "/notes", NoteController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", MirageWeb do
   #   pipe_through :api
