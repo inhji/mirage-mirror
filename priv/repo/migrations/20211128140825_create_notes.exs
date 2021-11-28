@@ -14,5 +14,8 @@ defmodule Mirage.Repo.Migrations.CreateNotes do
 
       timestamps()
     end
+
+    create unique_index(:notes, [:title])
+    create unique_index(:notes, [:slug])
   end
 end

@@ -37,6 +37,7 @@ defmodule Mirage.MixProject do
       {:phoenix, "~> 1.6.2"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
+      {:ecto_autoslug_field, "~> 3.0"},
       {:git_ops, "~> 2.4.5", only: [:dev]},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.0"},
