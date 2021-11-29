@@ -4,7 +4,7 @@
   </header>
 
   <section class="content html">
-    <%= raw Mirage.Markdown.render(@note.content) %>
+    <%= raw Mirage.Markdown.render(@note.content, [admin: true]) %>
   </section>
 </article>
 

@@ -11,8 +11,10 @@ defmodule Mirage.Markdown do
   @doc """
   Renders markdown with Earmark.
   """
-  def render(markdown) do
-    Earmark.as_html!(markdown, @markdown_options)
+  def render(markdown, opts \\ [admin: false]) do
+    markdown
+    |> Mirage.References.replace_references(opts)
+    |> Earmark.as_html!(@markdown_options)
   end
 
   @doc """
