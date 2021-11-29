@@ -29,7 +29,7 @@ defmodule Mirage.NotesTest do
 
     test "get_note!/1 returns the note with given id" do
       note = note_fixture()
-      assert Notes.get_note!(note.id) == note
+      assert Notes.get_note!(note.slug) == note
     end
 
     test "create_note/1 with valid data creates a note" do
@@ -100,7 +100,7 @@ defmodule Mirage.NotesTest do
     test "update_note/2 with invalid data returns error changeset" do
       note = note_fixture()
       assert {:error, %Ecto.Changeset{}} = Notes.update_note(note, @invalid_attrs)
-      assert note == Notes.get_note!(note.id)
+      assert note == Notes.get_note!(note.slug)
     end
 
     test "publish_note/1 publishes a note by setting published_at" do

@@ -54,7 +54,7 @@ defmodule Mirage.Notes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_note!(id), do: Repo.get!(Note, id)
+  def get_note!(id), do: Repo.get_by!(Note, slug: id)
 
   @doc """
   Creates a note.

@@ -7,10 +7,10 @@ defmodule Mirage.Notes.Note do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   @derive {Jason.Encoder, only: @public_fields}
+  @derive {Phoenix.Param, key: :slug}
   schema "notes" do
     field :title, :string
-    # field :slug, Mirage.Notes.NoteSlug.Type
-    field :slug, :string
+    field :slug, Mirage.Notes.NoteSlug.Type
 
     field :content, :string
     field :content_html, :string

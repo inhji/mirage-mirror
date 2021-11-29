@@ -6,20 +6,11 @@ defmodule MirageWeb.NoteControllerTest do
   @create_attrs %{
     content: "some content",
     content_html: "some content_html",
-    published_at: ~N[2021-11-27 14:08:00],
-    slug: "some slug",
-    title: "some title",
-    viewed_at: ~N[2021-11-27 14:08:00],
-    views: 42
+    title: "some title"
   }
   @update_attrs %{
     content: "some updated content",
-    content_html: "some updated content_html",
-    published_at: ~N[2021-11-28 14:08:00],
-    slug: "some updated slug",
-    title: "some updated title",
-    viewed_at: ~N[2021-11-28 14:08:00],
-    views: 43
+    title: "some updated title"
   }
   @invalid_attrs %{
     content: nil,
