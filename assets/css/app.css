@@ -11,7 +11,7 @@
 }
 
 html {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter var', sans-serif;
 }
 
 body {
@@ -25,15 +25,14 @@ a, a:link, a:visited, a:focus {
 
 /* HEADER */
 
-body > header {
-  background: var(--b-low);
-}
-
-body > header nav {
+header.app {
+  background: var(--b-med);
   padding: var(--spacing-3);
+  max-width: var(--spacing-app);
+  margin: var(--spacing-3) auto;
 }
 
-body > header nav ul {
+header.app nav ul {
   display: flex;
   gap: var(--spacing-3);
   padding: 0;
@@ -44,5 +43,21 @@ body > header nav ul {
 /* MAIN */
 
 main {
+  background: var(--b-low);
   padding: var(--spacing-3);
+  max-width: var(--spacing-app);
+  margin: 0 auto;
+}
+
+main h1:first-of-type {
+  margin: 0;
+}
+
+/* FOOTER */
+
+body > footer {
+  background: var(--b-med);
+  max-width: var(--spacing-app);
+  padding: var(--spacing-3);
+  margin: var(--spacing-3) auto;
 }

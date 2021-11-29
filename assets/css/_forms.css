@@ -1,19 +1,21 @@
 form fieldset {
 	border: var(--border);
+	padding: 0;
+	margin: 0;
 }
 
 form input, 
 form textarea {
 	color: var(--f-high);
 	width: 100%;
-	background: var(--b-low);
+	background: var(--b-med);
 	border: var(--border);
 	padding: var(--spacing-3);
 }
 
 form button[type=submit] {
 	color: var(--f-high);
-	background: var(--b-med);
+	background: var(--b-high);
 	border: none;
 	border-radius: var(--border-radius);
 	padding: var(--spacing-1);
