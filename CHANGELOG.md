@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.7.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.6.0...v0.7.0) (2021-11-29)
+
+
+
+
+### Features:
+
+* switch to urls with slugs instead of ids
+
 ## [v0.6.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.5.1...v0.6.0) (2021-11-28)
 
 
