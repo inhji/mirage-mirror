@@ -55,6 +55,15 @@ defmodule MirageWeb.NoteControllerTest do
     end
   end
 
+  describe "show note" do
+    setup [:create_note]
+
+    test "renders single note", %{conn: conn, note: note} do
+      conn = get(conn, Routes.note_path(conn, :show, note))
+      assert html_response(conn, 200) =~ note.title
+    end
+  end
+
   describe "edit note" do
     setup [:create_note]
 
