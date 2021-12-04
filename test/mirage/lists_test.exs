@@ -26,7 +26,7 @@ defmodule Mirage.ListsTest do
 
     test "get_list!/1 returns the list with given id" do
       list = list_fixture()
-      assert Lists.get_list!(list.id) == list
+      assert Lists.get_list!(list.slug) == list
     end
 
     test "create_list/1 with valid data creates a list" do
@@ -63,7 +63,7 @@ defmodule Mirage.ListsTest do
     test "update_list/2 with invalid data returns error changeset" do
       list = list_fixture()
       assert {:error, %Ecto.Changeset{}} = Lists.update_list(list, @invalid_attrs)
-      assert list == Lists.get_list!(list.id)
+      assert list == Lists.get_list!(list.slug)
     end
 
     test "delete_list/1 deletes the list" do

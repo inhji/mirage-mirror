@@ -41,9 +41,9 @@ defmodule Mirage.Lists do
       ** (Ecto.NoResultsError)
 
   """
-  def get_list!(id),
+  def get_list!(slug),
     do:
-      Repo.get!(List, id)
+      Repo.get_by!(List, slug: slug)
       |> preload_list()
 
   @doc """

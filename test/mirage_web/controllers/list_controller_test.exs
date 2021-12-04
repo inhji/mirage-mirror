@@ -5,33 +5,18 @@ defmodule MirageWeb.ListControllerTest do
 
   @create_attrs %{
     content: "some content",
-    content_html: "some content_html",
     display_type: :list,
-    published_at: ~N[2021-12-03 08:47:00],
-    slug: "some slug",
-    title: "some title",
-    viewed_at: ~N[2021-12-03 08:47:00],
-    views: 42
+    title: "some title"
   }
   @update_attrs %{
     content: "some updated content",
-    content_html: "some updated content_html",
     display_type: :gallery,
-    published_at: ~N[2021-12-04 08:47:00],
-    slug: "some updated slug",
-    title: "some updated title",
-    viewed_at: ~N[2021-12-04 08:47:00],
-    views: 43
+    title: "some updated title"
   }
   @invalid_attrs %{
     content: nil,
-    content_html: nil,
     display_type: nil,
-    published_at: nil,
-    slug: nil,
-    title: nil,
-    viewed_at: nil,
-    views: nil
+    title: nil
   }
 
   setup :register_and_log_in_user
