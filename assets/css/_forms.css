@@ -13,6 +13,7 @@ form .milkdown {
 	border: var(--border);
 	padding: var(--spacing-3);
 	margin-top: var(--spacing-1);
+	white-space: pre-wrap;
 }
 
 form .milkdown .paragraph:first-child {
