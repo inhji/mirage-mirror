@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.10.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.10.0...v0.10.1) (2021-12-04)
+
+
+
+
+### Bug Fixes:
+
+* milkdown swallowing spaces
+
 ## [v0.10.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.9.1...v0.10.0) (2021-12-04)
 
 
