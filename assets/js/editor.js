@@ -13,6 +13,11 @@ const theme = themeFactory({
 
 
 const createEditor = async function (contentElement) {
+	if (contentElement === null) {
+		console.error("contentElement is null, check your editor config.")
+		return
+	}
+
 	const editor = Editor.make()
 		.config(function (ctx) {
 			ctx.set(rootCtx, document.querySelector("#editor"))

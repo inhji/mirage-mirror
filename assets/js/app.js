@@ -67,10 +67,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 		})
 	})
 
-	// TODO: Use editor milkdown/prosemirror
-	if (document.querySelector("#editor")) {
-		const contentElement = document.querySelector("input#note_content")
-		console.log(contentElement)
-		await createEditor(contentElement)
-	}
+	// Initialize milkdown editor for all editorElements
+	// A #editor div as container is required 
+	const editorElements = ["#note_content", "#list_content"]
+	editorElements.forEach(async el => {
+		const $el = document.querySelector(el)
+		if ($el && document.querySelector("#editor")) {
+			await createEditor($el)
+		}
+	})
 })
