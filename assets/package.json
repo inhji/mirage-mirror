@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "@milkdown/core": "^5.1.2",
+    "@milkdown/plugin-listener": "^5.1.2",
+    "@milkdown/plugin-slash": "^5.1.2",
+    "@milkdown/preset-commonmark": "^5.1.2",
+    "@milkdown/theme-nord": "^5.1.2",
     "@tarekraafat/autocomplete.js": "^10.2.6"
   }
 }

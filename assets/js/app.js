@@ -24,7 +24,9 @@ import "phoenix_html"
 // Establish Phoenix Socket and LiveView configuration.
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
+import createEditor from "./editor"
 import topbar from "../vendor/topbar"
+import Theme from "../vendor/theme"
 import autoComplete from "@tarekraafat/autocomplete.js"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
@@ -44,7 +46,11 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-document.addEventListener("DOMContentLoaded", function () {
+const theme = new Theme()
+theme.install(document.body)
+theme.start()
+
+document.addEventListener("DOMContentLoaded", async function () {
 	// TODO: File bug with 
 	// const config = {
 	// 	selector: ".has-autocomplete",
@@ -52,5 +58,19 @@ document.addEventListener("DOMContentLoaded", function () {
 	// 		src: ["foo", "bar", "baz"]
 	// 	}
 	// }
- //  const autoCompleteJS = new autoComplete({ config });
+ 	//  const autoCompleteJS = new autoComplete({ config });
+
+  const themes = document.querySelectorAll("section.themes svg")
+	themes.forEach(entry => {
+		entry.addEventListener("click", () => {
+			theme.load(entry.outerHTML)
+		})
+	})
+
+	// TODO: Use editor milkdown/prosemirror
+	if (document.querySelector("#editor")) {
+		const contentElement = document.querySelector("input#note_content")
+		console.log(contentElement)
+		await createEditor(contentElement)
+	}
 })

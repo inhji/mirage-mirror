@@ -1,16 +1,24 @@
 form fieldset {
 	border: var(--border);
 	padding: 0;
-	margin: 0;
+	margin: var(--spacing-3) 0;
 }
 
 form input, 
-form textarea {
+form textarea,
+form .milkdown {
 	color: var(--f-high);
 	width: 100%;
 	background: var(--b-med);
 	border: var(--border);
 	padding: var(--spacing-3);
+	margin-top: var(--spacing-1);
+}
+
+
+form input:focus,
+form textarea:focus {
+	outline: none;
 }
 
 form button[type=submit] {
@@ -18,5 +26,10 @@ form button[type=submit] {
 	background: var(--b-high);
 	border: none;
 	border-radius: var(--border-radius);
-	padding: var(--spacing-1);
+	padding: var(--spacing-2);
+}
+
+form button[type=submit]:hover {
+	color: var(--f-inv);
+	background: var(--b-inv);
 }
