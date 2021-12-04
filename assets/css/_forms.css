@@ -21,7 +21,9 @@ form textarea:focus {
 	outline: none;
 }
 
+.button,
 form button[type=submit] {
+	display: inline-block;
 	color: var(--f-high);
 	background: var(--b-high);
 	border: none;
@@ -29,6 +31,7 @@ form button[type=submit] {
 	padding: var(--spacing-2);
 }
 
+.button,
 form button[type=submit]:hover {
 	color: var(--f-inv);
 	background: var(--b-inv);
