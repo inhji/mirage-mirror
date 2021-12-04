@@ -5,6 +5,33 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.8.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.7.0...v0.8.0) (2021-12-04)
+
+
+
+
+### Features:
+
+* a lot of small changes
+
+* add home link
+
+* add references proper
+
+* add theme selector
+
+* move notes to admin
+
+* add lists
+
+* add milkdown editor
+
+* better layout
+
+* add test for showing a single note
+
+* render note content with references
+
 ## [v0.7.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.6.0...v0.7.0) (2021-11-29)
 
 
