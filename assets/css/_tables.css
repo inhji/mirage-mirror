@@ -3,6 +3,7 @@ table {
 	text-align: center;
 	vertical-align: middle;
 	width: 100%;
+	margin-bottom: var(--spacing-3);
 }
 
 table th, table td {
@@ -11,5 +12,5 @@ table th, table td {
 }
 
 table thead {
-	background-color: var(--b-inv);
+	color: var(--f-med);
 }

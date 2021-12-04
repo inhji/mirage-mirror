@@ -15,6 +15,18 @@ form .milkdown {
 	margin-top: var(--spacing-1);
 }
 
+form .milkdown .paragraph:first-child {
+	margin-top: 0;
+}
+
+form .milkdown .paragraph:last-child {
+	margin-bottom: 0;
+}
+
+form .milkdown .editor {
+	outline: none;
+}
+
 
 form input:focus,
 form textarea:focus {
@@ -25,14 +37,11 @@ form textarea:focus {
 form button[type=submit] {
 	display: inline-block;
 	color: var(--f-high);
-	background: var(--b-high);
 	border: none;
 	border-radius: var(--border-radius);
 	padding: var(--spacing-2);
-}
-
-.button,
-form button[type=submit]:hover {
-	color: var(--f-inv);
-	background: var(--b-inv);
+	text-decoration: none;
+	background: transparent;
+	border: 1px solid var(--b-inv);
+	cursor: pointer;
 }

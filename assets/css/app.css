@@ -20,18 +20,24 @@ body {
   background: var(--background);
 }
 
-a, a:link, a:visited, a:focus {
+a, a:link, a:visited {
   color: var(--f-high);
+}
+
+a:hover, a:active, a:focus {
+  color: var(--f-high);
+  background: var(--b-high);
 }
 
 /* HEADER */
 
 header.app {
   color: var(--f-med);
-  background: var(--b-med);
+  background: var(--b-low);
   padding: var(--spacing-3);
   max-width: var(--spacing-app);
-  margin: var(--spacing-3) auto;
+  margin: var(--spacing-3) auto 0;
+  border-bottom: 2px solid var(--b-med);
 }
 
 header.app a {
@@ -41,13 +47,12 @@ header.app a {
 /* MAIN */
 
 main {
-  background: var(--b-low);
   padding: var(--spacing-3);
   max-width: var(--spacing-app);
   margin: 0 auto;
 }
 
-main h1 {
+main h1, main h2, main h3 {
   color: var(--f-med);
 }
 
@@ -55,10 +60,11 @@ main h1 {
 
 footer.app {
   color: var(--f-med);
-  background: var(--b-med);
+  background: var(--b-low);
   max-width: var(--spacing-app);
   padding: var(--spacing-3);
-  margin: var(--spacing-3) auto;
+  margin: 0 auto var(--spacing-3);
+  border-top: 2px solid var(--b-med);
 }
 
 footer.app a {
