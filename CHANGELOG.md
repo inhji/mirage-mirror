@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.10.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.9.1...v0.10.0) (2021-12-04)
+
+
+
+
+### Features:
+
+* add referencing lists to Mirage.References
+
+* address lists by slug
+
+* tweak tables, links, colors, forms
+
+### Bug Fixes:
+
+* references coming from milkdown are escaped
+
 ## [v0.9.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.9.0...v0.9.1) (2021-12-04)
 
 
