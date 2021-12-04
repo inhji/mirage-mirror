@@ -1,0 +1,40 @@
+<h1>Listing Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Content</th>
+      <th>Content html</th>
+      <th>Display type</th>
+      <th>Published at</th>
+      <th>Viewed at</th>
+      <th>Views</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for list <- @lists do %>
+    <tr>
+      <td><%= list.title %></td>
+      <td><%= list.slug %></td>
+      <td><%= list.content %></td>
+      <td><%= list.content_html %></td>
+      <td><%= list.display_type %></td>
+      <td><%= list.published_at %></td>
+      <td><%= list.viewed_at %></td>
+      <td><%= list.views %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.admin_list_path(@conn, :show, list) %></span>
+        <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list) %></span>
+        <span><%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New List", to: Routes.admin_list_path(@conn, :new) %></span>

@@ -1,0 +1,48 @@
+<h1>Show List</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @list.title %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @list.slug %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @list.content %>
+  </li>
+
+  <li>
+    <strong>Content html:</strong>
+    <%= @list.content_html %>
+  </li>
+
+  <li>
+    <strong>Display type:</strong>
+    <%= @list.display_type %>
+  </li>
+
+  <li>
+    <strong>Published at:</strong>
+    <%= @list.published_at %>
+  </li>
+
+  <li>
+    <strong>Viewed at:</strong>
+    <%= @list.viewed_at %>
+  </li>
+
+  <li>
+    <strong>Views:</strong>
+    <%= @list.views %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, @list) %></span> |
+<span><%= link "Back", to: Routes.admin_list_path(@conn, :index) %></span>
