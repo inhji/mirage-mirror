@@ -17,8 +17,13 @@ defmodule Mirage.Markdown do
   """
   def render(markdown) do
     markdown
+    |> clean_escapes()
     |> Mirage.References.replace_references()
     |> Earmark.as_html!(@markdown_options)
+  end
+
+  defp clean_escapes(markdown) do
+    String.replace(markdown, "\\[", "[", global: true)
   end
 
   @doc """
