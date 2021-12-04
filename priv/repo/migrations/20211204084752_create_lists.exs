@@ -15,5 +15,12 @@ defmodule Mirage.Repo.Migrations.CreateLists do
 
       timestamps()
     end
+
+    create unique_index(:lists, [:title])
+    create unique_index(:lists, [:slug])
+    create index(:lists, ["(to_tsvector('english', title))"], 
+      name: :lists_title_vector, using: "GIN")
+    create index(:lists, ["(to_tsvector('english', content))"], 
+      name: :lists_content_vector, using: "GIN")
   end
 end

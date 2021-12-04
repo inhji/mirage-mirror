@@ -12,10 +12,8 @@ defmodule Mirage.ListsFixtures do
       attrs
       |> Enum.into(%{
         content: "some content",
-        content_html: "some content_html",
         display_type: :list,
         published_at: ~N[2021-12-03 08:47:00],
-        slug: "some slug",
         title: "some title",
         viewed_at: ~N[2021-12-03 08:47:00],
         views: 42

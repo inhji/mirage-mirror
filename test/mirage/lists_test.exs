@@ -8,7 +8,16 @@ defmodule Mirage.ListsTest do
 
     import Mirage.ListsFixtures
 
-    @invalid_attrs %{content: nil, content_html: nil, display_type: nil, published_at: nil, slug: nil, title: nil, viewed_at: nil, views: nil}
+    @invalid_attrs %{
+      content: nil,
+      content_html: nil,
+      display_type: nil,
+      published_at: nil,
+      slug: nil,
+      title: nil,
+      viewed_at: nil,
+      views: nil
+    }
 
     test "list_lists/0 returns all lists" do
       list = list_fixture()
@@ -21,17 +30,15 @@ defmodule Mirage.ListsTest do
     end
 
     test "create_list/1 with valid data creates a list" do
-      valid_attrs = %{content: "some content", content_html: "some content_html", display_type: :list, published_at: ~N[2021-12-03 08:47:00], slug: "some slug", title: "some title", viewed_at: ~N[2021-12-03 08:47:00], views: 42}
+      valid_attrs = %{
+        content: "some content",
+        title: "some title"
+      }
 
       assert {:ok, %List{} = list} = Lists.create_list(valid_attrs)
       assert list.content == "some content"
-      assert list.content_html == "some content_html"
-      assert list.display_type == :list
-      assert list.published_at == ~N[2021-12-03 08:47:00]
-      assert list.slug == "some slug"
+      assert list.slug == "some-title"
       assert list.title == "some title"
-      assert list.viewed_at == ~N[2021-12-03 08:47:00]
-      assert list.views == 42
     end
 
     test "create_list/1 with invalid data returns error changeset" do
@@ -40,17 +47,17 @@ defmodule Mirage.ListsTest do
 
     test "update_list/2 with valid data updates the list" do
       list = list_fixture()
-      update_attrs = %{content: "some updated content", content_html: "some updated content_html", display_type: :gallery, published_at: ~N[2021-12-04 08:47:00], slug: "some updated slug", title: "some updated title", viewed_at: ~N[2021-12-04 08:47:00], views: 43}
+
+      update_attrs = %{
+        title: "some updated title",
+        content: "some updated content",
+        slug: "some updated slug"
+      }
 
       assert {:ok, %List{} = list} = Lists.update_list(list, update_attrs)
       assert list.content == "some updated content"
-      assert list.content_html == "some updated content_html"
-      assert list.display_type == :gallery
-      assert list.published_at == ~N[2021-12-04 08:47:00]
-      assert list.slug == "some updated slug"
+      assert list.slug == "some-title"
       assert list.title == "some updated title"
-      assert list.viewed_at == ~N[2021-12-04 08:47:00]
-      assert list.views == 43
     end
 
     test "update_list/2 with invalid data returns error changeset" do

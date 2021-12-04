@@ -5,12 +5,16 @@ defmodule Mirage.Lists.List do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "lists" do
+    field :title, :string
+    field :slug, Mirage.Lists.ListSlug.Type
+
     field :content, :string
     field :content_html, :string
-    field :display_type, Ecto.Enum, values: [:list, :gallery]
+
     field :published_at, :naive_datetime
-    field :slug, :string
-    field :title, :string
+
+    field :display_type, Ecto.Enum, values: [:list, :gallery]
+
     field :viewed_at, :naive_datetime
     field :views, :integer
 
@@ -20,7 +24,17 @@ defmodule Mirage.Lists.List do
   @doc false
   def changeset(list, attrs) do
     list
-    |> cast(attrs, [:title, :slug, :content, :content_html, :display_type, :published_at, :viewed_at, :views])
-    |> validate_required([:title, :slug, :content, :content_html, :display_type, :published_at, :viewed_at, :views])
+    |> cast(attrs, [
+      :title,
+      :content,
+      :display_type,
+      :published_at,
+      :viewed_at,
+      :views
+    ])
+    |> validate_required([:title, :content])
+    |> Mirage.Lists.ListSlug.maybe_generate_slug()
+    |> Mirage.Lists.ListSlug.unique_constraint()
+    |> Mirage.Markdown.maybe_render(:content, :content_html)
   end
 end
