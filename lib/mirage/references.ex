@@ -34,7 +34,7 @@ defmodule Mirage.References do
           "/nothing"
 
         "list" ->
-          "/nothing"
+          Routes.admin_list_path(MirageWeb.Endpoint, :show, slug)
 
         _ ->
           Routes.admin_note_path(MirageWeb.Endpoint, :show, slug)
