@@ -13,10 +13,12 @@ defmodule Mirage.Lists.List do
 
     field :published_at, :naive_datetime
 
-    field :display_type, Ecto.Enum, values: [:list, :gallery]
+    field :display_type, Ecto.Enum, values: [:list, :gallery], default: :list
 
     field :viewed_at, :naive_datetime
     field :views, :integer
+
+    has_many :notes, Mirage.Notes.Note
 
     timestamps()
   end
@@ -33,6 +35,7 @@ defmodule Mirage.Lists.List do
       :views
     ])
     |> validate_required([:title, :content])
+    |> unique_constraint(:title)
     |> Mirage.Lists.ListSlug.maybe_generate_slug()
     |> Mirage.Lists.ListSlug.unique_constraint()
     |> Mirage.Markdown.maybe_render(:content, :content_html)

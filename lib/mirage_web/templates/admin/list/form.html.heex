@@ -5,37 +5,24 @@
     </div>
   <% end %>
 
-  <%= label f, :title %>
-  <%= text_input f, :title %>
-  <%= error_tag f, :title %>
+  <fieldset>
+    <%= label f, :title %>
+    <%= text_input f, :title %>
+    <%= error_tag f, :title %>
+  </fieldset>
 
-  <%= label f, :slug %>
-  <%= text_input f, :slug %>
-  <%= error_tag f, :slug %>
+  <fieldset>
+    <%= label f, :content %>
+    <%= hidden_input f, :content %>
+    <div id="editor"></div>
+    <%= error_tag f, :content %>
+  </fieldset>
 
-  <%= label f, :content %>
-  <%= text_input f, :content %>
-  <%= error_tag f, :content %>
-
-  <%= label f, :content_html %>
-  <%= text_input f, :content_html %>
-  <%= error_tag f, :content_html %>
-
-  <%= label f, :display_type %>
-  <%= select f, :display_type, Ecto.Enum.values(Mirage.Lists.List, :display_type), prompt: "Choose a value" %>
-  <%= error_tag f, :display_type %>
-
-  <%= label f, :published_at %>
-  <%= datetime_select f, :published_at %>
-  <%= error_tag f, :published_at %>
-
-  <%= label f, :viewed_at %>
-  <%= datetime_select f, :viewed_at %>
-  <%= error_tag f, :viewed_at %>
-
-  <%= label f, :views %>
-  <%= number_input f, :views %>
-  <%= error_tag f, :views %>
+  <fieldset>
+    <%= label f, :display_type %>
+    <%= select f, :display_type, Ecto.Enum.values(Mirage.Lists.List, :display_type), prompt: "Choose a value" %>
+    <%= error_tag f, :display_type %>
+  </fieldset>
 
   <div>
     <%= submit "Save" %>

@@ -2,12 +2,8 @@ defmodule MirageWeb.NoteControllerTest do
   use MirageWeb.ConnCase
 
   import Mirage.NotesFixtures
+  import Mirage.ListsFixtures
 
-  @create_attrs %{
-    content: "some content",
-    content_html: "some content_html",
-    title: "some title"
-  }
   @update_attrs %{
     content: "some updated content",
     title: "some updated title"
@@ -39,8 +35,16 @@ defmodule MirageWeb.NoteControllerTest do
   end
 
   describe "create note" do
-    test "redirects to show when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.admin_note_path(conn, :create), note: @create_attrs)
+    setup [:create_list]
+
+    test "redirects to show when data is valid", %{conn: conn, list: list} do
+      create_attrs = %{
+        content: "some content",
+        title: "some title",
+        list_id: list.id
+      }
+
+      conn = post(conn, Routes.admin_note_path(conn, :create), note: create_attrs)
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == Routes.admin_note_path(conn, :show, id)
@@ -126,5 +130,10 @@ defmodule MirageWeb.NoteControllerTest do
   defp create_note(_) do
     note = note_fixture()
     %{note: note}
+  end
+
+  defp create_list(_) do
+    list = list_fixture()
+    %{list: list}
   end
 end

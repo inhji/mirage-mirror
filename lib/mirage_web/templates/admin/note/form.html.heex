@@ -18,6 +18,12 @@
     <%= error_tag f, :content %>
   </fieldset>
 
+  <fieldset>
+    <%= label f, :list_id %>
+    <%= select f, :list_id, @lists, prompt: "Choose a value" %>
+    <%= error_tag f, :list_id %>
+  </fieldset>
+
   <div>
     <%= submit "Save" %>
   </div>

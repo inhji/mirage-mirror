@@ -4,20 +4,21 @@ defmodule Mirage.NotesFixtures do
   entities via the `Mirage.Notes` context.
   """
 
+  import Mirage.ListsFixtures
+
   @doc """
   Generate a note.
   """
   def note_fixture(attrs \\ %{}) do
+    list = list_fixture()
+
     {:ok, note} =
       attrs
       |> Enum.into(%{
         content: "some content",
         content_html: "some content_html",
-        published_at: ~N[2021-11-27 14:08:00],
-        slug: "some slug",
         title: "some title",
-        viewed_at: ~N[2021-11-27 14:08:00],
-        views: 42
+        list_id: list.id
       })
       |> Mirage.Notes.create_note()
 

@@ -2,5 +2,6 @@
   <li><%= link "Home", to: Routes.page_path(@conn, :index) %></li>
 <%= if @current_user do %>
   <li><%= link "Notes", to: Routes.admin_note_path(@conn, :index) %></li>
+  <li><%= link "Lists", to: Routes.admin_list_path(@conn, :index) %></li>
 <% end %>
 </ul>

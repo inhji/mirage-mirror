@@ -2,10 +2,13 @@ defmodule Mirage.NotesTest do
   use Mirage.DataCase
 
   import Mirage.NotesFixtures
+  import Mirage.ListsFixtures
   alias Mirage.Notes
   alias Mirage.Notes.Note
 
   describe "notes" do
+    setup [:create_list]
+
     @invalid_attrs %{
       content: nil,
       title: nil
@@ -32,8 +35,9 @@ defmodule Mirage.NotesTest do
       assert Notes.get_note!(note.slug) == note
     end
 
-    test "create_note/1 with valid data creates a note" do
+    test "create_note/1 with valid data creates a note", %{list: list} do
       valid_attrs = %{
+        list_id: list.id,
         content: "some content",
         title: "some title"
       }
@@ -43,8 +47,9 @@ defmodule Mirage.NotesTest do
       assert note.title == "some title"
     end
 
-    test "create_note/1 with valid data creates a slug" do
+    test "create_note/1 with valid data creates a slug", %{list: list} do
       valid_attrs = %{
+        list_id: list.id,
         title: "some title",
         content: "some content"
       }
@@ -54,8 +59,9 @@ defmodule Mirage.NotesTest do
       assert note.slug == "some-title"
     end
 
-    test "create_note/1 with valid data renders markdown" do
+    test "create_note/1 with valid data renders markdown", %{list: list} do
       valid_attrs = %{
+        list_id: list.id,
         title: "some title",
         content: "some **content**"
       }
@@ -125,5 +131,10 @@ defmodule Mirage.NotesTest do
       note = note_fixture()
       assert %Ecto.Changeset{} = Notes.change_note(note)
     end
+  end
+
+  defp create_list(_) do
+    list = list_fixture()
+    %{list: list}
   end
 end

@@ -22,7 +22,9 @@ defmodule Mirage.Notes.Note do
     field :published_at, :naive_datetime
 
     field :viewed_at, :naive_datetime
-    field :views, :integer
+    field :views, :integer, default: 0
+
+    belongs_to :list, Mirage.Lists.List
 
     timestamps()
   end
@@ -30,8 +32,8 @@ defmodule Mirage.Notes.Note do
   @doc false
   def changeset(note, attrs) do
     note
-    |> cast(attrs, [:title, :slug, :content, :content_html, :views, :viewed_at, :published_at])
-    |> validate_required([:title, :content])
+    |> cast(attrs, [:title, :slug, :content, :published_at, :list_id])
+    |> validate_required([:title, :content, :list_id])
     |> unique_constraint(:title)
     |> Mirage.Notes.NoteSlug.maybe_generate_slug()
     |> Mirage.Notes.NoteSlug.unique_constraint()

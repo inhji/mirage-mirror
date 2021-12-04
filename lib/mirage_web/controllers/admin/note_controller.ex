@@ -3,7 +3,6 @@ defmodule MirageWeb.Admin.NoteController do
 
   alias Mirage.Notes
   alias Mirage.Notes.Note
-  import MirageWeb.UserAuth
 
   def index(conn, _params) do
     notes = Notes.list_notes()
@@ -11,8 +10,9 @@ defmodule MirageWeb.Admin.NoteController do
   end
 
   def new(conn, _params) do
+    lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
     changeset = Notes.change_note(%Note{})
-    render(conn, "new.html", changeset: changeset, page_title: "New Note")
+    render(conn, "new.html", changeset: changeset, page_title: "New Note", lists: lists)
   end
 
   def create(conn, %{"note" => note_params}) do
@@ -23,7 +23,8 @@ defmodule MirageWeb.Admin.NoteController do
         |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
+        render(conn, "new.html", changeset: changeset, lists: lists)
     end
   end
 
@@ -33,9 +34,16 @@ defmodule MirageWeb.Admin.NoteController do
   end
 
   def edit(conn, %{"id" => id}) do
+    lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
     note = Notes.get_note!(id)
     changeset = Notes.change_note(note)
-    render(conn, "edit.html", note: note, changeset: changeset, page_title: "Edit Note")
+
+    render(conn, "edit.html",
+      note: note,
+      changeset: changeset,
+      page_title: "Edit Note",
+      lists: lists
+    )
   end
 
   def update(conn, %{"id" => id, "note" => note_params}) do
@@ -48,7 +56,8 @@ defmodule MirageWeb.Admin.NoteController do
         |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", note: note, changeset: changeset)
+        lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
+        render(conn, "edit.html", note: note, changeset: changeset, lists: lists)
     end
   end
 
@@ -87,5 +96,9 @@ defmodule MirageWeb.Admin.NoteController do
     conn
     |> put_flash(:info, "Note deleted successfully.")
     |> redirect(to: Routes.admin_note_path(conn, :index))
+  end
+
+  defp for_select(list) do
+    [key: list.title, value: list.id]
   end
 end
