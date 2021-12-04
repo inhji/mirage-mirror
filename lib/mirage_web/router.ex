@@ -23,7 +23,7 @@ defmodule MirageWeb.Router do
     get "/", PageController, :index
   end
 
-  scope "/admin", MirageWeb do
+  scope path: "/admin", as: :admin, alias: MirageWeb.Admin do
     pipe_through [:browser, :require_authenticated_user]
 
     resources "/notes", NoteController

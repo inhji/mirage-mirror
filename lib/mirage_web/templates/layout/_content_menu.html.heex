@@ -1,5 +1,5 @@
 <ul>
 <%= if @current_user do %>
-  <li><%= link "Notes", to: Routes.note_path(@conn, :index) %></li>
+  <li><%= link "Notes", to: Routes.admin_note_path(@conn, :index) %></li>
 <% end %>
 </ul>

@@ -13,7 +13,8 @@
 
   <fieldset>
     <%= label f, :content %>
-    <%= textarea f, :content, class: "has-autocomplete", rows: 15 %>
+    <div id="editor"></div>
+    <%= hidden_input f, :content, rows: 16 %>
     <%= error_tag f, :content %>
   </fieldset>
 

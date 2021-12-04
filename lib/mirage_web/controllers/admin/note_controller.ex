@@ -1,17 +1,18 @@
-defmodule MirageWeb.NoteController do
+defmodule MirageWeb.Admin.NoteController do
   use MirageWeb, :controller
 
   alias Mirage.Notes
   alias Mirage.Notes.Note
+  import MirageWeb.UserAuth
 
   def index(conn, _params) do
     notes = Notes.list_notes()
-    render(conn, "index.html", notes: notes)
+    render(conn, "index.html", notes: notes, page_title: "Notes")
   end
 
   def new(conn, _params) do
     changeset = Notes.change_note(%Note{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, page_title: "New Note")
   end
 
   def create(conn, %{"note" => note_params}) do
@@ -19,7 +20,7 @@ defmodule MirageWeb.NoteController do
       {:ok, note} ->
         conn
         |> put_flash(:info, "Note created successfully.")
-        |> redirect(to: Routes.note_path(conn, :show, note))
+        |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -28,13 +29,13 @@ defmodule MirageWeb.NoteController do
 
   def show(conn, %{"id" => id}) do
     note = Notes.get_note!(id)
-    render(conn, "show.html", note: note)
+    render(conn, "show.html", note: note, page_title: note.title)
   end
 
   def edit(conn, %{"id" => id}) do
     note = Notes.get_note!(id)
     changeset = Notes.change_note(note)
-    render(conn, "edit.html", note: note, changeset: changeset)
+    render(conn, "edit.html", note: note, changeset: changeset, page_title: "Edit Note")
   end
 
   def update(conn, %{"id" => id, "note" => note_params}) do
@@ -44,7 +45,7 @@ defmodule MirageWeb.NoteController do
       {:ok, note} ->
         conn
         |> put_flash(:info, "Note updated successfully.")
-        |> redirect(to: Routes.note_path(conn, :show, note))
+        |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", note: note, changeset: changeset)
@@ -58,7 +59,7 @@ defmodule MirageWeb.NoteController do
       {:ok, note} ->
         conn
         |> put_flash(:info, "Note published successfully.")
-        |> redirect(to: Routes.note_path(conn, :show, note))
+        |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = _changeset} ->
         render(conn, "show.html", note: note)
@@ -72,7 +73,7 @@ defmodule MirageWeb.NoteController do
       {:ok, note} ->
         conn
         |> put_flash(:info, "Note unpublished successfully.")
-        |> redirect(to: Routes.note_path(conn, :show, note))
+        |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = _changeset} ->
         render(conn, "show.html", note: note)
@@ -85,6 +86,6 @@ defmodule MirageWeb.NoteController do
 
     conn
     |> put_flash(:info, "Note deleted successfully.")
-    |> redirect(to: Routes.note_path(conn, :index))
+    |> redirect(to: Routes.admin_note_path(conn, :index))
   end
 end
