@@ -5,6 +5,29 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.9.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.8.0...v0.9.0) (2021-12-04)
+
+
+
+
+### Features:
+
+* add proper preloads for notes and lists
+
+* add table styles
+
+* add button styles
+
+* add lists to notes and notes to list <3
+
+* improve editor to work for all forms
+
+* add list slug,  correct list tests from default ones,
+
+### Bug Fixes:
+
+* configure repo to always assume binary_ids
+
 ## [v0.8.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.7.0...v0.8.0) (2021-12-04)
 
 
