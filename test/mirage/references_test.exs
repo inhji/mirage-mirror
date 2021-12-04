@@ -44,20 +44,18 @@ defmodule Mirage.ReferencesTest do
                get_references("this is a [[list:test|Some Title]]")
     end
 
-    test "get_references/1 finds self references", %{note1: note1} do
-      assert {:ok, %Note{} = note1} =
-               Notes.update_note(note1, %{content: "this is a link to [[some-note]]"})
+    test "get_references/1 finds self references" do
+      str = "this is a link to [[some-note]]"
+      result = [{"[[some-note]]", "", "some-note", "some-note"}]
 
-      assert [{"[[some-note]]", "", "some-note", "some-note"}] ==
-               get_references(note1.content)
+      assert result == get_references(str)
     end
 
-    test "get_references/1 finds self references with title", %{note1: note1} do
-      assert {:ok, %Note{} = note1} =
-               Notes.update_note(note1, %{content: "this is a link to [[some-note|Some Note]]"})
+    test "get_references/1 finds self references with title" do
+      str = "this is a link to [[some-note|Some Note]]"
+      result = [{"[[some-note|Some Note]]", "", "some-note", "Some Note"}]
 
-      assert [{"[[some-note|Some Note]]", "", "some-note", "Some Note"}] ==
-               get_references(note1.content)
+      assert result == get_references(str)
     end
 
     test "get_references/1 finds references to other notes" do
