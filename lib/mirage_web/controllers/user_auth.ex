@@ -1,4 +1,8 @@
 defmodule MirageWeb.UserAuth do
+  @moduledoc """
+  Module for authentication helpers
+  """
+
   import Plug.Conn
   import Phoenix.Controller
 

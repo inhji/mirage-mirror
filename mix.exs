@@ -36,6 +36,7 @@ defmodule Mirage.MixProject do
   defp deps do
     [
       {:bcrypt_elixir, "~> 2.0"},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4"},
       {:ecto_autoslug_field, "~> 3.0"},
       {:ecto_sql, "~> 3.6"},

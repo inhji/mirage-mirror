@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "Mirage", suffix: " · Phoenix Framework" %>
+    <%= live_title_tag assigns[:page_title] || "Mirage", suffix: " · Mirage" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
     <header class="app">
       <nav class="container flex">
-        <%= render "_content_menu.html", assigns %>  
+        <%= render "_content_menu.html", assigns %>        
         <div class="flex-1"></div>
         <%= render "_user_menu.html", assigns %>
       </nav>
@@ -21,7 +20,13 @@
     <%= @inner_content %>
 
     <footer class="app">
-      <span>Mind the gap</span>
+      <nav class="container flex">
+        <div>Mind the gap</div>
+        <div class="flex-1"></div>
+        <%= render "_misc_menu.html", assigns %>  
+      </nav>
     </footer>
+
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </body>
 </html>

@@ -21,6 +21,7 @@ defmodule MirageWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/theme", PageController, :theme
   end
 
   scope path: "/admin", as: :admin, alias: MirageWeb.Admin do
@@ -29,6 +30,8 @@ defmodule MirageWeb.Router do
     resources "/notes", NoteController
     get "/notes/:id/publish", NoteController, :publish
     get "/notes/:id/unpublish", NoteController, :unpublish
+
+    resources "/lists", ListController
   end
 
   # Other scopes may use custom stacks.
