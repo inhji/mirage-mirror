@@ -22,6 +22,6 @@ defmodule Mirage.NotesFixtures do
       })
       |> Mirage.Notes.create_note()
 
-    note
+    note |> Mirage.Notes.preload_note()
   end
 end

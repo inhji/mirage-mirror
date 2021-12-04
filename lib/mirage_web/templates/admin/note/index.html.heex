@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>List</th>
       <th>Published</th>
       <th>Actions</th>
     </tr>
@@ -12,11 +13,12 @@
 <%= for note <- @notes do %>
     <tr>
       <td><%= note.title %></td>
+      <td><%= note.list.title %></td>
       <td><%= note.published_at %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.admin_note_path(@conn, :show, note) %></span>
-        <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, note) %></span>
+        <span><%= link "Show", to: Routes.admin_note_path(@conn, :show, note) %></span> |
+        <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, note) %></span> |
         <span><%= link "Delete", to: Routes.admin_note_path(@conn, :delete, note), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
@@ -24,4 +26,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Note", to: Routes.admin_note_path(@conn, :new) %></span>
+<span><%= link "New Note", to: Routes.admin_note_path(@conn, :new), class: "button" %></span>

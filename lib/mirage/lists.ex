@@ -8,6 +8,10 @@ defmodule Mirage.Lists do
 
   alias Mirage.Lists.List
 
+  @preloads [:notes]
+  def preload_list(list), do: Repo.preload(list, @preloads)
+  defp with_preloads(query), do: preload(query, ^@preloads)
+
   @doc """
   Returns the list of lists.
 
@@ -18,7 +22,9 @@ defmodule Mirage.Lists do
 
   """
   def list_lists do
-    Repo.all(List)
+    List
+    |> with_preloads()
+    |> Repo.all()
   end
 
   @doc """
@@ -35,7 +41,10 @@ defmodule Mirage.Lists do
       ** (Ecto.NoResultsError)
 
   """
-  def get_list!(id), do: Repo.get!(List, id)
+  def get_list!(id),
+    do:
+      Repo.get!(List, id)
+      |> preload_list()
 
   @doc """
   Creates a list.

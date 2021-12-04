@@ -20,6 +20,6 @@ defmodule Mirage.ListsFixtures do
       })
       |> Mirage.Lists.create_list()
 
-    list
+    list |> Mirage.Lists.preload_list()
   end
 end

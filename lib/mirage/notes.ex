@@ -9,6 +9,10 @@ defmodule Mirage.Notes do
 
   alias Mirage.Notes.Note
 
+  @preloads [:list]
+  def preload_note(note), do: Repo.preload(note, @preloads)
+  defp with_preloads(query), do: preload(query, ^@preloads)
+
   @doc """
   Returns the list of notes.
 
@@ -19,7 +23,9 @@ defmodule Mirage.Notes do
 
   """
   def list_notes do
-    Repo.all(Note)
+    Note
+    |> with_preloads()
+    |> Repo.all()
   end
 
   @doc """
@@ -35,7 +41,8 @@ defmodule Mirage.Notes do
     q =
       from n in Note,
         where: contains(n.content, ^query_string),
-        or_where: contains(n.title, ^query_string)
+        or_where: contains(n.title, ^query_string),
+        preload: ^@preloads
 
     Repo.all(q)
   end
@@ -54,7 +61,10 @@ defmodule Mirage.Notes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_note!(id), do: Repo.get_by!(Note, slug: id)
+  def get_note!(id),
+    do:
+      Repo.get_by!(Note, slug: id)
+      |> preload_note()
 
   @doc """
   Creates a note.
