@@ -11,6 +11,8 @@ config :mirage,
   ecto_repos: [Mirage.Repo],
   generators: [binary_id: true]
 
+config :mirage, Mirage.Repo, migration_primary_key: [name: :uuid, type: :binary_id]
+
 # Configures the endpoint
 config :mirage, MirageWeb.Endpoint,
   url: [host: "localhost"],
