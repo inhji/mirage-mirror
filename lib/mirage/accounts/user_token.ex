@@ -1,4 +1,8 @@
 defmodule Mirage.Accounts.UserToken do
+  @moduledoc """
+  Module for Token functions, like building session or email tokens
+  """
+
   use Ecto.Schema
   import Ecto.Query
 

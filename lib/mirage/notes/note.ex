@@ -1,4 +1,8 @@
 defmodule Mirage.Notes.Note do
+  @moduledoc """
+  The Note Schema
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

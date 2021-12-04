@@ -1,4 +1,8 @@
 defmodule Mirage.Accounts.UserNotifier do
+  @moduledoc """
+  Module responsible for mail delivery
+  """
+
   import Swoosh.Email
 
   alias Mirage.Mailer

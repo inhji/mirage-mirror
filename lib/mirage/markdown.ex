@@ -1,4 +1,8 @@
 defmodule Mirage.Markdown do
+  @moduledoc """
+  Module used for rendering markdown with the correct options
+  """
+
   import Ecto.Changeset, only: [get_change: 2, put_change: 3]
 
   @markdown_options %Earmark.Options{
@@ -11,9 +15,9 @@ defmodule Mirage.Markdown do
   @doc """
   Renders markdown with Earmark.
   """
-  def render(markdown, opts \\ [admin: false]) do
+  def render(markdown) do
     markdown
-    |> Mirage.References.replace_references(opts)
+    |> Mirage.References.replace_references()
     |> Earmark.as_html!(@markdown_options)
   end
 
