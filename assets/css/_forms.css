@@ -1,5 +1,5 @@
 form fieldset {
-	border: var(--border);
+	border: none;
 	padding: 0;
 	margin: var(--spacing-3) 0;
 }
