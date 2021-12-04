@@ -6,9 +6,8 @@
   --spacing-3: 0.75rem;
   --spacing-6: 1.5rem;
 
-
   --border-radius: 3px;
-  --border: 1px solid var(--b-low);
+  --border: 1px solid var(--b-inv);
 
   --background: #352b31;
 

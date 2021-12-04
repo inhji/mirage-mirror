@@ -1,0 +1,15 @@
+table {
+	border-collapse: collapse;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+
+table th, table td {
+	border: var(--border);
+	padding: var(--spacing-3);
+}
+
+table thead {
+	background-color: var(--b-inv);
+}
