@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.11.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.10.1...v0.11.0) (2021-12-05)
+
+
+
+
+### Features:
+
+* move show link to title in entity index table
+
+### Bug Fixes:
+
+* nicer border colors
+
 ## [v0.10.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.10.0...v0.10.1) (2021-12-04)
 
 
