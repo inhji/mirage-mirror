@@ -10,9 +10,8 @@
   <tbody>
 <%= for list <- @lists do %>
     <tr>
-      <td><%= list.title %></td>
+      <td><%= link list.title, to: Routes.admin_list_path(@conn, :show, list) %></td>
       <td>
-        <span><%= link "Show", to: Routes.admin_list_path(@conn, :show, list) %></span>
         <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list) %></span>
         <span><%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
