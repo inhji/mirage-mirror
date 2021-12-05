@@ -46,3 +46,9 @@ form button[type=submit] {
 	border: 1px solid var(--b-inv);
 	cursor: pointer;
 }
+
+.button:hover,
+form button[type=submit]:hover {
+	background: var(--b-inv);
+	color: var(--f-inv);
+}
