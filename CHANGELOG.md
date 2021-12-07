@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.12.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.11.0...v0.12.0) (2021-12-07)
+
+
+
+
+### Features:
+
+* TagUpdater
+
+* join notes with tags
+
+* add tags
+
 ## [v0.11.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.10.1...v0.11.0) (2021-12-05)
 
 
