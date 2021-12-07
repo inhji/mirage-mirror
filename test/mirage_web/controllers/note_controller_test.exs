@@ -126,14 +126,4 @@ defmodule MirageWeb.NoteControllerTest do
       end
     end
   end
-
-  defp create_note(_) do
-    note = note_fixture()
-    %{note: note}
-  end
-
-  defp create_list(_) do
-    list = list_fixture()
-    %{list: list}
-  end
 end

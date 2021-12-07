@@ -32,6 +32,7 @@ defmodule MirageWeb.Router do
     get "/notes/:id/unpublish", NoteController, :unpublish
 
     resources "/lists", ListController
+    resources "/tags", TagController
   end
 
   # Other scopes may use custom stacks.

@@ -22,4 +22,9 @@ defmodule Mirage.ListsFixtures do
 
     list |> Mirage.Lists.preload_list()
   end
+
+  def create_list(_) do
+    list = list_fixture()
+    %{list: list}
+  end
 end

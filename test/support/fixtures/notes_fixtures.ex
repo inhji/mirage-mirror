@@ -24,4 +24,9 @@ defmodule Mirage.NotesFixtures do
 
     note |> Mirage.Notes.preload_note()
   end
+
+  def create_note(_) do
+    note = note_fixture()
+    %{note: note}
+  end
 end

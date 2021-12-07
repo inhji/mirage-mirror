@@ -90,9 +90,4 @@ defmodule MirageWeb.ListControllerTest do
       end
     end
   end
-
-  defp create_list(_) do
-    list = list_fixture()
-    %{list: list}
-  end
 end

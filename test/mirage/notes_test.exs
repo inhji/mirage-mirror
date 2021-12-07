@@ -132,9 +132,4 @@ defmodule Mirage.NotesTest do
       assert %Ecto.Changeset{} = Notes.change_note(note)
     end
   end
-
-  defp create_list(_) do
-    list = list_fixture()
-    %{list: list}
-  end
 end

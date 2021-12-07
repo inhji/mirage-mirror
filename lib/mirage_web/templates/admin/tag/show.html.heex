@@ -1,0 +1,38 @@
+<h1>Show Tag</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @tag.title %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @tag.slug %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @tag.content %>
+  </li>
+
+  <li>
+    <strong>Content html:</strong>
+    <%= @tag.content_html %>
+  </li>
+
+  <li>
+    <strong>Icon:</strong>
+    <%= @tag.icon %>
+  </li>
+
+  <li>
+    <strong>Regex:</strong>
+    <%= @tag.regex %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.admin_tag_path(@conn, :edit, @tag) %></span> |
+<span><%= link "Back", to: Routes.admin_tag_path(@conn, :index) %></span>
