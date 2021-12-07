@@ -9,7 +9,7 @@ defmodule Mirage.Notes do
 
   alias Mirage.Notes.Note
 
-  @preloads [:list]
+  @preloads [:list, :tags]
   def preload_note(note), do: Repo.preload(note, @preloads)
   defp with_preloads(query), do: preload(query, ^@preloads)
 

@@ -25,6 +25,7 @@ defmodule Mirage.Notes.Note do
     field :views, :integer, default: 0
 
     belongs_to :list, Mirage.Lists.List
+    many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
 
     timestamps()
   end
