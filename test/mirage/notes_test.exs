@@ -7,8 +7,6 @@ defmodule Mirage.NotesTest do
   alias Mirage.Notes.Note
 
   describe "notes" do
-    setup [:create_list]
-
     @invalid_attrs %{
       content: nil,
       title: nil
@@ -35,7 +33,9 @@ defmodule Mirage.NotesTest do
       assert Notes.get_note!(note.slug) == note
     end
 
-    test "create_note/1 with valid data creates a note", %{list: list} do
+    test "create_note/1 with valid data creates a note" do
+      list = list_fixture()
+
       valid_attrs = %{
         list_id: list.id,
         content: "some content",
@@ -47,7 +47,9 @@ defmodule Mirage.NotesTest do
       assert note.title == "some title"
     end
 
-    test "create_note/1 with valid data creates a slug", %{list: list} do
+    test "create_note/1 with valid data creates a slug" do
+      list = list_fixture()
+
       valid_attrs = %{
         list_id: list.id,
         title: "some title",
@@ -59,7 +61,9 @@ defmodule Mirage.NotesTest do
       assert note.slug == "some-title"
     end
 
-    test "create_note/1 with valid data renders markdown", %{list: list} do
+    test "create_note/1 with valid data renders markdown" do
+      list = list_fixture()
+
       valid_attrs = %{
         list_id: list.id,
         title: "some title",
