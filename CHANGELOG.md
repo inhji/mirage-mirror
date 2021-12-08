@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.13.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.12.0...v0.13.0) (2021-12-08)
+
+
+
+
+### Features:
+
+* small design tweaks
+
+### Bug Fixes:
+
+* unique list title errors
+
+* remove IO.inspect calls
+
 ## [v0.12.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.11.0...v0.12.0) (2021-12-07)
 
 
