@@ -1,13 +1,13 @@
 table {
 	border-collapse: collapse;
-	text-align: center;
 	vertical-align: middle;
 	width: 100%;
 	margin-bottom: var(--spacing-3);
 }
 
 table th, table td {
-	border: var(--border);
+	text-align: left;
+	border-bottom: var(--border);
 	padding: var(--spacing-3);
 }
 

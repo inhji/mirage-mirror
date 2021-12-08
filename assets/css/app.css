@@ -29,30 +29,36 @@ a:hover, a:active, a:focus {
   background: var(--b-high);
 }
 
+code {
+  padding: var(--spacing-1);
+  display: block;
+  background: var(--b-low);
+}
+
+code.inline, code.code-inline {
+  display: inline;
+  padding: 0;
+}
+
+blockquote {
+  background: var(--b-low);
+  margin: 0;
+  padding: var(--spacing-3) var(--spacing-8);
+  font-style: italic;
+}
+
 /* HEADER */
 
 header.app {
   color: var(--f-med);
-  background: var(--b-low);
   padding: var(--spacing-3);
   max-width: var(--spacing-app);
   margin: var(--spacing-3) auto 0;
-  border-bottom: 2px solid var(--b-med);
+  border-bottom: var(--border);
+  border-top: var(--border);
 }
 
 header.app a {
-  color: var(--f-med);
-}
-
-/* MAIN */
-
-main {
-  padding: var(--spacing-3);
-  max-width: var(--spacing-app);
-  margin: 0 auto;
-}
-
-main h1, main h2, main h3 {
   color: var(--f-med);
 }
 
@@ -60,11 +66,11 @@ main h1, main h2, main h3 {
 
 footer.app {
   color: var(--f-med);
-  background: var(--b-low);
   max-width: var(--spacing-app);
   padding: var(--spacing-3);
   margin: 0 auto var(--spacing-3);
-  border-top: 2px solid var(--b-med);
+  border-bottom: var(--border);
+  border-top: var(--border);
 }
 
 footer.app a {
@@ -83,4 +89,20 @@ nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+/* MAIN */
+
+main {
+  padding: var(--spacing-3);
+  max-width: var(--spacing-app);
+  margin: 0 auto;
+}
+
+main h1, main h2, main h3 {
+  color: var(--f-med);
+}
+
+article {
+  margin-bottom: var(--spacing-12);
 }

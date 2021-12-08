@@ -5,9 +5,12 @@
   --spacing-2: 0.5rem;
   --spacing-3: 0.75rem;
   --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
 
   --border-radius: 3px;
-  --border: 1px solid var(--b-med);
+  --border: 1px solid var(--b-low);
 
   --background: #352b31;
 

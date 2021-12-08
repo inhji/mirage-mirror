@@ -9,7 +9,7 @@ form textarea,
 form .milkdown {
 	color: var(--f-high);
 	width: 100%;
-	background: var(--b-med);
+	background: var(--b-low);
 	border: var(--border);
 	padding: var(--spacing-3);
 	margin-top: var(--spacing-1);

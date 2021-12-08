@@ -1,48 +1,22 @@
-<h1>Show List</h1>
+<article>
+  <header>
+    <h1><%= @list.title %></h1>
+  </header>
 
-<ul>
+  <section class="content html">
+    <%= raw Mirage.Markdown.render(@list.content) %>
+  </section>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @list.title %>
-  </li>
+  <h2>Notes</h2>
 
-  <li>
-    <strong>Slug:</strong>
-    <%= @list.slug %>
-  </li>
-
-  <li>
-    <strong>Content:</strong>
-    <%= @list.content %>
-  </li>
-
-  <li>
-    <strong>Content html:</strong>
-    <%= @list.content_html %>
-  </li>
-
-  <li>
-    <strong>Display type:</strong>
-    <%= @list.display_type %>
-  </li>
-
-  <li>
-    <strong>Published at:</strong>
-    <%= @list.published_at %>
-  </li>
-
-  <li>
-    <strong>Viewed at:</strong>
-    <%= @list.viewed_at %>
-  </li>
-
-  <li>
-    <strong>Views:</strong>
-    <%= @list.views %>
-  </li>
-
-</ul>
+  <ul>
+    <%= for note <- @list.notes do %>
+    <li>
+      <%= link note.title, to: Routes.admin_note_path(@conn, :show, note) %>
+    </li>
+    <% end %>
+  </ul>
+</article>
 
 <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, @list) %></span> |
 <span><%= link "Back", to: Routes.admin_list_path(@conn, :index) %></span>
