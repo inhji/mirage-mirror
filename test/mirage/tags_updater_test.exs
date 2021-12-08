@@ -13,7 +13,6 @@ defmodule Mirage.TagUpdaterTest do
       assert note.tags == []
       TagUpdater.update_tags(note, "foo")
       note = Mirage.Notes.get_note!(note.slug)
-      IO.inspect(note)
       assert Enum.count(note.tags) == 1
     end
   end

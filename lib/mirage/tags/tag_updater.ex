@@ -47,13 +47,9 @@ defmodule Mirage.Tags.TagUpdater do
           tag_id: tag.id
         }
 
-        IO.inspect(attrs)
-
         %Mirage.Notes.NoteTag{}
         |> Mirage.Notes.NoteTag.changeset(attrs)
-        |> IO.inspect()
         |> Mirage.Repo.insert()
-        |> IO.inspect()
     end
   end
 
