@@ -1,4 +1,8 @@
 defmodule Mirage.Tags.TagUpdater do
+  alias Mirage.NoteTags
+  alias Mirage.Tags
+  alias Mirage.Notes.Note
+
   @doc """
   Updates the tags for the given schema
 
@@ -34,25 +38,22 @@ defmodule Mirage.Tags.TagUpdater do
     slug = Slugger.slugify(tag)
 
     {:ok, tag} =
-      case Mirage.Tags.get_tag(slug) do
+      case Tags.get_tag(slug) do
         nil ->
-          Mirage.Tags.create_tag(%{title: tag})
+          Tags.create_tag(%{title: tag})
 
         tag ->
           {:ok, tag}
       end
 
     case schema do
-      %Mirage.Notes.Note{} ->
+      %Note{} ->
         attrs = %{
           note_id: schema_id,
           tag_id: tag.id
         }
 
-        {:ok, note_tag} =
-          %Mirage.Notes.NoteTag{}
-          |> Mirage.Notes.NoteTag.changeset(attrs)
-          |> Mirage.Repo.insert()
+        {:ok, _note_tag} = NoteTags.create_note_tag(attrs)
     end
   end
 
@@ -64,13 +65,13 @@ defmodule Mirage.Tags.TagUpdater do
   defp remove_tag(schema, tag) do
     slug = Slugger.slugify(tag)
 
-    if tag = Mirage.Tags.get_tag(slug) do
+    if tag = Tags.get_tag(slug) do
       case schema do
-        %Mirage.Notes.Note{} ->
+        %Note{} ->
           attrs = %{tag_id: tag.id, note_id: schema.id}
-          note_tag = Mirage.Repo.get_by(Mirage.Notes.NoteTag, attrs)
+          note_tag = NoteTags.get_note_tag!(attrs)
 
-          {:ok, _} = Mirage.Repo.delete(note_tag)
+          {:ok, _} = NoteTags.delete_note_tag(note_tag)
       end
     else
       nil
