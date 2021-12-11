@@ -8,16 +8,15 @@ defmodule Mirage.Tags.TagUpdater do
 
   """
   def update_tags(schema, new_tags) when is_binary(new_tags) do
-    old_tags = get_tags(schema) |> split_tags()
-    new_tags = new_tags |> split_tags()
+    update_tags(schema, split_tags(new_tags))
+  end
+
+  def update_tags(%{tags: tags} = schema, new_tags) when is_list(new_tags) do
+    old_tags = Enum.map(tags, fn tag -> tag.title end)
 
     schema
     |> add_tags(new_tags -- old_tags)
     |> remove_tags(old_tags -- new_tags)
-  end
-
-  defp get_tags(%{tags: tags} = _schema) do
-    tags |> Enum.map_join(", ", & &1.title)
   end
 
   defp split_tags(tags_string) when is_binary(tags_string) do
@@ -36,8 +35,11 @@ defmodule Mirage.Tags.TagUpdater do
 
     {:ok, tag} =
       case Mirage.Tags.get_tag(slug) do
-        nil -> Mirage.Tags.create_tag(%{title: tag})
-        tag -> {:ok, tag}
+        nil ->
+          Mirage.Tags.create_tag(%{title: tag})
+
+        tag ->
+          {:ok, tag}
       end
 
     case schema do
@@ -47,9 +49,10 @@ defmodule Mirage.Tags.TagUpdater do
           tag_id: tag.id
         }
 
-        %Mirage.Notes.NoteTag{}
-        |> Mirage.Notes.NoteTag.changeset(attrs)
-        |> Mirage.Repo.insert()
+        {:ok, note_tag} =
+          %Mirage.Notes.NoteTag{}
+          |> Mirage.Notes.NoteTag.changeset(attrs)
+          |> Mirage.Repo.insert()
     end
   end
 
@@ -58,7 +61,19 @@ defmodule Mirage.Tags.TagUpdater do
     schema
   end
 
-  defp remove_tag(schema, _tag) do
-    schema
+  defp remove_tag(schema, tag) do
+    slug = Slugger.slugify(tag)
+
+    if tag = Mirage.Tags.get_tag(slug) do
+      case schema do
+        %Mirage.Notes.Note{} ->
+          attrs = %{tag_id: tag.id, note_id: schema.id}
+          note_tag = Mirage.Repo.get_by(Mirage.Notes.NoteTag, attrs)
+
+          {:ok, _} = Mirage.Repo.delete(note_tag)
+      end
+    else
+      nil
+    end
   end
 end
