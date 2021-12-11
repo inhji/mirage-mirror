@@ -47,6 +47,12 @@ blockquote {
   font-style: italic;
 }
 
+hr {
+  background: rgba(var(--line), 1);
+  border-width: 0;
+  height: 1px;
+}
+
 /* HEADER */
 
 header.app {
