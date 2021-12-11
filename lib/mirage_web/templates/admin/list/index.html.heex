@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Content</th>
       <th></th>
     </tr>
   </thead>
@@ -11,8 +12,9 @@
 <%= for list <- @lists do %>
     <tr>
       <td><%= link list.title, to: Routes.admin_list_path(@conn, :show, list) %></td>
+      <td><%= raw Mirage.Markdown.render(list.content) %></td>
       <td>
-        <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list) %></span>
+        <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list) %></span> |
         <span><%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
