@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.14.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.13.0...v0.14.0) (2021-12-11)
+
+
+
+
+### Features:
+
+* add NoteTags module
+
+* add ability to remove tags in TagUpdater
+
+* render list content on index page
+
+* remove Show Note title prefix from note show page
+
+* improve line and table colors
+
 ## [v0.13.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.12.0...v0.13.0) (2021-12-08)
 
 
