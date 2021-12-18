@@ -1,43 +1,44 @@
-import { Editor, rootCtx, themeFactory, defaultValueCtx } from '@milkdown/core';
-import { nord } from '@milkdown/theme-nord';
-import { commonmark } from '@milkdown/preset-commonmark';
-import { injectGlobal, css } from "@emotion/css";
-import { listener, listenerCtx } from '@milkdown/plugin-listener';
+import {keymap} from "prosemirror-keymap"
+import {EditorView} from "prosemirror-view"
+import {Schema, DOMParser} from "prosemirror-model"
+import {EditorState, Plugin} from "prosemirror-state"
+import {undo, redo, history} from "prosemirror-history"
+import {baseKeymap, toggleMark} from "prosemirror-commands"
+import {schema, defaultMarkdownParser,
+        defaultMarkdownSerializer} from "prosemirror-markdown"
 
-const theme = themeFactory({
-	font: {
-		typography: ['Inter', 'Helvetica', 'Arial'],
-		code: ['Fira Code']
-	}
-})
-
-
-const createEditor = async function (contentElement) {
-	if (contentElement === null) {
-		console.error("contentElement is null, check your editor config.")
-		return
-	}
-
-	const editor = Editor.make()
-		.config(function (ctx) {
-			ctx.set(rootCtx, document.querySelector("#editor"))
-			ctx.set(defaultValueCtx, contentElement.value)
-			ctx.set(listenerCtx, {
-		    markdown: [
-		      (getMarkdown) => {
-		        markdown = getMarkdown()
-		        contentElement.value = markdown
-		      }
-		    ],
-			})
-		})
-		.use(theme)
-		.use(commonmark)
-		.use(listener)
-		.create()
-
-	console.log("Editor created!")
-	console.log(editor)
+const render = function(callback) {
+	return new Plugin({
+		view: view => ({
+			update(updatedView, prevState) {
+				const markdown = defaultMarkdownSerializer.serialize(updatedView.state.doc)
+				callback(markdown)
+			}
+		})		
+	})
 }
+
+const keys = {
+	...baseKeymap,
+	"Mod-z": undo, 
+	"Mod-y": redo,
+	"Ctrl-b": toggleMark(schema.marks.strong),
+	"Ctrl-i": toggleMark(schema.marks.em),
+}
+
+const createEditor = function (contentElement) {
+	new EditorView(document.querySelector("#editor"), {
+	  state: EditorState.create({
+	    doc: defaultMarkdownParser.parse(contentElement.value),
+	    schema: schema,
+	    plugins: [
+        history(),
+        keymap(keys),
+	 			render(markdown => contentElement.value = markdown),
+      ]
+	  })
+	})
+}
+
 
 export default createEditor
