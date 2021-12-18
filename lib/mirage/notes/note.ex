@@ -24,7 +24,12 @@ defmodule Mirage.Notes.Note do
     field :viewed_at, :naive_datetime
     field :views, :integer, default: 0
 
+    field :tags_string, :string,
+      virtual: true,
+      default: ""
+
     belongs_to :list, Mirage.Lists.List
+
     many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
 
     timestamps()
@@ -33,7 +38,7 @@ defmodule Mirage.Notes.Note do
   @doc false
   def changeset(note, attrs) do
     note
-    |> cast(attrs, [:title, :slug, :content, :published_at, :list_id])
+    |> cast(attrs, [:title, :slug, :content, :published_at, :list_id, :tags_string])
     |> validate_required([:title, :content, :list_id])
     |> unique_constraint(:title)
     |> Mirage.Notes.NoteSlug.maybe_generate_slug()

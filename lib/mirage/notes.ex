@@ -5,9 +5,10 @@ defmodule Mirage.Notes do
 
   import Ecto.Query, warn: false
   import Mirage.Macros
-  alias Mirage.Repo
 
+  alias Mirage.Repo
   alias Mirage.Notes.Note
+  alias Mirage.Tags.TagUpdater
 
   @preloads [:list, :tags]
   def preload_note(note), do: Repo.preload(note, @preloads)
@@ -82,6 +83,7 @@ defmodule Mirage.Notes do
     %Note{}
     |> Note.changeset(attrs)
     |> Repo.insert()
+    |> TagUpdater.update_tags(attrs)
   end
 
   @doc """
@@ -100,6 +102,7 @@ defmodule Mirage.Notes do
     note
     |> Note.changeset(attrs)
     |> Repo.update()
+    |> TagUpdater.update_tags(attrs)
   end
 
   @doc """

@@ -6,6 +6,13 @@
   <section class="content html">
     <%= raw Mirage.Markdown.render(@note.content) %>
   </section>
+
+  <footer>
+    <span>Tags: </span> 
+    <%= for tag <- @note.tags do %>
+      <span><%= tag.title %></span>
+    <% end %>
+  </footer>
 </article>
 
 <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, @note) %></span> |

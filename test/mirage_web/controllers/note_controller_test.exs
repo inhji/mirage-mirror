@@ -41,7 +41,8 @@ defmodule MirageWeb.NoteControllerTest do
       create_attrs = %{
         content: "some content",
         title: "some title",
-        list_id: list.id
+        list_id: list.id,
+        tags_string: "some,tags"
       }
 
       conn = post(conn, Routes.admin_note_path(conn, :create), note: create_attrs)

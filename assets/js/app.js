@@ -50,7 +50,7 @@ const theme = new Theme()
 theme.install(document.body)
 theme.start()
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
 	// TODO: File bug with 
 	// const config = {
 	// 	selector: ".has-autocomplete",
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	editorElements.forEach(async el => {
 		const $el = document.querySelector(el)
 		if ($el && document.querySelector("#editor")) {
-			await createEditor($el)
+			createEditor($el)
 		}
 	})
 })

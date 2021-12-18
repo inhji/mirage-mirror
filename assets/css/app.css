@@ -6,6 +6,7 @@
 @import "./_forms.css";
 @import "./_tables.css";
 @import "./_variables.css";
+@import "./_prosemirror.css";
 
 * {
   box-sizing: border-box;
@@ -51,6 +52,18 @@ hr {
   background: rgba(var(--line), 1);
   border-width: 0;
   height: 1px;
+}
+
+p {
+  margin: var(--spacing-3) 0;
+}
+
+p:first-child {
+  margin-top: var(--spacing-2);
+}
+
+p:last-child {
+  margin-bottom: var(--spacing-2);
 }
 
 /* HEADER */

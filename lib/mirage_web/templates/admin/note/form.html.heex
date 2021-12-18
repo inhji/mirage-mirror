@@ -19,6 +19,12 @@
   </fieldset>
 
   <fieldset>
+    <%= label f, :tags_string %>
+    <%= text_input f, :tags_string, value: tags_to_string(@note.tags) %>
+    <%= error_tag f, :tags_string %>
+  </fieldset>
+
+  <fieldset>
     <%= label f, :list_id %>
     <%= select f, :list_id, @lists, prompt: "Choose a value" %>
     <%= error_tag f, :list_id %>

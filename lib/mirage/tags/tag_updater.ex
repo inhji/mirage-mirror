@@ -1,4 +1,6 @@
 defmodule Mirage.Tags.TagUpdater do
+  require Logger
+
   alias Mirage.NoteTags
   alias Mirage.Tags
   alias Mirage.Notes.Note
@@ -11,12 +13,30 @@ defmodule Mirage.Tags.TagUpdater do
       iex> update_tags(note, "foo,bar")
 
   """
+
+  def update_tags({:ok, schema}, %{tags_string: new_tags} = attrs) when is_map(attrs) do
+    schema = update_tags(schema, new_tags)
+    {:ok, schema}
+  end
+
+  def update_tags({:ok, schema}, %{"tags_string" => new_tags} = attrs) when is_map(attrs) do
+    schema = update_tags(schema, new_tags)
+    {:ok, schema}
+  end
+
+  def update_tags({status, schema}, attrs) when is_map(attrs) do
+    {status, schema}
+  end
+
   def update_tags(schema, new_tags) when is_binary(new_tags) do
     update_tags(schema, split_tags(new_tags))
   end
 
   def update_tags(%{tags: tags} = schema, new_tags) when is_list(new_tags) do
     old_tags = Enum.map(tags, fn tag -> tag.title end)
+
+    Logger.info("Updating tags")
+    Logger.info(inspect(new_tags))
 
     schema
     |> add_tags(new_tags -- old_tags)
@@ -27,6 +47,7 @@ defmodule Mirage.Tags.TagUpdater do
     tags_string
     |> String.split(",")
     |> Enum.map(&String.trim/1)
+    |> Enum.filter(&(String.length(&1) > 0))
   end
 
   defp add_tags(schema, tags) do

@@ -6,7 +6,7 @@ form fieldset {
 
 form input, 
 form textarea,
-form .milkdown {
+form .ProseMirror {
 	color: var(--f-high);
 	width: 100%;
 	background: var(--b-low);
