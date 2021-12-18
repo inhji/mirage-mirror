@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.15.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.14.0...v0.15.0) (2021-12-18)
+
+
+
+
+### Features:
+
+* update tags on save, show them for notes
+
+* replace milkdown with prosemirror
+
 ## [v0.14.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.13.0...v0.14.0) (2021-12-11)
 
 
