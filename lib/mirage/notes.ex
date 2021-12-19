@@ -80,10 +80,18 @@ defmodule Mirage.Notes do
 
   """
   def create_note(attrs \\ %{}) do
-    %Note{}
-    |> Note.changeset(attrs)
-    |> Repo.insert()
-    |> TagUpdater.update_tags(attrs)
+    case %Note{}
+         |> Note.changeset(attrs)
+         |> Repo.insert() do
+      {:ok, note} ->
+        {:ok,
+         note
+         |> preload_note()
+         |> TagUpdater.update_tags(attrs)}
+
+      result ->
+        result
+    end
   end
 
   @doc """
@@ -99,10 +107,18 @@ defmodule Mirage.Notes do
 
   """
   def update_note(%Note{} = note, attrs) do
-    note
-    |> Note.changeset(attrs)
-    |> Repo.update()
-    |> TagUpdater.update_tags(attrs)
+    case note
+         |> Note.changeset(attrs)
+         |> Repo.update() do
+      {:ok, note} ->
+        {:ok,
+         note
+         |> preload_note()
+         |> TagUpdater.update_tags(attrs)}
+
+      result ->
+        result
+    end
   end
 
   @doc """

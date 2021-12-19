@@ -12,19 +12,33 @@ defmodule MirageWeb.Admin.NoteController do
   def new(conn, _params) do
     lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
     changeset = Notes.change_note(%Note{})
-    render(conn, "new.html", changeset: changeset, page_title: "New Note", lists: lists)
+
+    render(conn, "new.html",
+      changeset: changeset,
+      page_title: "New Note",
+      lists: lists,
+      tags: []
+    )
   end
 
   def create(conn, %{"note" => note_params}) do
     case Notes.create_note(note_params) do
       {:ok, note} ->
+        IO.inspect(note)
+
         conn
         |> put_flash(:info, "Note created successfully.")
         |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
-        render(conn, "new.html", changeset: changeset, lists: lists)
+
+        render(conn, "new.html",
+          changeset: changeset,
+          page_title: "New Note",
+          lists: lists,
+          tags: []
+        )
     end
   end
 
@@ -39,10 +53,11 @@ defmodule MirageWeb.Admin.NoteController do
     changeset = Notes.change_note(note)
 
     render(conn, "edit.html",
-      note: note,
       changeset: changeset,
       page_title: "Edit Note",
-      lists: lists
+      lists: lists,
+      note: note,
+      tags: note.tags
     )
   end
 
@@ -57,7 +72,14 @@ defmodule MirageWeb.Admin.NoteController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
-        render(conn, "edit.html", note: note, changeset: changeset, lists: lists)
+
+        render(conn, "edit.html",
+          changeset: changeset,
+          page_title: "Edit Note",
+          lists: lists,
+          note: note,
+          tags: note.tags
+        )
     end
   end
 

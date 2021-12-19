@@ -29,7 +29,7 @@ defmodule Mirage.TagUpdaterTest do
     test "with a map representing the attributes replaces existing tags", %{note: note} do
       assert note.tags == []
 
-      TagUpdater.update_tags({:ok, note}, %{tags_string: "foo,bar,baz"})
+      TagUpdater.update_tags(note, %{tags_string: "foo,bar,baz"})
       note = Mirage.Notes.get_note!(note.slug)
       assert Enum.count(note.tags) == 3
     end

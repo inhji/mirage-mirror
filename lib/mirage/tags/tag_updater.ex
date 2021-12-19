@@ -14,18 +14,16 @@ defmodule Mirage.Tags.TagUpdater do
 
   """
 
-  def update_tags({:ok, schema}, %{tags_string: new_tags} = attrs) when is_map(attrs) do
-    schema = update_tags(schema, new_tags)
-    {:ok, schema}
+  def update_tags(schema, %{tags_string: new_tags} = attrs) when is_map(attrs) do
+    update_tags(schema, new_tags)
   end
 
-  def update_tags({:ok, schema}, %{"tags_string" => new_tags} = attrs) when is_map(attrs) do
-    schema = update_tags(schema, new_tags)
-    {:ok, schema}
+  def update_tags(schema, %{"tags_string" => new_tags} = attrs) when is_map(attrs) do
+    update_tags(schema, new_tags)
   end
 
-  def update_tags({status, schema}, attrs) when is_map(attrs) do
-    {status, schema}
+  def update_tags(schema, attrs) when is_map(attrs) do
+    schema
   end
 
   def update_tags(schema, new_tags) when is_binary(new_tags) do
