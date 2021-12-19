@@ -30,15 +30,15 @@ a:hover, a:active, a:focus {
   background: var(--b-high);
 }
 
-code {
+code, code.inline, code.code-inline {
+  display: inline;
+  padding: 0;
+}
+
+pre > code {
   padding: var(--spacing-1);
   display: block;
   background: var(--b-low);
-}
-
-code.inline, code.code-inline {
-  display: inline;
-  padding: 0;
 }
 
 blockquote {

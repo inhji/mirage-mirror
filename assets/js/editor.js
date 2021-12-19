@@ -18,19 +18,31 @@ const render = function(callback) {
 	})
 }
 
+const marks = schema.spec.marks.update("code", {
+	group: "inline",
+	parseDOM: [{tag: "code"}],
+	toDOM() { return ["code", {class: "inline"}] }
+})
+
+const mySchema = new Schema({
+	nodes: schema.nodes,
+	marks: marks
+})
+
 const keys = {
 	...baseKeymap,
 	"Mod-z": undo, 
 	"Mod-y": redo,
-	"Ctrl-b": toggleMark(schema.marks.strong),
-	"Ctrl-i": toggleMark(schema.marks.em),
+	"Ctrl-b": toggleMark(mySchema.marks.strong),
+	"Ctrl-i": toggleMark(mySchema.marks.em),
+	"Ctrl-Shift-i": toggleMark(mySchema.marks.code)
 }
 
 const createEditor = function (contentElement) {
 	new EditorView(document.querySelector("#editor"), {
 	  state: EditorState.create({
 	    doc: defaultMarkdownParser.parse(contentElement.value),
-	    schema: schema,
+	    schema: mySchema,
 	    plugins: [
         history(),
         keymap(keys),
