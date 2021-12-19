@@ -33,6 +33,7 @@ a:hover, a:active, a:focus {
 code, code.inline, code.code-inline {
   display: inline;
   padding: 0;
+  background: var(--b-low);
 }
 
 pre > code {

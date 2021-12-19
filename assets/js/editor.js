@@ -18,15 +18,9 @@ const render = function(callback) {
 	})
 }
 
-const marks = schema.spec.marks.update("code", {
-	group: "inline",
-	parseDOM: [{tag: "code"}],
-	toDOM() { return ["code", {class: "inline"}] }
-})
-
 const mySchema = new Schema({
-	nodes: schema.nodes,
-	marks: marks
+	nodes: schema.spec.nodes,
+	marks: schema.spec.marks
 })
 
 const keys = {
