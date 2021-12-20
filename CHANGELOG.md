@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.15.2](http://10.0.0.11/inhji/mirage2.git/compare/v0.15.1...v0.15.2) (2021-12-20)
+
+
+
+
+### Bug Fixes:
+
+* finish note refactor
+
+* clean up editor
+
 ## [v0.15.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.15.0...v0.15.1) (2021-12-19)
 
 
