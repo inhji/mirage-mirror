@@ -21,13 +21,13 @@ body {
   background: var(--background);
 }
 
-a {
+a, a:link, a:visited {
   color: var(--f-high);
 }
 
 a:hover, a:active, a:focus {
-  color: var(--f-high);
-  background: var(--b-high);
+  color: var(--f-inv);
+  background: var(--b-inv);
 }
 
 code, code.inline, code.code-inline {
@@ -78,10 +78,6 @@ header.app {
   border-top: var(--border);
 }
 
-header.app a {
-  color: var(--f-med);
-}
-
 /* FOOTER */
 
 footer.app {
@@ -91,10 +87,6 @@ footer.app {
   margin: 0 auto var(--spacing-3);
   border-bottom: var(--border);
   border-top: var(--border);
-}
-
-footer.app a {
-  color: var(--f-med);
 }
 
 /* NAVIGATION */
