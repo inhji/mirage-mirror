@@ -1,4 +1,8 @@
 defmodule Mirage.NoteTags do
+  @moduledoc """
+  The NoteTags context
+  """
+
   import Ecto.Query, warn: false
   alias Mirage.Repo
   alias Mirage.Notes.NoteTag

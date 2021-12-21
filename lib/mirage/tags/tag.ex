@@ -1,4 +1,8 @@
 defmodule Mirage.Tags.Tag do
+  @moduledoc """
+  The Tag Schema
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

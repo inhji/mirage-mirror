@@ -1,4 +1,8 @@
 defmodule Mirage.Tags.TagUpdater do
+  @moduledoc """
+  Updates tags for a schema like notes by adding new ones and removing old ones.
+  """
+
   require Logger
 
   alias Mirage.NoteTags
@@ -13,7 +17,6 @@ defmodule Mirage.Tags.TagUpdater do
       iex> update_tags(note, "foo,bar")
 
   """
-
   def update_tags(schema, %{tags_string: new_tags} = attrs) when is_map(attrs) do
     update_tags(schema, new_tags)
   end

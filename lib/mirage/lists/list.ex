@@ -1,4 +1,8 @@
 defmodule Mirage.Lists.List do
+  @moduledoc """
+  The List Schema
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
