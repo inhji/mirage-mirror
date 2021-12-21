@@ -24,8 +24,6 @@ defmodule MirageWeb.Admin.NoteController do
   def create(conn, %{"note" => note_params}) do
     case Notes.create_note(note_params) do
       {:ok, note} ->
-        IO.inspect(note)
-
         conn
         |> put_flash(:info, "Note created successfully.")
         |> redirect(to: Routes.admin_note_path(conn, :show, note))
