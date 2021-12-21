@@ -23,7 +23,9 @@ defmodule Mirage.Markdown do
   end
 
   defp clean_escapes(markdown) do
-    String.replace(markdown, "\\[", "[", global: true)
+    markdown
+    |> String.replace("\\[", "[", global: true)
+    |> String.replace("\\]", "]", global: true)
   end
 
   @doc """
