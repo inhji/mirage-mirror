@@ -1,24 +1,11 @@
-<article class="note">
-  <header>
-    <h1><%= @note.title %></h1>
-  </header>
+<%= render MirageWeb.NoteView, "show.html", assigns %>
 
-  <section class="content html">
-    <%= raw Mirage.Markdown.render(@note.content) %>
-  </section>
-
-  <footer>
-    <span>Tags: </span> 
-    <%= for tag <- @note.tags do %>
-      <span><%= tag.title %></span>
-    <% end %>
-  </footer>
-</article>
-
-<span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, @note) %></span> |
-<%= if is_nil(@note.published_at) do %>
-<span><%= link "Publish", to: Routes.admin_note_path(@conn, :publish, @note) %></span> |
-<% else %>
-<span><%= link "Unpublish", to: Routes.admin_note_path(@conn, :unpublish, @note) %></span> |
-<% end %>
-<span><%= link "Back", to: Routes.admin_note_path(@conn, :index) %></span>
+<aside>
+  <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, @note) %></span> |
+  <%= if is_nil(@note.published_at) do %>
+  <span><%= link "Publish", to: Routes.admin_note_path(@conn, :publish, @note) %></span> |
+  <% else %>
+  <span><%= link "Unpublish", to: Routes.admin_note_path(@conn, :unpublish, @note) %></span> |
+  <% end %>
+  <span><%= link "Back", to: Routes.admin_note_path(@conn, :index) %></span>
+</aside>

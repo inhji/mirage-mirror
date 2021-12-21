@@ -21,7 +21,7 @@ body {
   background: var(--background);
 }
 
-a, a:link, a:visited {
+a {
   color: var(--f-high);
 }
 
@@ -119,10 +119,27 @@ main {
   margin: 0 auto;
 }
 
-main h1, main h2, main h3 {
+main h1, main h2, main h3,
+main h1 a, main h2 a, main h3 a {
   color: var(--f-med);
+  text-decoration: none;
 }
 
 article {
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-3);
+}
+
+article footer {
+  margin-top: var(--spacing-6);
+}
+
+article header {
+  margin-bottom: var(--spacing-6);
+}
+
+article .tag {
+  font-size: 90%;
+  background: var(--b-high);
+  padding: var(--spacing-1);
+  border-radius: var(--border-radius);
 }

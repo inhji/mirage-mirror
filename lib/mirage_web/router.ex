@@ -22,6 +22,9 @@ defmodule MirageWeb.Router do
 
     get "/", PageController, :index
     get "/theme", PageController, :theme
+
+    get "/notes", NoteController, :index
+    get "/notes/:id", NoteController, :show
   end
 
   scope path: "/admin", as: :admin, alias: MirageWeb.Admin do

@@ -1,0 +1,23 @@
+<article class="h-entry note">
+  <header>
+    <h1 class="p-name">
+      <%= link @note.title, to: Routes.note_path(@conn, :show, @note), class: "u-uid u-url" %>
+    </h1>
+    <%= for tag <- @note.tags do %>
+      <span class="tag p-category"><%= tag.title %></span>
+    <% end %>
+  </header>
+
+  <section class="content html e-content">
+    <%= raw Mirage.Markdown.render(@note.content) %>
+  </section>
+
+  <footer> 
+    <%= if @note.published_at do %>
+      <time datetime={@note.published_at} class="tag dt-published"><%= datetime_for_display(@note.published_at) %></time>
+      <span>
+        <%= link "Inhji", to: Routes.page_path(@conn, :index), class: "tag p-author h-card" %>
+      </span>
+    <% end %>
+  </footer>
+</article>
