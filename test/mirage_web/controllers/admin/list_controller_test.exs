@@ -1,4 +1,4 @@
-defmodule MirageWeb.ListControllerTest do
+defmodule MirageWeb.Admin.ListControllerTest do
   use MirageWeb.ConnCase
 
   import Mirage.ListsFixtures

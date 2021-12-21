@@ -1,4 +1,4 @@
-defmodule MirageWeb.TagControllerTest do
+defmodule MirageWeb.Admin.TagControllerTest do
   use MirageWeb.ConnCase
 
   import Mirage.TagsFixtures

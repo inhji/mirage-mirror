@@ -1,4 +1,4 @@
-defmodule MirageWeb.NoteControllerTest do
+defmodule MirageWeb.Admin.NoteControllerTest do
   use MirageWeb.ConnCase
 
   import Mirage.NotesFixtures
