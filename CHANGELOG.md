@@ -5,6 +5,25 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.16.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.15.2...v0.16.0) (2021-12-21)
+
+
+
+
+### Features:
+
+* add public note controller
+
+* add microformats2 actions for notes
+
+### Bug Fixes:
+
+* link styles
+
+* add closing bracket to clean_escapes/1
+
+* line color
+
 ## [v0.15.2](http://10.0.0.11/inhji/mirage2.git/compare/v0.15.1...v0.15.2) (2021-12-20)
 
 
