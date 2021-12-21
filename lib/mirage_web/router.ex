@@ -30,6 +30,7 @@ defmodule MirageWeb.Router do
     resources "/notes", NoteController
     get "/notes/:id/publish", NoteController, :publish
     get "/notes/:id/unpublish", NoteController, :unpublish
+    get "/notes/:id/microformats", NoteController, :microformats
 
     resources "/lists", ListController
     resources "/tags", TagController

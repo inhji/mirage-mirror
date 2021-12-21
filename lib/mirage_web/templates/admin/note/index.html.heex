@@ -18,6 +18,7 @@
 
       <td>
         <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, note) %></span> |
+        <span><%= link "Microformats", to: Routes.admin_note_path(@conn, :microformats, note) %></span> |
         <span><%= link "Delete", to: Routes.admin_note_path(@conn, :delete, note), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>

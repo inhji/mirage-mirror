@@ -41,10 +41,12 @@ defmodule Mirage.MixProject do
       {:ecto_autoslug_field, "~> 3.0"},
       {:ecto_sql, "~> 3.6"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
-      {:floki, ">= 0.30.0", only: :test},
+      {:floki, ">= 0.30.0"},
       {:gettext, "~> 0.18"},
       {:git_ops, "~> 2.4.5", only: [:dev]},
       {:jason, "~> 1.2"},
+      {:hackney, "~> 1.18"},
+      {:microformats2, "~> 0.7.4"},
       {:phoenix, "~> 1.6.2"},
       {:phoenix_ecto, "~> 4.4"},
       {:phoenix_html, "~> 3.0"},
@@ -55,7 +57,8 @@ defmodule Mirage.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 1.0"}
+      {:telemetry_poller, "~> 1.0"},
+      {:tesla, "~> 1.4"}
     ]
   end
 
