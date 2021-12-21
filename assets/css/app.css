@@ -50,7 +50,7 @@ blockquote {
 }
 
 hr {
-  background: rgba(var(--line), 1);
+  background: var(--b-med);
   border-width: 0;
   height: 1px;
 }
