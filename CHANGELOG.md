@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.17.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.16.0...v0.17.0) (2021-12-22)
+
+
+
+
+### Features:
+
+* create docs when creating a release
+
+* add docs
+
 ## [v0.16.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.15.2...v0.16.0) (2021-12-21)
 
 
