@@ -1,6 +1,9 @@
 defmodule Mirage.Notes do
   @moduledoc """
   The Notes context.
+
+  The Note is the primary piece of content. 
+  It always is part of a `Mirage.Lists.List` and has multiple `Mirage.Tags.Tag`s.
   """
 
   import Ecto.Query, warn: false
@@ -11,8 +14,18 @@ defmodule Mirage.Notes do
   alias Mirage.Tags.TagUpdater
 
   @preloads [:list, :tags]
-  def preload_note(note), do: Repo.preload(note, @preloads)
   defp with_preloads(query), do: preload(query, ^@preloads)
+
+  @doc """
+  Preloads a note with all defined preloads.
+
+  ## Examples
+
+      iex> preload_note(note)
+      %Note{}
+
+  """
+  def preload_note(note), do: Repo.preload(note, @preloads)
 
   @doc """
   Returns the list of notes.

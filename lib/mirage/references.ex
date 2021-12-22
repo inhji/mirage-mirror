@@ -1,6 +1,13 @@
 defmodule Mirage.References do
   @moduledoc """
-  Finds and replaces references to entities in a string
+  Finds and replaces references to entities in a string.
+
+  A reference is an internal link like the following examples:
+
+  * `[[sustainablity]]` -> A note named *Sustainability*
+  * `[[tag:video-games]]` -> A tag named *Video Games*
+  * `[[list:blog]]` -> A list named *Blog*
+  * `[[a-long-unfitting-title|A simple title]]` -> A note named *A long unfitting title*
   """
 
   alias MirageWeb.Router.Helpers, as: Routes

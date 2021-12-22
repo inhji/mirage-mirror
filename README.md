@@ -17,3 +17,8 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+## TODO
+
+Include Tailwind and Alpine maybe, pretty please:
+https://github.com/josevalim/phx_esbuild_demo/pull/3/files

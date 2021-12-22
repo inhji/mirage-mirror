@@ -1,6 +1,8 @@
 defmodule Mirage.Markdown do
   @moduledoc """
-  Module used for rendering markdown with the correct options
+  Module used for rendering markdown. 
+
+  Rendering also collects and replaces internal [references](`Mirage.References`) to other entities like Lists and Tags.
   """
 
   import Ecto.Changeset, only: [get_change: 2, put_change: 3]
@@ -22,12 +24,6 @@ defmodule Mirage.Markdown do
     |> Earmark.as_html!(@markdown_options)
   end
 
-  defp clean_escapes(markdown) do
-    markdown
-    |> String.replace("\\[", "[", global: true)
-    |> String.replace("\\]", "]", global: true)
-  end
-
   @doc """
   Renders markdown to HTML inside a changeset if markdown changed.
   Markdown field and HTML field can be configured.
@@ -39,5 +35,11 @@ defmodule Mirage.Markdown do
     else
       changeset
     end
+  end
+
+  defp clean_escapes(markdown) do
+    markdown
+    |> String.replace("\\[", "[", global: true)
+    |> String.replace("\\]", "]", global: true)
   end
 end

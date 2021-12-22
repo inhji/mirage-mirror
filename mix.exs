@@ -12,7 +12,8 @@ defmodule Mirage.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      docs: docs()
     ]
   end
 
@@ -41,9 +42,10 @@ defmodule Mirage.MixProject do
       {:ecto_autoslug_field, "~> 3.0"},
       {:ecto_sql, "~> 3.6"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
+      {:ex_doc, "~> 0.24", only: :dev, runtime: false},
       {:floki, ">= 0.30.0"},
       {:gettext, "~> 0.18"},
-      {:git_ops, "~> 2.4.5", only: [:dev]},
+      {:git_ops, "~> 2.4.5", only: :dev},
       {:jason, "~> 1.2"},
       {:hackney, "~> 1.18"},
       {:microformats2, "~> 0.7.4"},
@@ -59,6 +61,29 @@ defmodule Mirage.MixProject do
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:tesla, "~> 1.4"}
+    ]
+  end
+
+  defp docs do
+    [
+      # The main page in the docs
+      main: "Mirage",
+      logo: "assets/images/mirage.png",
+      extras: ["README.md", "CHANGELOG.md"],
+      output: "priv/static/docs",
+      groups_for_modules: [
+        Accounts: [~r/Mirage\.Accounts/],
+        Lists: [~r/Mirage\.Lists/],
+        Notes: [~r/Mirage\.Notes/],
+        Tags: [~r/Mirage\.Tags/],
+        MirageWeb: [~r/MirageWeb/]
+      ],
+      nest_modules_by_prefix: [
+        MirageWeb,
+        Mirage.Lists,
+        Mirage.Notes,
+        Mirage.Tags
+      ]
     ]
   end
 

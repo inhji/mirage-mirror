@@ -1,6 +1,6 @@
 defmodule Mirage.Notes.Note do
   @moduledoc """
-  The Note Schema
+  The Note Schema.
   """
 
   use Ecto.Schema
