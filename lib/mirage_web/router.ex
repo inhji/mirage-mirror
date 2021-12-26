@@ -22,6 +22,7 @@ defmodule MirageWeb.Router do
 
     get "/", PageController, :index
     get "/theme", PageController, :theme
+    get "/about", PageController, :about
 
     get "/notes", NoteController, :index
     get "/notes/:id", NoteController, :show
