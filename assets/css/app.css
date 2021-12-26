@@ -22,7 +22,7 @@ body {
 }
 
 a, a:link, a:visited {
-  color: var(--f-high);
+  color: var(--f-med);
 }
 
 a:hover, a:active, a:focus {
@@ -70,7 +70,7 @@ p:last-child {
 /* HEADER */
 
 header.app {
-  color: var(--f-med);
+  background: var(--b-high);
   padding: var(--spacing-3);
   max-width: var(--spacing-app);
   margin: var(--spacing-3) auto 0;
@@ -131,7 +131,8 @@ article header {
 
 article .tag {
   font-size: 90%;
-  background: var(--b-high);
+  color: var(--f-high);
+  background: var(--b-low);
   padding: var(--spacing-1);
   border-radius: var(--border-radius);
 }
