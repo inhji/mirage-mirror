@@ -60,7 +60,8 @@ defmodule Mirage.MixProject do
       {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
-      {:tesla, "~> 1.4"}
+      {:tesla, "~> 1.4"},
+      {:timex, "~> 3.7"}
     ]
   end
 
