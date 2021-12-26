@@ -43,6 +43,23 @@ defmodule Mirage.Notes do
   end
 
   @doc """
+  Returns the list of published notes.
+
+  ## Examples
+
+      iex> list_notes()
+      [%Note{}, ...]
+
+  """
+  def list_published_notes do
+    Note
+    |> where([n], not is_nil(n.published_at))
+    |> order_by(:published_at)
+    |> with_preloads()
+    |> Repo.all()
+  end
+
+  @doc """
   Returns list of notes containg the given query_string
 
   ## Examplex
