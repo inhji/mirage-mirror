@@ -5,6 +5,37 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.18.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.17.0...v0.18.0) (2021-12-27)
+
+
+
+
+### Features:
+
+* add rss/atom feeds
+
+* add get_user/0
+
+* add user to notes
+
+* add name, handle and bio fields to user
+
+* small theme tweaks
+
+* show published note feed on homepage
+
+* categorize themes
+
+* add timex
+
+* add about page
+
+### Bug Fixes:
+
+* test regarding homepage
+
+* use slugify_downcase/1 for looking up tags
+
 ## [v0.17.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.16.0...v0.17.0) (2021-12-22)
 
 
