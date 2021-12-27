@@ -1,6 +1,40 @@
 <h1>Settings</h1>
 
-<h3>Change email</h3>
+<h2>Update profile</h2>
+
+<.form let={f} for={@profile_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_profile">
+  <%= if @profile_changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= hidden_input f, :action, name: "action", value: "update_profile" %>
+
+  <fieldset>
+    <%= label f, :handle %>
+    <%= text_input f, :handle, required: true %>
+    <%= error_tag f, :handle %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :name %>
+    <%= text_input f, :name %>
+    <%= error_tag f, :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :bio %>
+    <%= textarea f, :bio %>
+    <%= error_tag f, :bio %>
+  </fieldset>
+
+  <div>
+    <%= submit "Update profile" %>
+  </div>
+</.form>
+
+<h2>Change email</h2>
 
 <.form let={f} for={@email_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_email">
   <%= if @email_changeset.action do %>
@@ -28,7 +62,7 @@
   </div>
 </.form>
 
-<h3>Change password</h3>
+<h2>Change password</h2>
 
 <.form let={f} for={@password_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_password">
   <%= if @password_changeset.action do %>

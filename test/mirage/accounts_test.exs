@@ -193,6 +193,20 @@ defmodule Mirage.AccountsTest do
     end
   end
 
+  describe "update_user_profile/2" do
+    setup do
+      user = user_fixture()
+      %{user: user}
+    end
+
+    test "updates the users profile", %{user: user} do
+      {:ok, user} = Accounts.update_user_profile(user, %{handle: "foo", name: "bar"})
+
+      assert user.handle === "foo"
+      assert user.name === "bar"
+    end
+  end
+
   describe "update_user_email/2" do
     setup do
       user = user_fixture()

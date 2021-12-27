@@ -8,6 +8,10 @@ defmodule Mirage.Accounts.User do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "users" do
+    field :name, :string
+    field :handle, :string
+    field :bio, :string
+
     field :email, :string
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
@@ -87,6 +91,14 @@ defmodule Mirage.Accounts.User do
       %{changes: %{email: _}} = changeset -> changeset
       %{} = changeset -> add_error(changeset, :email, "did not change")
     end
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking user profile changes.
+  """
+  def profile_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:name, :handle, :bio])
   end
 
   @doc """
