@@ -36,8 +36,8 @@ defmodule Mirage.Tags.TagUpdater do
   def update_tags(%{tags: tags} = schema, new_tags) when is_list(new_tags) do
     old_tags = Enum.map(tags, fn tag -> tag.title end)
 
-    Logger.info("Updating tags")
-    Logger.info(inspect(new_tags))
+    Logger.info("Adding tags #{inspect(new_tags -- old_tags)}")
+    Logger.info("Removing tags #{inspect(old_tags -- new_tags)}")
 
     schema
     |> add_tags(new_tags -- old_tags)
@@ -57,14 +57,18 @@ defmodule Mirage.Tags.TagUpdater do
   end
 
   defp add_tag(%{id: schema_id} = schema, tag) when is_binary(tag) do
-    slug = Slugger.slugify(tag)
+    slug = Slugger.slugify_downcase(tag)
+
+    Logger.debug("Looking up tag [#{tag}] with slug [#{slug}]")
 
     {:ok, tag} =
       case Tags.get_tag(slug) do
         nil ->
+          Logger.debug("Tag [#{tag}] does not exist. Creating.")
           Tags.create_tag(%{title: tag})
 
         tag ->
+          Logger.debug("Tag already exists. Returning.")
           {:ok, tag}
       end
 
