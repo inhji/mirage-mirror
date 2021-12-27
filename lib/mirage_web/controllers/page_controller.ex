@@ -3,7 +3,6 @@ defmodule MirageWeb.PageController do
 
   def index(conn, _params) do
     notes = Mirage.Notes.list_published_notes()
-
     render(conn, "index.html", page_title: "Home", notes: notes)
   end
 

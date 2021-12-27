@@ -36,6 +36,7 @@ defmodule Mirage.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:atomex, "~> 0.4.1"},
       {:bcrypt_elixir, "~> 2.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4"},
