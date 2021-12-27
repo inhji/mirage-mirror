@@ -16,18 +16,10 @@ form .ProseMirror {
 	white-space: pre-wrap;
 }
 
-form .milkdown .paragraph:first-child {
-	margin-top: 0;
+form input[type=radio] {
+	width: auto;
+	display: inline-block;
 }
-
-form .milkdown .paragraph:last-child {
-	margin-bottom: 0;
-}
-
-form .milkdown .editor {
-	outline: none;
-}
-
 
 form input:focus,
 form textarea:focus {

@@ -19,6 +19,7 @@ html {
 body {
   color: var(--f-high);
   background: var(--background);
+  line-height: 1.2rem;
 }
 
 a, a:link, a:visited {
@@ -71,11 +72,9 @@ p:last-child {
 
 header.app {
   background: var(--b-high);
-  padding: var(--spacing-3);
   max-width: var(--spacing-app);
-  margin: var(--spacing-3) auto 0;
-  border-bottom: var(--border);
-  border-top: var(--border);
+  margin: 0 auto;
+  margin-top: var(--spacing-3);
 }
 
 /* FOOTER */
@@ -83,7 +82,6 @@ header.app {
 footer.app {
   color: var(--f-med);
   max-width: var(--spacing-app);
-  padding: var(--spacing-3);
   margin: 0 auto var(--spacing-3);
   border-bottom: var(--border);
   border-top: var(--border);
@@ -92,6 +90,7 @@ footer.app {
 /* NAVIGATION */
 
 nav {
+  padding: var(--spacing-3);
   gap: var(--spacing-3); 
 }
 
@@ -102,6 +101,12 @@ nav ul {
   margin: 0;
   list-style: none;
 }
+
+nav a {
+  padding: var(--spacing-3);
+}
+
+
 
 /* MAIN */
 

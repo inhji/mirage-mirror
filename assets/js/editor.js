@@ -14,7 +14,7 @@ const render = function(callback) {
 				const markdown = defaultMarkdownSerializer.serialize(updatedView.state.doc)
 				callback(markdown)
 			}
-		})		
+		})
 	})
 }
 
@@ -32,16 +32,62 @@ const keys = {
 	"Ctrl-Shift-i": toggleMark(mySchema.marks.code)
 }
 
+class MarkdownView {
+  constructor(target, contentElement) {
+    this.textarea = target.appendChild(document.createElement("textarea"))
+    this.textarea.value = contentElement.value
+    this.textarea.rows = 20
+  }
+
+  get content() { return this.textarea.value }
+  focus() { this.textarea.focus() }
+  destroy() { this.textarea.remove() }
+}
+
+class ProseMirrorView {
+  constructor(target, contentElement) {
+    this.view = new EditorView(target, {
+      state: EditorState.create({
+  	    doc: defaultMarkdownParser.parse(contentElement.value),
+  	    schema: mySchema,
+  	    plugins: [
+          history(),
+          keymap(keys),
+  	 			render(markdown => contentElement.value = markdown),
+        ]
+  	  })
+    })
+  }
+
+  get content() {
+    return defaultMarkdownSerializer.serialize(this.view.state.doc)
+  }
+  focus() { this.view.focus() }
+  destroy() { this.view.destroy() }
+}
+
 const createEditor = function (contentElement) {
-	new EditorView(document.querySelector("#editor"), {
-	  state: EditorState.create({
-	    doc: defaultMarkdownParser.parse(contentElement.value),
-	    schema: mySchema,
-	    plugins: [
-        history(),
-        keymap(keys),
-	 			render(markdown => contentElement.value = markdown),
-      ]
+	let place = document.querySelector("#editor")
+	let view = new ProseMirrorView(place, contentElement)
+
+	document.querySelectorAll("input[type=radio]").forEach(button => {
+	  button.addEventListener("change", () => {
+	    if (!button.checked) {
+	    	return
+	    }
+	    let View = button.value == "markdown" ? MarkdownView : ProseMirrorView
+
+
+	    if (view instanceof View) {
+	    	return
+	    }
+
+	    let content = view.content
+
+	    view.destroy()
+	    contentElement.value = content
+	    view = new View(place, contentElement)
+	    view.focus()
 	  })
 	})
 }

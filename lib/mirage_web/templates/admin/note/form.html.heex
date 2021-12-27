@@ -16,6 +16,18 @@
   <fieldset>
     <%= label f, :content %>
     <div id="editor"></div>
+
+    <div>
+      <%= label f, :editor_prose do %>
+        <span>Prose</span>
+        <%= radio_button f, :editor, "prose", checked: true %>
+      <% end %>
+      <%= label f, :editor_markdown do %>
+        <span>Markdown</span>
+        <%= radio_button f, :editor, "markdown" %>
+      <% end %>
+    </div>    
+
     <%= hidden_input f, :content %>
     <%= error_tag f, :content %>
   </fieldset>
