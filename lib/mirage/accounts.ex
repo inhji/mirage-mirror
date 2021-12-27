@@ -61,6 +61,19 @@ defmodule Mirage.Accounts do
   def get_user!(id), do: Repo.get!(User, id)
 
   @doc """
+  Gets the first user.
+
+  ## Examples
+
+      iex> get_user!()
+      %User{}
+
+      iex> get_user!()
+      ** (Ecto.NoResultsError)
+  """
+  def get_user!(), do: User |> first |> Repo.one!()
+
+  @doc """
   Updates a user's profile fields like name and bio.
   """
   def change_user_profile(%User{} = user, attrs \\ %{}) do
