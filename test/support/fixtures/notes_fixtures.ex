@@ -5,12 +5,15 @@ defmodule Mirage.NotesFixtures do
   """
 
   import Mirage.ListsFixtures
+  import Mirage.AccountsFixtures
 
   @doc """
   Generate a note.
   """
   def note_fixture(attrs \\ %{}) do
-    list = list_fixture()
+    title = "list-#{Mirage.Helper.random_string()}"
+    list = list_fixture(title: title)
+    user = user_fixture()
 
     {:ok, note} =
       attrs
@@ -18,7 +21,8 @@ defmodule Mirage.NotesFixtures do
         content: "some content",
         content_html: "some content_html",
         title: "some title",
-        list_id: list.id
+        list_id: list.id,
+        user_id: user.id
       })
       |> Mirage.Notes.create_note()
 

@@ -4,26 +4,13 @@ defmodule Mirage.ReferencesTest do
   alias Mirage.Notes
   alias Mirage.Notes.Note
   import Mirage.ListsFixtures
+  import Mirage.NotesFixtures
   import Mirage.References, only: [get_references: 1, replace_references: 1]
 
   setup do
-    list = list_fixture()
-
-    {:ok, %Note{} = note1} =
-      Notes.create_note(%{
-        title: "some note",
-        content: "this does not have a link yet",
-        list_id: list.id
-      })
-
-    {:ok, %Note{} = note2} =
-      Notes.create_note(%{
-        title: "some other note",
-        content: "this does not have a link yet",
-        list_id: list.id
-      })
-
-    %{note1: note1, note2: note2, list: list}
+    note1 = note_fixture(title: "some note")
+    note2 = note_fixture(title: "some other note")
+    %{note1: note1, note2: note2}
   end
 
   describe "get_references" do

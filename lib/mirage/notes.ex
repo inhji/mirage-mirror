@@ -13,7 +13,7 @@ defmodule Mirage.Notes do
   alias Mirage.Notes.Note
   alias Mirage.Tags.TagUpdater
 
-  @preloads [:list, :tags]
+  @preloads [:list, :tags, :user]
   defp with_preloads(query), do: preload(query, ^@preloads)
 
   @doc """

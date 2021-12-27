@@ -16,7 +16,7 @@
     <%= if @note.published_at do %>
       <time datetime={@note.published_at} title={@note.published_at} class="tag dt-published"><%= datetime_for_display(@note.published_at) %></time>
       <span class="tag">
-        <%= link "Inhji", to: Routes.page_path(@conn, :about), class: "p-author h-card" %>
+        <%= link @note.user.handle, to: Routes.page_path(@conn, :about), class: "p-author h-card" %>
       </span>
     <% end %>
   </footer>

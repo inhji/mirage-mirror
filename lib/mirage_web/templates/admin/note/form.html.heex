@@ -5,6 +5,8 @@
     </div>
   <% end %>
 
+  <%= hidden_input f, :user_id, value: @current_user.id %>
+
   <fieldset>
     <%= label f, :title %>
     <%= text_input f, :title %>
@@ -14,7 +16,7 @@
   <fieldset>
     <%= label f, :content %>
     <div id="editor"></div>
-    <%= hidden_input f, :content, rows: 16 %>
+    <%= hidden_input f, :content %>
     <%= error_tag f, :content %>
   </fieldset>
 

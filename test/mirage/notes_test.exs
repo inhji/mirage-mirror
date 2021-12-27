@@ -3,6 +3,7 @@ defmodule Mirage.NotesTest do
 
   import Mirage.NotesFixtures
   import Mirage.ListsFixtures
+  import Mirage.AccountsFixtures
   alias Mirage.Notes
   alias Mirage.Notes.Note
 
@@ -35,11 +36,13 @@ defmodule Mirage.NotesTest do
 
     test "create_note/1 with valid data creates a note" do
       list = list_fixture()
+      user = user_fixture()
 
       valid_attrs = %{
-        list_id: list.id,
+        title: "some title",
         content: "some content",
-        title: "some title"
+        list_id: list.id,
+        user_id: user.id
       }
 
       assert {:ok, %Note{} = note} = Notes.create_note(valid_attrs)
@@ -49,11 +52,13 @@ defmodule Mirage.NotesTest do
 
     test "create_note/1 with valid data creates a slug" do
       list = list_fixture()
+      user = user_fixture()
 
       valid_attrs = %{
-        list_id: list.id,
         title: "some title",
-        content: "some content"
+        content: "some content",
+        list_id: list.id,
+        user_id: user.id
       }
 
       assert {:ok, %Note{} = note} = Notes.create_note(valid_attrs)
@@ -63,11 +68,13 @@ defmodule Mirage.NotesTest do
 
     test "create_note/1 with valid data renders markdown" do
       list = list_fixture()
+      user = user_fixture()
 
       valid_attrs = %{
-        list_id: list.id,
         title: "some title",
-        content: "some **content**"
+        content: "some **content**",
+        list_id: list.id,
+        user_id: user.id
       }
 
       assert {:ok, %Note{} = note} = Notes.create_note(valid_attrs)

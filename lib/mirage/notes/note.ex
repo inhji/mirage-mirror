@@ -29,6 +29,7 @@ defmodule Mirage.Notes.Note do
       default: ""
 
     belongs_to :list, Mirage.Lists.List
+    belongs_to :user, Mirage.Accounts.User
 
     many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
 
@@ -38,8 +39,8 @@ defmodule Mirage.Notes.Note do
   @doc false
   def changeset(note, attrs) do
     note
-    |> cast(attrs, [:title, :slug, :content, :published_at, :list_id, :tags_string])
-    |> validate_required([:title, :content, :list_id])
+    |> cast(attrs, [:title, :slug, :content, :published_at, :list_id, :tags_string, :user_id])
+    |> validate_required([:title, :content, :list_id, :user_id])
     |> unique_constraint(:title)
     |> Mirage.Notes.NoteSlug.maybe_generate_slug()
     |> Mirage.Notes.NoteSlug.unique_constraint()
