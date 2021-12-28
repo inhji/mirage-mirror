@@ -25,7 +25,15 @@ config :mirage, MirageWeb.Endpoint,
   secret_key_base: "erve501Y2EtLeyO+ixXdqoTHOMIGwvtG54VF2AIBdViQHs2MsDQZdwZo4rzgqduO",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    npx: [
+      "tailwindcss",
+      "--input=css/app.css",
+      "--output=../priv/static/assets/app.css",
+      "--postcss",
+      "--watch",
+      cd: Path.expand("../assets", __DIR__)
+    ]
   ]
 
 config :git_ops,
