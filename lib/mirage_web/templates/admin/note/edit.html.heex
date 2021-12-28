@@ -1,5 +1,7 @@
-<h1>Edit Note</h1>
-
-<%= render "form.html", Map.put(assigns, :action, Routes.admin_note_path(@conn, :update, @note)) %>
+<section class="max-w-prose mx-auto">
+	<h1>Edit Note</h1>
+	
+	<%= render "form.html", Map.put(assigns, :action, Routes.admin_note_path(@conn, :update, @note)) %>
+</section>
 
 <span><%= link "Back", to: Routes.admin_note_path(@conn, :index) %></span>

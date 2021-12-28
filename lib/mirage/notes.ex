@@ -42,6 +42,35 @@ defmodule Mirage.Notes do
     |> Repo.all()
   end
 
+  def list_notes(opts \\ %{}) do
+    query = with_preloads(Note)
+
+    query =
+      case opts["show_published"] do
+        "published" -> query = query |> where([n], not is_nil(n.published_at))
+        "unpublished" -> query = query |> where([n], is_nil(n.published_at))
+        _ -> query
+      end
+
+    query =
+      case opts["show_list"] do
+        "all" -> query
+        list_id -> query |> where([n], n.list_id == ^list_id)
+      end
+
+    query =
+      case opts["search_query"] do
+        "" ->
+          query
+
+        search_query ->
+          str = "%#{search_query}%"
+          query |> where([n], ilike(n.title, ^str))
+      end
+
+    Repo.all(query)
+  end
+
   @doc """
   Returns the list of published notes.
 

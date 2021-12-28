@@ -8,23 +8,31 @@
     <%= live_title_tag assigns[:page_title] || "Mirage", suffix: " · Mirage" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
   </head>
-  <body>
-    <header class="app">
-      <nav class="container flex">
+  <body class="bg-base flex flex-col">
+    <header class="bg-base shadow-sm">
+      <nav class="flex container mx-auto">
         <%= render "_content_menu.html", assigns %>        
         <div class="flex-1"></div>
-        <%= render "_user_menu.html", assigns %>
+        <%= render "_misc_menu.html", assigns %>
       </nav>
     </header>
     
-    <%= @inner_content %>
+    <main class="container mx-auto px-3 my-10 grow shrink-0">
+      <%= @inner_content %>
+    </main>
 
-    <footer class="app">
-      <nav class="container flex">
-        <div>Mind the gap</div>
+    <footer class="flex-auto border-t bg-high text-low">
+      <nav class="flex container mx-auto">
+        <ul class="flex py-3">
+          <li><span class="p-3">Mind the gap</span></li>
+        </ul>
         <div class="flex-1"></div>
-        <%= render "_misc_menu.html", assigns %>  
+        <%= render "_user_menu.html", assigns %>  
       </nav>
+
+      <div class="container mx-auto">
+        <h1>Make this footer your playground</h1>
+      </div>
     </footer>
 
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>

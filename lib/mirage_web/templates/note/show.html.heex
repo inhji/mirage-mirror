@@ -1,23 +1,22 @@
-<article class="h-entry note">
-  <header>
+<article class="h-entry note mx-auto max-w-prose">
+  <header class="mb-6">
     <h1 class="p-name">
       <%= link @note.title, to: Routes.note_path(@conn, :show, @note), class: "u-uid u-url" %>
     </h1>
+    <%= link @note.user.handle, to: Routes.page_path(@conn, :about), class: "p-author h-card tag bg-low hidden" %>
+    <%= if @note.published_at do %>
+      <time datetime={@note.published_at} title={@note.published_at} class="tag bg-low dt-published"><%= datetime_for_display(@note.published_at) %></time>
+    <% end %>
     <%= for tag <- @note.tags do %>
-      <span class="tag p-category"><%= tag.title %></span>
+      <span class="tag bg-low p-category"><%= tag.title %></span>
     <% end %>
   </header>
 
-  <section class="content html e-content">
+  <section class="prose mx-auto e-content">
     <%= raw Mirage.Markdown.render(@note.content) %>
   </section>
 
   <footer> 
-    <%= if @note.published_at do %>
-      <time datetime={@note.published_at} title={@note.published_at} class="tag dt-published"><%= datetime_for_display(@note.published_at) %></time>
-      <span class="tag">
-        <%= link @note.user.handle, to: Routes.page_path(@conn, :about), class: "p-author h-card" %>
-      </span>
-    <% end %>
+    
   </footer>
 </article>

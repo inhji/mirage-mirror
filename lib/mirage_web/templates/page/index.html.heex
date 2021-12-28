@@ -1,5 +1,7 @@
 <section class="h-feed">
-  <%= for note <- @notes do %>
+<%= for note <- @notes do %>
   <%= render MirageWeb.NoteView, "show.html", Map.put(assigns, :note, note) %>
-  <% end %>
+
+  <hr class="my-10 max-w-prose mx-auto">
+<% end %>
 </section>

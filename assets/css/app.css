@@ -1,143 +1,68 @@
 /* This file is for your main application CSS */
-@import "./_normalize.css";
-@import "./_inter.css";
-@import "./_phoenix.css";
-@import "./_helpers.css";
-@import "./_forms.css";
-@import "./_tables.css";
-@import "./_variables.css";
-@import "./_prosemirror.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "_prosemirror";
+
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
 
 * {
   box-sizing: border-box;
 }
 
+html, body {
+  @apply min-h-screen;
+}
+
 html {
   font-family: 'Inter var', sans-serif;
+  font-feature-settings: "calt", "case", "ss01", "ss02";
 }
 
-body {
-  color: var(--f-high);
-  background: var(--background);
-  line-height: 1.2rem;
+h1 {
+  @apply text-3xl font-bold my-3;
 }
 
-a, a:link, a:visited {
-  color: var(--f-med);
+h2 {
+  @apply text-2xl font-semibold;
 }
 
-a:hover, a:active, a:focus {
-  color: var(--f-inv);
-  background: var(--b-inv);
+a {
+  @apply hover:underline decoration-accent1 decoration-2 underline-offset-4;
 }
 
-code, code.inline, code.code-inline {
-  display: inline;
-  padding: 0;
-  background: var(--b-low);
-}
-
-pre > code {
-  padding: var(--spacing-1);
-  display: block;
-  background: var(--b-low);
-}
-
-blockquote {
-  background: var(--b-low);
-  margin: 0;
-  padding: var(--spacing-3) var(--spacing-8);
-  font-style: italic;
-}
-
-hr {
-  background: var(--b-med);
-  border-width: 0;
-  height: 1px;
-}
-
-p {
-  margin: var(--spacing-3) 0;
-}
-
-p:first-child {
-  margin-top: var(--spacing-2);
-}
-
-p:last-child {
-  margin-bottom: var(--spacing-2);
-}
-
-/* HEADER */
-
-header.app {
-  background: var(--b-high);
-  max-width: var(--spacing-app);
-  margin: 0 auto;
-  margin-top: var(--spacing-3);
-}
-
-/* FOOTER */
-
-footer.app {
-  color: var(--f-med);
-  max-width: var(--spacing-app);
-  margin: 0 auto var(--spacing-3);
-  border-bottom: var(--border);
-  border-top: var(--border);
-}
-
-/* NAVIGATION */
-
-nav {
-  padding: var(--spacing-3);
-  gap: var(--spacing-3); 
-}
-
-nav ul {
-  display: flex;
-  gap: var(--spacing-3);
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-nav a {
-  padding: var(--spacing-3);
-}
-
-
-
-/* MAIN */
-
-main {
-  padding: var(--spacing-3);
-  max-width: var(--spacing-app);
-  margin: 0 auto;
-}
-
-main h1, main h2, main h3,
-main h1 a, main h2 a, main h3 a {
-  color: var(--f-med);
-  text-decoration: none;
+a.active {
+  @apply underline;
 }
 
 article {
-  margin-bottom: var(--spacing-3);
+  & .tag {
+    @apply text-sm p-1 rounded;
+  }
 }
 
-article footer {
-  margin-top: var(--spacing-6);
+form {
+  & input,
+  & textarea {
+    @apply inline-block w-full;
+  }
+
+  & .ProseMirror {
+    @apply p-3 bg-white border border-gray-500;
+  }
 }
 
-article header {
-  margin-bottom: var(--spacing-6);
-}
+table {
+  & th, & td {
+    @apply border border-low p-4 text-left;
+  }
+} 
 
-article .tag {
-  font-size: 90%;
-  color: var(--f-high);
-  background: var(--b-low);
-  padding: var(--spacing-1);
-  border-radius: var(--border-radius);
+.button, input[type=submit], button[type=submit] {
+  @apply p-3 inline-block border border-med bg-low mt-2 hover:bg-accent1;
 }

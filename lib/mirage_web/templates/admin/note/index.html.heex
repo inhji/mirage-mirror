@@ -1,29 +1,5 @@
 <h1>Notes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>List</th>
-      <th>Published</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for note <- @notes do %>
-    <tr>
-      <td><%= link note.title, to: Routes.admin_note_path(@conn, :show, note) %></td>
-      <td><%= link note.list.title, to: Routes.admin_list_path(@conn, :show, note.list) %></td>
-      <td><%= note.published_at %></td>
-
-      <td>
-        <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, note) %></span> |
-        <span><%= link "Microformats", to: Routes.admin_note_path(@conn, :microformats, note) %></span> |
-        <span><%= link "Delete", to: Routes.admin_note_path(@conn, :delete, note), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+<%= live_render(@conn, MirageWeb.NoteListLive) %>
 
 <span><%= link "New Note", to: Routes.admin_note_path(@conn, :new), class: "button" %></span>
