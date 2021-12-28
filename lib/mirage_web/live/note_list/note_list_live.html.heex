@@ -1,0 +1,49 @@
+<section class="p-3 bg-low border border-med">
+	<.form let={f} for={@changeset} phx-change="handle_change" class="flex gap-6">
+	  <label for="show_published" class="flex gap-3 items-center">
+	    <span>Published</span>
+	    <%= select f, :show_published, [
+	    	"Show All": "all", 
+	    	"Show Published": "published", 
+	    	"Show Unpublished": "unpublished"] %>
+	  </label>
+
+	  <label for="show_list" class="flex gap-3 items-center">
+	    <span>List</span>
+	    <%= select f, :show_list, @lists %>
+	  </label>
+
+	  <div class="flex-1"></div>
+
+	  <label for="show_list" class="flex gap-3 items-center">
+	    <%= text_input f, :search_query, placeholder: "Search", phx_debounce: "100" %>
+	  </label>
+	</.form>
+
+</section>
+
+<table class="table-auto w-full border-collapse mt-3">
+  <thead class="bg-low">
+    <tr>
+      <th>Title</th>
+      <th>List</th>
+      <th>Published</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white">
+<%= for note <- @notes do %>
+    <tr>
+      <td><%= link note.title, to: Routes.admin_note_path(MirageWeb.Endpoint, :show, note) %></td>
+      <td><%= link note.list.title, to: Routes.admin_list_path(MirageWeb.Endpoint, :show, note.list) %></td>
+      <td><%= note.published_at %></td>
+
+      <td>
+        <span><%= link "Edit", to: Routes.admin_note_path(MirageWeb.Endpoint, :edit, note) %></span> |
+        <span><%= link "Microformats", to: Routes.admin_note_path(MirageWeb.Endpoint, :microformats, note) %></span> |
+        <span><%= link "Delete", to: Routes.admin_note_path(MirageWeb.Endpoint, :delete, note), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
