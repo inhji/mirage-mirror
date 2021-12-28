@@ -1,7 +1,7 @@
-<ul>
-  <li><%= link "Home", to: Routes.page_path(@conn, :index) %></li>
+<ul class="flex py-3">
+  <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index), class: "p-3 uppercase" %></li>
 <%= if @current_user do %>
-  <li><%= link "Notes", to: Routes.admin_note_path(@conn, :index) %></li>
-  <li><%= link "Lists", to: Routes.admin_list_path(@conn, :index) %></li>
+  <li><%= active_link @conn, "Notes", to: Routes.admin_note_path(@conn, :index), class: "p-3" %></li>
+<li><%= active_link @conn, "Lists", to: Routes.admin_list_path(@conn, :index), class: "p-3" %></li>
 <% end %>
 </ul>
