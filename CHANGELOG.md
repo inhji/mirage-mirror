@@ -5,6 +5,29 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.19.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.18.0...v0.19.0) (2021-12-28)
+
+
+
+
+### Features:
+
+* revamp theme
+
+* add note_list_live
+
+* add phoenix_active_link
+
+* add alpinejs, tailwind
+
+* add editor markdown toggle
+
+* add new dark theme
+
+### Bug Fixes:
+
+* markdown editor not saving content lol
+
 ## [v0.18.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.17.0...v0.18.0) (2021-12-27)
 
 
