@@ -34,9 +34,14 @@ const keys = {
 
 class MarkdownView {
   constructor(target, contentElement) {
-    this.textarea = target.appendChild(document.createElement("textarea"))
+  	const area = document.createElement("textarea")
+    area.addEventListener("input", function(e) {
+    	contentElement.value = e.target.value
+    })
+
+    this.textarea = target.appendChild(area)
     this.textarea.value = contentElement.value
-    this.textarea.rows = 20
+    this.textarea.rows = 15
   }
 
   get content() { return this.textarea.value }
