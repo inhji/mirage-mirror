@@ -37,12 +37,13 @@ defmodule MirageWeb.Admin.NoteControllerTest do
   describe "create note" do
     setup [:create_list]
 
-    test "redirects to show when data is valid", %{conn: conn, list: list} do
+    test "redirects to show when data is valid", %{conn: conn, list: list, user: user} do
       create_attrs = %{
         content: "some content",
         title: "some title",
         list_id: list.id,
-        tags_string: "some,tags"
+        tags_string: "some,tags",
+        user_id: user.id
       }
 
       conn = post(conn, Routes.admin_note_path(conn, :create), note: create_attrs)
