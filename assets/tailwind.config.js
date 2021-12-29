@@ -1,5 +1,7 @@
 module.exports = {
   mode: 'jit',
+  // https://tailwindcss.com/docs/configuration#important
+  important: '#app',
   content: [
     './js/**/*.js',
     '../lib/*_web/**/*.*ex'

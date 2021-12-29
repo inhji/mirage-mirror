@@ -8,7 +8,7 @@
     <%= live_title_tag assigns[:page_title] || "Mirage", suffix: " · Mirage" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
   </head>
-  <body class="bg-base flex flex-col">
+  <body id="app" class="bg-base flex flex-col">
     <header class="bg-base shadow-sm">
       <nav class="flex container mx-auto">
         <%= render "_content_menu.html", assigns %>        
