@@ -103,11 +103,12 @@ defmodule Mirage.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.deploy": [
-        "cmd --cd assets npm run deploy",
+        "cmd npm run deploy --prefix assets",
         "esbuild default --minify",
-        "phx.digest"
+        "phx.digest",
       ],
       rel: ["git_ops.release --yes", "docs"]
+      rel: ["git_ops.release --yes"],
       deploy: ["cmd bash ./deploy.sh"]
     ]
   end
