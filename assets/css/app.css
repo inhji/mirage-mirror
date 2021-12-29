@@ -5,13 +5,14 @@
 @import "tailwindcss/utilities";
 
 @import "_prosemirror";
+@import "_inter";
 
 /* Use Inter or Inter var, if supported*/
-html { font-family: 'Inter', sans-serif; }
+/* html { font-family: 'Inter', sans-serif; }
 
 @supports (font-variation-settings: normal) {
   html { font-family: 'Inter var', sans-serif; }
-}
+} */
 
 /* Base Styles */
 
