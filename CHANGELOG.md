@@ -5,6 +5,27 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.20.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.19.0...v0.20.0) (2021-12-29)
+
+
+
+
+### Features:
+
+* small improvements
+
+* add create_user/1 support function
+
+* add order_by for note list
+
+### Bug Fixes:
+
+* feeds_test
+
+* notecontroller test
+
+* css file styles overriding inline styles
+
 ## [v0.19.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.18.0...v0.19.0) (2021-12-28)
 
 
