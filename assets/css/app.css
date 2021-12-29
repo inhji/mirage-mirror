@@ -1,19 +1,19 @@
-/* This file is for your main application CSS */
+@import url('https://rsms.me/inter/inter.css');
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 @import "_prosemirror";
 
-@import url('https://rsms.me/inter/inter.css');
+/* Use Inter or Inter var, if supported*/
 html { font-family: 'Inter', sans-serif; }
+
 @supports (font-variation-settings: normal) {
   html { font-family: 'Inter var', sans-serif; }
 }
 
-* {
-  box-sizing: border-box;
-}
+/* Base Styles */
 
 html, body {
   @apply min-h-screen;
@@ -25,11 +25,7 @@ html {
 }
 
 h1 {
-  @apply text-3xl font-bold my-3;
-}
-
-h2 {
-  @apply text-2xl font-semibold;
+  @apply text-4xl font-bold my-6;
 }
 
 a {
@@ -40,11 +36,23 @@ a.active {
   @apply underline;
 }
 
+a[href*="//"]:after {
+  content: ' ↝';
+}
+
+/* Article and Freeform Content */
+
 article {
   & .tag {
-    @apply text-sm p-1 rounded;
+    @apply text-sm p-1 rounded shadow-sm;
   }
 }
+
+.prose {
+  @apply hover:prose-a:text-accent2;
+}
+
+/* Forms */
 
 form {
   & input,
@@ -57,11 +65,17 @@ form {
   }
 }
 
+/* Tables */
+
 table {
+  @apply w-full;
+
   & th, & td {
     @apply border border-low p-4 text-left;
   }
 } 
+
+/* Components */
 
 .button, input[type=submit], button[type=submit] {
   @apply p-3 inline-block border border-med bg-low hover:bg-accent1;

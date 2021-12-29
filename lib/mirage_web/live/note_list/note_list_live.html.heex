@@ -1,6 +1,5 @@
-
 <section class="p-3 bg-low border border-med">
-	<details>
+	<details phx-update="ignore">
 	  <summary>Filter</summary>
 	  
 	  <.form let={f} for={@changeset} phx-change="handle_change" class="flex flex-col xl:flex-row gap-6">
@@ -33,7 +32,7 @@
 	</details>
 </section>
 
-<table class="table-auto w-full border-collapse my-3">
+<table class="table-auto border-collapse my-3">
   <thead class="bg-low">
     <tr>
       <th>Title</th>
