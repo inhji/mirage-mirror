@@ -3,25 +3,20 @@ defmodule Mirage.FeedsTest do
 
   alias Mirage.Feeds
   import Mirage.NotesFixtures
+  import Mirage.AccountsFixtures
 
   describe "feeds" do
-    setup [:create_note]
+    setup [:create_note, :create_user]
 
-    test "build_feed/4 builds a rss/atom feed from a list of notes", %{note: note} do
+    test "build_feed/4 builds a rss/atom feed from a list of notes", %{note: note, user: user} do
       {:ok, note} = Mirage.Notes.publish_note(note)
 
-      entries = [note]
-      content_url = "http://some.url"
-      feed_url = "http://some.url/feed"
-      title = "Some Feed"
+      feed = Feeds.render_feed("home", user)
 
-      feed = Feeds.build_feed(entries, content_url, feed_url, title)
-
-      assert feed =~ title
-      assert feed =~ content_url
-      assert feed =~ feed_url
-      assert feed =~ note.title
+      assert feed =~ user.email
       assert feed =~ note.content
+      assert feed =~ note.slug
+      assert feed =~ note.title
     end
   end
 end
