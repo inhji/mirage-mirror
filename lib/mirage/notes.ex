@@ -42,13 +42,18 @@ defmodule Mirage.Notes do
     |> Repo.all()
   end
 
-  def list_notes(opts \\ %{}) do
+  @doc """
+  Returns the list of notes sorted by `MirageWeb.Live.NoteListParams`
+
+  *Internal use only*
+  """
+  def list_notes(opts) do
     query = with_preloads(Note)
 
     query =
       case opts["show_published"] do
-        "published" -> query = query |> where([n], not is_nil(n.published_at))
-        "unpublished" -> query = query |> where([n], is_nil(n.published_at))
+        "published" -> query |> where([n], not is_nil(n.published_at))
+        "unpublished" -> query |> where([n], is_nil(n.published_at))
         _ -> query
       end
 
@@ -66,6 +71,24 @@ defmodule Mirage.Notes do
         search_query ->
           str = "%#{search_query}%"
           query |> where([n], ilike(n.title, ^str))
+      end
+
+    query =
+      case opts["order_by"] do
+        "published_at_desc" ->
+          query |> order_by([n], desc: n.published_at)
+
+        "published_at_asc" ->
+          query |> order_by([n], asc: n.published_at)
+
+        "inserted_at_desc" ->
+          query |> order_by([n], desc: n.inserted_at)
+
+        "inserted_at_asc" ->
+          query |> order_by([n], asc: n.inserted_at)
+
+        _ ->
+          query
       end
 
     Repo.all(query)

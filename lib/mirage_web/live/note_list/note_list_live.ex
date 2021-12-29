@@ -10,13 +10,32 @@ defmodule MirageWeb.NoteListLive do
 
     lists = [{"All", "all"} | lists]
 
-    {:ok, socket |> assign(changeset: changeset, notes: notes, lists: lists)}
+    order_by = [
+      {"Default Order", "default"},
+      {"Publish Date, Newest First", "published_at_desc"},
+      {"Publish Date, Oldest First", "published_at_asc"},
+      {"Creation Date, Newest First", "inserted_at_desc"},
+      {"Creation Date, Oldest First", "inserted_at_asc"}
+    ]
+
+    {:ok,
+     socket
+     |> assign(%{
+       changeset: changeset,
+       notes: notes,
+       lists: lists,
+       order_by: order_by
+     })}
   end
 
   def handle_event("handle_change", %{"note_list_params" => params}, socket) do
-    IO.inspect(params)
     notes = Mirage.Notes.list_notes(params)
     {:noreply, socket |> assign(notes: notes, changeset: changeset(params))}
+  end
+
+  def handle_event("handle_reset", _params, socket) do
+    notes = Mirage.Notes.list_notes()
+    {:noreply, socket |> assign(changeset: changeset, notes: notes)}
   end
 
   defp changeset(attrs \\ %{}) do
