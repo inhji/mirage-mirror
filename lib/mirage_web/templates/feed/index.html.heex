@@ -1,7 +1,17 @@
-<h1>Feeds</h1>
+<article class="max-w-prose mx-auto prose">
+	<h1>📜 Feeds</h1>
 
-<h2>Index</h2>
+	<p>
+		Following people without Social Media is hard. That's why we have <a href="https://en.wikipedia.org/wiki/RSS">RSS</a>. RSS is a way of following people without a social network like Twitter or Facebook. All you need is a <a href="https://de.wikipedia.org/wiki/Feedreader">RSS-Reader</a>.
+	</p>
 
-<ul>
-	<li><%= link "Main feed", to: Routes.feed_path(@conn, :show, :home) %></li>
-</ul>
+	<p>
+		Below is a list of RSS Feeds that exist on this website.
+	</p>
+
+	<h2>Index</h2>
+
+	<ul>
+		<li><%= link "Main feed", to: Routes.feed_path(@conn, :show, :home) %></li>
+	</ul>
+</article>
