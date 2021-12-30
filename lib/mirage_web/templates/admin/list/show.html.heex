@@ -19,4 +19,9 @@
 </article>
 
 <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, @list) %></span> |
+<%= if is_nil(@list.published_at) do %>
+<span><%= link "Publish", to: Routes.admin_list_path(@conn, :publish, @list) %></span> |
+<% else %>
+<span><%= link "Unpublish", to: Routes.admin_list_path(@conn, :unpublish, @list) %></span> |
+<% end %>
 <span><%= link "Back", to: Routes.admin_list_path(@conn, :index) %></span>

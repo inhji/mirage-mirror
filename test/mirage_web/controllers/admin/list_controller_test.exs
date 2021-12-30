@@ -78,6 +78,26 @@ defmodule MirageWeb.Admin.ListControllerTest do
     end
   end
 
+  describe "publish list" do
+    setup [:create_list]
+
+    test "publishes a list", %{conn: conn, list: list} do
+      conn = get(conn, Routes.admin_list_path(conn, :publish, list), id: list.id)
+      assert redirected_to(conn) == Routes.admin_list_path(conn, :show, list)
+
+      conn = get(conn, Routes.admin_list_path(conn, :show, list))
+      assert html_response(conn, 200) =~ "Unpublish"
+    end
+
+    test "unpublishes a list", %{conn: conn, list: list} do
+      conn = get(conn, Routes.admin_list_path(conn, :unpublish, list), id: list.id)
+      assert redirected_to(conn) == Routes.admin_list_path(conn, :show, list)
+
+      conn = get(conn, Routes.admin_list_path(conn, :show, list))
+      assert html_response(conn, 200) =~ "Publish"
+    end
+  end
+
   describe "delete list" do
     setup [:create_list]
 

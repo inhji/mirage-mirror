@@ -83,6 +83,32 @@ defmodule Mirage.Lists do
   end
 
   @doc """
+  Publishes a note by setting published_at to utc_now
+
+  ## Examples
+
+      iex> publish_list(list)
+      {:ok, %list{}}
+      
+  """
+  def publish_list(%List{} = list) do
+    update_list(list, %{published_at: DateTime.utc_now()})
+  end
+
+  @doc """
+  Unpublishes a not by setting published_at to nil
+
+  ## Examples
+
+      iex> publish_list(list)
+      {:ok, %list{}}
+      
+  """
+  def unpublish_list(%List{} = list) do
+    update_list(list, %{published_at: nil})
+  end
+
+  @doc """
   Deletes a list.
 
   ## Examples

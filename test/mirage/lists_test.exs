@@ -76,5 +76,17 @@ defmodule Mirage.ListsTest do
       list = list_fixture()
       assert %Ecto.Changeset{} = Lists.change_list(list)
     end
+
+    test "publish_list/1 publishes a list by setting published_at" do
+      list = list_fixture()
+      assert {:ok, %List{} = list} = Lists.publish_list(list)
+      assert not is_nil(list.published_at)
+    end
+
+    test "unpublish_list/1 unpublishes a list by setting published_at to nil" do
+      list = list_fixture()
+      assert {:ok, %List{} = list} = Lists.unpublish_list(list)
+      assert is_nil(list.published_at)
+    end
   end
 end

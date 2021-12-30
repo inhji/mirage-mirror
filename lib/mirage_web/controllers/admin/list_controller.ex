@@ -51,6 +51,34 @@ defmodule MirageWeb.Admin.ListController do
     end
   end
 
+  def publish(conn, %{"id" => id}) do
+    list = Lists.get_list!(id)
+
+    case Lists.publish_list(list) do
+      {:ok, list} ->
+        conn
+        |> put_flash(:info, "List published successfully.")
+        |> redirect(to: Routes.admin_list_path(conn, :show, list))
+
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        render(conn, "show.html", list: list)
+    end
+  end
+
+  def unpublish(conn, %{"id" => id}) do
+    list = Lists.get_list!(id)
+
+    case Lists.unpublish_list(list) do
+      {:ok, list} ->
+        conn
+        |> put_flash(:info, "List unpublished successfully.")
+        |> redirect(to: Routes.admin_list_path(conn, :show, list))
+
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        render(conn, "show.html", list: list)
+    end
+  end
+
   def delete(conn, %{"id" => id}) do
     list = Lists.get_list!(id)
     {:ok, _list} = Lists.delete_list(list)
