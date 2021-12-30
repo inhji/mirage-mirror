@@ -106,11 +106,10 @@ defmodule Mirage.MixProject do
       "assets.deploy": [
         "cmd npm run deploy --prefix assets",
         "esbuild default --minify",
-        "phx.digest",
+        "phx.digest"
       ],
-      rel: ["git_ops.release --yes", "docs"]
-      rel: ["git_ops.release --yes"],
-      deploy: ["cmd bash ./deploy.sh"]
+      rel: ["git_ops.release --yes", "docs"],
+      deploy: ["cmd bash ./deploy/deploy.sh"]
     ]
   end
 end

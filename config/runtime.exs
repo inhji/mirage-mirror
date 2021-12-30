@@ -33,9 +33,9 @@ if config_env() == :prod do
       """
 
   host =
-    System.get_env("PHX_HOST") ||
+    System.get_env("PUBLIC_HOST") ||
       raise """
-      environment variable PHX_HOST is missing.
+      environment variable PUBLIC_HOST is missing.
       It should look like: example.com
       """
 
@@ -49,7 +49,8 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: String.to_integer(System.get_env("PORT") || "4000")
     ],
-    secret_key_base: secret_key_base
+    secret_key_base: secret_key_base,
+    server: true
 
   tzdata_dir =
     System.get_env("TZDATA_DIR") ||
