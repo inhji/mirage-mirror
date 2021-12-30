@@ -72,7 +72,7 @@ defmodule Mirage.MixProject do
     [
       # The main page in the docs
       main: "Mirage",
-      logo: "assets/images/mirage.png",
+      logo: "priv/static/images/mirage.png",
       extras: ["README.md", "CHANGELOG.md"],
       output: "priv/static/docs",
       groups_for_modules: [
