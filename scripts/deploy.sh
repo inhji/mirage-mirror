@@ -16,4 +16,4 @@ EOSSH
 echo ""
 echo "Build complete, restarting..."
 echo "--------------------------"
-#ssh -T mirage@glados sudo systemctl restart mirage
+ssh -T mirage@glados sudo systemctl restart mirage2
