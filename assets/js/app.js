@@ -28,7 +28,6 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import createEditor from "./editor"
 import topbar from "../vendor/topbar"
-import Theme from "../vendor/theme"
 import autoComplete from "@tarekraafat/autocomplete.js"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
@@ -48,26 +47,13 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-// const theme = new Theme()
-// theme.install(document.body)
-// theme.start()
-
 document.addEventListener("DOMContentLoaded", function () {
-	// TODO: File bug with 
-	// const config = {
-	// 	selector: ".has-autocomplete",
+	
+	// const autoCompleteJS = new autoComplete({
 	// 	data: {
 	// 		src: ["foo", "bar", "baz"]
 	// 	}
-	// }
- 	//  const autoCompleteJS = new autoComplete({ config });
-
- //  const themes = document.querySelectorAll("section.themes svg")
-	// themes.forEach(entry => {
-	// 	entry.addEventListener("click", () => {
-	// 		theme.load(entry.outerHTML)
-	// 	})
-	// })
+	// });
 
 	// Initialize milkdown editor for all editorElements
 	// A #editor div as container is required 
