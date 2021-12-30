@@ -5,6 +5,35 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.21.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.20.0...v0.21.0) (2021-12-30)
+
+
+
+
+### Features:
+
+* small deploy tweaks
+
+* add tzdata
+
+* move all assets to /priv/static
+
+* small tweaks
+
+* add manifest.json to Endpoint config
+
+* add favicon
+
+* feed page
+
+* about page
+
+### Bug Fixes:
+
+* warnings
+
+* re-add mirage logo
+
 ## [v0.20.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.19.0...v0.20.0) (2021-12-29)
 
 
