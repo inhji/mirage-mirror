@@ -51,6 +51,15 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+  tzdata_dir =
+    System.get_env("TZDATA_DIR") ||
+      raise """
+      environment variable TZDATA_DIR is missing.
+      It should look like: /opt/mirage_data/tzdata
+      """
+
+  config :tzdata, :data_dir, tzdata_dir
+
   # ## Using releases
   #
   # If you are doing OTP releases, you need to instruct Phoenix
