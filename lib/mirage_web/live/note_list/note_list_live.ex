@@ -21,7 +21,7 @@ defmodule MirageWeb.NoteListLive do
     {:ok,
      socket
      |> assign(%{
-       changeset: changeset,
+       changeset: changeset(),
        notes: notes,
        lists: lists,
        order_by: order_by
@@ -35,7 +35,7 @@ defmodule MirageWeb.NoteListLive do
 
   def handle_event("handle_reset", _params, socket) do
     notes = Mirage.Notes.list_notes()
-    {:noreply, socket |> assign(changeset: changeset, notes: notes)}
+    {:noreply, socket |> assign(changeset: changeset(), notes: notes)}
   end
 
   defp changeset(attrs \\ %{}) do

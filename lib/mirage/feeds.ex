@@ -2,6 +2,14 @@ defmodule Mirage.Feeds do
   alias Atomex.{Feed, Entry}
   alias MirageWeb.Router.Helpers, as: Routes
 
+  @doc """
+  Builds an rss/atom feed from the supplied entries
+
+  ## Note
+
+  This uses XmlBuilder directly instead of Atomex.generate_document because of 
+  https://github.com/Betree/atomex/pull/54
+  """
   def render_feed(id, user) do
     id
     |> get_feed()
@@ -17,14 +25,6 @@ defmodule Mirage.Feeds do
     }
   end
 
-  @doc """
-  Builds an rss/atom feed from the supplied entries
-
-  ## Note
-
-  This uses XmlBuilder directly instead of Atomex.generate_document because of 
-  https://github.com/Betree/atomex/pull/54
-  """
   defp build_feed(
          %{
            title: title,
