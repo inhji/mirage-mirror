@@ -89,7 +89,7 @@ table {
 /* Components */
 
 .button, input[type=submit], button[type=submit] {
-  @apply p-3 inline-block border border-med bg-low hover:bg-accent1;
+  @apply p-3 inline-block border border-med bg-low hover:bg-accent1 hover:no-underline;
 }
 
 /* Animations */
