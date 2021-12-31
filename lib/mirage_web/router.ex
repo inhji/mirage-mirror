@@ -21,7 +21,6 @@ defmodule MirageWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/theme", PageController, :theme
     get "/about", PageController, :about
 
     get "/feeds", FeedController, :index

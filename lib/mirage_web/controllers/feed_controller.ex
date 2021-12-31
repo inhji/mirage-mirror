@@ -3,7 +3,7 @@ defmodule MirageWeb.FeedController do
   import Mirage.Feeds, only: [render_feed: 2]
 
   def index(conn, _params) do
-    render(conn, "index.html", page_title: "Feed")
+    render(conn, "index.html", page_title: "Feeds")
   end
 
   def show(conn, %{"id" => feed_id}) do

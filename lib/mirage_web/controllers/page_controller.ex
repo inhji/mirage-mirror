@@ -7,10 +7,6 @@ defmodule MirageWeb.PageController do
   end
 
   def about(conn, _params) do
-    render(conn, "about.html", page_title: "About Me")
-  end
-
-  def theme(conn, _params) do
-    render(conn, "theme.html", page_title: "Theme Selector")
+    render(conn, "about.html", page_title: "About")
   end
 end

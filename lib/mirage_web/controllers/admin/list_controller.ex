@@ -6,12 +6,12 @@ defmodule MirageWeb.Admin.ListController do
 
   def index(conn, _params) do
     lists = Lists.list_lists()
-    render(conn, "index.html", lists: lists)
+    render(conn, "index.html", lists: lists, page_title: "Lists")
   end
 
   def new(conn, _params) do
     changeset = Lists.change_list(%List{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, page_title: "New List")
   end
 
   def create(conn, %{"list" => list_params}) do
@@ -22,19 +22,19 @@ defmodule MirageWeb.Admin.ListController do
         |> redirect(to: Routes.admin_list_path(conn, :show, list))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, page_title: "New List")
     end
   end
 
   def show(conn, %{"id" => id}) do
     list = Lists.get_list!(id)
-    render(conn, "show.html", list: list)
+    render(conn, "show.html", list: list, page_title: list.title)
   end
 
   def edit(conn, %{"id" => id}) do
     list = Lists.get_list!(id)
     changeset = Lists.change_list(list)
-    render(conn, "edit.html", list: list, changeset: changeset)
+    render(conn, "edit.html", list: list, changeset: changeset, page_title: "Edit List")
   end
 
   def update(conn, %{"id" => id, "list" => list_params}) do
@@ -47,7 +47,7 @@ defmodule MirageWeb.Admin.ListController do
         |> redirect(to: Routes.admin_list_path(conn, :show, list))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", list: list, changeset: changeset)
+        render(conn, "edit.html", list: list, changeset: changeset, page_title: "Edit List")
     end
   end
 
