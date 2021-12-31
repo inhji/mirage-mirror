@@ -73,6 +73,8 @@ defmodule Mirage.Accounts do
   """
   def get_user!(), do: User |> first |> Repo.one!()
 
+  def get_user(), do: User |> first |> Repo.one()
+
   @doc """
   Updates a user's profile fields like name and bio.
   """

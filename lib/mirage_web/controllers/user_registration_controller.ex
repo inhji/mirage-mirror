@@ -11,6 +11,9 @@ defmodule MirageWeb.UserRegistrationController do
   end
 
   def create(conn, %{"user" => user_params}) do
+    # Prevent signup after the first user.
+    user_params = if Accounts.get_user(), do: %{}, else: user_params
+
     case Accounts.register_user(user_params) do
       {:ok, user} ->
         {:ok, _} =
