@@ -10,7 +10,7 @@ echo "Build starting!"
 echo "--------------------------"
 ssh -T mirage@glados << EOSSH
 cd /opt/mirage2
-./deploy/build.sh
+./scripts/build.sh
 EOSSH
 
 echo ""
