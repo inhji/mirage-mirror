@@ -5,6 +5,33 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.24.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.23.1...v0.24.0) (2021-12-31)
+
+
+
+
+### Features:
+
+* add max width to settings page
+
+* make slug editable
+
+* separate home link
+
+* create color palette from tailwind colors
+
+* unify content links
+
+* make all content links accent2
+
+* add h2 styles again
+
+### Bug Fixes:
+
+* alert styles for live pages
+
+* path to scripts part 2
+
 ## [v0.23.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.23.0...v0.23.1) (2021-12-31)
 
 
