@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.25.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.24.0...v0.25.0) (2021-12-31)
+
+
+
+
+### Features:
+
+* rename deploy alias to push, add new deploy alias
+
+* add head metadata
+
+* clean up page_titles
+
 ## [v0.24.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.23.1...v0.24.0) (2021-12-31)
 
 
