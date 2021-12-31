@@ -14,6 +14,12 @@
   </fieldset>
 
   <fieldset>
+    <%= label f, :slug, "Slug ⚠️", title: "This will change the permalink of this note!" %>
+    <%= text_input f, :slug %>
+    <%= error_tag f, :slug %>
+  </fieldset>
+
+  <fieldset>
     <%= label f, :content %>
     <div id="editor" class="prose"></div>
 
