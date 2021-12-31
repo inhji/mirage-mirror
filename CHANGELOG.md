@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.23.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.22.0...v0.23.0) (2021-12-31)
+
+
+
+
+### Features:
+
+* prevent signup after the first user
+
+* give login screen a max width
+
+* improve alert colors
+
+* clean up unused js
+
+* switch to selfhosted inter font again
+
 ## [v0.22.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.21.1...v0.22.0) (2021-12-30)
 
 
