@@ -109,7 +109,12 @@ defmodule Mirage.MixProject do
         "phx.digest"
       ],
       rel: ["git_ops.release --yes", "docs"],
-      deploy: ["cmd bash ./scripts/deploy.sh"]
+      push: ["cmd bash ./scripts/deploy.sh"],
+      deploy: [
+        "rel",
+        "push",
+        "cmd git push --follow-tags"
+      ]
     ]
   end
 end
