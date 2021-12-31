@@ -9,15 +9,18 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
   </head>
   <body class="bg-base flex flex-col selection:bg-accent1 selection:text-white">
-    <header class="bg-base shadow-sm">
+    <header class="bg-gray-50 shadow-sm">
       <nav class="flex container mx-auto">
+        <ul class="flex py-3">
+          <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index), class: "p-3 uppercase font-medium" %></li>
+        </ul>
         <%= render "_content_menu.html", assigns %>        
         <div class="flex-1"></div>
         <%= render "_misc_menu.html", assigns %>
       </nav>
     </header>
     
-    <main class="container mx-auto px-3 my-10 grow shrink-0">
+    <main id="content" class="container mx-auto px-3 my-10 grow shrink-0">
       <%= @inner_content %>
     </main>
 
