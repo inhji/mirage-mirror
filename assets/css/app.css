@@ -49,14 +49,22 @@ article {
   }
 }
 
-.prose {
-  @apply hover:prose-a:text-accent2;
+#content {
+  @apply hover:prose-a:decoration-accent2;
+
+  & a {
+    @apply decoration-accent2;
+  }
 }
 
 /* Forms */
 
 form {
   @apply flex flex-col gap-3;
+
+  & fieldset {
+    @apply flex flex-col gap-1;
+  }
 
   & input,
   & textarea {
