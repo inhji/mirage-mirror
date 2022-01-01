@@ -18,6 +18,10 @@ defmodule Mirage.Logger do
     |> Repo.all()
   end
 
+  def clear_logs() do
+    Repo.delete_all(Log)
+  end
+
   def log(message, level, metadata \\ %{}) do
     %Log{}
     |> Log.changeset(%{
