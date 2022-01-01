@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.27.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.26.0...v0.27.0) (2022-01-01)
+
+
+
+
+### Features:
+
+* add dashboard_controller test
+
 ## [v0.26.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.25.0...v0.26.0) (2022-01-01)
 
 
