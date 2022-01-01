@@ -1,0 +1,12 @@
+<h1>Dashboard</h1>
+
+<section>
+	<h2>📑 Latest Logs</h2>
+
+	<%= for log <- @logs do %>
+	<article class="shadow bg-white px-3 py-2 mb-3 {log.level}">
+		<p><%= log.message %></p>
+		<pre><%= inspect(log.metadata, pretty: true) %></pre>
+	</article>
+	<% end %>
+</section>

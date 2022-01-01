@@ -2,6 +2,7 @@
 <%= if @current_user do %>
   <li><span class="p-3"><%= @current_user.email %></span></li>
   <li><%= active_link @conn, "Settings", to: Routes.user_settings_path(@conn, :edit), class: "p-3" %></li>
+  <li><%= active_link @conn, "Dashboard", to: Routes.admin_dashboard_path(@conn, :index), class: "p-3" %></li>
   <li><%= active_link @conn, "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "p-3" %></li>
 <% else %>
   <li><%= active_link @conn, "Register", to: Routes.user_registration_path(@conn, :new), class: "p-3" %></li>
