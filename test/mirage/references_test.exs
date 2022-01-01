@@ -3,7 +3,6 @@ defmodule Mirage.ReferencesTest do
 
   alias Mirage.Notes
   alias Mirage.Notes.Note
-  import Mirage.ListsFixtures
   import Mirage.NotesFixtures
   import Mirage.References, only: [get_references: 1, replace_references: 1]
 
