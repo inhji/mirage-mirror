@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.26.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.25.0...v0.26.0) (2022-01-01)
+
+
+
+
+### Features:
+
+* add dashboard to show logs
+
+* add clear_logs/0
+
+* add database logging module
+
+* Add webmentions
+
 ## [v0.25.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.24.0...v0.25.0) (2021-12-31)
 
 
