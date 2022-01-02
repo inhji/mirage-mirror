@@ -1,17 +1,19 @@
 defmodule Mirage.IdentitiesTest do
   use Mirage.DataCase
 
+  import Mirage.IdentitiesFixtures
+  import Mirage.AccountsFixtures
+
   alias Mirage.Identities
+  alias Mirage.Identities.UserIdentity
 
   describe "users_identities" do
-    alias Mirage.Identities.UserIdentity
-
-    import Mirage.IdentitiesFixtures
-
     @invalid_attrs %{active: nil, name: nil, public: nil, rel: nil, value: nil}
 
+    setup :create_user
+
     test "list_users_identities/0 returns all users_identities", %{user: user} do
-      user_identity = user_identity_fixture()
+      user_identity = user_identity_fixture(%{user_id: user.id})
       assert Identities.list_user_identities(user) == [user_identity]
     end
 
@@ -20,13 +22,14 @@ defmodule Mirage.IdentitiesTest do
       assert Identities.get_user_identity!(user_identity.id) == user_identity
     end
 
-    test "create_user_identity/1 with valid data creates a user_identity" do
+    test "create_user_identity/1 with valid data creates a user_identity", %{user: user} do
       valid_attrs = %{
         active: true,
         name: "some name",
         public: true,
         rel: "some rel",
-        value: "some value"
+        value: "some value",
+        user_id: user.id
       }
 
       assert {:ok, %UserIdentity{} = user_identity} = Identities.create_user_identity(valid_attrs)

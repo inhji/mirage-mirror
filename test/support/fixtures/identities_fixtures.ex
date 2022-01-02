@@ -4,10 +4,14 @@ defmodule Mirage.IdentitiesFixtures do
   entities via the `Mirage.Identities` context.
   """
 
+  import Mirage.AccountsFixtures
+
   @doc """
   Generate a user_identity.
   """
   def user_identity_fixture(attrs \\ %{}) do
+    user = user_fixture()
+
     {:ok, user_identity} =
       attrs
       |> Enum.into(%{
@@ -15,7 +19,8 @@ defmodule Mirage.IdentitiesFixtures do
         name: "some name",
         public: true,
         rel: "some rel",
-        value: "some value"
+        value: "some value",
+        user_id: user.id
       })
       |> Mirage.Identities.create_user_identity()
 

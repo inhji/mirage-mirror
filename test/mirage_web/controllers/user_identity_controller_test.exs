@@ -3,13 +3,6 @@ defmodule MirageWeb.UserIdentityControllerTest do
 
   import Mirage.IdentitiesFixtures
 
-  @create_attrs %{
-    active: true,
-    name: "some name",
-    public: true,
-    rel: "some rel",
-    value: "some value"
-  }
   @update_attrs %{
     active: false,
     name: "some updated name",
@@ -21,13 +14,6 @@ defmodule MirageWeb.UserIdentityControllerTest do
 
   setup :register_and_log_in_user
 
-  describe "index" do
-    test "lists all users_identities", %{conn: conn} do
-      conn = get(conn, Routes.user_identity_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Users identities"
-    end
-  end
-
   describe "new user_identity" do
     test "renders form", %{conn: conn} do
       conn = get(conn, Routes.user_identity_path(conn, :new))
@@ -36,14 +22,18 @@ defmodule MirageWeb.UserIdentityControllerTest do
   end
 
   describe "create user_identity" do
-    test "redirects to show when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.user_identity_path(conn, :create), user_identity: @create_attrs)
+    test "redirects to show when data is valid", %{conn: conn, user: user} do
+      create_attrs = %{
+        active: true,
+        name: "some name",
+        public: true,
+        rel: "some rel",
+        value: "some value",
+        user_id: user.id
+      }
 
-      assert %{id: id} = redirected_params(conn)
-      assert redirected_to(conn) == Routes.user_identity_path(conn, :show, id)
-
-      conn = get(conn, Routes.user_identity_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show User identity"
+      conn = post(conn, Routes.user_identity_path(conn, :create), user_identity: create_attrs)
+      assert redirected_to(conn) == Routes.user_settings_path(conn, :edit)
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -94,7 +84,7 @@ defmodule MirageWeb.UserIdentityControllerTest do
 
     test "deletes chosen user_identity", %{conn: conn, user_identity: user_identity} do
       conn = delete(conn, Routes.user_identity_path(conn, :delete, user_identity))
-      assert redirected_to(conn) == Routes.user_identity_path(conn, :index)
+      assert redirected_to(conn) == Routes.user_settings_path(conn, :edit)
 
       assert_error_sent 404, fn ->
         get(conn, Routes.user_identity_path(conn, :show, user_identity))
