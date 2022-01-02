@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.28.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.27.0...v0.28.0) (2022-01-02)
+
+
+
+
+### Features:
+
+* Add postcss-preset-env
+
+* add user identities
+
 ## [v0.27.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.26.0...v0.27.0) (2022-01-01)
 
 
