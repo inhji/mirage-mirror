@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.29.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.28.0...v0.29.0) (2022-01-02)
+
+
+
+
+### Features:
+
+* finish identity tests
+
 ## [v0.28.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.27.0...v0.28.0) (2022-01-02)
 
 
