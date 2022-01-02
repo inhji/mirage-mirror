@@ -3,9 +3,23 @@ defmodule MirageWeb.UserIdentityControllerTest do
 
   import Mirage.IdentitiesFixtures
 
-  @create_attrs %{active: true, name: "some name", public: true, rel: "some rel", value: "some value"}
-  @update_attrs %{active: false, name: "some updated name", public: false, rel: "some updated rel", value: "some updated value"}
+  @create_attrs %{
+    active: true,
+    name: "some name",
+    public: true,
+    rel: "some rel",
+    value: "some value"
+  }
+  @update_attrs %{
+    active: false,
+    name: "some updated name",
+    public: false,
+    rel: "some updated rel",
+    value: "some updated value"
+  }
   @invalid_attrs %{active: nil, name: nil, public: nil, rel: nil, value: nil}
+
+  setup :register_and_log_in_user
 
   describe "index" do
     test "lists all users_identities", %{conn: conn} do
@@ -41,7 +55,10 @@ defmodule MirageWeb.UserIdentityControllerTest do
   describe "edit user_identity" do
     setup [:create_user_identity]
 
-    test "renders form for editing chosen user_identity", %{conn: conn, user_identity: user_identity} do
+    test "renders form for editing chosen user_identity", %{
+      conn: conn,
+      user_identity: user_identity
+    } do
       conn = get(conn, Routes.user_identity_path(conn, :edit, user_identity))
       assert html_response(conn, 200) =~ "Edit User identity"
     end
@@ -51,7 +68,11 @@ defmodule MirageWeb.UserIdentityControllerTest do
     setup [:create_user_identity]
 
     test "redirects when data is valid", %{conn: conn, user_identity: user_identity} do
-      conn = put(conn, Routes.user_identity_path(conn, :update, user_identity), user_identity: @update_attrs)
+      conn =
+        put(conn, Routes.user_identity_path(conn, :update, user_identity),
+          user_identity: @update_attrs
+        )
+
       assert redirected_to(conn) == Routes.user_identity_path(conn, :show, user_identity)
 
       conn = get(conn, Routes.user_identity_path(conn, :show, user_identity))
@@ -59,7 +80,11 @@ defmodule MirageWeb.UserIdentityControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, user_identity: user_identity} do
-      conn = put(conn, Routes.user_identity_path(conn, :update, user_identity), user_identity: @invalid_attrs)
+      conn =
+        put(conn, Routes.user_identity_path(conn, :update, user_identity),
+          user_identity: @invalid_attrs
+        )
+
       assert html_response(conn, 200) =~ "Edit User identity"
     end
   end

@@ -10,9 +10,9 @@ defmodule Mirage.IdentitiesTest do
 
     @invalid_attrs %{active: nil, name: nil, public: nil, rel: nil, value: nil}
 
-    test "list_users_identities/0 returns all users_identities" do
+    test "list_users_identities/0 returns all users_identities", %{user: user} do
       user_identity = user_identity_fixture()
-      assert Identities.list_users_identities() == [user_identity]
+      assert Identities.list_user_identities(user) == [user_identity]
     end
 
     test "get_user_identity!/1 returns the user_identity with given id" do
@@ -21,7 +21,13 @@ defmodule Mirage.IdentitiesTest do
     end
 
     test "create_user_identity/1 with valid data creates a user_identity" do
-      valid_attrs = %{active: true, name: "some name", public: true, rel: "some rel", value: "some value"}
+      valid_attrs = %{
+        active: true,
+        name: "some name",
+        public: true,
+        rel: "some rel",
+        value: "some value"
+      }
 
       assert {:ok, %UserIdentity{} = user_identity} = Identities.create_user_identity(valid_attrs)
       assert user_identity.active == true
@@ -37,9 +43,18 @@ defmodule Mirage.IdentitiesTest do
 
     test "update_user_identity/2 with valid data updates the user_identity" do
       user_identity = user_identity_fixture()
-      update_attrs = %{active: false, name: "some updated name", public: false, rel: "some updated rel", value: "some updated value"}
 
-      assert {:ok, %UserIdentity{} = user_identity} = Identities.update_user_identity(user_identity, update_attrs)
+      update_attrs = %{
+        active: false,
+        name: "some updated name",
+        public: false,
+        rel: "some updated rel",
+        value: "some updated value"
+      }
+
+      assert {:ok, %UserIdentity{} = user_identity} =
+               Identities.update_user_identity(user_identity, update_attrs)
+
       assert user_identity.active == false
       assert user_identity.name == "some updated name"
       assert user_identity.public == false
@@ -49,7 +64,10 @@ defmodule Mirage.IdentitiesTest do
 
     test "update_user_identity/2 with invalid data returns error changeset" do
       user_identity = user_identity_fixture()
-      assert {:error, %Ecto.Changeset{}} = Identities.update_user_identity(user_identity, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Identities.update_user_identity(user_identity, @invalid_attrs)
+
       assert user_identity == Identities.get_user_identity!(user_identity.id)
     end
 
