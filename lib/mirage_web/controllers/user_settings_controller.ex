@@ -1,7 +1,7 @@
 defmodule MirageWeb.UserSettingsController do
   use MirageWeb, :controller
 
-  alias Mirage.Accounts
+  alias Mirage.{Accounts, Identities}
   alias MirageWeb.UserAuth
 
   plug :assign_email_and_password_changesets
@@ -85,5 +85,6 @@ defmodule MirageWeb.UserSettingsController do
     |> assign(:email_changeset, Accounts.change_user_email(user))
     |> assign(:password_changeset, Accounts.change_user_password(user))
     |> assign(:profile_changeset, Accounts.change_user_profile(user))
+    |> assign(:user_identities, Identities.list_user_identities(user))
   end
 end

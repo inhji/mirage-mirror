@@ -1,0 +1,43 @@
+<.form let={f} for={@changeset} action={@action}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= hidden_input f, :user_id, value: @current_user.id %>
+
+  <fieldset>
+    <%= label f, :name %>
+    <%= text_input f, :name %>
+    <%= error_tag f, :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :value %>
+    <%= text_input f, :value %>
+    <%= error_tag f, :value %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :rel %>
+    <%= text_input f, :rel %>
+    <%= error_tag f, :rel %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :active %>
+    <%= checkbox f, :active %>
+    <%= error_tag f, :active %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :public %>
+    <%= checkbox f, :public %>
+    <%= error_tag f, :public %>
+  </fieldset>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+</.form>
