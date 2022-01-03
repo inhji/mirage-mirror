@@ -11,7 +11,7 @@ defmodule MirageWeb.UserIdentityController do
 
   def create(conn, %{"user_identity" => user_identity_params}) do
     case Identities.create_user_identity(user_identity_params) do
-      {:ok, user_identity} ->
+      {:ok, _user_identity} ->
         conn
         |> put_flash(:info, "User identity created successfully.")
         |> redirect(to: Routes.user_settings_path(conn, :edit))

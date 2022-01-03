@@ -6,7 +6,7 @@ defmodule Mirage.Accounts do
   import Ecto.Query, warn: false
   alias Mirage.Repo
 
-  alias Mirage.Accounts.{User, UserToken, UserNotifier, UserIdentity}
+  alias Mirage.Accounts.{User, UserToken, UserNotifier}
 
   ## Database getters
 
