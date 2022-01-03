@@ -1,7 +1,9 @@
 defmodule Mirage.Logger do
-  import Ecto.Query, warn: false
-  alias Mirage.Repo
+  require Logger
 
+  import Ecto.Query, warn: false
+
+  alias Mirage.Repo
   alias Mirage.Logger.Log
 
   def list_logs(opts \\ []) do
@@ -15,6 +17,7 @@ defmodule Mirage.Logger do
       end
 
     query
+    |> order_by(desc: :inserted_at)
     |> Repo.all()
   end
 
@@ -23,16 +26,28 @@ defmodule Mirage.Logger do
   end
 
   def log(message, level, metadata \\ %{}) do
-    %Log{}
-    |> Log.changeset(%{
+    args = %{
       message: message,
       level: level,
       metadata: metadata
-    })
-    |> Repo.insert()
+    }
+
+    log = Log.changeset(%Log{}, args)
+
+    case Repo.insert(log) do
+      {:ok, _log} ->
+        Logger.info("Log Message: #{inspect(args, pretty: true)}")
+
+      error ->
+        Logger.warn("Error while logging: #{inspect(error, pretty: true)}")
+    end
   end
 
   def info(message, metadata \\ %{}) do
     log(message, :info, metadata)
+  end
+
+  def error(message, metadata \\ %{}) do
+    log(message, :error, metadata)
   end
 end
