@@ -15,7 +15,9 @@ defmodule Mirage.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Mirage.PubSub},
       # Start the Endpoint (http/https)
-      MirageWeb.Endpoint
+      MirageWeb.Endpoint,
+      # Start oban
+      {Oban, oban_config()}
       # Start a worker by calling: Mirage.Worker.start_link(arg)
       # {Mirage.Worker, arg}
     ]
@@ -24,6 +26,11 @@ defmodule Mirage.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Mirage.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  # Conditionally disable queues or plugins here.
+  defp oban_config do
+    Application.fetch_env!(:mirage, Oban)
   end
 
   # Tell Phoenix to update the endpoint configuration

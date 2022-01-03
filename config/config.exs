@@ -42,6 +42,11 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
+config :mirage, Oban,
+  repo: Mirage.Repo,
+  plugins: [{Oban.Plugins.Pruner, max_age: 300}],
+  queues: [webmention: 10]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

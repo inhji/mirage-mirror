@@ -50,6 +50,7 @@ defmodule Mirage.MixProject do
       {:jason, "~> 1.2"},
       {:hackney, "~> 1.18"},
       {:microformats2, "~> 0.7.4"},
+      {:oban, "~> 2.10"},
       {:phoenix, "~> 1.6.2"},
       {:phoenix_active_link, "~> 0.3.1"},
       {:phoenix_ecto, "~> 4.4"},
