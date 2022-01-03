@@ -1,0 +1,35 @@
+<section class="grid grid-cols-2 gap-3">
+	<section class="col-span-1">
+		<h2>📑 Latest Logs</h2>
+
+		<%= for log <- @logs do %>
+		<article class="shadow bg-white mb-3 {log.level} rounded-lg">
+			<details>
+				<summary class="p-4">
+					<span><%= log.message %></span>
+					<em><%= Timex.from_now(log.inserted_at) %></em>
+				</summary>
+				<pre class="whitespace-pre-wrap p-4 border-t border-gray-200">
+					<%= inspect(log.metadata, pretty: true) %>
+				</pre>
+			</details>
+		</article>
+		<% end %>
+	</section>
+
+	<section class="col-span-1">
+		<h2>👩‍🏭 Latest Jobs</h2>
+
+		<%= for job <- @jobs do %>
+		<article class="shadow bg-white rounded-lg mb-3 {job.level}">
+			<details>
+				<summary class="p-4">
+					<span><%= job.worker %></span>
+					<em><%= Timex.from_now(job.inserted_at) %></em>
+				</summary>
+				<pre class="whitespace-pre-wrap p-4 border-t border-gray-200"><%= inspect(job.errors, pretty: true) %></pre>
+			</details>
+		</article>
+		<% end %>
+	</section>
+</section>
