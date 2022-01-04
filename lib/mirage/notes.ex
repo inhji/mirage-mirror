@@ -11,6 +11,7 @@ defmodule Mirage.Notes do
 
   alias Mirage.Repo
   alias Mirage.Notes.Note
+  alias Mirage.Notes.NoteHooks
   alias Mirage.Tags.TagUpdater
 
   @preloads [:list, :tags, :user]
@@ -162,18 +163,10 @@ defmodule Mirage.Notes do
 
   """
   def create_note(attrs \\ %{}) do
-    case %Note{}
-         |> Note.changeset(attrs)
-         |> Repo.insert() do
-      {:ok, note} ->
-        {:ok,
-         note
-         |> preload_note()
-         |> TagUpdater.update_tags(attrs)}
-
-      result ->
-        result
-    end
+    %Note{}
+    |> Note.changeset(attrs)
+    |> Repo.insert()
+    |> NoteHooks.run_hooks(attrs)
   end
 
   @doc """
