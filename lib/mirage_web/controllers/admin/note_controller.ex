@@ -22,7 +22,7 @@ defmodule MirageWeb.Admin.NoteController do
   end
 
   def create(conn, %{"note" => note_params}) do
-    case Notes.create_note(note_params) do
+    case Notes.create_note_with_hooks(note_params) do
       {:ok, note} ->
         conn
         |> put_flash(:info, "Note created successfully.")
@@ -62,7 +62,7 @@ defmodule MirageWeb.Admin.NoteController do
   def update(conn, %{"id" => id, "note" => note_params}) do
     note = Notes.get_note!(id)
 
-    case Notes.update_note(note, note_params) do
+    case Notes.update_note_with_hooks(note, note_params) do
       {:ok, note} ->
         conn
         |> put_flash(:info, "Note updated successfully.")
