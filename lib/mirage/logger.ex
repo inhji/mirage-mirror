@@ -17,6 +17,7 @@ defmodule Mirage.Logger do
       end
 
     query
+    |> limit(10)
     |> order_by(desc: :inserted_at)
     |> Repo.all()
   end
