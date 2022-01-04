@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.31.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.30.0...v0.31.0) (2022-01-04)
+
+
+
+
+### Features:
+
+* add NoteHooks module
+
+### Bug Fixes:
+
+* wrong return value for Logger.log/2
+
 ## [v0.30.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.29.0...v0.30.0) (2022-01-03)
 
 
