@@ -35,11 +35,13 @@ defmodule Mirage.Logger do
     log = Log.changeset(%Log{}, args)
 
     case Repo.insert(log) do
-      {:ok, _log} ->
+      {:ok, log} ->
         Logger.info("Log Message: #{inspect(args, pretty: true)}")
+        {:ok, log}
 
       error ->
         Logger.warn("Error while logging: #{inspect(error, pretty: true)}")
+        error
     end
   end
 
