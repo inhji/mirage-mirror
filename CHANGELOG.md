@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.36.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.35.1...v0.36.0) (2022-01-04)
+
+
+
+
+### Features:
+
+* show state and queue for jobs on dashbaord
+
+### Bug Fixes:
+
+* try to find error with empty url
+
 ## [v0.35.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.35.0...v0.35.1) (2022-01-04)
 
 
