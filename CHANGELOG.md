@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.32.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.31.0...v0.32.0) (2022-01-04)
+
+
+
+
+### Features:
+
+* add _with_hooks functions for notes
+
+* add scheme option to endpoint
+
+* add static_cache_manifest option to endpoint
+
 ## [v0.31.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.30.0...v0.31.0) (2022-01-04)
 
 
