@@ -110,7 +110,7 @@ defmodule Mirage.MixProject do
         "esbuild default --minify",
         "phx.digest"
       ],
-      rel: ["git_ops.release --yes", "docs"],
+      rel: ["git_ops.release --yes"],
       push: ["cmd bash ./scripts/deploy.sh"],
       deploy: [
         "rel",
