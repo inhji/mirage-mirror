@@ -40,7 +40,7 @@ defmodule Mirage.Notes.NoteHooks do
   end
 
   def send_webmentions(note, _attrs) do
-    url = Routes.note_url(MirageWeb.Endpoint, :show, note)
+    url = MirageWeb.Router.Helpers.note_url(MirageWeb.Endpoint, :show, note)
     Mirage.Indie.WebmentionWorker.run(url)
   end
 end

@@ -11,6 +11,8 @@ defmodule Mirage.Indie.WebmentionWorker do
   @impl Oban.Worker
   def perform(%Oban.Job{args: %{"url" => url} = _args}) do
     try do
+      Logger.info("Sending webmentions for url [#{url}]!")
+
       case Webmentions.send_webmentions(url) do
         {:ok, responses} ->
           Enum.each(responses, fn response ->
