@@ -1,18 +1,6 @@
 <article class="max-w-prose mx-auto">
 	<h1>👋 About</h1>
 
-	<figure class="h-card flex bg-white p-6 shadow">
-		<img class="u-photo w-32 h-32 rounded-full shadow-lg" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
-		<div class="ml-3">
-			<h2 class="p-name m-0"><%= @user.name %></h2>
-			<p class="text-gray-500">@<span class="p-nickname"><%= @user.handle %></span></p>
-			<p class="p-note text-gray-700 mt-3">I'm a Bike dude 🚴‍♂️, shitty guy 🤦‍♂️, programmer by day and night 🖥️, Lovecraft follower 🐙, Modular tinkerer 🎚️, Music addict 🎹, Dreamer ⛅, and a Child at heart 💗.</p>
-			<p class="mt-1">
-				<%= link "inhji.de", to: Routes.page_path(@conn, :index), class: "u-url u-uid", rel: "me" %>
-			</p>
-		</div>
-	</figure>
-
 	<section class="prose mt-6">
 		<h2>About me</h2>
 
