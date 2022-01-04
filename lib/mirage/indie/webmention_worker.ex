@@ -1,5 +1,5 @@
 defmodule Mirage.Indie.WebmentionWorker do
-  use Oban.Worker, queue: :webmention
+  use Oban.Worker, queue: :webmention, max_attempts: 3
   require Logger
 
   def run(url) do
