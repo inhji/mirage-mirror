@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.33.6](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.5...v0.33.6) (2022-01-04)
+
+
+
+
+### Bug Fixes:
+
+* remove docs from rel task
+
 ## [v0.33.5](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.4...v0.33.5) (2022-01-04)
 
 
