@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.33.3](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.2...v0.33.3) (2022-01-04)
+
+
+
+
+### Bug Fixes:
+
+* add phx-track-static to linked static assets
+
 ## [v0.33.2](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.1...v0.33.2) (2022-01-04)
 
 
