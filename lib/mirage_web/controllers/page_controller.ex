@@ -7,6 +7,7 @@ defmodule MirageWeb.PageController do
   end
 
   def about(conn, _params) do
-    render(conn, "about.html", page_title: "About")
+    user = Mirage.Accounts.get_user()
+    render(conn, "about.html", page_title: "About", user: user)
   end
 end
