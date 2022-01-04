@@ -133,7 +133,7 @@ defmodule Mirage.Indie.Webmentions do
             |> Floki.find("[rel~=webmention]")
             |> List.first()
 
-          Logger.info("Mention link: #{mention_link}")
+          Logger.info("Mention link: #{inspect(mention_link)}")
 
           if mention_link == nil do
             {:ok, nil}
