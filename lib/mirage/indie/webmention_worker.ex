@@ -27,12 +27,9 @@ defmodule Mirage.Indie.WebmentionWorker do
       error ->
         Logger.warn("Error when sending webmentions!")
         Logger.error(inspect(__STACKTRACE__))
-        Logger.error(inspect(error))
+        Logger.error(Exception.message(error))
 
-        Mirage.Logger.error("Sending webmention for url [#{url}] failed!", %{
-          error: error,
-          stacktrace: __STACKTRACE__
-        })
+        Mirage.Logger.error("Sending webmention for url [#{url}] failed!")
     end
 
     :ok
