@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.33.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.0...v0.33.1) (2022-01-04)
+
+
+
+
+### Bug Fixes:
+
+* run phx.digest before deploy to include new static assets
+
 ## [v0.33.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.32.0...v0.33.0) (2022-01-04)
 
 
