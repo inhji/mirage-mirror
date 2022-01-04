@@ -11,14 +11,8 @@ defmodule Mirage.Indie.WebmentionWorker do
   def perform(%Oban.Job{args: %{"url" => url} = _args}) do
     case Webmentions.send_webmentions(url) do
       {:ok, responses} ->
-        IO.inspect(responses)
-
         Enum.each(responses, fn response ->
           meta = Map.from_struct(response)
-
-          IO.inspect("meta")
-          IO.inspect(meta)
-
           Mirage.Logger.info("Webmention for url [#{url}] sent successfully!", meta)
         end)
 

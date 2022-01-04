@@ -33,4 +33,4 @@ config :logger, level: :warn
 config :phoenix, :plug_init_mode, :runtime
 
 # Disable queues and plugins while testing
-config :my_app, Oban, queues: false, plugins: false
+config :mirage, Oban, queues: false, plugins: false
