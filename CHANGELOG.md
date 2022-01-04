@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.34.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.7...v0.34.0) (2022-01-04)
+
+
+
+
+### Features:
+
+* move hcard to homepage
+
 ## [v0.33.7](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.6...v0.33.7) (2022-01-04)
 
 
