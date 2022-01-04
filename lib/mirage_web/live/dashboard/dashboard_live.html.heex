@@ -21,13 +21,16 @@
 		<h2>👩‍🏭 Latest Jobs</h2>
 
 		<%= for job <- @jobs do %>
-		<article class="shadow bg-white rounded-lg mb-3 {job.level}">
+		<article class="shadow bg-white rounded-lg mb-3" class={job.state}>
 			<details>
 				<summary class="p-4">
 					<span><%= job.worker %></span>
 					<em><%= Timex.from_now(job.inserted_at) %></em>
+					<span class="tag bg-red-200"><%= job.state %></span>
+					<span class="tag bg-blue-200"><%= job.queue %></span>
 				</summary>
-				<pre class="whitespace-pre-wrap p-4 border-t border-gray-200"><%= inspect(job.errors, pretty: true) %></pre>
+				<pre class="whitespace-pre-wrap p-4 border-t border-gray-200">Args: <%= inspect(job.args, pretty: true) %></pre>
+				<pre class="whitespace-pre-wrap p-4 border-t border-gray-200">Errors: <%= inspect(job.errors, pretty: true) %></pre>
 			</details>
 		</article>
 		<% end %>
