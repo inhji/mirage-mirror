@@ -15,7 +15,7 @@ config :mirage, Mirage.Repo, migration_primary_key: [name: :uuid, type: :binary_
 
 # Configures the endpoint
 config :mirage, MirageWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "localhost", port: 4000],
   render_errors: [view: MirageWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Mirage.PubSub,
   live_view: [signing_salt: "bLOC2bih"]

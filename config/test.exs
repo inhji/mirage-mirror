@@ -34,3 +34,6 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Disable queues and plugins while testing
 config :mirage, Oban, queues: false, plugins: false
+
+# Use Tesla.Mock for Webmentions tests
+config :tesla, Webmentions, adapter: Tesla.Mock
