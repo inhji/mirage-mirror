@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.33.4](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.3...v0.33.4) (2022-01-04)
+
+
+
+
+### Bug Fixes:
+
+* add cache_Static_manifest again
+
 ## [v0.33.3](http://10.0.0.11/inhji/mirage2.git/compare/v0.33.2...v0.33.3) (2022-01-04)
 
 
