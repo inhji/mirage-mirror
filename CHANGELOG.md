@@ -5,6 +5,35 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.38.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.37.0...v0.38.0) (2022-01-05)
+
+
+
+
+### Features:
+
+* add in_reply_to field in form and show pages
+
+* add in_reply_to field for note
+
+* add test for about and fix index test
+
+* only run hooks if note is already published
+
+* run hooks on publish
+
+### Bug Fixes:
+
+* footer styles extending to article footer
+
+* complete about page test
+
+* remove webmentions.ex
+
+* Revert "fix: incoporate webmentions to find fucking error"
+
+* more logging tweaks for webmention worker
+
 ## [v0.37.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.36.3...v0.37.0) (2022-01-05)
 
 
