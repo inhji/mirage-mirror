@@ -35,6 +35,10 @@ defmodule MirageWeb.Router do
   scope path: "/admin", as: :admin, alias: MirageWeb.Admin do
     pipe_through [:browser, :require_authenticated_user]
 
+    resources "/bookmarks", BookmarkController
+    # TODO: Add Publish/Unpublish Routes
+    # TODO: Add Microformats Routes
+
     resources "/notes", NoteController
     get "/notes/:id/publish", NoteController, :publish
     get "/notes/:id/unpublish", NoteController, :unpublish

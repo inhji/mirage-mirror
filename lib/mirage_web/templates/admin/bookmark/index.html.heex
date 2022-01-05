@@ -1,0 +1,50 @@
+<h1>Listing Bookmarks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Content</th>
+      <th>Content html</th>
+      <th>Url</th>
+      <th>Domain</th>
+      <th>Tags string</th>
+      <th>Published at</th>
+      <th>Viewed at</th>
+      <th>Views</th>
+      <th>Like of</th>
+      <th>Repost of</th>
+      <th>Bookmark of</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for bookmark <- @bookmarks do %>
+    <tr>
+      <td><%= bookmark.title %></td>
+      <td><%= bookmark.slug %></td>
+      <td><%= bookmark.content %></td>
+      <td><%= bookmark.content_html %></td>
+      <td><%= bookmark.url %></td>
+      <td><%= bookmark.domain %></td>
+      <td><%= bookmark.tags_string %></td>
+      <td><%= bookmark.published_at %></td>
+      <td><%= bookmark.viewed_at %></td>
+      <td><%= bookmark.views %></td>
+      <td><%= bookmark.like_of %></td>
+      <td><%= bookmark.repost_of %></td>
+      <td><%= bookmark.bookmark_of %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.admin_bookmark_path(@conn, :show, bookmark) %></span>
+        <span><%= link "Edit", to: Routes.admin_bookmark_path(@conn, :edit, bookmark) %></span>
+        <span><%= link "Delete", to: Routes.admin_bookmark_path(@conn, :delete, bookmark), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Bookmark", to: Routes.admin_bookmark_path(@conn, :new) %></span>

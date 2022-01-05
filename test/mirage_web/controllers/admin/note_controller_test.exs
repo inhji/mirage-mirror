@@ -41,8 +41,8 @@ defmodule MirageWeb.Admin.NoteControllerTest do
       create_attrs = %{
         content: "some content",
         title: "some title",
-        list_id: list.id,
         tags_string: "some,tags",
+        list_id: list.id,
         user_id: user.id
       }
 

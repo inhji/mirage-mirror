@@ -1,0 +1,73 @@
+<h1>Show Bookmark</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @bookmark.title %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @bookmark.slug %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @bookmark.content %>
+  </li>
+
+  <li>
+    <strong>Content html:</strong>
+    <%= @bookmark.content_html %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @bookmark.url %>
+  </li>
+
+  <li>
+    <strong>Domain:</strong>
+    <%= @bookmark.domain %>
+  </li>
+
+  <li>
+    <strong>Tags string:</strong>
+    <%= @bookmark.tags_string %>
+  </li>
+
+  <li>
+    <strong>Published at:</strong>
+    <%= @bookmark.published_at %>
+  </li>
+
+  <li>
+    <strong>Viewed at:</strong>
+    <%= @bookmark.viewed_at %>
+  </li>
+
+  <li>
+    <strong>Views:</strong>
+    <%= @bookmark.views %>
+  </li>
+
+  <li>
+    <strong>Like of:</strong>
+    <%= @bookmark.like_of %>
+  </li>
+
+  <li>
+    <strong>Repost of:</strong>
+    <%= @bookmark.repost_of %>
+  </li>
+
+  <li>
+    <strong>Bookmark of:</strong>
+    <%= @bookmark.bookmark_of %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.admin_bookmark_path(@conn, :edit, @bookmark) %></span> |
+<span><%= link "Back", to: Routes.admin_bookmark_path(@conn, :index) %></span>
