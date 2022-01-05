@@ -11,10 +11,6 @@ module.exports = {
   theme: {
     extend: {
       colors: ({ theme }) => ({
-        base: colors.gray['100'],
-        low: colors.gray['300'],
-        med: colors.gray['500'],
-        high: colors.gray['800'],
         accent1: colors.pink['500'],
         accent2: colors.sky['500']
       })
