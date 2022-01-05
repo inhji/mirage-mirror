@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.39.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.38.1...v0.39.0) (2022-01-05)
+
+
+
+
+### Features:
+
+* update user profile
+
+### Bug Fixes:
+
+* remove old theme variables
+
 ## [v0.38.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.38.0...v0.38.1) (2022-01-05)
 
 
