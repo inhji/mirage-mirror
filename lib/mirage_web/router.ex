@@ -2,6 +2,7 @@ defmodule MirageWeb.Router do
   use MirageWeb, :router
 
   import MirageWeb.UserAuth
+  import MirageWeb.UserInfo
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -11,6 +12,7 @@ defmodule MirageWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :fetch_current_user
+    plug :fetch_user_identities
   end
 
   pipeline :api do

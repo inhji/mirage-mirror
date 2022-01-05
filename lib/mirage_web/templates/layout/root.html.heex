@@ -11,6 +11,10 @@
     <link phx-track-static rel="icon" type="image/png" sizes="32x32" href={Routes.static_path(@conn, "/images/favicon-32x32.png")}>
     <link phx-track-static rel="apple-touch-icon" sizes="180x180" href={Routes.static_path(@conn, "/images/apple-touch-icon.png")}>
 
+    <%= for identity <- @identities do %>
+      <link rel={identity.rel} href={identity.value} />
+    <% end %>
+
     <link rel="alternate" type="application/atom+xml" 
       title="Blog Feed for Mirage" 
       href={Routes.feed_path(@conn, :show, "home")} />

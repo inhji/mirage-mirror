@@ -20,6 +20,7 @@ defmodule Mirage.Identities do
   def list_user_identities(%Mirage.Accounts.User{} = user) do
     UserIdentity
     |> where(user_id: ^user.id)
+    |> where(active: true)
     |> Repo.all()
   end
 
