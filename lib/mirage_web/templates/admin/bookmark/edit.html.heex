@@ -1,5 +1,7 @@
-<h1>Edit Bookmark</h1>
+<section class="max-w-prose mx-auto">
+  <h1>Edit Bookmark</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.admin_bookmark_path(@conn, :update, @bookmark)) %>
+  <%= render "form.html", Map.put(assigns, :action, Routes.admin_bookmark_path(@conn, :update, @bookmark)) %>
+</section>
 
 <span><%= link "Back", to: Routes.admin_bookmark_path(@conn, :index) %></span>

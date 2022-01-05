@@ -32,7 +32,7 @@ import topbar from "../vendor/topbar"
 document.addEventListener("DOMContentLoaded", function () {
 	// Initialize prosemirror for all editorElements
 	// A #editor div as container is required 
-	const editorElements = ["#note_content", "#list_content"]
+	const editorElements = ["#note_content", "#list_content", "#bookmark_content"]
 	editorElements.forEach(async el => {
 		const $el = document.querySelector(el)
 		if ($el && document.querySelector("#editor")) {

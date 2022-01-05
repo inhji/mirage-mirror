@@ -26,11 +26,11 @@
     <div>
       <%= label f, :editor_prose do %>
         <span>Prose</span>
-        <%= radio_button f, :editor, "prose", checked: true %>
+        <%= radio_button f, :editor, "prose" %>
       <% end %>
       <%= label f, :editor_markdown do %>
         <span>Markdown</span>
-        <%= radio_button f, :editor, "markdown" %>
+        <%= radio_button f, :editor, "markdown", checked: true %>
       <% end %>
     </div>    
 

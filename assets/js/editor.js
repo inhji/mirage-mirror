@@ -73,7 +73,7 @@ class ProseMirrorView {
 
 const createEditor = function (contentElement) {
 	let place = document.querySelector("#editor")
-	let view = new ProseMirrorView(place, contentElement)
+	let view = new MarkdownView(place, contentElement)
 
 	document.querySelectorAll("input[type=radio]").forEach(button => {
 	  button.addEventListener("change", () => {
