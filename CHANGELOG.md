@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.37.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.36.3...v0.37.0) (2022-01-05)
+
+
+
+
+### Features:
+
+* limit logs to 10
+
 ## [v0.36.3](http://10.0.0.11/inhji/mirage2.git/compare/v0.36.2...v0.36.3) (2022-01-04)
 
 
