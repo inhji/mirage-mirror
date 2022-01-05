@@ -23,32 +23,41 @@
     <%= live_title_tag assigns[:page_title] || "Mirage", suffix: " · Mirage" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
   </head>
-  <body class="bg-gray-200 flex flex-col selection:bg-accent1 selection:text-white">
-    <header class="bg-gray-50 shadow-sm">
-      <nav class="flex container mx-auto">
-        <ul class="flex py-3">
-          <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index), class: "p-3 uppercase font-medium" %></li>
-        </ul>
-        <%= render "_content_menu.html", assigns %>        
-        <div class="flex-1"></div>
-        <%= render "_misc_menu.html", assigns %>
-      </nav>
-    </header>
-    
-    <main id="content" class="container mx-auto px-3 my-10 grow shrink-0">
-      <%= @inner_content %>
-    </main>
+  <body>
+    <div id="wrapper" class="bg-gray-200 dark:bg-gray-800 flex flex-col selection:bg-accent1 selection:text-white">
+      <header class="bg-gray-50 dark:bg-gray-700 dark:text-gray-300 shadow-sm">
+        <nav class="flex container mx-auto">
+          <ul class="flex py-3">
+            <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index), class: "p-3 uppercase font-medium" %></li>
+          </ul>
+          <%= render "_content_menu.html", assigns %>        
+          <div class="flex-1"></div>
+          <%= render "_misc_menu.html", assigns %>
+        </nav>
+      </header>
+      
+      <main id="content" class="container mx-auto px-3 my-10 grow shrink-0">
+        <%= @inner_content %>
+      </main>
 
-    <footer class="flex-auto border-t bg-high text-low">
-      <nav class="flex container mx-auto">
-        <ul class="flex py-3">
-          <li><span class="p-3">Live slow, die old.</span></li>
-        </ul>
-        <div class="flex-1"></div>
-        <%= render "_user_menu.html", assigns %>  
-      </nav>
-    </footer>
+      <footer class="flex-auto border-t dark:border-gray-700">
+        <nav class="flex container mx-auto">
+          <ul class="flex py-3">
+            <li><span class="p-3">Live slow, die old.</span></li>
+          </ul>
+          <div class="flex-1"></div>
+          <%= render "_user_menu.html", assigns %>  
+        </nav>
+      </footer>
+    </div>
 
+    <script type="text/javascript">
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark')
+      } else {
+        document.body.classList.remove('dark')
+      }
+    </script>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </body>
 </html>

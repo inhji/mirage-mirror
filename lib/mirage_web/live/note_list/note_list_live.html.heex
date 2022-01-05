@@ -1,6 +1,6 @@
-<section class="p-3 bg-low border border-med">
+<section class="p-3 bg-gray-300 border dark:bg-gray-700 dark:border-gray-900">
 	<details phx-update="ignore">
-	  <summary>Filter</summary>
+	  <summary class="dark:text-gray-300">Filter</summary>
 	  
 	  <.form let={f} for={@changeset} phx-change="handle_change" class="flex flex-col xl:flex-row gap-6">
 	    <label for="show_published" class="flex gap-3 items-center">
@@ -33,7 +33,7 @@
 </section>
 
 <table class="table-auto border-collapse my-3">
-  <thead class="bg-low">
+  <thead>
     <tr>
       <th>Title</th>
       <th>List</th>
@@ -41,7 +41,7 @@
       <th>Actions</th>
     </tr>
   </thead>
-  <tbody class="bg-white">
+  <tbody>
 <%= for note <- @notes do %>
     <tr>
       <td><%= link note.title, to: Routes.admin_note_path(MirageWeb.Endpoint, :show, note) %></td>

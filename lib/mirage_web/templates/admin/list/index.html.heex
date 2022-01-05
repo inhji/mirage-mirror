@@ -8,18 +8,21 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="bg-gray-100">
 <%= for list <- @lists do %>
     <tr>
       <td><%= link list.title, to: Routes.admin_list_path(@conn, :show, list) %></td>
       <td><%= raw Mirage.Markdown.render(list.content) %></td>
       <td>
-        <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list) %></span> |
-        <span><%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list), class: "button text-sm p-2" %></span>
+        <span><%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"], class: "button text-sm p-2" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New List", to: Routes.admin_list_path(@conn, :new), class: "button" %></span>
+<div class="mt-6">
+  <%= link "New List", to: Routes.admin_list_path(@conn, :new), class: "button" %>
+</div>
+

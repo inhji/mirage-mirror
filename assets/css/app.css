@@ -17,15 +17,15 @@ html {
 }
 
 h1 {
-  @apply text-4xl font-bold my-6;
+  @apply text-4xl font-bold my-6 dark:text-gray-100;
 }
 
 h2 {
-  @apply text-2xl font-bold my-3;
+  @apply text-2xl font-bold my-3 dark:text-gray-100;
 }
 
 a {
-  @apply hover:underline decoration-accent1 decoration-2 underline-offset-4;
+  @apply hover:underline decoration-accent1 decoration-2 underline-offset-4 dark:text-gray-300;
 }
 
 a.active {
@@ -36,7 +36,7 @@ a[href*="//"]:after {
   content: ' ↝';
 }
 
-body > footer {
+#wrapper > footer {
   @apply bg-gray-700 text-gray-200;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23333' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
   animation: animatedBackground 2000s linear infinite;
@@ -46,7 +46,7 @@ body > footer {
 
 article {
   & .tag {
-    @apply text-sm p-1 rounded shadow-sm;
+    @apply text-sm p-1 rounded shadow-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-400;
   }
 }
 
@@ -80,17 +80,25 @@ form {
 /* Tables */
 
 table {
-  @apply w-full;
+  @apply w-full text-gray-800 dark:text-gray-300;
+
+  & thead {
+    @apply bg-gray-200 dark:bg-gray-700 dark:text-gray-300;
+  }
+
+  & tbody {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
 
   & th, & td {
-    @apply border border-gray-300 p-4 text-left;
+    @apply border border-gray-300 dark:border-gray-900 p-4 text-left;
   }
 } 
 
 /* Components */
 
 .button, input[type=submit], button[type=submit] {
-  @apply p-3 inline-block border border-gray-500 bg-gray-300 hover:bg-accent1 hover:no-underline;
+  @apply p-3 inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 hover:dark:text-gray-800;
 }
 
 /* Animations */
