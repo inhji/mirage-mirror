@@ -13,7 +13,7 @@ defmodule Mirage.Indie.WebmentionWorker do
     try do
       Logger.info("Sending webmentions for url [#{url}]!")
 
-      case Mirage.Indie.Webmentions.send_webmentions(url) do
+      case Webmentions.send_webmentions(url) do
         {:ok, responses} ->
           Enum.each(responses, fn response ->
             meta = Map.from_struct(response)
