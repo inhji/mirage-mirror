@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.43.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.42.0...v0.43.0) (2022-01-05)
+
+
+
+
+### Features:
+
+* add card component, use for note pages
+
+* resize avatar image
+
 ## [v0.42.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.41.1...v0.42.0) (2022-01-05)
 
 
