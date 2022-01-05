@@ -1,0 +1,27 @@
+<header class="mb-6">
+
+  <h1 class="p-name">
+    <%= link @note.title, to: Routes.note_path(@conn, :show, @note), class: "u-uid u-url" %>
+  </h1>
+
+  <%= if @note.published_at do %>
+    <time datetime={@note.published_at} title={@note.published_at} class="tag bg-low dt-published"><%= datetime_for_display(@note.published_at) %></time>
+  <% end %>
+
+  <span class="tag bg-low p-category"><%= @note.list.title %></span>
+
+  <%= for tag <- @note.tags do %>
+    <span class="tag bg-low p-category"><%= tag.title %></span>
+  <% end %>
+
+</header>
+
+<section class="prose mx-auto e-content">
+  <%= raw Mirage.Markdown.render(@note.content) %>
+</section>
+
+<footer class="mt-3 pt-3 border-t"> 
+  <%= if @note.in_reply_to do %>
+    <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
+  <% end %>
+</footer>
