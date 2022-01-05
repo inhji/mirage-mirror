@@ -10,5 +10,6 @@ defmodule MirageWeb.PageControllerTest do
 
   test "GET /about", %{conn: conn} do
     conn = get(conn, Routes.page_path(conn, :about))
+    assert html_response(conn, 200)
   end
 end
