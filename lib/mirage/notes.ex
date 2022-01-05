@@ -106,7 +106,7 @@ defmodule Mirage.Notes do
   def list_published_notes do
     Note
     |> where([n], not is_nil(n.published_at))
-    |> order_by(:published_at)
+    |> order_by(desc: :published_at)
     |> with_preloads()
     |> Repo.all()
   end
