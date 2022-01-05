@@ -5,13 +5,13 @@
   </h1>
 
   <%= if @note.published_at do %>
-    <time datetime={@note.published_at} title={@note.published_at} class="tag bg-low dt-published"><%= datetime_for_display(@note.published_at) %></time>
+    <time datetime={@note.published_at} title={@note.published_at} class="tag bg-gray-300 dt-published"><%= datetime_for_display(@note.published_at) %></time>
   <% end %>
 
-  <span class="tag bg-low p-category"><%= @note.list.title %></span>
+  <span class="tag bg-gray-300 p-category"><%= @note.list.title %></span>
 
   <%= for tag <- @note.tags do %>
-    <span class="tag bg-low p-category"><%= tag.title %></span>
+    <span class="tag bg-gray-300 p-category"><%= tag.title %></span>
   <% end %>
 
 </header>
