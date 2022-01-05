@@ -28,10 +28,21 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import createEditor from "./editor"
 import topbar from "../vendor/topbar"
-import autoComplete from "@tarekraafat/autocomplete.js"
+
+document.addEventListener("DOMContentLoaded", function () {
+	// Initialize prosemirror for all editorElements
+	// A #editor div as container is required 
+	const editorElements = ["#note_content", "#list_content"]
+	editorElements.forEach(async el => {
+		const $el = document.querySelector(el)
+		if ($el && document.querySelector("#editor")) {
+			createEditor($el)
+		}
+	})
+})
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, { params: { _csrf_token: csrfToken } })
 
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
@@ -46,22 +57,3 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
-
-document.addEventListener("DOMContentLoaded", function () {
-	
-	// const autoCompleteJS = new autoComplete({
-	// 	data: {
-	// 		src: ["foo", "bar", "baz"]
-	// 	}
-	// });
-
-	// Initialize milkdown editor for all editorElements
-	// A #editor div as container is required 
-	const editorElements = ["#note_content", "#list_content"]
-	editorElements.forEach(async el => {
-		const $el = document.querySelector(el)
-		if ($el && document.querySelector("#editor")) {
-			createEditor($el)
-		}
-	})
-})
