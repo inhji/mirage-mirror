@@ -101,6 +101,19 @@ defmodule Mirage.NotesTest do
                })
     end
 
+    test "create_note/1 with emoji in title returns error changeset" do
+      list = list_fixture()
+      user = user_fixture()
+
+      assert {:error, %Ecto.Changeset{}} =
+               Notes.create_note(%{
+                 content: "test",
+                 title: "🤒 some title with emoji",
+                 list_id: list.id,
+                 user_id: user.id
+               })
+    end
+
     test "update_note/2 with valid data updates the note" do
       note = note_fixture()
 
