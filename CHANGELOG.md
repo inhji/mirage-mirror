@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.41.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.40.1...v0.41.0) (2022-01-05)
+
+
+
+
+### Features:
+
+* render active user identities in head
+
 ## [v0.40.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.40.0...v0.40.1) (2022-01-05)
 
 
