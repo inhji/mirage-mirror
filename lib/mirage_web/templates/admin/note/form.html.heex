@@ -50,6 +50,12 @@
     <%= error_tag f, :list_id %>
   </fieldset>
 
+  <fieldset>
+    <%= label f, :in_reply_to %>
+    <%= url_input f, :in_reply_to %>
+    <%= error_tag f, :in_reply_to %>
+  </fieldset>
+
   <div>
     <%= submit "Save" %>
   </div>

@@ -28,6 +28,8 @@ defmodule Mirage.Notes.Note do
       virtual: true,
       default: ""
 
+    field :in_reply_to, :string
+
     belongs_to :list, Mirage.Lists.List
     belongs_to :user, Mirage.Accounts.User
 
@@ -39,7 +41,16 @@ defmodule Mirage.Notes.Note do
   @doc false
   def changeset(note, attrs) do
     note
-    |> cast(attrs, [:title, :slug, :content, :published_at, :list_id, :tags_string, :user_id])
+    |> cast(attrs, [
+      :title,
+      :slug,
+      :content,
+      :published_at,
+      :list_id,
+      :tags_string,
+      :user_id,
+      :in_reply_to
+    ])
     |> validate_required([:title, :content, :list_id, :user_id])
     |> unique_constraint(:title)
     |> Mirage.Notes.NoteSlug.maybe_generate_slug()

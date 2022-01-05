@@ -42,7 +42,7 @@ defmodule Mirage.Notes.NoteHooks do
   def send_webmentions(note, _attrs) do
     # Only send webmentions if note is already published
     if note.published_at do
-      url = MirageWeb.Router.Helpers.note_url(MirageWeb.Endpoint, :show, note)
+      url = Routes.note_url(MirageWeb.Endpoint, :show, note)
       Mirage.Indie.WebmentionWorker.run(url)
     end
   end

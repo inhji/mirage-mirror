@@ -8,9 +8,9 @@
 
     <%= link @note.user.handle, to: Routes.page_path(@conn, :index), class: "p-author h-card tag bg-low hidden" %>
 
-    <%= if @note.published_at do %>
-      <time datetime={@note.published_at} title={@note.published_at} class="tag bg-low dt-published"><%= datetime_for_display(@note.published_at) %></time>
-    <% end %>
+  <%= if @note.published_at do %>
+    <time datetime={@note.published_at} title={@note.published_at} class="tag bg-low dt-published"><%= datetime_for_display(@note.published_at) %></time>
+  <% end %>
 
     <span class="tag bg-low p-category"><%= @note.list.title %></span>
 
@@ -24,8 +24,10 @@
     <%= raw Mirage.Markdown.render(@note.content) %>
   </section>
 
-  <footer> 
-    <!-- This will contain indieweb interactions and syndications -->
+  <footer class="mt-3 pt-3 border-t"> 
+  <%= if @note.in_reply_to do %>
+    <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
+  <% end %>
   </footer>
   
 </article>
