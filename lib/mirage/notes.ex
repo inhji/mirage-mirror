@@ -212,6 +212,7 @@ defmodule Mirage.Notes do
   """
   def publish_note(%Note{} = note) do
     update_note(note, %{published_at: DateTime.utc_now()})
+    |> NoteHooks.run_hooks(%{})
   end
 
   @doc """
