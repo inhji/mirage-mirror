@@ -1,4 +1,6 @@
 <article class="h-entry note mx-auto max-w-prose">
-  <%= render "note.html", assigns %>
-  <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>
+  <div class="card">
+    <%= render "note.html", assigns %>
+    <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>
+  </div>
 </article>

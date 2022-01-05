@@ -1,6 +1,6 @@
 <div class="max-w-prose mx-auto">
-  <figure class="h-card flex bg-white dark:bg-gray-900 p-6 shadow">
-    <img class="u-photo w-32 h-32 rounded-full shadow-lg" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
+  <figure class="h-card flex">
+    <img class="u-photo w-32 h-32 rounded-full shadow" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
     <div class="ml-3">
       <h2 class="p-name m-0"><%= @user.name %></h2>
       <p class="text-gray-500 dark:text-gray-500">@<span class="p-nickname"><%= @user.handle %></span></p>
@@ -11,9 +11,9 @@
     </div>
   </figure>
 
-  <section class="h-feed">
+  <section class="h-feed mx-auto max-w-prose">
   <%= for note <- @notes do %>
-    <article class="h-entry note mx-auto max-w-prose border-b dark:border-gray-700">
+    <article class="h-entry card mt-6">
       <%= render MirageWeb.NoteView, "note.html", Map.put(assigns, :note, note) %>
     </article>
   <% end %>

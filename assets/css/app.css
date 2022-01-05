@@ -7,7 +7,7 @@
 
 /* Base Styles */
 
-html, body {
+html, body, #wrapper {
   @apply min-h-screen;
 }
 
@@ -99,6 +99,10 @@ table {
 
 .button, input[type=submit], button[type=submit] {
   @apply p-3 inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 hover:dark:text-gray-800;
+}
+
+.card {
+  @apply bg-gray-100 dark:bg-gray-800 px-6 py-4 shadow-lg border-b dark:border-0;
 }
 
 /* Animations */
