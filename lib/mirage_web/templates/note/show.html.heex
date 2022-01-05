@@ -6,8 +6,6 @@
       <%= link @note.title, to: Routes.note_path(@conn, :show, @note), class: "u-uid u-url" %>
     </h1>
 
-    <%= link @note.user.handle, to: Routes.page_path(@conn, :index), class: "p-author h-card tag bg-low hidden" %>
-
   <%= if @note.published_at do %>
     <time datetime={@note.published_at} title={@note.published_at} class="tag bg-low dt-published"><%= datetime_for_display(@note.published_at) %></time>
   <% end %>
@@ -29,5 +27,16 @@
     <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
   <% end %>
   </footer>
+
+  <figure class="p-author h-card flex bg-white p-3 shadow mt-3">
+    <img class="u-photo w-16 h-16 rounded-full shadow-lg" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
+    <div class="ml-3">
+      <h2 class="p-name m-0 text-base"s><%= @note.user.name %></h2>
+      <p class="text-gray-500">@<span class="p-nickname"><%= @note.user.handle %></span></p>
+      <p class="mt-1">
+        <%= link "inhji.de", to: Routes.page_path(@conn, :index), class: "u-url u-uid", rel: "me" %>
+      </p>
+    </div>
+  </figure>
   
 </article>
