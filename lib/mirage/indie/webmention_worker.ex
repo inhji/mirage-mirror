@@ -17,7 +17,7 @@ defmodule Mirage.Indie.WebmentionWorker do
         {:ok, responses} ->
           Enum.each(responses, fn response ->
             meta = Map.from_struct(response)
-            Mirage.Logger.info("Webmention for url [#{url}] sent successfully!", meta)
+            Mirage.Logger.info("Webmention for url [#{meta["target"]}] sent successfully!", meta)
           end)
 
         {:error, reason} ->
@@ -29,7 +29,9 @@ defmodule Mirage.Indie.WebmentionWorker do
         Logger.error(inspect(__STACKTRACE__))
         Logger.error(Exception.message(error))
 
-        Mirage.Logger.error("Sending webmention for url [#{url}] failed!")
+        Mirage.Logger.error("Sending webmention for url [#{url}] failed!", %{
+          error: Exception.message(error)
+        })
     end
 
     :ok
