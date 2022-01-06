@@ -8,6 +8,7 @@ defmodule Mirage.Notes do
 
   import Ecto.Query, warn: false
   import Mirage.Macros
+  import Mirage.Queries
 
   alias Mirage.Repo
   alias Mirage.Notes.Note
@@ -48,50 +49,13 @@ defmodule Mirage.Notes do
   *Internal use only*
   """
   def list_notes(opts) do
-    query = with_preloads(Note)
-
-    query =
-      case opts["show_published"] do
-        "published" -> query |> where([n], not is_nil(n.published_at))
-        "unpublished" -> query |> where([n], is_nil(n.published_at))
-        _ -> query
-      end
-
-    query =
-      case opts["show_list"] do
-        "all" -> query
-        list_id -> query |> where([n], n.list_id == ^list_id)
-      end
-
-    query =
-      case opts["search_query"] do
-        "" ->
-          query
-
-        search_query ->
-          str = "%#{search_query}%"
-          query |> where([n], ilike(n.title, ^str))
-      end
-
-    query =
-      case opts["order_by"] do
-        "published_at_desc" ->
-          query |> order_by([n], desc: n.published_at)
-
-        "published_at_asc" ->
-          query |> order_by([n], asc: n.published_at)
-
-        "inserted_at_desc" ->
-          query |> order_by([n], desc: n.inserted_at)
-
-        "inserted_at_asc" ->
-          query |> order_by([n], asc: n.inserted_at)
-
-        _ ->
-          query
-      end
-
-    Repo.all(query)
+    Note
+    |> with_preloads()
+    |> published_query(opts)
+    |> list_query(opts)
+    |> search_query(opts)
+    |> order_by_query(opts)  
+    |> Repo.all()
   end
 
   @doc """

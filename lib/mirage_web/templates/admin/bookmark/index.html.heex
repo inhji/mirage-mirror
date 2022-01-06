@@ -1,31 +1,6 @@
 <h1>Listing Bookmarks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Domain</th>
-      <th>Published at</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for bookmark <- @bookmarks do %>
-    <tr>
-      <td><%= bookmark.title %></td>
-      <td><%= bookmark.url %></td>
-      <td><%= bookmark.published_at %></td>
-
-      <td>
-        <span><%= link "Show", to: Routes.admin_bookmark_path(@conn, :show, bookmark) %></span>
-        <span><%= link "Edit", to: Routes.admin_bookmark_path(@conn, :edit, bookmark) %></span>
-        <span><%= link "Delete", to: Routes.admin_bookmark_path(@conn, :delete, bookmark), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+<%= live_render(@conn, MirageWeb.BookmarkListLive) %>
 
 <div class="mt-3">
   <%= link "New Bookmark", to: Routes.admin_bookmark_path(@conn, :new), class: "button" %>

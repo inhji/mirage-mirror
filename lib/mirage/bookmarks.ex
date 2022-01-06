@@ -4,9 +4,13 @@ defmodule Mirage.Bookmarks do
   """
 
   import Ecto.Query, warn: false
-  alias Mirage.Repo
+  import Mirage.Queries
 
+  alias Mirage.Repo
   alias Mirage.Bookmarks.Bookmark
+
+  @preloads [:list, :user]
+  defp with_preloads(query), do: preload(query, ^@preloads)
 
   @doc """
   Returns the list of bookmarks.
@@ -19,6 +23,21 @@ defmodule Mirage.Bookmarks do
   """
   def list_bookmarks do
     Repo.all(Bookmark)
+  end
+
+  @doc """
+  Returns the list of notes sorted by `MirageWeb.Live.NoteListParams`
+
+  *Internal use only*
+  """
+  def list_bookmarks(opts) do
+    Bookmark
+    |> with_preloads()
+    |> published_query(opts)
+    |> list_query(opts)
+    |> search_query(opts)
+    |> order_by_query(opts)  
+    |> Repo.all()
   end
 
   @doc """

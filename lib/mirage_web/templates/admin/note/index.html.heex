@@ -2,4 +2,6 @@
 
 <%= live_render(@conn, MirageWeb.NoteListLive) %>
 
-<span><%= link "New Note", to: Routes.admin_note_path(@conn, :new), class: "button" %></span>
+<span class="mt-3">
+  <%= link "New Note", to: Routes.admin_note_path(@conn, :new), class: "button" %>
+</span>
