@@ -11,8 +11,7 @@ defmodule Mirage.Notes do
   import Mirage.Queries
 
   alias Mirage.Repo
-  alias Mirage.Notes.Note
-  alias Mirage.Notes.NoteHooks
+  alias Mirage.Notes.{Note, NoteHooks}
 
   @preloads [:list, :tags, :user]
   defp with_preloads(query), do: preload(query, ^@preloads)
@@ -166,7 +165,7 @@ defmodule Mirage.Notes do
   end
 
   @doc """
-  Publishes a not by setting published_at to utc_now
+  Publishes a note by setting published_at to utc_now
 
   ## Examples
 
@@ -175,12 +174,11 @@ defmodule Mirage.Notes do
       
   """
   def publish_note(%Note{} = note) do
-    update_note(note, %{published_at: DateTime.utc_now()})
-    |> NoteHooks.run_hooks(%{})
+    update_note_with_hooks(note, %{published_at: DateTime.utc_now()})
   end
 
   @doc """
-  Unpublishes a not by setting published_at to nil
+  Unpublishes a note by setting published_at to nil
 
   ## Examples
 
