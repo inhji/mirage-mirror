@@ -28,6 +28,9 @@ defmodule MirageWeb.Router do
     get "/feeds", FeedController, :index
     get "/feeds/:id", FeedController, :show
 
+    get "/bookmarks", BookmarkController, :index
+    get "/bookmarks/:id", BookmarkController, :show
+
     get "/notes", NoteController, :index
     get "/notes/:id", NoteController, :show
   end
