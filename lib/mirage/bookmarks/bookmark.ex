@@ -21,6 +21,7 @@ defmodule Mirage.Bookmarks.Bookmark do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   @derive {Jason.Encoder, only: @public_fields}
+  @derive {Phoenix.Param, key: :slug}
   schema "bookmarks" do
     field :title, :string
     field :slug, Mirage.Bookmarks.BookmarkSlug.Type

@@ -31,7 +31,7 @@ defmodule Mirage.BookmarksTest do
 
     test "get_bookmark!/1 returns the bookmark with given id" do
       bookmark = bookmark_fixture()
-      assert Bookmarks.get_bookmark!(bookmark.id) == bookmark
+      assert Bookmarks.get_bookmark!(bookmark.slug) == bookmark
     end
 
     test "create_bookmark/1 with valid data creates a bookmark" do
@@ -90,13 +90,13 @@ defmodule Mirage.BookmarksTest do
     test "update_bookmark/2 with invalid data returns error changeset" do
       bookmark = bookmark_fixture()
       assert {:error, %Ecto.Changeset{}} = Bookmarks.update_bookmark(bookmark, @invalid_attrs)
-      assert bookmark == Bookmarks.get_bookmark!(bookmark.id)
+      assert bookmark == Bookmarks.get_bookmark!(bookmark.slug)
     end
 
     test "delete_bookmark/1 deletes the bookmark" do
       bookmark = bookmark_fixture()
       assert {:ok, %Bookmark{}} = Bookmarks.delete_bookmark(bookmark)
-      assert_raise Ecto.NoResultsError, fn -> Bookmarks.get_bookmark!(bookmark.id) end
+      assert_raise Ecto.NoResultsError, fn -> Bookmarks.get_bookmark!(bookmark.slug) end
     end
 
     test "change_bookmark/1 returns a bookmark changeset" do

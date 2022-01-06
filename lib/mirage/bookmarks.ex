@@ -54,7 +54,7 @@ defmodule Mirage.Bookmarks do
       ** (Ecto.NoResultsError)
 
   """
-  def get_bookmark!(id), do: Repo.get!(Bookmark, id)
+  def get_bookmark!(id), do: Repo.get_by!(Bookmark, slug: id)
 
   @doc """
   Creates a bookmark.
