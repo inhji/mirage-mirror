@@ -13,23 +13,11 @@ defmodule Mirage.Notes.NoteHooks do
   require Logger
   alias MirageWeb.Router.Helpers, as: Routes
 
-  def run_hooks({:ok, note} = result, attrs) do
-    Enum.each(
-      [
-        &update_tags/2,
-        &send_webmentions/2
-      ],
-      fn hook ->
-        Logger.info("Running hook #{inspect(hook)} for note #{note.slug}")
-        hook.(note, attrs)
-      end
-    )
-
-    result
-  end
-
-  def run_hooks(result, _attrs) do
-    result
+  def run_hooks(result, attrs) do
+    Mirage.Hooks.run(result, attrs, [
+      &update_tags/2,
+      &send_webmentions/2
+    ])
   end
 
   def update_tags(note, attrs) do
