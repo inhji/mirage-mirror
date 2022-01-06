@@ -103,6 +103,26 @@ defmodule MirageWeb.Admin.BookmarkControllerTest do
     end
   end
 
+  describe "publish bookmark" do
+    setup [:create_bookmark]
+
+    test "publishes a bookmark", %{conn: conn, bookmark: bookmark} do
+      conn = get(conn, Routes.admin_bookmark_path(conn, :publish, bookmark), id: bookmark.id)
+      assert redirected_to(conn) == Routes.admin_bookmark_path(conn, :show, bookmark)
+
+      conn = get(conn, Routes.admin_bookmark_path(conn, :show, bookmark))
+      assert html_response(conn, 200) =~ "Unpublish"
+    end
+
+    test "unpublishes a bookmark", %{conn: conn, bookmark: bookmark} do
+      conn = get(conn, Routes.admin_bookmark_path(conn, :unpublish, bookmark), id: bookmark.id)
+      assert redirected_to(conn) == Routes.admin_bookmark_path(conn, :show, bookmark)
+
+      conn = get(conn, Routes.admin_bookmark_path(conn, :show, bookmark))
+      assert html_response(conn, 200) =~ "Publish"
+    end
+  end
+
   describe "delete bookmark" do
     setup [:create_bookmark]
 

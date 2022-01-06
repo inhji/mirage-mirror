@@ -51,6 +51,34 @@ defmodule MirageWeb.Admin.BookmarkController do
     end
   end
 
+  def publish(conn, %{"id" => id}) do
+    bookmark = Bookmarks.get_bookmark!(id)
+
+    case Bookmarks.publish_bookmark(bookmark) do
+      {:ok, bookmark} ->
+        conn
+        |> put_flash(:info, "Bookmark published successfully.")
+        |> redirect(to: Routes.admin_bookmark_path(conn, :show, bookmark))
+
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        render(conn, "show.html", bookmark: bookmark)
+    end
+  end
+
+  def unpublish(conn, %{"id" => id}) do
+    bookmark = Bookmarks.get_bookmark!(id)
+
+    case Bookmarks.unpublish_bookmark(bookmark) do
+      {:ok, bookmark} ->
+        conn
+        |> put_flash(:info, "Bookmark unpublished successfully.")
+        |> redirect(to: Routes.admin_bookmark_path(conn, :show, bookmark))
+
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        render(conn, "show.html", bookmark: bookmark)
+    end
+  end
+
   def delete(conn, %{"id" => id}) do
     bookmark = Bookmarks.get_bookmark!(id)
     {:ok, _bookmark} = Bookmarks.delete_bookmark(bookmark)

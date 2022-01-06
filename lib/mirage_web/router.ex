@@ -36,7 +36,8 @@ defmodule MirageWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     resources "/bookmarks", BookmarkController
-    # TODO: Add Publish/Unpublish Routes
+    get "/bookmarks/:id/publish", BookmarkController, :publish
+    get "/bookmarks/:id/unpublish", BookmarkController, :unpublish
     # TODO: Add Microformats Routes
 
     resources "/notes", NoteController

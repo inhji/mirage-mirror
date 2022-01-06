@@ -93,6 +93,18 @@ defmodule Mirage.BookmarksTest do
       assert bookmark == Bookmarks.get_bookmark!(bookmark.slug)
     end
 
+    test "publish_bookmark/1 publishes a bookmark by setting published_at" do
+      bookmark = bookmark_fixture()
+      assert {:ok, %Bookmark{} = bookmark} = Bookmarks.publish_bookmark(bookmark)
+      assert not is_nil(bookmark.published_at)
+    end
+
+    test "unpublish_bookmark/1 unpublishes a bookmark by setting published_at to nil" do
+      bookmark = bookmark_fixture()
+      assert {:ok, %Bookmark{} = bookmark} = Bookmarks.unpublish_bookmark(bookmark)
+      assert is_nil(bookmark.published_at)
+    end
+
     test "delete_bookmark/1 deletes the bookmark" do
       bookmark = bookmark_fixture()
       assert {:ok, %Bookmark{}} = Bookmarks.delete_bookmark(bookmark)

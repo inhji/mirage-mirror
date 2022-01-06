@@ -70,4 +70,9 @@
 </ul>
 
 <span><%= link "Edit", to: Routes.admin_bookmark_path(@conn, :edit, @bookmark) %></span> |
+<%= if is_nil(@bookmark.published_at) do %>
+<span><%= link "Publish", to: Routes.admin_bookmark_path(@conn, :publish, @bookmark) %></span> |
+<% else %>
+<span><%= link "Unpublish", to: Routes.admin_bookmark_path(@conn, :unpublish, @bookmark) %></span> |
+<% end %>
 <span><%= link "Back", to: Routes.admin_bookmark_path(@conn, :index) %></span>
