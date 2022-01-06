@@ -30,6 +30,6 @@ defmodule Mirage.BookmarksFixtures do
       })
       |> Mirage.Bookmarks.create_bookmark()
 
-    bookmark
+    bookmark |> Mirage.Bookmarks.preload_bookmark()
   end
 end

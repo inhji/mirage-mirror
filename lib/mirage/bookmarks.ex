@@ -7,10 +7,21 @@ defmodule Mirage.Bookmarks do
   import Mirage.Queries
 
   alias Mirage.Repo
-  alias Mirage.Bookmarks.Bookmark
+  alias Mirage.Bookmarks.{Bookmark, BookmarkHooks}
 
   @preloads [:list, :user]
   defp with_preloads(query), do: preload(query, ^@preloads)
+
+  @doc """
+  Preloads a bookmark with all defined preloads.
+
+  ## Examples
+
+      iex> preload_bookmark(bookmark)
+      %Note{}
+
+  """
+  def preload_bookmark(bookmark), do: Repo.preload(bookmark, @preloads)
 
   @doc """
   Returns the list of bookmarks.
@@ -22,7 +33,9 @@ defmodule Mirage.Bookmarks do
 
   """
   def list_bookmarks do
-    Repo.all(Bookmark)
+    Bookmark
+    |> with_preloads()
+    |> Repo.all()
   end
 
   @doc """
@@ -36,7 +49,7 @@ defmodule Mirage.Bookmarks do
     |> published_query(opts)
     |> list_query(opts)
     |> search_query(opts)
-    |> order_by_query(opts)  
+    |> order_by_query(opts)
     |> Repo.all()
   end
 
@@ -54,7 +67,10 @@ defmodule Mirage.Bookmarks do
       ** (Ecto.NoResultsError)
 
   """
-  def get_bookmark!(id), do: Repo.get_by!(Bookmark, slug: id)
+  def get_bookmark!(id),
+    do:
+      Repo.get_by!(Bookmark, slug: id)
+      |> preload_bookmark()
 
   @doc """
   Creates a bookmark.
@@ -75,6 +91,23 @@ defmodule Mirage.Bookmarks do
   end
 
   @doc """
+  Creates a bookmark and run the bookmark hooks.
+
+  ## Examples
+
+      iex> create_bookmark_with_hooks(%{field: value})
+      {:ok, %Bookmark{}}
+
+      iex> create_bookmark_with_hooks(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_bookmark_with_hooks(attrs \\ %{}) do
+    create_bookmark(attrs)
+    |> BookmarkHooks.run_hooks(attrs)
+  end
+
+  @doc """
   Updates a bookmark.
 
   ## Examples
@@ -90,6 +123,49 @@ defmodule Mirage.Bookmarks do
     bookmark
     |> Bookmark.changeset(attrs)
     |> Repo.update()
+  end
+
+    @doc """
+  Updates a bookmark and run the bookmark hooks.
+
+  ## Examples
+
+      iex> update_bookmark_with_hooks(bookmark, %{field: new_value})
+      {:ok, %Bookmark{}}
+
+      iex> update_bookmark_with_hooks(bookmark, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_bookmark_with_hooks(%Bookmark{} = bookmark, attrs) do
+    update_bookmark(bookmark, attrs)
+    |> BookmarkHooks.run_hooks(attrs)
+  end
+
+    @doc """
+  Publishes a bookmark by setting published_at to utc_now
+
+  ## Examples
+
+      iex> publish_bookmark(bookmark)
+      {:ok, %Bookmark{}}
+      
+  """
+  def publish_bookmark(%Bookmark{} = bookmark) do
+    update_bookmark_with_hooks(bookmark, %{published_at: DateTime.utc_now()})
+  end
+
+  @doc """
+  Unpublishes a bookmark by setting published_at to nil
+
+  ## Examples
+
+      iex> publish_bookmark(bookmark)
+      {:ok, %Bookmark{}}
+      
+  """
+  def unpublish_bookmark(%Bookmark{} = bookmark) do
+    update_bookmark(bookmark, %{published_at: nil})
   end
 
   @doc """
