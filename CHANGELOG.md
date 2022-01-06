@@ -5,6 +5,33 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.45.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.44.0...v0.45.0) (2022-01-06)
+
+
+
+
+### Features:
+
+* add public bookmark routes
+
+* Add bookmark tags
+
+* add bookmark preloads and hooks
+
+* use new hooks module for notes
+
+* add publishing bookmarks
+
+* add hooks module
+
+* switch bookmark param to slug
+
+* reorganize styles in tailwind layers
+
+* Add bookmark_list_live
+
+* add queries module for common internal queries
+
 ## [v0.44.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.43.1...v0.44.0) (2022-01-05)
 
 
