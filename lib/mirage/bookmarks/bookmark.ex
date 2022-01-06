@@ -48,6 +48,8 @@ defmodule Mirage.Bookmarks.Bookmark do
     belongs_to :list, Mirage.Lists.List
     belongs_to :user, Mirage.Accounts.User
 
+    many_to_many :tags, Mirage.Tags.Tag, join_through: "bookmarks_tags"
+
     timestamps()
   end
 
