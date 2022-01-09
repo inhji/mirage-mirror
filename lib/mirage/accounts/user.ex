@@ -17,6 +17,10 @@ defmodule Mirage.Accounts.User do
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
 
+    # List Settings/Assigns 
+    belongs_to :microblog_list, Mirage.Lists.List
+    belongs_to :journal_list, Mirage.Lists.List
+
     timestamps()
   end
 

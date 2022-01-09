@@ -3,9 +3,10 @@
 
   <ul class="list-disc pl-10">
     <li><a href="#update_profile">Update Profile</a></li>
+    <li><a href="#edit_identities">Edit Identities</a></li>
+    <li><a href="#change_settings">Change Site Settings</a></li>
     <li><a href="#change_email">Change Email</a></li>
     <li><a href="#change_password">Change Password</a></li>
-    <li><a href="#edit_identities">Edit Identities</a></li>
   </ul>
 
   <h2 id="update_profile" class="mt-10">Update profile</h2>
@@ -39,6 +40,71 @@
 
     <div>
       <%= submit "Update profile" %>
+    </div>
+  </.form>
+
+  <h2 id="edit_identities" class="mt-10">Edit Indentities</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th>Rel</th>
+        <th>Active</th>
+        <th>Public</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <%= for user_identity <- @user_identities do %>
+      <tr>
+        <td><%= user_identity.name %></td>
+        <td><%= user_identity.value %></td>
+        <td><%= user_identity.rel %></td>
+        <td><%= user_identity.active %></td>
+        <td><%= user_identity.public %></td>
+
+        <td>
+          <span><%= link "Show", to: Routes.user_identity_path(@conn, :show, user_identity) %></span>
+          <span><%= link "Edit", to: Routes.user_identity_path(@conn, :edit, user_identity) %></span>
+          <span><%= link "Delete", to: Routes.user_identity_path(@conn, :delete, user_identity), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div class="mt-3">
+    <%= link "New User identity", to: Routes.user_identity_path(@conn, :new), class: "button" %>
+  </div>
+
+  <h2 id="change_settings" class="mt-10">Change Site Settings</h2>
+
+  <.form let={f} for={@settings_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_settings">
+    <%= if @password_changeset.action do %>
+      <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below.</p>
+      </div>
+    <% end %>
+
+    <%= hidden_input f, :action, name: "action", value: "update_settings" %>
+
+    <fieldset>
+      <%= label f, :microblog_list_id %>
+      <%= select f, :microblog_list_id, @lists, prompt: [key: "Choose a list"] %>
+      <%= error_tag f, :microblog_list_id %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :journal_list_id %>
+      <%= select f, :journal_list_id, @lists, prompt: [key: "Choose a list"] %>
+      <%= error_tag f, :journal_list_id %>
+    </fieldset>
+
+    <div>
+      <%= submit "Change password" %>
     </div>
   </.form>
 
@@ -103,41 +169,4 @@
       <%= submit "Change password" %>
     </div>
   </.form>
-
-  <h2 id="edit_identities" class="mt-10">Edit Indentities</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-        <th>Rel</th>
-        <th>Active</th>
-        <th>Public</th>
-
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-  <%= for user_identity <- @user_identities do %>
-      <tr>
-        <td><%= user_identity.name %></td>
-        <td><%= user_identity.value %></td>
-        <td><%= user_identity.rel %></td>
-        <td><%= user_identity.active %></td>
-        <td><%= user_identity.public %></td>
-
-        <td>
-          <span><%= link "Show", to: Routes.user_identity_path(@conn, :show, user_identity) %></span>
-          <span><%= link "Edit", to: Routes.user_identity_path(@conn, :edit, user_identity) %></span>
-          <span><%= link "Delete", to: Routes.user_identity_path(@conn, :delete, user_identity), method: :delete, data: [confirm: "Are you sure?"] %></span>
-        </td>
-      </tr>
-  <% end %>
-    </tbody>
-  </table>
-
-  <div class="mt-3">
-    <%= link "New User identity", to: Routes.user_identity_path(@conn, :new), class: "button" %>
-  </div>
 </section>

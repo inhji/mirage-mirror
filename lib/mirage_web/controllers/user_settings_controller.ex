@@ -4,7 +4,8 @@ defmodule MirageWeb.UserSettingsController do
   alias Mirage.{Accounts, Identities}
   alias MirageWeb.UserAuth
 
-  plug :assign_email_and_password_changesets
+  plug :assign_changesets
+  plug :assign_form_data
 
   def edit(conn, _params) do
     render(conn, "edit.html", page_title: "Edit User")
@@ -21,6 +22,20 @@ defmodule MirageWeb.UserSettingsController do
 
       {:error, changeset} ->
         render(conn, "edit.html", profile_changeset: changeset)
+    end
+  end
+
+  def update(conn, %{"action" => "update_settings", "user" => user_params} = _params) do
+    user = conn.assigns.current_user
+
+    case Accounts.update_user_settings(user, user_params) do
+      {:ok, _user} ->
+        conn
+        |> put_flash(:info, "Your settings were updated.")
+        |> redirect(to: Routes.user_settings_path(conn, :edit))
+
+      {:error, changeset} ->
+        render(conn, "edit.html", settings_changeset: changeset)
     end
   end
 
@@ -78,13 +93,23 @@ defmodule MirageWeb.UserSettingsController do
     end
   end
 
-  defp assign_email_and_password_changesets(conn, _opts) do
+  defp assign_changesets(conn, _opts) do
     user = conn.assigns.current_user
 
     conn
     |> assign(:email_changeset, Accounts.change_user_email(user))
     |> assign(:password_changeset, Accounts.change_user_password(user))
     |> assign(:profile_changeset, Accounts.change_user_profile(user))
+    |> assign(:settings_changeset, Accounts.change_user_settings(user))
     |> assign(:user_identities, Identities.list_user_identities(user))
+  end
+
+  defp assign_form_data(conn, _opts) do
+    lists =
+      Mirage.Lists.list_lists()
+      |> Enum.map(fn list -> {list.title, list.id} end)
+
+    conn
+    |> assign(:lists, lists)
   end
 end

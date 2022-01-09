@@ -91,6 +91,22 @@ defmodule Mirage.Accounts do
     |> Repo.update()
   end
 
+  @doc """
+  Updates a user's settings fields.
+  """
+  def change_user_settings(%User{} = user, attrs \\ %{}) do
+    User.settings_changeset(user, attrs)
+  end
+
+  @doc """
+  Updates a user's profile fields like name and bio.
+  """
+  def update_user_settings(%User{} = user, attrs \\ %{}) do
+    user
+    |> User.settings_changeset(attrs)
+    |> Repo.update()
+  end
+
   ## User registration
 
   @doc """
