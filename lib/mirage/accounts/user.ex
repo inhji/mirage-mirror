@@ -11,7 +11,7 @@ defmodule Mirage.Accounts.User do
     field :name, :string
     field :handle, :string
     field :bio, :string
-    field :motd, :string 
+    field :motd, :string
 
     field :email, :string
     field :password, :string, virtual: true, redact: true
