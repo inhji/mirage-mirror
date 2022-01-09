@@ -21,20 +21,23 @@ defmodule MirageWeb.UserInfo do
   end
 
   def fetch_motd(conn, _opts) do
-    motd = case Accounts.get_user() do
-      nil -> ""
-
-      user ->
-        if String.length(user.motd) > 0 do
-          user.motd
-          |> String.split("\n")
-          |> IO.inspect()
-          |> Enum.take_random(1)
-          |> List.first()
-        else ""
-        end
-    end
+    motd =
+      case Accounts.get_user() do
+        nil -> ""
+        user -> get_random_motd(user.motd)
+      end
 
     assign(conn, :motd, motd)
+  end
+
+  defp get_random_motd(nil), do: ""
+  defp get_random_motd(""), do: ""
+
+  defp get_random_motd(motd_string) do
+    user.motd
+    |> String.split("\n")
+    |> IO.inspect()
+    |> Enum.take_random(1)
+    |> List.first()
   end
 end
