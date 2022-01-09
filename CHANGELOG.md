@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.47.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.47.0...v0.47.1) (2022-01-09)
+
+
+
+
+### Bug Fixes:
+
+* motd crashing when nil
+
+* motd crashing when nil
+
 ## [v0.47.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.46.0...v0.47.0) (2022-01-09)
 
 
