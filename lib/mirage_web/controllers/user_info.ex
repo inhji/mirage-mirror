@@ -34,9 +34,8 @@ defmodule MirageWeb.UserInfo do
   defp get_random_motd(""), do: ""
 
   defp get_random_motd(motd_string) do
-    user.motd
+    motd_string
     |> String.split("\n")
-    |> IO.inspect()
     |> Enum.take_random(1)
     |> List.first()
   end
