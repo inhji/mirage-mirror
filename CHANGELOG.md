@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.47.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.46.0...v0.47.0) (2022-01-09)
+
+
+
+
+### Features:
+
+* add support for multiple, random MOTDs
+
+* Add site settings
+
+* Add new fields to user
+
+### Bug Fixes:
+
+* error pages crashing lol
+
 ## [v0.46.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.45.0...v0.46.0) (2022-01-06)
 
 
