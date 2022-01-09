@@ -13,6 +13,7 @@ defmodule MirageWeb.Router do
     plug :put_secure_browser_headers
     plug :fetch_current_user
     plug :fetch_user_identities
+    plug :fetch_motd
   end
 
   pipeline :api do

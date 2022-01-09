@@ -11,6 +11,7 @@ defmodule Mirage.Accounts.User do
     field :name, :string
     field :handle, :string
     field :bio, :string
+    field :motd, :string 
 
     field :email, :string
     field :password, :string, virtual: true, redact: true
@@ -102,7 +103,15 @@ defmodule Mirage.Accounts.User do
   """
   def profile_changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :handle, :bio])
+    |> cast(attrs, [:name, :handle, :bio, :motd])
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking user settings changes.
+  """
+  def settings_changeset(user, attrs) do
+    user 
+    |> cast(attrs, [:microblog_list_id, :journal_list_id])
   end
 
   @doc """

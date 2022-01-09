@@ -38,6 +38,12 @@
       <%= error_tag f, :bio %>
     </fieldset>
 
+    <fieldset>
+      <%= label f, :motd, "MOTD, seperated by newline" %>
+      <%= textarea f, :motd %>
+      <%= error_tag f, :motd %>
+    </fieldset>
+
     <div>
       <%= submit "Update profile" %>
     </div>
