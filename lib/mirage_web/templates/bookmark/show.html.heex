@@ -1,0 +1,4 @@
+<article class="h-entry card bookmark mx-auto max-w-prose">
+  <%= render "bookmark.html", assigns %>
+  <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @bookmark.user) %>
+</article>

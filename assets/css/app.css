@@ -117,7 +117,25 @@
   }
 
   .tag {
-    @apply text-sm p-1 rounded shadow-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-400;
+    @apply inline-block text-sm p-1 rounded shadow-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-400;
+  }
+
+  article.note, article.bookmark {
+    & header {
+      @apply mb-3 pb-5 border-b;
+    }
+
+    & section.html {
+      @apply prose dark:prose-invert mx-auto;
+    }
+
+    & footer {
+      @apply mt-3 pt-3 border-t dark:border-gray-700 empty:border-0;
+
+      & a {
+        @apply text-gray-500;
+      }
+    }
   }
 }
 
