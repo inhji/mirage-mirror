@@ -7,6 +7,7 @@
     <li><a href="#change_settings">Change Site Settings</a></li>
     <li><a href="#change_email">Change Email</a></li>
     <li><a href="#change_password">Change Password</a></li>
+    <li><a href="#public_key">Public Key</a></li>
   </ul>
 
   <h2 id="update_profile" class="mt-10">Update profile</h2>
@@ -175,4 +176,10 @@
       <%= submit "Change password" %>
     </div>
   </.form>
+
+  <h2 id="public_key" class="mt-10">Public Key</h2>
+
+  <div class="prose">
+    <pre><%= @user.pub_key %></pre>
+  </div>
 </section>

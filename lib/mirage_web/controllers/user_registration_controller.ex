@@ -14,7 +14,10 @@ defmodule MirageWeb.UserRegistrationController do
     # Prevent signup after the first user.
     user_params = if Accounts.get_user(), do: %{}, else: user_params
 
-    case Accounts.register_user(user_params) do
+    # Generate RSA Key for Activity Pub
+    {:ok, keys} = RsaEx.generate_keypair()
+
+    case Accounts.register_user_with_key(user_params, keys) do
       {:ok, user} ->
         {:ok, _} =
           Accounts.deliver_user_confirmation_instructions(

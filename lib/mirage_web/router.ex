@@ -20,6 +20,10 @@ defmodule MirageWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :activity_pub do
+    plug :accepts, ["json"]
+  end
+
   scope "/", MirageWeb do
     pipe_through :browser
 
@@ -34,6 +38,13 @@ defmodule MirageWeb.Router do
 
     get "/notes", NoteController, :index
     get "/notes/:id", NoteController, :show
+  end
+
+  scope path: "/pub", as: :activity_pub, alias: MirageWeb.ActivityPub do
+    pipe_through :activity_pub
+
+    get "/actor", ActorController, :actor
+    get "/inbox", ActorController, :inbox
   end
 
   scope path: "/admin", as: :admin, alias: MirageWeb.Admin do

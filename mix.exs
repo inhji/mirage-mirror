@@ -23,7 +23,7 @@ defmodule Mirage.MixProject do
   def application do
     [
       mod: {Mirage.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :public_key]
     ]
   end
 
@@ -60,6 +60,7 @@ defmodule Mirage.MixProject do
       {:phoenix_live_view, "~> 0.16.0"},
       {:plug_cowboy, "~> 2.5"},
       {:postgrex, ">= 0.0.0"},
+      {:rsa_ex, "~> 0.4"},
       {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},

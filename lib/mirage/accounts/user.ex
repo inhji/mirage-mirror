@@ -18,6 +18,9 @@ defmodule Mirage.Accounts.User do
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
 
+    field :pub_key, :string
+    field :priv_key, :string
+
     # List Settings/Assigns 
     belongs_to :microblog_list, Mirage.Lists.List
     belongs_to :journal_list, Mirage.Lists.List
@@ -44,7 +47,7 @@ defmodule Mirage.Accounts.User do
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email, :password])
+    |> cast(attrs, [:email, :password, :pub_key, :priv_key])
     |> validate_email()
     |> validate_password(opts)
   end
@@ -110,7 +113,7 @@ defmodule Mirage.Accounts.User do
   Returns an `%Ecto.Changeset{}` for tracking user settings changes.
   """
   def settings_changeset(user, attrs) do
-    user 
+    user
     |> cast(attrs, [:microblog_list_id, :journal_list_id])
   end
 

@@ -127,6 +127,15 @@ defmodule Mirage.Accounts do
     |> Repo.insert()
   end
 
+  def register_user_with_key(attrs, {priv_key, pub_key}) do
+    attrs =
+      attrs
+      |> Map.put("priv_key", priv_key)
+      |> Map.put("pub_key", pub_key)
+
+    register_user(attrs)
+  end
+
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking user changes.
 
