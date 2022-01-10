@@ -5,6 +5,8 @@
     </div>
   <% end %>
 
+  <%= hidden_input f, :user_id, value: @current_user.id %>
+
   <fieldset>
     <%= label f, :title %>
     <%= text_input f, :title %>
