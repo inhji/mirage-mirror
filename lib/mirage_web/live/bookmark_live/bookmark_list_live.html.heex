@@ -50,7 +50,6 @@
 
       <td>
         <span><%= link "Edit", to: Routes.admin_bookmark_path(MirageWeb.Endpoint, :edit, bookmark), class: "button text-sm p-2" %></span>
-        <span><%= link "Microformats", to: Routes.admin_bookmark_path(MirageWeb.Endpoint, :microformats, bookmark), class: "button text-sm p-2" %></span>
         <span><%= link "Delete", to: Routes.admin_bookmark_path(MirageWeb.Endpoint, :delete, bookmark), method: :delete, data: [confirm: "Are you sure?"], class: "button text-sm p-2" %></span>
       </td>
     </tr>

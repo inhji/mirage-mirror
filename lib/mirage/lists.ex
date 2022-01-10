@@ -136,4 +136,8 @@ defmodule Mirage.Lists do
   def change_list(%List{} = list, attrs \\ %{}) do
     List.changeset(list, attrs)
   end
+
+  def for_select(%List{} = list) do
+    [key: list.title, value: list.id]
+  end
 end

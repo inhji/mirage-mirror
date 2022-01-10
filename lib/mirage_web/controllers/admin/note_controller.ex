@@ -10,7 +10,7 @@ defmodule MirageWeb.Admin.NoteController do
   end
 
   def new(conn, _params) do
-    lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
+    lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
     changeset = Notes.change_note(%Note{})
 
     render(conn, "new.html",
@@ -29,7 +29,7 @@ defmodule MirageWeb.Admin.NoteController do
         |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
+        lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
 
         render(conn, "new.html",
           changeset: changeset,
@@ -46,7 +46,7 @@ defmodule MirageWeb.Admin.NoteController do
   end
 
   def edit(conn, %{"id" => id}) do
-    lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
+    lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
     note = Notes.get_note!(id)
     changeset = Notes.change_note(note)
 
@@ -69,7 +69,7 @@ defmodule MirageWeb.Admin.NoteController do
         |> redirect(to: Routes.admin_note_path(conn, :show, note))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        lists = Mirage.Lists.list_lists() |> Enum.map(&for_select/1)
+        lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
 
         render(conn, "edit.html",
           changeset: changeset,
@@ -127,9 +127,5 @@ defmodule MirageWeb.Admin.NoteController do
     conn
     |> put_flash(:info, "Note deleted successfully.")
     |> redirect(to: Routes.admin_note_path(conn, :index))
-  end
-
-  defp for_select(list) do
-    [key: list.title, value: list.id]
   end
 end

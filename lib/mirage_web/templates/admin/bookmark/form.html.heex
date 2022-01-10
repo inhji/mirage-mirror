@@ -51,6 +51,12 @@
   </fieldset>
 
   <fieldset>
+    <%= label f, :list_id %>
+    <%= select f, :list_id, @lists, prompt: "Choose a value" %>
+    <%= error_tag f, :list_id %>
+  </fieldset>
+
+  <fieldset>
     <%= label f, :like_of %>
     <%= text_input f, :like_of %>
     <%= error_tag f, :like_of %>

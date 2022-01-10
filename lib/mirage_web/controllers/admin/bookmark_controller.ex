@@ -10,8 +10,9 @@ defmodule MirageWeb.Admin.BookmarkController do
   end
 
   def new(conn, _params) do
+    lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
     changeset = Bookmarks.change_bookmark(%Bookmark{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, lists: lists)
   end
 
   def create(conn, %{"bookmark" => bookmark_params}) do
@@ -22,7 +23,8 @@ defmodule MirageWeb.Admin.BookmarkController do
         |> redirect(to: Routes.admin_bookmark_path(conn, :show, bookmark))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
+        render(conn, "new.html", changeset: changeset, lists: lists)
     end
   end
 
@@ -32,9 +34,10 @@ defmodule MirageWeb.Admin.BookmarkController do
   end
 
   def edit(conn, %{"id" => id}) do
+    lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
     bookmark = Bookmarks.get_bookmark!(id)
     changeset = Bookmarks.change_bookmark(bookmark)
-    render(conn, "edit.html", bookmark: bookmark, changeset: changeset)
+    render(conn, "edit.html", bookmark: bookmark, changeset: changeset, lists: lists)
   end
 
   def update(conn, %{"id" => id, "bookmark" => bookmark_params}) do
@@ -47,7 +50,8 @@ defmodule MirageWeb.Admin.BookmarkController do
         |> redirect(to: Routes.admin_bookmark_path(conn, :show, bookmark))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", bookmark: bookmark, changeset: changeset)
+        lists = Mirage.Lists.list_lists() |> Enum.map(&Mirage.Lists.for_select/1)
+        render(conn, "edit.html", bookmark: bookmark, changeset: changeset, lists: lists)
     end
   end
 
