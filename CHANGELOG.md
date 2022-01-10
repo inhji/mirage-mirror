@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.48.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.48.0...v0.48.1) (2022-01-10)
+
+
+
+
+### Bug Fixes:
+
+* add the user_id field to bookmark form
+
 ## [v0.48.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.47.2...v0.48.0) (2022-01-10)
 
 
