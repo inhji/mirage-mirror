@@ -113,11 +113,15 @@
   }
   
   .card {
-    @apply bg-gray-100 dark:bg-gray-800 px-6 py-4 shadow-lg border-b dark:border-0;
+    @apply bg-gray-100 dark:bg-gray-800 px-6 py-4 shadow-lg border-b dark:border-0 rounded-sm;
   }
 
   .tag {
     @apply inline-block text-sm p-1 rounded shadow-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-400;
+  }
+
+  .alert {
+    @apply p-3 empty:hidden shadow mb-6;
   }
 
   article.note, article.bookmark {

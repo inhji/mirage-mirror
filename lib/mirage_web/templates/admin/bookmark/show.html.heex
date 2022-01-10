@@ -1,9 +1,11 @@
 <%= render MirageWeb.BookmarkView, "show.html", assigns %>
 
-<span><%= link "Edit", to: Routes.admin_bookmark_path(@conn, :edit, @bookmark) %></span> |
-<%= if is_nil(@bookmark.published_at) do %>
-<span><%= link "Publish", to: Routes.admin_bookmark_path(@conn, :publish, @bookmark) %></span> |
-<% else %>
-<span><%= link "Unpublish", to: Routes.admin_bookmark_path(@conn, :unpublish, @bookmark) %></span> |
-<% end %>
-<span><%= link "Back", to: Routes.admin_bookmark_path(@conn, :index) %></span>
+<aside class="mt-10 block max-w-prose mx-auto">
+  <span><%= link "Edit", to: Routes.admin_bookmark_path(@conn, :edit, @bookmark), class: "button" %></span>
+  <%= if is_nil(@bookmark.published_at) do %>
+  <span><%= link "Publish", to: Routes.admin_bookmark_path(@conn, :publish, @bookmark), class: "button" %></span>
+  <% else %>
+  <span><%= link "Unpublish", to: Routes.admin_bookmark_path(@conn, :unpublish, @bookmark), class: "button" %></span>
+  <% end %>
+  <span><%= link "Back", to: Routes.admin_bookmark_path(@conn, :index), class: "button" %></span>
+</aside>

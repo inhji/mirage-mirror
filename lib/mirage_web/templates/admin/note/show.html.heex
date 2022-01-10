@@ -1,11 +1,11 @@
 <%= render MirageWeb.NoteView, "show.html", assigns %>
 
-<aside class="mt-10">
-  <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, @note) %></span> |
+<aside class="mt-10 block max-w-prose mx-auto">
+  <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, @note), class: "button" %></span>
   <%= if is_nil(@note.published_at) do %>
-  <span><%= link "Publish", to: Routes.admin_note_path(@conn, :publish, @note) %></span> |
+  <span><%= link "Publish", to: Routes.admin_note_path(@conn, :publish, @note), class: "button" %></span>
   <% else %>
-  <span><%= link "Unpublish", to: Routes.admin_note_path(@conn, :unpublish, @note) %></span> |
+  <span><%= link "Unpublish", to: Routes.admin_note_path(@conn, :unpublish, @note), class: "button" %></span>
   <% end %>
-  <span><%= link "Back", to: Routes.admin_note_path(@conn, :index) %></span>
+  <span><%= link "Back", to: Routes.admin_note_path(@conn, :index), class: "button" %></span>
 </aside>
