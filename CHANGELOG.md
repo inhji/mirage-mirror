@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.51.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.50.0...v0.51.0) (2022-01-10)
+
+
+
+
+### Features:
+
+* improve alerts and cards and buttons
+
 ## [v0.50.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.49.0...v0.50.0) (2022-01-10)
 
 
