@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.48.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.47.2...v0.48.0) (2022-01-10)
+
+
+
+
+### Features:
+
+* add public/private rsa key to user
+
 ## [v0.47.2](http://10.0.0.11/inhji/mirage2.git/compare/v0.47.1...v0.47.2) (2022-01-09)
 
 
