@@ -89,6 +89,7 @@ defmodule MirageWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
+      import MirageWeb.ViewHelpers
       import MirageWeb.ErrorHelpers
       import MirageWeb.Gettext
       alias MirageWeb.Router.Helpers, as: Routes
