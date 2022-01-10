@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.49.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.48.1...v0.49.0) (2022-01-10)
+
+
+
+
+### Features:
+
+* add list select for bookmarks
+
+### Bug Fixes:
+
+* modify content and content_html for bookmark to be text
+
 ## [v0.48.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.48.0...v0.48.1) (2022-01-10)
 
 
