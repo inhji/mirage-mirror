@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.50.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.49.0...v0.50.0) (2022-01-10)
+
+
+
+
+### Features:
+
+* centralize note bookmark styles
+
+* use view helpers
+
+* add ViewHelpers module
+
+* small tweaks to h-card, make bio dynamic
+
 ## [v0.49.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.48.1...v0.49.0) (2022-01-10)
 
 
