@@ -39,6 +39,23 @@ document.addEventListener("DOMContentLoaded", function () {
 			createEditor($el)
 		}
 	})
+
+	const darkModeToggle = document.querySelector(".dark-mode-toggle")
+	darkModeToggle.addEventListener('click' ,function (e) {
+		e.preventDefault()
+
+		console.log(document.body.classList)
+
+		if (document.body.classList.contains("dark")) {
+			console.log("Dark Mode Off!")
+			document.body.classList.remove("dark")
+			localStorage.theme = 'light'
+		} else {
+			console.log("Dark Mode On!")
+			document.body.classList.add("dark")
+			localStorage.theme = 'dark'
+		}
+	})
 })
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
