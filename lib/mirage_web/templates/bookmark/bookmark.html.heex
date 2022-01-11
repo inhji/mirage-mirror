@@ -24,6 +24,18 @@
     <%= link "🔖 #{@bookmark.bookmark_of}", 
       to: @bookmark.bookmark_of, 
       class: "u-bookmark-of", 
-      title: "In reply to" %>
+      title: "Bookmark of" %>
+  <% end %>
+  <%= if @bookmark.like_of do %>
+    <%= link "❤️ #{@bookmark.like_of}", 
+      to: @bookmark.like_of, 
+      class: "u-like-of", 
+      title: "Like of" %>
+  <% end %>
+  <%= if @bookmark.repost_of do %>
+    <%= link "🔁 #{@bookmark.repost_of}", 
+      to: @bookmark.repost_of, 
+      class: "u-repost-of", 
+      title: "Repost of" %>
   <% end %>
 </footer>
