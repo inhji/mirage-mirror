@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.53.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.52.0...v0.53.0) (2022-01-11)
+
+
+
+
+### Features:
+
+* dark mode fixes
+
+* add dark mode toggle
+
+* Add js code for dark mode toggle
+
+* change to postcss-nested
+
 ## [v0.52.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.51.1...v0.52.0) (2022-01-11)
 
 
