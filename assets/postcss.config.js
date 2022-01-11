@@ -2,7 +2,7 @@ module.exports = {
   plugins: {
     'postcss-preset-env': {},
     'postcss-import': {},
-    'postcss-nesting': {},
+    'postcss-nested': {},
     tailwindcss: {},
     autoprefixer: {},
   }
