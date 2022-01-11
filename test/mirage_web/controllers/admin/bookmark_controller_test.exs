@@ -11,7 +11,7 @@ defmodule MirageWeb.Admin.BookmarkControllerTest do
     like_of: "some updated like_of",
     repost_of: "some updated repost_of",
     title: "some updated title",
-    url: "some updated url",
+    url: "some updated url"
   }
   @invalid_attrs %{
     bookmark_of: nil,
@@ -20,7 +20,7 @@ defmodule MirageWeb.Admin.BookmarkControllerTest do
     like_of: nil,
     repost_of: nil,
     title: nil,
-    url: nil,
+    url: nil
   }
 
   setup :register_and_log_in_user
@@ -40,7 +40,7 @@ defmodule MirageWeb.Admin.BookmarkControllerTest do
   end
 
   describe "create bookmark" do
-     setup [:create_list]
+    setup [:create_list]
 
     test "redirects to show when data is valid", %{conn: conn, user: user, list: list} do
       create_attrs = %{

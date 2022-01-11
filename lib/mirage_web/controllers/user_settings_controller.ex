@@ -106,6 +106,7 @@ defmodule MirageWeb.UserSettingsController do
 
   defp assign_form_data(conn, _opts) do
     user = conn.assigns.current_user
+
     lists =
       Mirage.Lists.list_lists()
       |> Enum.map(fn list -> {list.title, list.id} end)

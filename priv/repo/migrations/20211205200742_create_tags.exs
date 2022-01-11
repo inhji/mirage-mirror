@@ -16,9 +16,15 @@ defmodule Mirage.Repo.Migrations.CreateTags do
 
     create unique_index(:tags, [:title])
     create unique_index(:tags, [:slug])
-    create index(:tags, ["(to_tsvector('english', title))"], 
-      name: :tags_title_vector, using: "GIN")
-    create index(:tags, ["(to_tsvector('english', content))"], 
-      name: :tags_content_vector, using: "GIN")
+
+    create index(:tags, ["(to_tsvector('english', title))"],
+             name: :tags_title_vector,
+             using: "GIN"
+           )
+
+    create index(:tags, ["(to_tsvector('english', content))"],
+             name: :tags_content_vector,
+             using: "GIN"
+           )
   end
 end

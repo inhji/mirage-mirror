@@ -53,7 +53,7 @@ defmodule Mirage.Notes do
     |> published_query(opts)
     |> list_query(opts)
     |> search_query(opts)
-    |> order_by_query(opts)  
+    |> order_by_query(opts)
     |> Repo.all()
   end
 
@@ -160,7 +160,8 @@ defmodule Mirage.Notes do
   Updates a note and runs the note hooks.
   """
   def update_note_with_hooks(%Note{} = note, attrs) do
-    update_note(note, attrs)
+    note
+    |> update_note(attrs)
     |> NoteHooks.run_hooks(attrs)
   end
 

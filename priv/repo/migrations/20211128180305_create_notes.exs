@@ -17,9 +17,15 @@ defmodule Mirage.Repo.Migrations.CreateNotes do
 
     create unique_index(:notes, [:title])
     create unique_index(:notes, [:slug])
-    create index(:notes, ["(to_tsvector('english', title))"], 
-      name: :notes_title_vector, using: "GIN")
-    create index(:notes, ["(to_tsvector('english', content))"], 
-      name: :notes_content_vector, using: "GIN")
+
+    create index(:notes, ["(to_tsvector('english', title))"],
+             name: :notes_title_vector,
+             using: "GIN"
+           )
+
+    create index(:notes, ["(to_tsvector('english', content))"],
+             name: :notes_content_vector,
+             using: "GIN"
+           )
   end
 end

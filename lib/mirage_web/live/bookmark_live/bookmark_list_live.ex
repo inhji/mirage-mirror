@@ -17,7 +17,9 @@ defmodule MirageWeb.BookmarkListLive do
 
   def handle_event("handle_change", %{"bookmark_list_params" => params}, socket) do
     bookmarks = Mirage.Bookmarks.list_bookmarks(params)
-    {:noreply, socket |> assign(bookmarks: bookmarks, changeset: ListLive.bookmark_changeset(params))}
+
+    {:noreply,
+     socket |> assign(bookmarks: bookmarks, changeset: ListLive.bookmark_changeset(params))}
   end
 
   def handle_event("handle_reset", _params, socket) do

@@ -125,7 +125,7 @@ defmodule Mirage.Bookmarks do
     |> Repo.update()
   end
 
-    @doc """
+  @doc """
   Updates a bookmark and run the bookmark hooks.
 
   ## Examples
@@ -138,11 +138,12 @@ defmodule Mirage.Bookmarks do
 
   """
   def update_bookmark_with_hooks(%Bookmark{} = bookmark, attrs) do
-    update_bookmark(bookmark, attrs)
+    bookmark
+    |> update_bookmark(attrs)
     |> BookmarkHooks.run_hooks(attrs)
   end
 
-    @doc """
+  @doc """
   Publishes a bookmark by setting published_at to utc_now
 
   ## Examples

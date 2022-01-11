@@ -9,5 +9,4 @@ defmodule MirageWeb.ActivityPub.ActorController do
   def inbox(conn, _params) do
     render(conn, "inbox.json")
   end
-
 end
