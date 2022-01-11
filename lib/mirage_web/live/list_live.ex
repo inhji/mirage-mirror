@@ -17,7 +17,7 @@ defmodule MirageWeb.Live.ListLive do
       Mirage.Lists.list_lists()
       |> Enum.map(fn list -> {list.title, list.id} end)
 
-    lists = [{"All", "all"} | lists]
+    [{"All", "all"} | lists]
   end
 
   def note_changeset(attrs \\ %{}) do

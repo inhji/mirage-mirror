@@ -7,7 +7,7 @@
   <%= if @bookmark.published_at do %>
     <time datetime={@bookmark.published_at} title={@bookmark.published_at} class="tag dt-published">
       <%= datetime_for_display(@bookmark.published_at) %></time>
-  <%= else %>
+  <% else %>
     <span class="tag">Unpublished</span>
   <% end %>
 
