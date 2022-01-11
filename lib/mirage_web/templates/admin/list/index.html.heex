@@ -8,7 +8,7 @@
       <th></th>
     </tr>
   </thead>
-  <tbody class="bg-gray-100">
+  <tbody>
 <%= for list <- @lists do %>
     <tr>
       <td><%= link list.title, to: Routes.admin_list_path(@conn, :show, list) %></td>

@@ -8,9 +8,9 @@
       <p class="text-gray-500 dark:text-gray-500">
         @<span class="p-nickname"><%= @user.handle %></span>
       </p>
-      <p class="p-note text-gray-700 dark:text-gray-400 mt-3">
+      <div class="p-note prose dark:prose-invert mt-3">
         <%= raw Mirage.Markdown.render(@user.bio) %>
-      </p>
+      </div>
     </div>
   </figure>
 

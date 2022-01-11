@@ -80,7 +80,7 @@
   /* Tables */
   
   table {
-    @apply w-full text-gray-800 dark:text-gray-300;
+    @apply w-full text-gray-800 dark:text-gray-300 table-auto border-collapse my-3;
   
     & thead {
       @apply bg-gray-300 dark:bg-gray-700 dark:text-gray-300;
@@ -107,38 +107,41 @@
 }
 
 
-@layer components {
-  .button, input[type=submit], button[type=submit] {
-    @apply p-3 rounded-sm inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 hover:dark:text-gray-800;
+
+
+.button, input[type=submit], button[type=submit] {
+  @apply p-3 rounded-sm inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 hover:dark:text-gray-800;
+}
+
+.card {
+  @apply bg-gray-100 dark:bg-gray-800 px-6 py-4 shadow-lg border-b dark:border-0 rounded-sm;
+}
+
+.tag {
+  @apply inline-block text-sm p-1 rounded shadow-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-400;
+}
+
+.alert {
+  @apply p-3 empty:hidden shadow mb-6;
+}
+
+
+article.card.note, article.card.bookmark {
+  @apply dark:shadow-none dark:py-4;
+
+  & header {
+    @apply mb-3 pb-5 border-b dark:border-gray-700;
   }
-  
-  .card {
-    @apply bg-gray-100 dark:bg-gray-800 px-6 py-4 shadow-lg border-b dark:border-0 rounded-sm;
+
+  & section.html {
+    @apply mx-auto prose dark:prose-invert;
   }
 
-  .tag {
-    @apply inline-block text-sm p-1 rounded shadow-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-400;
-  }
+  & footer {
+    @apply mt-3 pt-3 border-t dark:border-gray-700;
 
-  .alert {
-    @apply p-3 empty:hidden shadow mb-6;
-  }
-
-  article.note, article.bookmark {
-    & header {
-      @apply mb-3 pb-5 border-b;
-    }
-
-    & section.html {
-      @apply prose dark:prose-invert mx-auto;
-    }
-
-    & footer {
-      @apply mt-3 pt-3 border-t dark:border-gray-700 empty:border-0;
-
-      & a {
-        @apply text-gray-500;
-      }
+    & a {
+      @apply text-gray-500;
     }
   }
 }
