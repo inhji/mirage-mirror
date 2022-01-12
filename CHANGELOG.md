@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.55.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.54.0...v0.55.0) (2022-01-12)
+
+
+
+
+### Features:
+
+* WIP migrate micropub_handler from mirage old
+
 ## [v0.54.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.53.0...v0.54.0) (2022-01-12)
 
 
