@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.54.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.53.0...v0.54.0) (2022-01-12)
+
+
+
+
+### Features:
+
+* add prose-invert classes
+
+### Bug Fixes:
+
+* tweak heading color
+
+* move theme script to top, hopefully to prevent fouc
+
 ## [v0.53.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.52.0...v0.53.0) (2022-01-11)
 
 
