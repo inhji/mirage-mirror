@@ -78,6 +78,13 @@ defmodule MirageWeb.Router do
     end
   end
 
+  scope "/indie", as: :indie do
+    forward "/micropub",
+            PlugMicropub,
+            handler: Mirage.Indie.MicropubHandler,
+            json_encoder: Jason
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put

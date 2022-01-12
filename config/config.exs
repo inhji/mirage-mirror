@@ -18,7 +18,21 @@ config :mirage, MirageWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: MirageWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Mirage.PubSub,
-  live_view: [signing_salt: "bLOC2bih"]
+  live_view: [signing_salt: "bLOC2bih"],
+  user_agent: "Mirage/0.x +https://inhji.de"
+
+config :mirage, :indie,
+  token_endpoint: "https://tokens.indieauth.com/token",
+  auth_endpoint: "https://indieauth.com/auth",
+  supported_targets: [],
+  supported_scopes: [
+    # Micropub scopes
+    "create",
+    "update",
+    "delete",
+    "undelete",
+    "media"
+  ]
 
 # Configures the mailer
 #
