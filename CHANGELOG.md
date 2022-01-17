@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.57.3](http://10.0.0.11/inhji/mirage2.git/compare/v0.57.2...v0.57.3) (2022-01-17)
+
+
+
+
+### Bug Fixes:
+
+* copy_url returning true for url
+
+* dont rsync .elixir_ls
+
 ## [v0.57.2](http://10.0.0.11/inhji/mirage2.git/compare/v0.57.1...v0.57.2) (2022-01-17)
 
 
