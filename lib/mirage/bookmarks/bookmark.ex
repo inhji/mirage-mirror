@@ -81,18 +81,15 @@ defmodule Mirage.Bookmarks.Bookmark do
   end
 
   def copy_url(changeset) do
-    cond do
-      url = get_change(changeset, :like_of, nil) != nil ->
-        put_change(changeset, :url, url)
+    Enum.reduce_while([:like_of, :bookmark_of, :repost_of], changeset, fn field, changeset ->
+      case get_change(changeset, field, nil) do
+        nil ->
+          {:cont, changeset}
 
-      url = get_change(changeset, :bookmark_of, nil) != nil ->
-        put_change(changeset, :url, url)
-
-      url = get_change(changeset, :repost_of, nil) != nil ->
-        put_change(changeset, :url, url)
-
-      true ->
-        changeset
-    end
+        change ->
+          changeset = put_change(changeset, :url, change)
+          {:halt, changeset}
+      end
+    end)
   end
 end
