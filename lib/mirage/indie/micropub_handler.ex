@@ -50,7 +50,7 @@ defmodule Mirage.Indie.MicropubHandler do
 
   def create_post(:bookmark, props) do
     title = Attributes.get_title(props) || timestamp_as_string()
-    content = Attributes.get_content(props)
+    content = Attributes.get_content(props) || title
 
     bookmark_of = Attributes.get_bookmarked_url(props)
     repost_of = Attributes.get_reposted_url(props)
