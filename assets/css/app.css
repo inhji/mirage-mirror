@@ -107,8 +107,6 @@
 }
 
 
-
-
 .button, input[type=submit], button[type=submit] {
   @apply p-3 rounded-sm inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 hover:dark:text-gray-800;
 }
@@ -138,7 +136,7 @@ article.card.note, article.card.bookmark {
   }
 
   & footer {
-    @apply mt-3 pt-3 border-t dark:border-gray-700;
+    @apply mt-3 pt-3 border-t dark:border-gray-700 break-all;
 
     & a {
       @apply text-gray-500;
