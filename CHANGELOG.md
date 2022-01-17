@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.56.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.55.0...v0.56.0) (2022-01-17)
+
+
+
+
+### Features:
+
+* add indieauth/micropub info
+
 ## [v0.55.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.54.0...v0.55.0) (2022-01-12)
 
 
