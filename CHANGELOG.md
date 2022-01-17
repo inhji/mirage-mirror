@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.57.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.57.0...v0.57.1) (2022-01-17)
+
+
+
+
+### Bug Fixes:
+
+* catch 404 in indie auth
+
+* indie auth url
+
 ## [v0.57.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.56.0...v0.57.0) (2022-01-17)
 
 

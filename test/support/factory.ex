@@ -2,8 +2,12 @@ defmodule Mirage.Factory do
   use ExMachina.Ecto, repo: Mirage.Repo
 
   def list_factory() do
+    title = sequence(:title, &"List-#{&1}")
+    slug = Slugger.slugify_downcase(title)
+
     %Mirage.Lists.List{
-      title: sequence(:title, &"List-#{&1}"),
+      title: title,
+      slug: slug,
       content: sequence(:content, &"List Content #{&1}"),
       display_type: :list,
       published_at: ~N[2021-12-03 08:47:00],
