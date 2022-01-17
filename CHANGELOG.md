@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.57.5](http://10.0.0.11/inhji/mirage2.git/compare/v0.57.4...v0.57.5) (2022-01-17)
+
+
+
+
+### Bug Fixes:
+
+* apply break-word: all to article footer
+
 ## [v0.57.4](http://10.0.0.11/inhji/mirage2.git/compare/v0.57.3...v0.57.4) (2022-01-17)
 
 
