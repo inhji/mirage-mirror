@@ -31,8 +31,8 @@ defmodule MirageWeb.Router do
     get "/", PageController, :index
     get "/about", PageController, :about
 
-    get "/feeds", FeedController, :index
-    get "/feeds/:id", FeedController, :show
+    get "/follow", FeedController, :index
+    get "/follow/:id", FeedController, :show
 
     get "/bookmarks", BookmarkController, :index
     get "/bookmarks/:id", BookmarkController, :show
