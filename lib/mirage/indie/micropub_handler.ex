@@ -22,7 +22,7 @@ defmodule Mirage.Indie.MicropubHandler do
   end
 
   def create_post(:note, props) do
-    title = DateTime.to_unix(DateTime.utc_now())
+    title = Attributes.get_title(props) || timestamp_as_string()
     content = Attributes.get_content(props)
     tags = Attributes.get_tags(props) |> Enum.join(",")
     user = Mirage.Accounts.get_user()
@@ -33,7 +33,8 @@ defmodule Mirage.Indie.MicropubHandler do
       "content" => content,
       "user_id" => user.id,
       "tags_string" => tags,
-      "in_reply_to" => reply_to
+      "in_reply_to" => reply_to,
+      "list_id" => user.microblog_list_id
     }
 
     case Mirage.Notes.create_note_with_hooks(attrs) do
@@ -48,7 +49,7 @@ defmodule Mirage.Indie.MicropubHandler do
   end
 
   def create_post(:bookmark, props) do
-    title = Attributes.get_title(props)
+    title = Attributes.get_title(props) || timestamp_as_string()
     content = Attributes.get_content(props)
 
     bookmark_of = Attributes.get_bookmarked_url(props)
@@ -71,7 +72,8 @@ defmodule Mirage.Indie.MicropubHandler do
       "tags_string" => tags,
       "repost_of" => repost_of,
       "like_of" => like_of,
-      "bookmark_of" => bookmark_of
+      "bookmark_of" => bookmark_of,
+      "list_id" => user.microblog_list_id
     }
 
     case Mirage.Bookmarks.create_bookmark_with_hooks(attrs) do
@@ -148,5 +150,11 @@ defmodule Mirage.Indie.MicropubHandler do
     |> Routes.url()
     |> URI.parse()
     |> Map.get(:host)
+  end
+
+  defp timestamp_as_string() do
+    DateTime.utc_now()
+    |> DateTime.to_unix()
+    |> to_string()
   end
 end

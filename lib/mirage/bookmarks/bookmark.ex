@@ -60,7 +60,6 @@ defmodule Mirage.Bookmarks.Bookmark do
       :title,
       :slug,
       :content,
-      :url,
       :domain,
       :published_at,
       :like_of,
@@ -72,12 +71,28 @@ defmodule Mirage.Bookmarks.Bookmark do
     |> validate_required([
       :title,
       :content,
-      :url,
       :user_id,
       :list_id
     ])
+    |> copy_url()
     |> Mirage.Bookmarks.BookmarkSlug.maybe_generate_slug()
     |> Mirage.Bookmarks.BookmarkSlug.unique_constraint()
     |> Mirage.Markdown.maybe_render(:content, :content_html)
+  end
+
+  def copy_url(changeset) do
+    cond do
+      url = get_change(changeset, :like_of, nil) != nil ->
+        put_change(changeset, :url, url)
+
+      url = get_change(changeset, :bookmark_of, nil) != nil ->
+        put_change(changeset, :url, url)
+
+      url = get_change(changeset, :repost_of, nil) != nil ->
+        put_change(changeset, :url, url)
+
+      true ->
+        changeset
+    end
   end
 end

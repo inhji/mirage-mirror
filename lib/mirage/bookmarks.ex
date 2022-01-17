@@ -9,7 +9,7 @@ defmodule Mirage.Bookmarks do
   alias Mirage.Repo
   alias Mirage.Bookmarks.{Bookmark, BookmarkHooks}
 
-  @preloads [:list, :user]
+  @preloads [:list, :user, :tags]
   defp with_preloads(query), do: preload(query, ^@preloads)
 
   @doc """
