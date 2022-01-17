@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.58.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.57.5...v0.58.0) (2022-01-17)
+
+
+
+
+### Features:
+
+* add public.js to only load necessary js bits for ppl not logged in
+
+### Bug Fixes:
+
+* rename /feeds to /follow
+
+* all the tests
+
 ## [v0.57.5](http://10.0.0.11/inhji/mirage2.git/compare/v0.57.4...v0.57.5) (2022-01-17)
 
 

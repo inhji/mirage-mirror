@@ -24,7 +24,14 @@
       href={Routes.feed_path(@conn, :show, "home")} />
  
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+
+    <%= if @current_user do %>
+      <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <% else %>
+      <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/public.js")}></script>
+    <% end %>
+  </head>
+  <body>
     <script type="text/javascript">
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.body.classList.add('dark')
@@ -32,8 +39,7 @@
         document.body.classList.remove('dark')
       }
     </script>
-  </head>
-  <body>
+
     <div id="wrapper" class="bg-gray-200 dark:bg-gray-800 flex flex-col selection:bg-accent1 selection:text-white">
       <header class="bg-gray-50 dark:bg-gray-700 dark:text-gray-300 shadow-sm">
         <nav class="flex container mx-auto">

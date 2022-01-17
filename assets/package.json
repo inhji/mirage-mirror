@@ -3,6 +3,7 @@
     "@tailwindcss/forms": "^0.4.0",
     "@tarekraafat/autocomplete.js": "^10.2.6",
     "alpinejs": "^3.2.2",
+    "openwebicons": "^1.6.3",
     "prosemirror-commands": "^1.1.12",
     "prosemirror-history": "^1.2.0",
     "prosemirror-keymap": "^1.1.5",
