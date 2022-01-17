@@ -32,3 +32,7 @@ mirage-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Elixir LS Data
+.elixir_ls
+
+
