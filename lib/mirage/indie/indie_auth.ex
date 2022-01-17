@@ -8,7 +8,7 @@ defmodule Mirage.Indie.IndieAuth do
   def verify_token(token) do
     token
     |> client()
-    |> get("/")
+    |> get("")
   end
 
   defp client(token) do
