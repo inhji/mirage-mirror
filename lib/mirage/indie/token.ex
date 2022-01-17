@@ -10,16 +10,15 @@ defmodule Mirage.Indie.Token do
       {:ok, %{status: 200, body: body}} ->
         verify_token_response(body, required_scope, own_hostname)
 
+      {:ok, %{status: status}} ->
+        {:error, :insufficient_scope, status}
+
       {:error, %{code: code}} ->
         Logger.error("Token endpoint responded with unexpected code: #{inspect(code)}")
         {:error, :insufficient_scope, code}
 
       {:error, %{reason: reason}} ->
         Logger.error("Could not reach token endpoint: #{inspect(reason)}")
-        {:error, :insufficient_scope, reason}
-
-      {:error, name, reason} ->
-        Logger.error("Error #{reason} in #{name}")
         {:error, :insufficient_scope, reason}
 
       error ->
