@@ -21,6 +21,7 @@ defmodule Mirage.Factory do
       email: sequence(:email, &"email-#{&1}@example.com"),
       password: sequence(:password, &"corrent-horse-battery-staple-#{&1}"),
       handle: sequence(:handle, &"handle-#{&1}"),
+      bio: "my life is exiting!",
       pub_key: "Some Public Key",
       priv_key: "Some Private Key",
       microblog_list: build(:list)

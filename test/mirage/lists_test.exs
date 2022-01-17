@@ -46,7 +46,7 @@ defmodule Mirage.ListsTest do
     end
 
     test "update_list/2 with valid data updates the list" do
-      list = list_fixture()
+      old_list = list_fixture()
 
       update_attrs = %{
         title: "some updated title",
@@ -54,10 +54,10 @@ defmodule Mirage.ListsTest do
         slug: "some updated slug"
       }
 
-      assert {:ok, %List{} = list} = Lists.update_list(list, update_attrs)
+      assert {:ok, %List{} = list} = Lists.update_list(old_list, update_attrs)
       assert list.content == "some updated content"
-      assert list.slug == "some-title"
       assert list.title == "some updated title"
+      assert list.slug == old_list.slug
     end
 
     test "update_list/2 with invalid data returns error changeset" do

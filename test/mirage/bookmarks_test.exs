@@ -13,9 +13,7 @@ defmodule Mirage.BookmarksTest do
       content: nil,
       content_html: nil,
       domain: nil,
-      like_of: nil,
       published_at: nil,
-      repost_of: nil,
       slug: nil,
       tags_string: nil,
       title: nil,
@@ -57,7 +55,9 @@ defmodule Mirage.BookmarksTest do
       assert bookmark.published_at == ~N[2022-01-04 21:26:00]
       assert bookmark.repost_of == "some repost_of"
       assert bookmark.title == "some title"
-      assert bookmark.url == "some url"
+
+      # like_of gets copied into url
+      assert bookmark.url == "some like_of"
     end
 
     test "create_bookmark/1 with invalid data returns error changeset" do
@@ -84,7 +84,9 @@ defmodule Mirage.BookmarksTest do
       assert bookmark.published_at == ~N[2022-01-05 21:26:00]
       assert bookmark.repost_of == "some updated repost_of"
       assert bookmark.title == "some updated title"
-      assert bookmark.url == "some updated url"
+
+      # like_of gets copied into url
+      assert bookmark.url == "some updated like_of"
     end
 
     test "update_bookmark/2 with invalid data returns error changeset" do
