@@ -49,6 +49,10 @@
     & fieldset {
       @apply flex flex-col gap-1;
     }
+
+    & label {
+      @apply dark:text-gray-200;
+    }
   
     & [type="text"], 
     & [type="email"], 
@@ -65,11 +69,11 @@
     & [multiple], 
     & textarea, 
     & select {
-      @apply inline-block w-full rounded-sm;
+      @apply inline-block w-full rounded-sm dark:bg-gray-700 dark:text-gray-200;
     }
   
     & .ProseMirror {
-      @apply p-3 bg-white border border-gray-500;
+      @apply p-3 bg-white border border-gray-500 dark:bg-gray-700;
     }
   }
 
