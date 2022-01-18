@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.60.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.59.0...v0.60.0) (2022-01-18)
+
+
+
+
+### Features:
+
+* clean up dashboard with details elements
+
+### Bug Fixes:
+
+* dark mode for forms
+
 ## [v0.59.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.58.0...v0.59.0) (2022-01-17)
 
 
