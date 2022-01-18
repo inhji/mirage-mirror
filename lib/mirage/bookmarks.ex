@@ -39,6 +39,22 @@ defmodule Mirage.Bookmarks do
   end
 
   @doc """
+  Returns the list of unpublished bookmarks.
+
+  ## Examples
+
+      iex> list_unpublished_bookmarks()
+      [%Bookmark{}, ...]
+      
+  """
+  def list_unpublished_bookmarks do
+    Bookmark
+    |> where([b], is_nil(b.published_at))
+    |> with_preloads()
+    |> Repo.all()
+  end
+
+  @doc """
   Returns the list of notes sorted by `MirageWeb.Live.NoteListParams`
 
   *Internal use only*
