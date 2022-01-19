@@ -16,7 +16,7 @@ defmodule Mirage.Indie.MicropubHandler do
       create_post(post_type, properties)
     else
       error ->
-        IO.inspect(error)
+        Logger.error("Error in handle_create: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
@@ -81,12 +81,12 @@ defmodule Mirage.Indie.MicropubHandler do
         {:ok, :created, Routes.bookmark_url(MirageWeb.Endpoint, :show, bookmark)}
 
       {:error, error} ->
-        Logger.error(error)
+        Logger.error("Error in create_post: #{inspect(error)}")
         {:error, :internal_server_error}
     end
   end
 
-  @impl true
+  # @impl true
   def handle_syndicate_to_query(access_token) do
     Logger.info("plug_micropub/handle_syndicate_to_query")
 
@@ -98,7 +98,7 @@ defmodule Mirage.Indie.MicropubHandler do
          }}
 
       error ->
-        IO.inspect(error)
+        Logger.error("Error in handle_syndicate_to_query: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
@@ -115,7 +115,7 @@ defmodule Mirage.Indie.MicropubHandler do
          }}
 
       error ->
-        IO.inspect(error)
+        Logger.error("Error in handle_config_query: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
