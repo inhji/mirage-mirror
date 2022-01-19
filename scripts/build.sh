@@ -19,6 +19,12 @@ npm install --prefix ./assets
 MIX_ENV=prod mix assets.deploy
 
 echo ""
+echo "Generating documentation"
+echo "--------------------------"
+MIX_ENV=prod mix docs
+
+
+echo ""
 echo "Generating release"
 echo "--------------------------"
 MIX_ENV=prod mix release --overwrite
