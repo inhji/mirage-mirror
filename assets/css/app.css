@@ -1,7 +1,20 @@
+@import "openwebicons/css/openwebicons.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "_prosemirror";
+
+@font-face {
+  font-family: 'OpenWeb Icons';
+    src: url('../fonts/OpenWebIcons/openwebicons.eot');
+    src: url('../fonts/OpenWebIcons/openwebicons.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenWebIcons/openwebicons.woff2') format('woff2'),
+         url('../fonts/OpenWebIcons/openwebicons.woff') format('woff'),
+         url('../fonts/OpenWebIcons/openwebicons.ttf') format('truetype'),
+         url('../fonts/OpenWebIcons/openwebicons.svg#OpenWebIconsRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @layer base {
 
@@ -136,7 +149,7 @@ article.card.note, article.card.bookmark {
   }
 
   & footer {
-    @apply mt-3 pt-3 border-t dark:border-gray-700 break-all;
+    @apply flex flex-col my-6 py-6 border-y dark:border-gray-700 break-all;
 
     & a {
       @apply text-gray-500;

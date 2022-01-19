@@ -24,4 +24,7 @@
   <%= if @note.in_reply_to do %>
     <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
   <% end %>
+  <%= link to: Routes.note_path(MirageWeb.Endpoint, :microformats, @note) do %>
+    <i class="icon-microformats"></i> <span>Microformats</span>
+  <% end %>
 </footer>

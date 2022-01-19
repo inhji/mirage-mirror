@@ -38,4 +38,7 @@
       class: "u-repost-of", 
       title: "Repost of" %>
   <% end %>
+  <%= link to: Routes.bookmark_path(MirageWeb.Endpoint, :microformats, @bookmark) do %>
+    <i class="icon-microformats"></i> <span>Microformats</span>
+  <% end %>
 </footer>
