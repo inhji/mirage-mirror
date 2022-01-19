@@ -5,6 +5,25 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.62.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.61.0...v0.62.0) (2022-01-19)
+
+
+
+
+### Features:
+
+* add static open web icons files
+
+* add open web icons to notes and bookmarks
+
+* make microformats routes public
+
+### Bug Fixes:
+
+* move inter files
+
+* better logging in micropub handler
+
 ## [v0.61.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.60.0...v0.61.0) (2022-01-18)
 
 
