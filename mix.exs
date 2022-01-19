@@ -116,6 +116,7 @@ defmodule Mirage.MixProject do
       rel: ["git_ops.release --yes"],
       push: ["cmd bash ./scripts/deploy.sh"],
       deploy: [
+        "docs",
         "rel",
         "push",
         "cmd git push --follow-tags"
