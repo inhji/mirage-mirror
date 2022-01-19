@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.63.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.62.0...v0.63.0) (2022-01-19)
+
+
+
+
+### Features:
+
+* log new micropub entries
+
 ## [v0.62.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.61.0...v0.62.0) (2022-01-19)
 
 
