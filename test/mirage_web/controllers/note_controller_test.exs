@@ -14,5 +14,10 @@ defmodule MirageWeb.NoteControllerTest do
       conn = get(conn, Routes.note_path(conn, :show, note.slug))
       assert html_response(conn, 200) =~ note.title
     end
+
+    test "GET /notes/:id/microformats", %{conn: conn, note: note} do
+      conn = get(conn, Routes.note_path(conn, :microformats, note.slug))
+      assert html_response(conn, 200) =~ note.title
+    end
   end
 end

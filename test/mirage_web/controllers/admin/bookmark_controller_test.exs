@@ -135,9 +135,4 @@ defmodule MirageWeb.Admin.BookmarkControllerTest do
       end
     end
   end
-
-  defp create_bookmark(_) do
-    bookmark = bookmark_fixture()
-    %{bookmark: bookmark}
-  end
 end

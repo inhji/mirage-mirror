@@ -32,4 +32,9 @@ defmodule Mirage.BookmarksFixtures do
 
     bookmark |> Mirage.Bookmarks.preload_bookmark()
   end
+
+  def create_bookmark(_) do
+    bookmark = bookmark_fixture()
+    %{bookmark: bookmark}
+  end
 end

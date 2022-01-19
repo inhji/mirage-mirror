@@ -35,9 +35,11 @@ defmodule MirageWeb.Router do
     get "/follow/:id", FeedController, :show
 
     get "/bookmarks", BookmarkController, :index
+    get "/bookmarks/:id/microformats", BookmarkController, :microformats
     get "/bookmarks/:id", BookmarkController, :show
 
     get "/notes", NoteController, :index
+    get "/notes/:id/microformats", NoteController, :microformats
     get "/notes/:id", NoteController, :show
   end
 
@@ -54,12 +56,10 @@ defmodule MirageWeb.Router do
     resources "/bookmarks", BookmarkController
     get "/bookmarks/:id/publish", BookmarkController, :publish
     get "/bookmarks/:id/unpublish", BookmarkController, :unpublish
-    # TODO: Add Microformats Routes
 
     resources "/notes", NoteController
     get "/notes/:id/publish", NoteController, :publish
     get "/notes/:id/unpublish", NoteController, :unpublish
-    get "/notes/:id/microformats", NoteController, :microformats
 
     resources "/lists", ListController
     get "/lists/:id/publish", ListController, :publish

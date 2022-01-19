@@ -1,0 +1,5 @@
+<h1>Bookmarks</h1>
+
+<%= for bookmark <- @bookmarks do %>
+  <%= link bookmark.title, to: Routes.bookmark_path(@conn, :show, bookmark) %>
+<% end %>

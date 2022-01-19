@@ -109,17 +109,6 @@ defmodule MirageWeb.Admin.NoteController do
     end
   end
 
-  def microformats(conn, %{"id" => id}) do
-    note = Notes.get_note!(id)
-
-    mf2 =
-      conn
-      |> Routes.note_url(:show, id)
-      |> Microformats2.parse()
-
-    render(conn, "microformats.html", note: note, microformats: inspect(mf2, pretty: true))
-  end
-
   def delete(conn, %{"id" => id}) do
     note = Notes.get_note!(id)
     {:ok, _note} = Notes.delete_note(note)
