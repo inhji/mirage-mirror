@@ -13,6 +13,7 @@ defmodule Mirage.Indie.MicropubHandler do
 
     with :ok <- Token.verify(access_token, "create", hostname()),
          {:ok, post_type} <- Attributes.get_post_type(properties) do
+      Mirage.Logger.info("Creating new post from micropub", properties)
       create_post(post_type, properties)
     else
       error ->
