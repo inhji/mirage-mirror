@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.64.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.63.2...v0.64.0) (2022-01-20)
+
+
+
+
+### Features:
+
+* use Content.list_updates in feeds, add notes/bookmarks feeds
+
+* add Content module
+
+* show published bookmarks on homepage
+
+### Bug Fixes:
+
+* some background fuckery on dashboard
+
 ## [v0.63.2](http://10.0.0.11/inhji/mirage2.git/compare/v0.63.1...v0.63.2) (2022-01-19)
 
 
