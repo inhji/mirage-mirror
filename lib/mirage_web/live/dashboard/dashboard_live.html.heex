@@ -10,7 +10,9 @@
 				<details>
 					<summary class="p-4 dark:text-gray-200">
 						<span><%= bookmark.title %></span>
-						<em><%= Timex.from_now(bookmark.inserted_at) %></em>
+						<span class="tag text-xs">
+							<%= Timex.from_now(bookmark.inserted_at) %>
+						</span>
 					</summary>
 
 					<div class="prose dark:prose-invert dark:border-gray-600 max-w-max">
@@ -37,9 +39,9 @@
 				<details>
 					<summary class="p-4 dark:text-gray-200">
 						<span><%= log.message %></span>
-						<em><%= Timex.from_now(log.inserted_at) %></em>
+						<span class="tag text-xs"><%= Timex.from_now(log.inserted_at) %></span>
 					</summary>
-					<pre class="whitespace-pre-wrap p-4 dark:text-gray-200">
+					<pre class="whitespace-pre-wrap p-4">
 						<%= inspect(log.metadata, pretty: true) %>
 					</pre>
 				</details>
@@ -59,7 +61,9 @@
 				<details>
 					<summary class="p-4">
 						<span><%= job.worker %></span>
-						<em><%= Timex.from_now(job.inserted_at) %></em>
+						<span class="tag text-xs">
+							<%= Timex.from_now(job.inserted_at) %>
+						</span>
 						<span class="tag bg-red-200"><%= job.state %></span>
 						<span class="tag bg-blue-200"><%= job.queue %></span>
 					</summary>
