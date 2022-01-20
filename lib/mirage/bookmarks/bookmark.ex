@@ -66,7 +66,8 @@ defmodule Mirage.Bookmarks.Bookmark do
       :repost_of,
       :bookmark_of,
       :user_id,
-      :list_id
+      :list_id,
+      :tags_string
     ])
     |> validate_required([
       :title,

@@ -53,6 +53,8 @@ defmodule MirageWeb.Admin.NoteControllerTest do
 
       conn = get(conn, Routes.admin_note_path(conn, :show, id))
       assert html_response(conn, 200) =~ create_attrs[:title]
+      assert html_response(conn, 200) =~ "some"
+      assert html_response(conn, 200) =~ "tags"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

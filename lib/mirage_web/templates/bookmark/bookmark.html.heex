@@ -13,6 +13,9 @@
 
   <span class="tag p-category"><%= @bookmark.list.title %></span>
 
+  <%= for tag <- @bookmark.tags do %>
+    <span class="tag p-category"><%= tag.title %></span>
+  <% end %>
 </header>
 
 <section class="html e-content">

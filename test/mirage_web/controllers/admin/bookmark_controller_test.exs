@@ -55,7 +55,8 @@ defmodule MirageWeb.Admin.BookmarkControllerTest do
         title: "some title",
         url: "some url",
         user_id: user.id,
-        list_id: list.id
+        list_id: list.id,
+        tags_string: "some,tags"
       }
 
       conn = post(conn, Routes.admin_bookmark_path(conn, :create), bookmark: create_attrs)
@@ -65,6 +66,8 @@ defmodule MirageWeb.Admin.BookmarkControllerTest do
 
       conn = get(conn, Routes.admin_bookmark_path(conn, :show, id))
       assert html_response(conn, 200)
+      assert html_response(conn, 200) =~ "some"
+      assert html_response(conn, 200) =~ "tags"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

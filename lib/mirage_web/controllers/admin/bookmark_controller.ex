@@ -16,7 +16,7 @@ defmodule MirageWeb.Admin.BookmarkController do
   end
 
   def create(conn, %{"bookmark" => bookmark_params}) do
-    case Bookmarks.create_bookmark(bookmark_params) do
+    case Bookmarks.create_bookmark_with_hooks(bookmark_params) do
       {:ok, bookmark} ->
         conn
         |> put_flash(:info, "Bookmark created successfully.")
@@ -43,7 +43,7 @@ defmodule MirageWeb.Admin.BookmarkController do
   def update(conn, %{"id" => id, "bookmark" => bookmark_params}) do
     bookmark = Bookmarks.get_bookmark!(id)
 
-    case Bookmarks.update_bookmark(bookmark, bookmark_params) do
+    case Bookmarks.update_bookmark_with_hooks(bookmark, bookmark_params) do
       {:ok, bookmark} ->
         conn
         |> put_flash(:info, "Bookmark updated successfully.")
