@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.65.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.64.0...v0.65.0) (2022-01-20)
+
+
+
+
+### Features:
+
+* add tags to bookmarks, for real :>
+
 ## [v0.64.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.63.2...v0.64.0) (2022-01-20)
 
 
