@@ -62,6 +62,32 @@ if config_env() == :prod do
 
   config :tzdata, :data_dir, tzdata_dir
 
+  instance_host =
+    System.get_env("MASTODON_HOST") ||
+      raise """
+      environment variable MASTODON_HOST is missing.
+      It should look like: chaos.social
+      """
+
+  client_id =
+    System.get_env("MASTODON_ID") ||
+      raise """
+      environment variable MASTODON_ID is missing.
+      It should look like: 0000000000000000000000000000000000000000000
+      """
+
+  client_secret =
+    System.get_env("MASTODON_SECRET") ||
+      raise """
+      environment variable MASTODON_SECRET is missing.
+      It should look like: 0000000000000000000000000000000000000000000
+      """
+
+  config :mirage, :mastodon,
+    instance_host: instance_host,
+    client_id: client_id,
+    client_secret: client_secret
+
   # ## Using releases
   #
   # If you are doing OTP releases, you need to instruct Phoenix

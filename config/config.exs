@@ -34,6 +34,16 @@ config :mirage, :indie,
     "media"
   ]
 
+# config :mirage, :mastodon,
+#   instance_host: "chaos.social",
+#   client_id: "0000000000000000000000000000000000000000000",
+#   client_secret: "0000000000000000000000000000000000000000000"
+
+config :mirage, :mastodon,
+  instance_host: "chaos.social",
+  client_id: "some id",
+  client_secret: "some secret"
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
