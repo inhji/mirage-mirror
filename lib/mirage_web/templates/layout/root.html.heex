@@ -41,7 +41,7 @@
     </script>
 
     <div id="wrapper" class="bg-gray-200 dark:bg-gray-800 flex flex-col selection:bg-accent1 selection:text-white">
-      <header class="bg-gray-50 dark:bg-gray-700 dark:text-gray-300 shadow-sm">
+      <header class="bg-gray-50 dark:bg-gray-700 dark:text-gray-300 shadow-sm overflow-x-auto">
         <nav class="flex container mx-auto">
           <ul class="flex py-3">
             <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index), class: "p-3 uppercase font-medium" %></li>
