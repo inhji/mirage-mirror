@@ -17,9 +17,9 @@ defmodule Mirage.Application do
       # Start the Endpoint (http/https)
       MirageWeb.Endpoint,
       # Start oban
-      {Oban, oban_config()}
+      {Oban, oban_config()},
       # Start a worker by calling: Mirage.Worker.start_link(arg)
-      # {Mirage.Worker, arg}
+      {Mentat, name: :mastodon_creds}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
