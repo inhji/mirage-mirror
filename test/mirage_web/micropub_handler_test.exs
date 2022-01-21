@@ -27,19 +27,21 @@ defmodule MirageWeb.MicropubHandlerTest do
 
   describe "create_post/2 with :note" do
     test "sending a name and content creates a note" do
-      response = Mirage.Indie.MicropubHandler.create_post(:note, %{
-        "name" => ["Some Title from Micropub #{System.unique_integer()}"],
-        "content" => ["Some Content about the Indieweb"]
-      })
+      response =
+        Mirage.Indie.MicropubHandler.create_post(:note, %{
+          "name" => ["Some Title from Micropub #{System.unique_integer()}"],
+          "content" => ["Some Content about the Indieweb"]
+        })
 
       assert {:ok, :created, url} = response
       assert url =~ "/notes/"
     end
 
     test "sending only content creates a note" do
-      response = Mirage.Indie.MicropubHandler.create_post(:note, %{
-        "content" => ["Some more Content about the Indieweb"]
-      })
+      response =
+        Mirage.Indie.MicropubHandler.create_post(:note, %{
+          "content" => ["Some more Content about the Indieweb"]
+        })
 
       assert {:ok, :created, url} = response
       assert url =~ "/notes/"
@@ -48,41 +50,45 @@ defmodule MirageWeb.MicropubHandlerTest do
 
   describe "create_post/2 with :bookmark" do
     test "sending a name and content creates a bookmark" do
-      response = Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
-        "name" => ["Some Title from Micropub #{System.unique_integer()}"],
-        "content" => ["Some Content about the Indieweb"],
-        "url" => ["http://inhji.de"]
-      })
+      response =
+        Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
+          "name" => ["Some Title from Micropub #{System.unique_integer()}"],
+          "content" => ["Some Content about the Indieweb"],
+          "url" => ["http://inhji.de"]
+        })
 
       assert {:ok, :created, url} = response
       assert url =~ "/bookmarks/"
     end
 
     test "sending a bookmark creates a bookmark" do
-      response = Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
-        "content" => ["Some more Content about the Indieweb"],
-        "bookmark_of" => ["http://inhji.de"]
-      })
+      response =
+        Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
+          "content" => ["Some more Content about the Indieweb"],
+          "bookmark_of" => ["http://inhji.de"]
+        })
 
       assert {:ok, :created, url} = response
       assert url =~ "/bookmarks/"
     end
 
     test "sending a like creates a bookmark" do
-      response = Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
-        "content" => ["Some more Content about the Indieweb"],
-        "like_of" => ["http://inhji.de"]
-      })
+      response =
+        Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
+          "content" => ["Some more Content about the Indieweb"],
+          "like_of" => ["http://inhji.de"]
+        })
 
       assert {:ok, :created, url} = response
       assert url =~ "/bookmarks/"
     end
 
     test "sending a repost creates a bookmark" do
-      response = Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
-        "content" => ["Some more Content about the Indieweb"],
-        "repost_of" => ["http://inhji.de"]
-      })
+      response =
+        Mirage.Indie.MicropubHandler.create_post(:bookmark, %{
+          "content" => ["Some more Content about the Indieweb"],
+          "repost_of" => ["http://inhji.de"]
+        })
 
       assert {:ok, :created, url} = response
       assert url =~ "/bookmarks/"

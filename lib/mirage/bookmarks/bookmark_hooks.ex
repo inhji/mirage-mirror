@@ -15,9 +15,18 @@ defmodule Mirage.Bookmarks.BookmarkHooks do
 
   def run_hooks(result, attrs) do
     Mirage.Hooks.run(result, attrs, [
+      &publish/2,
       &update_tags/2,
       &send_webmentions/2
     ])
+  end
+
+  def publish(bookmark, attrs) do
+    if Map.get(attrs, :should_publish, false) do
+      {:ok,
+       bookmark
+       |> Mirage.Bookmarks.publish_bookmark()}
+    end
   end
 
   def update_tags(bookmark, attrs) do

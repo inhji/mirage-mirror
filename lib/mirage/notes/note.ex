@@ -21,6 +21,10 @@ defmodule Mirage.Notes.Note do
 
     field :published_at, :naive_datetime
 
+    field :should_publish, :boolean,
+      virtual: true,
+      default: false
+
     field :viewed_at, :naive_datetime
     field :views, :integer, default: 0
 
@@ -49,7 +53,8 @@ defmodule Mirage.Notes.Note do
       :list_id,
       :tags_string,
       :user_id,
-      :in_reply_to
+      :in_reply_to,
+      :should_publish
     ])
     |> validate_required([:title, :content, :list_id, :user_id])
     |> unique_constraint(:title)

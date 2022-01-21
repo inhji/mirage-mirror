@@ -15,9 +15,18 @@ defmodule Mirage.Notes.NoteHooks do
 
   def run_hooks(result, attrs) do
     Mirage.Hooks.run(result, attrs, [
+      &publish/2,
       &update_tags/2,
       &send_webmentions/2
     ])
+  end
+
+  def publish(note, attrs) do
+    if Map.get(attrs, :should_publish, false) do
+      {:ok,
+       note
+       |> Mirage.Notes.publish_note()}
+    end
   end
 
   def update_tags(note, attrs) do

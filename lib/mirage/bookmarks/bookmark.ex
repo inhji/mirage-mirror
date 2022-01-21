@@ -31,6 +31,10 @@ defmodule Mirage.Bookmarks.Bookmark do
 
     field :published_at, :naive_datetime
 
+    field :should_publish, :boolean,
+      virtual: true,
+      default: false
+
     field :url, :string
     field :domain, :string
 
@@ -67,7 +71,8 @@ defmodule Mirage.Bookmarks.Bookmark do
       :bookmark_of,
       :user_id,
       :list_id,
-      :tags_string
+      :tags_string,
+      :should_publish
     ])
     |> validate_required([
       :title,

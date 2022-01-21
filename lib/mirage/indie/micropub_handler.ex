@@ -25,9 +25,12 @@ defmodule Mirage.Indie.MicropubHandler do
   def create_post(:note, props) do
     title = Attributes.get_title(props) || timestamp_as_string()
     content = Attributes.get_content(props)
+
+    reply_to = Attributes.get_reply_to(props)
+    should_publish = Attributes.is_published?(props)
+
     tags = Attributes.get_tags(props) |> Enum.join(",")
     user = Mirage.Accounts.get_user()
-    reply_to = Attributes.get_reply_to(props)
 
     attrs = %{
       "title" => title,
@@ -35,7 +38,8 @@ defmodule Mirage.Indie.MicropubHandler do
       "user_id" => user.id,
       "tags_string" => tags,
       "in_reply_to" => reply_to,
-      "list_id" => user.microblog_list_id
+      "list_id" => user.microblog_list_id,
+      "should_publish" => should_publish
     }
 
     case Mirage.Notes.create_note_with_hooks(attrs) do
@@ -56,6 +60,7 @@ defmodule Mirage.Indie.MicropubHandler do
     bookmark_of = Attributes.get_bookmarked_url(props)
     repost_of = Attributes.get_reposted_url(props)
     like_of = Attributes.get_liked_url(props)
+    should_publish = Attributes.is_published?(props)
 
     url =
       [repost_of, like_of, bookmark_of]
@@ -74,7 +79,8 @@ defmodule Mirage.Indie.MicropubHandler do
       "repost_of" => repost_of,
       "like_of" => like_of,
       "bookmark_of" => bookmark_of,
-      "list_id" => user.microblog_list_id
+      "list_id" => user.microblog_list_id,
+      "should_publish" => should_publish
     }
 
     case Mirage.Bookmarks.create_bookmark_with_hooks(attrs) do
