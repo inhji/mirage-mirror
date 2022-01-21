@@ -5,6 +5,27 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.67.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.66.0...v0.67.0) (2022-01-21)
+
+
+
+
+### Features:
+
+* add mastodon config
+
+* add user_agent/0
+
+* add Mirage.Mastodon
+
+* add mentat cache
+
+### Bug Fixes:
+
+* add overflow scroll to header menu
+
+* nicer footer menu
+
 ## [v0.66.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.65.0...v0.66.0) (2022-01-21)
 
 
