@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.66.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.65.0...v0.66.0) (2022-01-21)
+
+
+
+
+### Features:
+
+* honor published_At/post-state for posts from micropub, closes #6
+
 ## [v0.65.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.64.0...v0.65.0) (2022-01-20)
 
 
