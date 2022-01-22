@@ -16,6 +16,11 @@ defmodule Mirage.Mastodon do
     Tesla.client(middleware)
   end
 
+  @doc """
+  Returns the authorize url for the mastodon instance and client.
+
+  Call open this url in the browser and login, then copy the code returned (auth_code).
+  """
   def authorize_url() do
     host = get_config(:instance_host)
     id = get_config(:client_id)
@@ -35,6 +40,11 @@ defmodule Mirage.Mastodon do
     |> URI.to_string()
   end
 
+  @doc """
+  Requests a user_token for the current mastodon instance and client.
+
+  Needs the auth_code from `authorize_url`.
+  """
   def get_token(auth_code) do
     id = get_config(:client_id)
     secret = get_config(:client_secret)
