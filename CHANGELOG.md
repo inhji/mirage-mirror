@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.67.4](http://10.0.0.11/inhji/mirage2.git/compare/v0.67.3...v0.67.4) (2022-01-23)
+
+
+
+
+### Bug Fixes:
+
+* update earmark to pin version of earmark_parser to 1.4.18
+
 ## [v0.67.3](http://10.0.0.11/inhji/mirage2.git/compare/v0.67.2...v0.67.3) (2022-01-22)
 
 
