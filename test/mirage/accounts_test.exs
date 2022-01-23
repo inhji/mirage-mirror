@@ -519,4 +519,25 @@ defmodule Mirage.AccountsTest do
       refute inspect(%User{password: "123456"}) =~ "password: \"123456\""
     end
   end
+
+  describe "generate_mastodon_user_token/2" do
+    setup do
+      %{user: user_fixture()}
+    end
+
+    test "generates a user token for the token supplied of none exists", %{user: user} do
+      token_value = "1234567890aasdfqwertzuiop"
+
+      {:ok, token} = Accounts.generate_mastodon_user_token(user, token_value)
+      assert token == token_value
+    end
+
+    test "updates a user token if a token already exists", %{user: user} do
+      {:ok, _token} = Accounts.generate_mastodon_user_token(user, "token1")
+      assert %{token: "token1"} = Accounts.get_mastodon_user_token(user)
+
+      {:ok, _token} = Accounts.generate_mastodon_user_token(user, "token2")
+      assert %{token: "token2"} = Accounts.get_mastodon_user_token(user)
+    end
+  end
 end

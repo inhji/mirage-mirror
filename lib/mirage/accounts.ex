@@ -403,4 +403,44 @@ defmodule Mirage.Accounts do
       {:error, :user, changeset, _} -> {:error, changeset}
     end
   end
+
+  ## Mastodon
+
+  @doc """
+  Generates a mastodon user token.
+  """
+  def generate_mastodon_user_token(user, token) do
+    {token, user_token} = UserToken.build_mastodon_user_token(user, token)
+
+    case get_mastodon_user_token(user) do
+      nil ->
+        Repo.insert!(user_token)
+        {:ok, token}
+
+      %UserToken{} = user_token ->
+        update_mastodon_user_token(user_token, token)
+    end
+  end
+
+  def update_mastodon_user_token(user_token, token) do
+    user_token = Ecto.Changeset.change(user_token, token: token)
+
+    case Repo.update(user_token) do
+      {:ok, _user_token} ->
+        {:ok, token}
+
+      {:error, changeset} ->
+        {:error, changeset}
+    end
+  end
+
+  def get_mastodon_user_token(user) do
+    with {:ok, query} <- UserToken.mastodon_user_tokens_query(user),
+         %UserToken{} = token <- Repo.one(query) do
+      token
+    else
+      _ ->
+        nil
+    end
+  end
 end

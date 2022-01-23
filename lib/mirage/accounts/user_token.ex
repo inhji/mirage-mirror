@@ -165,6 +165,22 @@ defmodule Mirage.Accounts.UserToken do
   end
 
   @doc """
+  Generates a UserToken structure that represents a user-token
+  returned from the oauth-server of a mastodon instance
+  """
+  def build_mastodon_user_token(user, token) do
+    {token, %Mirage.Accounts.UserToken{token: token, context: "mastodon_user", user_id: user.id}}
+  end
+
+  def mastodon_user_tokens_query(user) do
+    query =
+      from token in user_and_contexts_query(user, ["mastodon_user"]),
+        select: token
+
+    {:ok, query}
+  end
+
+  @doc """
   Returns the token struct for the given token value and context.
   """
   def token_and_context_query(token, context) do

@@ -63,6 +63,11 @@ defmodule Mirage.Mastodon do
     )
   end
 
+  def save_token(token) do
+    user = Mirage.Accounts.get_user()
+    Mirage.Accounts.generate_mastodon_user_token(user, token)
+  end
+
   defp get_config(key) do
     config = Application.get_env(:mirage, :mastodon)
     Keyword.get(config, key)
