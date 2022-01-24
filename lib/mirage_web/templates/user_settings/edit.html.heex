@@ -91,7 +91,7 @@
   <h2 id="change_settings" class="mt-10">Change Site Settings</h2>
 
   <.form let={f} for={@settings_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_settings">
-    <%= if @password_changeset.action do %>
+    <%= if @settings_changeset.action do %>
       <div class="alert alert-danger">
         <p>Oops, something went wrong! Please check the errors below.</p>
       </div>
@@ -118,7 +118,7 @@
 
   <h2 id="mastodon_settings" class="mt-10">Mastodon Settings</h2>
 
-  <.form let={f} for={:mastodon_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_settings">
+  <.form let={f} for={:mastodon_token} action={Routes.user_settings_path(@conn, :update)} id="update_mastodon_user_token" method="PUT">
 
     <%= hidden_input f, :action, name: "action", value: "update_mastodon_user_token" %>
 

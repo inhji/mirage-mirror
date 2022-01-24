@@ -39,6 +39,23 @@ defmodule MirageWeb.UserSettingsController do
     end
   end
 
+  def update(conn, %{
+        "action" => "update_mastodon_user_token",
+        "mastodon_token" => %{"token" => token}
+      }) do
+    user = conn.assigns.current_user
+
+    case Accounts.generate_mastodon_user_token(user, token) do
+      {:ok, _user} ->
+        conn
+        |> put_flash(:info, "Your settings were updated.")
+        |> redirect(to: Routes.user_settings_path(conn, :edit))
+
+      {:error, changeset} ->
+        render(conn, "edit.html", settings_changeset: changeset)
+    end
+  end
+
   def update(conn, %{"action" => "update_email"} = params) do
     %{"current_password" => password, "user" => user_params} = params
     user = conn.assigns.current_user
