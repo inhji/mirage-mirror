@@ -1,5 +1,9 @@
 <section class="dashboard">
-	<section class="col-span-1">
+	<section class="col-span-1 col-start-1">
+		<h1 class="m-0">Dashboard</h1>
+	</section>
+
+	<section class="col-span-1 col-start-1 lg:col-start-2">
 		<details>
 			<summary>
 				<strong>📑 Bookmark Queue (<%= Enum.count(@bookmarks) %>)</strong>
@@ -25,10 +29,8 @@
 				</footer>
 			</article>
 			<% end %>
-		</details>	
-	</section>
+		</details>
 
-	<section class="col-span-1">
 		<details>
 			<summary>
 				<strong>📑 Latest Logs (<%= Enum.count(@logs) %>)</strong>
@@ -48,9 +50,7 @@
 			</article>
 			<% end %>
 		</details>	
-	</section>
 
-	<section class="col-span-1">
 		<details>
 			<summary>
 				<strong>👩‍🏭 Latest Jobs (<%= Enum.count(@jobs) %>)</strong>
@@ -72,6 +72,6 @@
 				</details>
 			</article>
 			<% end %>
-		</details>
+		</details>	
 	</section>
 </section>
