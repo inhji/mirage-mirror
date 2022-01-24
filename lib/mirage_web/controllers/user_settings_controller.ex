@@ -41,18 +41,25 @@ defmodule MirageWeb.UserSettingsController do
 
   def update(conn, %{
         "action" => "update_mastodon_user_token",
-        "mastodon_token" => %{"token" => token}
+        "mastodon_token" => %{"auth_code" => auth_code}
       }) do
     user = conn.assigns.current_user
 
-    case Accounts.generate_mastodon_user_token(user, token) do
-      {:ok, _user} ->
+    with {:ok, token} <- Mirage.Mastodon.get_token(auth_code),
+         {:ok, _token} <- Mirage.Mastodon.save_token(user, token) do
+      conn
+      |> put_flash(:info, "Mastodon token was saved.")
+      |> redirect(to: Routes.user_settings_path(conn, :edit))
+    else
+      {:error, %{error: error, message: message}} ->
         conn
-        |> put_flash(:info, "Your settings were updated.")
+        |> put_flash(:error, "#{error}: #{message}")
         |> redirect(to: Routes.user_settings_path(conn, :edit))
 
-      {:error, changeset} ->
-        render(conn, "edit.html", settings_changeset: changeset)
+      {:error, _error} ->
+        conn
+        |> put_flash(:info, "Unknown error.")
+        |> render("edit.html")
     end
   end
 

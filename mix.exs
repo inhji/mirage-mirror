@@ -52,6 +52,7 @@ defmodule Mirage.MixProject do
       {:jason, "~> 1.2"},
       {:mentat, "~> 0.7"},
       {:microformats2, "~> 1.0.0"},
+      {:oauth2, "~> 2.0"},
       {:oban, "~> 2.10"},
       {:phoenix, "~> 1.6.2"},
       {:phoenix_active_link, "~> 0.3.1"},
