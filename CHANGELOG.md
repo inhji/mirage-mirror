@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.69.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.68.0...v0.69.0) (2022-01-24)
+
+
+
+
+### Features:
+
+* add form action for saving mastodon user token wip
+
+* add settings form for mastodon
+
+### Bug Fixes:
+
+* button colors in dark mode
+
 ## [v0.68.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.67.4...v0.68.0) (2022-01-23)
 
 
