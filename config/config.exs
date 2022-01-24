@@ -24,7 +24,9 @@ config :mirage, MirageWeb.Endpoint,
 config :mirage, :indie,
   token_endpoint: "https://tokens.indieauth.com/token",
   auth_endpoint: "https://indieauth.com/auth",
-  supported_targets: [],
+  supported_targets: [
+    "mastodon"
+  ],
   supported_scopes: [
     # Micropub scopes
     "create",
