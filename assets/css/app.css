@@ -120,8 +120,10 @@
 }
 
 
-.button, input[type=submit], button[type=submit] {
-  @apply p-3 rounded-sm inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 hover:dark:text-gray-800;
+.button, 
+input[type=submit], 
+button[type=submit] {
+  @apply p-3 rounded-sm inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 dark:text-gray-300 hover:dark:text-gray-800 hover:dark:bg-gray-400;
 }
 
 .card {
