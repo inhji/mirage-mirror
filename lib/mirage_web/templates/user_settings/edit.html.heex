@@ -5,6 +5,7 @@
     <li><a href="#update_profile">Update Profile</a></li>
     <li><a href="#edit_identities">Edit Identities</a></li>
     <li><a href="#change_settings">Change Site Settings</a></li>
+    <li><a href="#mastodon_settings">Mastodon Settings</a></li>
     <li><a href="#change_email">Change Email</a></li>
     <li><a href="#change_password">Change Password</a></li>
     <li><a href="#public_key">Public Key</a></li>
@@ -111,8 +112,31 @@
     </fieldset>
 
     <div>
-      <%= submit "Change password" %>
+      <%= submit "Save Settings" %>
     </div>
+  </.form>
+
+  <h2 id="mastodon_settings" class="mt-10">Mastodon Settings</h2>
+
+  <.form let={f} for={:mastodon_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_settings">
+
+    <%= hidden_input f, :action, name: "action", value: "update_mastodon_user_token" %>
+
+    <fieldset>
+      <%= label f, :link, "First authenticate here:" %>
+      <%= link Mirage.Mastodon.authorize_url(), to: Mirage.Mastodon.authorize_url(), target: "_blank" %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :token %>
+      <%= text_input f, :token, @lists %>
+      <%= error_tag f, :token %>
+    </fieldset>
+
+    <div>
+      <%= submit "Save Token" %>
+    </div>
+
   </.form>
 
   <h2 id="change_email" class="mt-10">Change email</h2>
