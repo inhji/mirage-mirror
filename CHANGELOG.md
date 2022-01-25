@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.72.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.71.0...v0.72.0) (2022-01-25)
+
+
+
+
+### Features:
+
+* remove back links from forms, add max-w-prose
+
 ## [v0.71.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.70.1...v0.71.0) (2022-01-25)
 
 
