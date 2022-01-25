@@ -17,7 +17,8 @@ defmodule Mirage.Notes.NoteHooks do
     Mirage.Hooks.run(result, attrs, [
       &publish/2,
       &update_tags/2,
-      &send_webmentions/2
+      &send_webmentions/2,
+      &syndicate_to/2
     ])
   end
 
@@ -37,10 +38,22 @@ defmodule Mirage.Notes.NoteHooks do
   end
 
   def send_webmentions(note, _attrs) do
-    # Only send webmentions if note is already published
+    # Only syndicate if note is already published
     if note.published_at do
       url = Routes.note_url(MirageWeb.Endpoint, :show, note)
       Mirage.Indie.WebmentionWorker.run(url)
+    end
+  end
+
+  def syndicate_to(note, attrs) do
+    # Only send webmentions if note is already published
+    if !!note.published_at and Enum.member?(attrs, "syndication_targets") do
+      targets = attrs["syndication_targets"]
+
+      # Only publish to mastodon if syndication target is present
+      if Enum.member?(targets, "mastodon") do
+        Mirage.Syndication.MastodonWorker.run(note.id, :note)
+      end
     end
   end
 end

@@ -17,7 +17,8 @@ defmodule Mirage.Bookmarks.BookmarkHooks do
     Mirage.Hooks.run(result, attrs, [
       &publish/2,
       &update_tags/2,
-      &send_webmentions/2
+      &send_webmentions/2,
+      &syndicate_to/2
     ])
   end
 
@@ -41,6 +42,18 @@ defmodule Mirage.Bookmarks.BookmarkHooks do
     if bookmark.published_at do
       url = Routes.bookmark_url(MirageWeb.Endpoint, :show, bookmark)
       Mirage.Indie.WebmentionWorker.run(url)
+    end
+  end
+
+  def syndicate_to(bookmark, attrs) do
+    # Only send webmentions if bookmark is already published
+    if !!bookmark.published_at and Enum.member?(attrs, "syndication_targets") do
+      targets = attrs["syndication_targets"]
+
+      # Only publish to mastodon if syndication target is present
+      if Enum.member?(targets, "mastodon") do
+        Mirage.Syndication.MastodonWorker.run(bookmark.id, :bookmark)
+      end
     end
   end
 end
