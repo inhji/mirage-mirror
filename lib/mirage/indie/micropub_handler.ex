@@ -105,7 +105,7 @@ defmodule Mirage.Indie.MicropubHandler do
       :ok ->
         {:ok,
          %{
-           "syndicate-to" => @syndication_targets
+           "syndicate-to" => convert_targets(@syndication_targets)
          }}
 
       error ->
@@ -122,7 +122,7 @@ defmodule Mirage.Indie.MicropubHandler do
       :ok ->
         {:ok,
          %{
-           "syndicate-to" => @syndication_targets
+           "syndicate-to" => convert_targets(@syndication_targets)
          }}
 
       error ->
@@ -167,5 +167,11 @@ defmodule Mirage.Indie.MicropubHandler do
     DateTime.utc_now()
     |> DateTime.to_unix()
     |> to_string()
+  end
+
+  defp convert_targets(targets) do
+    Enum.map(targets, fn target ->
+      %{uid: target, name: target}
+    end)
   end
 end
