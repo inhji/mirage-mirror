@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.71.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.70.1...v0.71.0) (2022-01-25)
+
+
+
+
+### Features:
+
+* improve mastodon syndication flow
+
+* disable mastodon syndication in dev
+
+* add syndication target select to note form
+
+### Bug Fixes:
+
+* improper attribute in user edit form
+
 ## [v0.70.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.70.0...v0.70.1) (2022-01-25)
 
 
