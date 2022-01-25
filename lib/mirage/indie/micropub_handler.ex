@@ -28,6 +28,7 @@ defmodule Mirage.Indie.MicropubHandler do
 
     reply_to = Attributes.get_reply_to(props)
     should_publish = Attributes.is_published?(props)
+    targets = Attributes.get_syndication_targets(props)
 
     tags = Attributes.get_tags(props) |> Enum.join(",")
     user = Mirage.Accounts.get_user()
@@ -39,7 +40,8 @@ defmodule Mirage.Indie.MicropubHandler do
       "tags_string" => tags,
       "in_reply_to" => reply_to,
       "list_id" => user.microblog_list_id,
-      "should_publish" => should_publish
+      "should_publish" => should_publish,
+      "syndication_targets" => targets
     }
 
     case Mirage.Notes.create_note_with_hooks(attrs) do
@@ -61,6 +63,7 @@ defmodule Mirage.Indie.MicropubHandler do
     repost_of = Attributes.get_reposted_url(props)
     like_of = Attributes.get_liked_url(props)
     should_publish = Attributes.is_published?(props)
+    targets = Attributes.get_syndication_targets(props)
 
     url =
       [repost_of, like_of, bookmark_of]
@@ -80,7 +83,8 @@ defmodule Mirage.Indie.MicropubHandler do
       "like_of" => like_of,
       "bookmark_of" => bookmark_of,
       "list_id" => user.microblog_list_id,
-      "should_publish" => should_publish
+      "should_publish" => should_publish,
+      "syndication_targets" => targets
     }
 
     case Mirage.Bookmarks.create_bookmark_with_hooks(attrs) do
