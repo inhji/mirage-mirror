@@ -62,7 +62,7 @@ config :swoosh, :api_client, false
 
 # Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.14.9",
+  version: "0.14.13",
   default: [
     args:
       ~w(js/app.js js/public.js --bundle --target=es2016 --outdir=../priv/static/assets --loader:.woff2=file --loader:.woff=file --external:/fonts/* --external:/images/* --external:/favicon.ico),
