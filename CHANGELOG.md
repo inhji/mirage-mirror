@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.70.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.70.0...v0.70.1) (2022-01-25)
+
+
+
+
+### Bug Fixes:
+
+* syndication target format, closes #12
+
 ## [v0.70.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.69.0...v0.70.0) (2022-01-25)
 
 
