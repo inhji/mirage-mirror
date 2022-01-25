@@ -37,11 +37,13 @@ config :mirage, :indie,
   ]
 
 # config :mirage, :mastodon,
+#   enabled: false,
 #   instance_url: "https://chaos.social",
 #   client_id: "0000000000000000000000000000000000000000000",
 #   client_secret: "0000000000000000000000000000000000000000000"
 
 config :mirage, :mastodon,
+  enabled: true,
   instance_url: "https://chaos.social",
   client_id: "YDyVFjIsHsb94EqDnLqXCFmQb0ZzP2qaMr4zRhSUYhA",
   client_secret: "MJK8pZykKg_MkL6Pe4IOH1ufOgECiKVDLicEpzrFGtM"
