@@ -37,6 +37,19 @@ defmodule Mirage.Markdown do
     end
   end
 
+  @doc """
+  Sanitize html inside a changeset if html changed.
+  HTML field and Text field can be configured.
+  """
+  def maybe_sanitize(changeset, html_field, text_field) do
+    if html = get_change(changeset, html_field) do
+      text = HtmlSanitizeEx.strip_tags(html)
+      put_change(changeset, text_field, text)
+    else
+      changeset
+    end
+  end
+
   defp clean_escapes(markdown) do
     markdown
     |> String.replace("\\[", "[", global: true)
