@@ -5,6 +5,41 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.70.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.69.0...v0.70.0) (2022-01-25)
+
+
+
+
+### Features:
+
+* add enabled flag for mastodon
+
+* add syndication queue
+
+* disable  syndication in test
+
+* add syndication worker
+
+* add maybe_sanitize
+
+* extract syndication targets from micropub
+
+* add content_sanitized and syndication_targets to schemas
+
+* add html_sanitize_ex
+
+* add content_sanitized to bookmarks and notes
+
+* add mastodon as supported syndication target
+
+* rework mastodon integration using oauth2 module
+
+* enable oauth logging in dev
+
+### Bug Fixes:
+
+* clean up dashboard
+
 ## [v0.69.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.68.0...v0.69.0) (2022-01-24)
 
 
