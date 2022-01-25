@@ -1,5 +1,5 @@
-<h1>Edit List</h1>
+<section class="max-w-prose mx-auto">
+	<h1>Edit List</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.admin_list_path(@conn, :update, @list)) %>
-
-<span><%= link "Back", to: Routes.admin_list_path(@conn, :index) %></span>
+	<%= render "form.html", Map.put(assigns, :action, Routes.admin_list_path(@conn, :update, @list)) %>
+</section>

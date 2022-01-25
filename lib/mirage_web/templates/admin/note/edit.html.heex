@@ -3,5 +3,3 @@
 	
 	<%= render "form.html", Map.put(assigns, :action, Routes.admin_note_path(@conn, :update, @note)) %>
 </section>
-
-<span><%= link "Back", to: Routes.admin_note_path(@conn, :index) %></span>
