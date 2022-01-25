@@ -49,6 +49,7 @@ defmodule Mirage.MixProject do
       {:gettext, "~> 0.18"},
       {:git_ops, "~> 2.4.5", only: :dev},
       {:hackney, "~> 1.18"},
+      {:html_sanitize_ex, "~> 1.4"},
       {:jason, "~> 1.2"},
       {:mentat, "~> 0.7"},
       {:microformats2, "~> 1.0.0"},
