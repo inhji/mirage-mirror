@@ -28,12 +28,17 @@ defmodule Mirage.Bookmarks.Bookmark do
 
     field :content, :string
     field :content_html, :string
+    field :content_sanitized, :string
 
     field :published_at, :naive_datetime
 
     field :should_publish, :boolean,
       virtual: true,
       default: false
+
+    field :syndication_targets, {:array, :string},
+      virtual: true,
+      default: []
 
     field :url, :string
     field :domain, :string
@@ -72,7 +77,8 @@ defmodule Mirage.Bookmarks.Bookmark do
       :user_id,
       :list_id,
       :tags_string,
-      :should_publish
+      :should_publish,
+      :syndication_targets
     ])
     |> validate_required([
       :title,
@@ -84,6 +90,7 @@ defmodule Mirage.Bookmarks.Bookmark do
     |> Mirage.Bookmarks.BookmarkSlug.maybe_generate_slug()
     |> Mirage.Bookmarks.BookmarkSlug.unique_constraint()
     |> Mirage.Markdown.maybe_render(:content, :content_html)
+    |> Mirage.Markdown.maybe_sanitize(:content_html, :content_sanitized)
   end
 
   def copy_url(changeset) do

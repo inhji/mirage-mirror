@@ -18,12 +18,17 @@ defmodule Mirage.Notes.Note do
 
     field :content, :string
     field :content_html, :string
+    field :content_sanitized, :string
 
     field :published_at, :naive_datetime
 
     field :should_publish, :boolean,
       virtual: true,
       default: false
+
+    field :syndication_targets, {:array, :string},
+      virtual: true,
+      default: []
 
     field :viewed_at, :naive_datetime
     field :views, :integer, default: 0
@@ -54,12 +59,14 @@ defmodule Mirage.Notes.Note do
       :tags_string,
       :user_id,
       :in_reply_to,
-      :should_publish
+      :should_publish,
+      :syndication_targets
     ])
     |> validate_required([:title, :content, :list_id, :user_id])
     |> unique_constraint(:title)
     |> Mirage.Notes.NoteSlug.maybe_generate_slug()
     |> Mirage.Notes.NoteSlug.unique_constraint()
     |> Mirage.Markdown.maybe_render(:content, :content_html)
+    |> Mirage.Markdown.maybe_sanitize(:content_html, :content_sanitized)
   end
 end
