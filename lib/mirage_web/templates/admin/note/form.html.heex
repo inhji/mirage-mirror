@@ -51,6 +51,12 @@
   </fieldset>
 
   <fieldset>
+    <%= label f, :syndication_targets %>
+    <%= multiple_select f, :syndication_targets, @targets %>
+    <%= error_tag f, :syndication_targets %>
+  </fieldset>
+
+  <fieldset>
     <%= label f, :in_reply_to %>
     <%= url_input f, :in_reply_to %>
     <%= error_tag f, :in_reply_to %>

@@ -133,7 +133,7 @@ defmodule MirageWeb.UserSettingsController do
 
     lists =
       Mirage.Lists.list_lists()
-      |> Enum.map(fn list -> {list.title, list.id} end)
+      |> Enum.map(&Mirage.Lists.for_select/1)
 
     conn
     |> assign(:lists, lists)
