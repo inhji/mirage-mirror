@@ -71,7 +71,7 @@ config :esbuild,
 config :mirage, Oban,
   repo: Mirage.Repo,
   plugins: [{Oban.Plugins.Pruner, max_age: 300}],
-  queues: [webmention: 10]
+  queues: [webmention: 10, syndication: 5]
 
 # Configures Elixir's Logger
 config :logger, :console,
