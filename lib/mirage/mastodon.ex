@@ -29,6 +29,7 @@ defmodule Mirage.Mastodon do
     mastodon_enabled = get_config(:enabled)
 
     if mastodon_enabled do
+      Logger.info("Sending post to Mastodon..")
       OAuth2.Client.post(client(token), "/api/v1/statuses", params)
     else
       Logger.warn("Mastodon was disabled by config.")

@@ -9,7 +9,8 @@ defmodule Mirage.Hooks do
 
   def run({:ok, schema} = result, attrs, hooks) do
     Enum.each(hooks, fn hook ->
-      Logger.info("Running #{inspect(hook)} for #{schema.slug}")
+      info = Function.info(hook)
+      Logger.info("Running #{info[:name]} for #{schema.slug}")
       hook.(schema, attrs)
     end)
 

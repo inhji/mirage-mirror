@@ -47,11 +47,14 @@ defmodule Mirage.Notes.NoteHooks do
 
   def syndicate_to(note, attrs) do
     # Only send webmentions if note is already published
-    if !!note.published_at and Enum.member?(attrs, "syndication_targets") do
+    if !!note.published_at and Map.has_key?(attrs, "syndication_targets") do
       targets = attrs["syndication_targets"]
+
+      Logger.info("Active syndication targets: #{inspect(targets)}")
 
       # Only publish to mastodon if syndication target is present
       if Enum.member?(targets, "mastodon") do
+        Logger.info("Starting mastodon worker..")
         Mirage.Syndication.MastodonWorker.run(note.id, :note)
       end
     end
