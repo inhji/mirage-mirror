@@ -6,10 +6,8 @@ defmodule Mirage.Tags.TagUpdater do
   require Logger
 
   alias Mirage.NoteTags
-  alias Mirage.BookmarkTags
   alias Mirage.Tags
   alias Mirage.Notes.Note
-  alias Mirage.Bookmarks.Bookmark
 
   @doc """
   Updates the tags for the given schema
@@ -82,14 +80,6 @@ defmodule Mirage.Tags.TagUpdater do
         }
 
         {:ok, _note_tag} = NoteTags.create_note_tag(attrs)
-
-      %Bookmark{} ->
-        attrs = %{
-          bookmark_id: schema_id,
-          tag_id: tag.id
-        }
-
-        {:ok, _bookmark_tag} = BookmarkTags.create_bookmark_tag(attrs)
     end
   end
 

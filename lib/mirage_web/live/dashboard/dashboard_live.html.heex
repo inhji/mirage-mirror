@@ -6,33 +6,6 @@
 	<section class="col-span-1 col-start-1 lg:col-start-2">
 		<details>
 			<summary>
-				<strong>📑 Bookmark Queue (<%= Enum.count(@bookmarks) %>)</strong>
-			</summary>
-
-			<%= for bookmark <- @bookmarks do %>
-			<article>
-				<details>
-					<summary class="p-4 dark:text-gray-200">
-						<span><%= bookmark.title %></span>
-						<span class="tag text-xs">
-							<%= Timex.from_now(bookmark.inserted_at) %>
-						</span>
-					</summary>
-
-					<div class="prose dark:prose-invert dark:border-gray-600 max-w-max">
-						<%= raw Mirage.Markdown.render(bookmark.content) %>
-					</div>
-				</details>
-
-				<footer>
-					<%= link "Go To Bookmark", to: Routes.admin_bookmark_path(MirageWeb.Endpoint, :show, bookmark) %>
-				</footer>
-			</article>
-			<% end %>
-		</details>
-
-		<details>
-			<summary>
 				<strong>📑 Latest Logs (<%= Enum.count(@logs) %>)</strong>
 			</summary>
 

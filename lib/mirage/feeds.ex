@@ -25,15 +25,6 @@ defmodule Mirage.Feeds do
     }
   end
 
-  defp get_feed("bookmarks") do
-    %{
-      title: "Bookmarks Feed",
-      entries: Mirage.Bookmarks.list_published_bookmarks(),
-      content_url: Routes.bookmark_url(MirageWeb.Endpoint, :index),
-      feed_url: Routes.feed_url(MirageWeb.Endpoint, :show, "bookmarks")
-    }
-  end
-
   defp get_feed("notes") do
     %{
       title: "Notes Feed",
@@ -65,18 +56,6 @@ defmodule Mirage.Feeds do
     updated_at = DateTime.from_naive!(entry.updated_at, "Etc/UTC")
     published_at = DateTime.from_naive!(entry.published_at, "Etc/UTC")
     entry_url = Routes.note_url(MirageWeb.Endpoint, :show, entry)
-
-    Entry.new(entry_url, updated_at, entry.title)
-    |> Entry.published(published_at)
-    |> Entry.content(entry.content, type: "text")
-    |> Entry.content(entry.content_html, type: "html")
-    |> Entry.build()
-  end
-
-  defp get_entry(%Mirage.Bookmarks.Bookmark{} = entry) do
-    updated_at = DateTime.from_naive!(entry.updated_at, "Etc/UTC")
-    published_at = DateTime.from_naive!(entry.published_at, "Etc/UTC")
-    entry_url = Routes.bookmark_url(MirageWeb.Endpoint, :show, entry)
 
     Entry.new(entry_url, updated_at, entry.title)
     |> Entry.published(published_at)

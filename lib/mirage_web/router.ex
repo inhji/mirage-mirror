@@ -34,10 +34,6 @@ defmodule MirageWeb.Router do
     get "/follow", FeedController, :index
     get "/follow/:id", FeedController, :show
 
-    get "/bookmarks", BookmarkController, :index
-    get "/bookmarks/:id/microformats", BookmarkController, :microformats
-    get "/bookmarks/:id", BookmarkController, :show
-
     get "/notes", NoteController, :index
     get "/notes/:id/microformats", NoteController, :microformats
     get "/notes/:id", NoteController, :show
@@ -52,10 +48,6 @@ defmodule MirageWeb.Router do
 
   scope path: "/admin", as: :admin, alias: MirageWeb.Admin do
     pipe_through [:browser, :require_authenticated_user]
-
-    resources "/bookmarks", BookmarkController
-    get "/bookmarks/:id/publish", BookmarkController, :publish
-    get "/bookmarks/:id/unpublish", BookmarkController, :unpublish
 
     resources "/notes", NoteController
     get "/notes/:id/publish", NoteController, :publish

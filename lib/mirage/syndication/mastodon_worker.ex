@@ -17,14 +17,6 @@ defmodule Mirage.Syndication.MastodonWorker do
     Mirage.Mastodon.post_status(get_token(), status_text)
   end
 
-  def perform(%Oban.Job{args: %{"id" => id, "type" => "bookmark"} = _args}) do
-    bookmark = Mirage.Bookmarks.get_bookmark!(id)
-    url = Routes.bookmark_url(MirageWeb.Endpoint, :show, id)
-    status_text = get_text(bookmark.content_sanitized, url)
-
-    Mirage.Mastodon.post_status(get_token(), status_text)
-  end
-
   defp get_token() do
     user = Mirage.Accounts.get_user()
     %{token: token} = Mirage.Accounts.get_mastodon_user_token(user)

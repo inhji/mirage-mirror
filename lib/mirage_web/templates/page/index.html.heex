@@ -21,12 +21,6 @@
         <%= render MirageWeb.NoteView, "note.html", Map.put(assigns, :note, update) %>
       </article>
     <% end %>
-
-    <%= if is_bookmark?(update) do %>
-      <article class="h-entry note card mt-10">
-        <%= render MirageWeb.BookmarkView, "bookmark.html", Map.put(assigns, :bookmark, update) %>
-      </article>
-    <% end %>
   <% end %>
   </section>
 </div>

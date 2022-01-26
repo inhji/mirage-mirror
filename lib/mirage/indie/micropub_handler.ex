@@ -11,10 +11,9 @@ defmodule Mirage.Indie.MicropubHandler do
   def handle_create(_type, properties, access_token) do
     Logger.info("plug_micropub/handle_create")
 
-    with :ok <- Token.verify(access_token, "create", hostname()),
-         {:ok, post_type} <- Attributes.get_post_type(properties) do
+    with :ok <- Token.verify(access_token, "create", hostname()) do
       Mirage.Logger.info("Creating new post from micropub", properties)
-      create_post(post_type, properties)
+      create_post(properties)
     else
       error ->
         Logger.error("Error in handle_create: #{inspect(error)}")
@@ -22,11 +21,14 @@ defmodule Mirage.Indie.MicropubHandler do
     end
   end
 
-  def create_post(:note, props) do
+  def create_post(props) do
     title = Attributes.get_title(props) || timestamp_as_string()
     content = Attributes.get_content(props)
 
     reply_to = Attributes.get_reply_to(props)
+    bookmark_of = Attributes.get_bookmarked_url(props)
+    repost_of = Attributes.get_reposted_url(props)
+    like_of = Attributes.get_liked_url(props)
     should_publish = Attributes.is_published?(props)
     targets = Attributes.get_syndication_targets(props)
 
@@ -39,6 +41,9 @@ defmodule Mirage.Indie.MicropubHandler do
       "user_id" => user.id,
       "tags_string" => tags,
       "in_reply_to" => reply_to,
+      "repost_of" => repost_of,
+      "like_of" => like_of,
+      "bookmark_of" => bookmark_of,
       "list_id" => user.microblog_list_id,
       "should_publish" => should_publish,
       "syndication_targets" => targets
@@ -51,42 +56,6 @@ defmodule Mirage.Indie.MicropubHandler do
 
       {:error, error} ->
         Logger.error(error)
-        {:error, :internal_server_error}
-    end
-  end
-
-  def create_post(:bookmark, props) do
-    title = Attributes.get_title(props) || timestamp_as_string()
-    content = Attributes.get_content(props) || title
-
-    bookmark_of = Attributes.get_bookmarked_url(props)
-    repost_of = Attributes.get_reposted_url(props)
-    like_of = Attributes.get_liked_url(props)
-    should_publish = Attributes.is_published?(props)
-    targets = Attributes.get_syndication_targets(props)
-
-    tags = Attributes.get_tags(props) |> Enum.join(",")
-    user = Mirage.Accounts.get_user()
-
-    attrs = %{
-      "title" => title,
-      "content" => content || title,
-      "user_id" => user.id,
-      "tags_string" => tags,
-      "repost_of" => repost_of,
-      "like_of" => like_of,
-      "bookmark_of" => bookmark_of,
-      "list_id" => user.microblog_list_id,
-      "should_publish" => should_publish,
-      "syndication_targets" => targets
-    }
-
-    case Mirage.Bookmarks.create_bookmark_with_hooks(attrs) do
-      {:ok, bookmark} ->
-        {:ok, :created, Routes.bookmark_url(MirageWeb.Endpoint, :show, bookmark)}
-
-      {:error, error} ->
-        Logger.error("Error in create_post: #{inspect(error)}")
         {:error, :internal_server_error}
     end
   end

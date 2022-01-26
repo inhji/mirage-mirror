@@ -32,17 +32,4 @@ defmodule MirageWeb.Live.ListLive do
     {params, types}
     |> Ecto.Changeset.cast(attrs, Map.keys(types))
   end
-
-  def bookmark_changeset(attrs \\ %{}) do
-    params = %MirageWeb.Live.BookmarkListParams{}
-
-    types = %{
-      show_published: :string,
-      show_list: :string,
-      search_query: :string
-    }
-
-    {params, types}
-    |> Ecto.Changeset.cast(attrs, Map.keys(types))
-  end
 end
