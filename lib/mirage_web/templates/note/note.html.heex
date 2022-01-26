@@ -24,6 +24,24 @@
   <%= if @note.in_reply_to do %>
     <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
   <% end %>
+  <%= if @note.bookmark_of do %>
+    <%= link "🔖 #{@note.bookmark_of}", 
+      to: @note.bookmark_of, 
+      class: "u-bookmark-of", 
+      title: "Bookmark of" %>
+  <% end %>
+  <%= if @note.like_of do %>
+    <%= link "❤️ #{@note.like_of}", 
+      to: @note.like_of, 
+      class: "u-like-of", 
+      title: "Like of" %>
+  <% end %>
+  <%= if @note.repost_of do %>
+    <%= link "🔁 #{@note.repost_of}", 
+      to: @note.repost_of, 
+      class: "u-repost-of", 
+      title: "Repost of" %>
+  <% end %>
   <%= link to: Routes.note_path(MirageWeb.Endpoint, :microformats, @note) do %>
     <i class="icon-microformats"></i> <span>Microformats</span>
   <% end %>
