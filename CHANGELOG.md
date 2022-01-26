@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.73.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.72.0...v0.73.0) (2022-01-26)
+
+
+
+
+### Features:
+
+* remove bookmarks from main feed
+
+* remove explicitly setting url field in micropub handler
+
+* add bookmark fields to notes
+
 ## [v0.72.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.71.0...v0.72.0) (2022-01-25)
 
 
