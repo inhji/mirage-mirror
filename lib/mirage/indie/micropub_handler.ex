@@ -65,18 +65,12 @@ defmodule Mirage.Indie.MicropubHandler do
     should_publish = Attributes.is_published?(props)
     targets = Attributes.get_syndication_targets(props)
 
-    url =
-      [repost_of, like_of, bookmark_of]
-      |> Enum.filter(fn url -> not is_nil(url) end)
-      |> List.first()
-
     tags = Attributes.get_tags(props) |> Enum.join(",")
     user = Mirage.Accounts.get_user()
 
     attrs = %{
       "title" => title,
       "content" => content || title,
-      "url" => url,
       "user_id" => user.id,
       "tags_string" => tags,
       "repost_of" => repost_of,
