@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.74.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.73.0...v0.74.0) (2022-01-26)
+
+
+
+
+### Features:
+
+* include all mf2 fields in notes
+
 ## [v0.73.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.72.0...v0.73.0) (2022-01-26)
 
 
