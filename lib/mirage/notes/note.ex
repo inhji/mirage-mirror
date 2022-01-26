@@ -33,16 +33,23 @@ defmodule Mirage.Notes.Note do
     field :viewed_at, :naive_datetime
     field :views, :integer, default: 0
 
-    field :tags_string, :string,
-      virtual: true,
-      default: ""
+    field :url, :string
+    field :url_type, :string
+    field :domain, :string
 
     field :in_reply_to, :string
+    field :bookmark_of, :string
+    field :like_of, :string
+    field :repost_of, :string
 
     belongs_to :list, Mirage.Lists.List
     belongs_to :user, Mirage.Accounts.User
 
     many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
+
+    field :tags_string, :string,
+      virtual: true,
+      default: ""
 
     timestamps()
   end
@@ -59,6 +66,9 @@ defmodule Mirage.Notes.Note do
       :tags_string,
       :user_id,
       :in_reply_to,
+      :bookmark_of,
+      :like_of,
+      :repost_of,
       :should_publish,
       :syndication_targets
     ])
@@ -68,5 +78,23 @@ defmodule Mirage.Notes.Note do
     |> Mirage.Notes.NoteSlug.unique_constraint()
     |> Mirage.Markdown.maybe_render(:content, :content_html)
     |> Mirage.Markdown.maybe_sanitize(:content_html, :content_sanitized)
+    |> copy_url()
+  end
+
+  def copy_url(changeset) do
+    Enum.reduce_while([:like_of, :bookmark_of, :repost_of], changeset, fn field, changeset ->
+      case get_change(changeset, field, nil) do
+        nil ->
+          {:cont, changeset}
+
+        change ->
+          changeset =
+            changeset
+            |> put_change(:url, change)
+            |> put_change(:url_type, to_string(field))
+
+          {:halt, changeset}
+      end
+    end)
   end
 end

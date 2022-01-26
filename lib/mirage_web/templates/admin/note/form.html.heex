@@ -56,11 +56,44 @@
     <%= error_tag f, :syndication_targets %>
   </fieldset>
 
-  <fieldset>
-    <%= label f, :in_reply_to %>
-    <%= url_input f, :in_reply_to %>
-    <%= error_tag f, :in_reply_to %>
-  </fieldset>
+  <details>
+    <summary>Indieweb URLs</summary>
+    <fieldset>
+      <%= label f, :in_reply_to %>
+      <%= url_input f, :in_reply_to %>
+      <%= error_tag f, :in_reply_to %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :bookmark_of %>
+      <%= url_input f, :bookmark_of %>
+      <%= error_tag f, :bookmark_of %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :like_of %>
+      <%= url_input f, :like_of %>
+      <%= error_tag f, :like_of %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :repost_of %>
+      <%= url_input f, :repost_of %>
+      <%= error_tag f, :repost_of %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :url %>
+      <%= url_input f, :url %>
+      <%= error_tag f, :url %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :url_type %>
+      <%= text_input f, :url_type %>
+      <%= error_tag f, :url_type %>
+    </fieldset>
+  </details>
 
   <div>
     <%= submit "Save" %>
