@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.76.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.75.0...v0.76.0) (2022-01-26)
+
+
+
+
+### Features:
+
+* add response handling for syndicating to mastodon
+
 ## [v0.75.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.74.0...v0.75.0) (2022-01-26)
 
 
