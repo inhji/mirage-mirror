@@ -30,10 +30,27 @@ defmodule Mirage.Mastodon do
 
     if mastodon_enabled do
       Logger.info("Sending post to Mastodon..")
+
       OAuth2.Client.post(client(token), "/api/v1/statuses", params)
+      |> handle_response()
     else
       Logger.warn("Mastodon was disabled by config.")
     end
+  end
+
+  defp handle_response(%OAuth2.Response{body: body, status_code: 200} = _response) do
+    Logger.info("Request successful!")
+    Logger.info("Response Body: #{inspect(body)}")
+  end
+
+  defp handle_response(%OAuth2.Response{body: body, status_code: status} = _response) do
+    Logger.info("Request ended with status #{status}!")
+    Logger.info("Response Body: #{inspect(body)}")
+  end
+
+  defp handle_response(%OAuth2.Error{reason: reason} = _response) do
+    Logger.warn("Request ended with error!")
+    Logger.info("Response Error: #{inspect(reason)}")
   end
 
   def client(token \\ nil) do
