@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.75.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.74.0...v0.75.0) (2022-01-26)
+
+
+
+
+### Features:
+
+* improve list show page, closes #14
+
+* add link to tags, closes #15
+
+* remove docs link
+
+* remove bookmark tables
+
+* delete all traces of bookmark, conclude consolidation with notes
+
 ## [v0.74.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.73.0...v0.74.0) (2022-01-26)
 
 
