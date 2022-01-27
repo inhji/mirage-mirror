@@ -25,13 +25,6 @@ defmodule Mirage.Indie.MicropubHandler do
     title = Attributes.get_title(props) || timestamp_as_string()
     content = Attributes.get_content(props)
 
-    reply_to = Attributes.get_reply_to(props)
-    bookmark_of = Attributes.get_bookmarked_url(props)
-    repost_of = Attributes.get_reposted_url(props)
-    like_of = Attributes.get_liked_url(props)
-    should_publish = Attributes.is_published?(props)
-    targets = Attributes.get_syndication_targets(props)
-
     tags = Attributes.get_tags(props) |> Enum.join(",")
     user = Mirage.Accounts.get_user()
 
@@ -39,14 +32,17 @@ defmodule Mirage.Indie.MicropubHandler do
       "title" => title,
       "content" => content,
       "user_id" => user.id,
-      "tags_string" => tags,
-      "in_reply_to" => reply_to,
-      "repost_of" => repost_of,
-      "like_of" => like_of,
-      "bookmark_of" => bookmark_of,
       "list_id" => user.microblog_list_id,
-      "should_publish" => should_publish,
-      "syndication_targets" => targets
+      "tags_string" => tags,
+      "read_of" => Attributes.get_read_url(props),
+      "watch_of" => Attributes.get_watched_url(props),
+      "listen_of" => Attributes.get_listened_url(props),
+      "in_reply_to" => Attributes.get_reply_to(props),
+      "repost_of" => Attributes.get_reposted_url(props),
+      "like_of" => Attributes.get_liked_url(props),
+      "bookmark_of" => Attributes.get_bookmarked_url(props),
+      "should_publish" => Attributes.is_published?(props),
+      "syndication_targets" => Attributes.get_syndication_targets(props)
     }
 
     case Mirage.Notes.create_note_with_hooks(attrs) do

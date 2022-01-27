@@ -32,6 +32,15 @@ defmodule Mirage.Indie.Attributes do
   def get_liked_url(%{"like-of" => [url]}), do: url
   def get_liked_url(_), do: nil
 
+  def get_read_url(%{"read-of" => [url]}), do: url
+  def get_read_url(_), do: nil
+
+  def get_watched_url(%{"watch-of" => [url]}), do: url
+  def get_watched_url(_), do: nil
+
+  def get_listened_url(%{"listen-of" => [url]}), do: url
+  def get_listened_url(_), do: nil
+
   def get_reply_to(%{"in-reply-to" => [reply_to]}), do: reply_to
   def get_reply_to(_), do: nil
 

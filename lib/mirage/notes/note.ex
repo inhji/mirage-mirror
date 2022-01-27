@@ -41,6 +41,9 @@ defmodule Mirage.Notes.Note do
     field :bookmark_of, :string
     field :like_of, :string
     field :repost_of, :string
+    field :read_of, :string
+    field :watch_of, :string
+    field :listen_of, :string
 
     belongs_to :list, Mirage.Lists.List
     belongs_to :user, Mirage.Accounts.User
@@ -69,6 +72,9 @@ defmodule Mirage.Notes.Note do
       :bookmark_of,
       :like_of,
       :repost_of,
+      :read_of,
+      :listen_of,
+      :watch_of,
       :should_publish,
       :syndication_targets
     ])
@@ -82,7 +88,16 @@ defmodule Mirage.Notes.Note do
   end
 
   def copy_url(changeset) do
-    Enum.reduce_while([:like_of, :bookmark_of, :repost_of], changeset, fn field, changeset ->
+    url_fields = [
+      :like_of,
+      :bookmark_of,
+      :repost_of,
+      :watch_of,
+      :listen_of,
+      :read_of
+    ]
+
+    Enum.reduce_while(url_fields, changeset, fn field, changeset ->
       case get_change(changeset, field, nil) do
         nil ->
           {:cont, changeset}

@@ -11,7 +11,7 @@
     <%= label f, :title %>
     <%= text_input f, :title %>
     <%= error_tag f, :title %>
-  </fieldset>
+</fieldset>
 
   <fieldset>
     <%= label f, :slug, "Slug ⚠️", title: "This will change the permalink of this note!" %>
@@ -58,41 +58,61 @@
 
   <details>
     <summary>Indieweb URLs</summary>
-    <fieldset>
-      <%= label f, :in_reply_to %>
-      <%= url_input f, :in_reply_to %>
-      <%= error_tag f, :in_reply_to %>
-    </fieldset>
+    <section class="flex flex-col gap-3">
+      <fieldset>
+        <%= label f, :url %>
+        <%= url_input f, :url %>
+        <%= error_tag f, :url %>
+      </fieldset>
 
-    <fieldset>
-      <%= label f, :bookmark_of %>
-      <%= url_input f, :bookmark_of %>
-      <%= error_tag f, :bookmark_of %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :url_type %>
+        <%= text_input f, :url_type %>
+        <%= error_tag f, :url_type %>
+      </fieldset>
 
-    <fieldset>
-      <%= label f, :like_of %>
-      <%= url_input f, :like_of %>
-      <%= error_tag f, :like_of %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :in_reply_to, "↩️ In Reply To" %>
+        <%= url_input f, :in_reply_to, placeholder: "In Reply To" %>
+        <%= error_tag f, :in_reply_to %>
+      </fieldset>
 
-    <fieldset>
-      <%= label f, :repost_of %>
-      <%= url_input f, :repost_of %>
-      <%= error_tag f, :repost_of %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :bookmark_of, "🔖 Bookmark Of" %>
+        <%= url_input f, :bookmark_of, placeholder: "Bookmark Of" %>
+        <%= error_tag f, :bookmark_of %>
+      </fieldset>
 
-    <fieldset>
-      <%= label f, :url %>
-      <%= url_input f, :url %>
-      <%= error_tag f, :url %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :like_of, "❤️ Like Of" %>
+        <%= url_input f, :like_of, placeholder: "Like Of" %>
+        <%= error_tag f, :like_of %>
+      </fieldset>
 
-    <fieldset>
-      <%= label f, :url_type %>
-      <%= text_input f, :url_type %>
-      <%= error_tag f, :url_type %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :repost_of, "🔁 Repost Of" %>
+        <%= url_input f, :repost_of, placeholder: "Repost Of" %>
+        <%= error_tag f, :repost_of %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :read_of, "📘 Read Of", title: "Indicates this h-entry is a read post of some written work (book or other document)." %>
+        <%= url_input f, :read_of, placeholder: "Read Of" %>
+        <%= error_tag f, :read_of %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :watch_of, "🎞️ Watch Of", title: "Indicates this h-entry is a watch of another URL, a visual version of the scrobble." %>
+        <%= url_input f, :watch_of, placeholder: "Watch Of" %>
+        <%= error_tag f, :watch_of %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :listen_of, "🎧 Listen Of", title: "Also known as a 'scrobble', indicates this h-entry is a listen of another URL" %>
+        <%= url_input f, :listen_of, placeholder: "Listen Of" %>
+        <%= error_tag f, :listen_of %>
+      </fieldset>
+    </section>
   </details>
 
   <div>
