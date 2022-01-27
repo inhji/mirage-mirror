@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.77.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.76.0...v0.77.0) (2022-01-27)
+
+
+
+
+### Features:
+
+* add listen-of, watch-of and read-of properties
+
 ## [v0.76.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.75.0...v0.76.0) (2022-01-26)
 
 
