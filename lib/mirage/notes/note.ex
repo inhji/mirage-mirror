@@ -22,14 +22,6 @@ defmodule Mirage.Notes.Note do
 
     field :published_at, :naive_datetime
 
-    field :should_publish, :boolean,
-      virtual: true,
-      default: false
-
-    field :syndication_targets, {:array, :string},
-      virtual: true,
-      default: []
-
     field :viewed_at, :naive_datetime
     field :views, :integer, default: 0
 
@@ -48,8 +40,21 @@ defmodule Mirage.Notes.Note do
     belongs_to :list, Mirage.Lists.List
     belongs_to :user, Mirage.Accounts.User
 
+    has_many :syndications, Mirage.Notes.NoteSyndication
+
     many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
 
+    # Trigger field for the `publish` hook.
+    field :should_publish, :boolean,
+      virtual: true,
+      default: false
+
+    # Trigger field for the `syndicate_to` hook.
+    field :syndication_targets, {:array, :string},
+      virtual: true,
+      default: []
+
+    # Trigger field for the `add_tags` hook.
     field :tags_string, :string,
       virtual: true,
       default: ""
