@@ -1,6 +1,12 @@
 <h1>Notes</h1>
 
-<%= live_render(@conn, MirageWeb.NoteListLive) %>
+<span>
+  <%= link "New Note", to: Routes.admin_note_path(@conn, :new), class: "button" %>
+</span>
+
+<section class="mt-3">
+  <%= live_render(@conn, MirageWeb.NoteListLive) %>
+</section>
 
 <span class="mt-3">
   <%= link "New Note", to: Routes.admin_note_path(@conn, :new), class: "button" %>
