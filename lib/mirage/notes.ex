@@ -94,7 +94,26 @@ defmodule Mirage.Notes do
   end
 
   @doc """
-  Gets a single note.
+  Gets a single note by its slug.
+
+  Raises `Ecto.NoResultsError` if the Note does not exist.
+
+  ## Examples
+
+      iex> get_note!("some-note")
+      %Note{}
+
+      iex> get_note!("does-not-exist")
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_note!(slug),
+    do:
+      Repo.get_by!(Note, slug: slug)
+      |> preload_note()
+
+  @doc """
+  Gets a single note by its id.
 
   Raises `Ecto.NoResultsError` if the Note does not exist.
 
@@ -107,9 +126,9 @@ defmodule Mirage.Notes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_note!(id),
+  def get_note_by_id!(id),
     do:
-      Repo.get_by!(Note, slug: id)
+      Repo.get!(Note, id)
       |> preload_note()
 
   @doc """
