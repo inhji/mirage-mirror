@@ -18,8 +18,8 @@ defmodule Mirage.Accounts.User do
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
 
-    field :pub_key, :string
-    field :priv_key, :string
+    field :pub_key, :string, redact: true
+    field :priv_key, :string, redact: true
 
     # List Settings/Assigns 
     belongs_to :microblog_list, Mirage.Lists.List
