@@ -5,6 +5,43 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.78.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.77.0...v0.78.0) (2022-01-30)
+
+
+
+
+### Features:
+
+* add note_hook tests
+
+* split up hooks into update and publish hooks
+
+* add exvcr
+
+* add get_note_by_id!/1
+
+* create empty syndication entries in note hooks
+
+* improve buttons for note index and show
+
+* add syndiaction schema
+
+* add syndications to notes
+
+* preload note syndications
+
+* add setup function for hooks
+
+### Bug Fixes:
+
+* slight improvements in webmention_worker
+
+* warnings in unused micropub functions
+
+* remove duplicate bookmark_of link in footer
+
+* redact user keypair in logging
+
 ## [v0.77.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.76.0...v0.77.0) (2022-01-27)
 
 
