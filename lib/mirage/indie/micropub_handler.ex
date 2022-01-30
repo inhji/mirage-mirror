@@ -92,27 +92,27 @@ defmodule Mirage.Indie.MicropubHandler do
 
   @impl true
   def handle_update(_, _, _, _, _) do
-    {:error, :unsupported_method}
+    {:error, :insufficient_scope}
   end
 
   @impl true
   def handle_delete(_url, _access_token) do
-    {:error, :unsupported_method}
+    {:error, :insufficient_scope}
   end
 
   @impl true
   def handle_undelete(_url, _access_token) do
-    {:error, :unsupported_method}
+    {:error, {:error, :insufficient_scope}}
   end
 
   @impl true
   def handle_source_query(_url, _filter_properties, _access_token) do
-    {:error, :unsupported_method}
+    {:error, :insufficient_scope}
   end
 
   @impl true
   def handle_media(_files, _access_token) do
-    {:error, :unsupported_method}
+    {:error, :insufficient_scope}
   end
 
   defp hostname do
