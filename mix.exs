@@ -45,6 +45,7 @@ defmodule Mirage.MixProject do
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:ex_doc, "~> 0.26", only: :dev, runtime: false},
       {:ex_machina, "~> 2.7", only: :test},
+      {:exvcr, "~> 0.11", only: :test},
       {:floki, ">= 0.30.0"},
       {:gettext, "~> 0.18"},
       {:git_ops, "~> 2.4.5", only: :dev},
