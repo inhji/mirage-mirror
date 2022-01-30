@@ -154,7 +154,7 @@ defmodule Mirage.Notes do
   """
   def create_note_with_hooks(attrs \\ %{}) do
     create_note(attrs)
-    |> NoteHooks.run_hooks(attrs)
+    |> NoteHooks.run_update_hooks(attrs)
   end
 
   @doc """
@@ -181,7 +181,7 @@ defmodule Mirage.Notes do
   def update_note_with_hooks(%Note{} = note, attrs) do
     note
     |> update_note(attrs)
-    |> NoteHooks.run_hooks(attrs)
+    |> NoteHooks.run_update_hooks(attrs)
   end
 
   @doc """
@@ -194,7 +194,9 @@ defmodule Mirage.Notes do
       
   """
   def publish_note(%Note{} = note) do
-    update_note_with_hooks(note, %{published_at: DateTime.utc_now()})
+    note
+    |> update_note(%{published_at: DateTime.utc_now()})
+    |> NoteHooks.run_publish_hooks(%{})
   end
 
   @doc """
