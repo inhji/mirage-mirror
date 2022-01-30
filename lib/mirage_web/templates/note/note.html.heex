@@ -24,12 +24,6 @@
   <%= if @note.in_reply_to do %>
     <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
   <% end %>
-  <%= if @note.bookmark_of do %>
-    <%= link "🔖 #{@note.bookmark_of}", 
-      to: @note.bookmark_of, 
-      class: "u-bookmark-of", 
-      title: "Bookmark of" %>
-  <% end %>
   <%= if @note.watch_of do %>
     <%= link "🎞️ #{@note.watch_of}", 
       to: @note.watch_of, 
