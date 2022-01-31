@@ -5,6 +5,29 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.80.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.79.0...v0.80.0) (2022-01-31)
+
+
+
+
+### Features:
+
+* add header to app.css
+
+* WIP styles
+
+* add final hook test
+
+* consolidate note show templates
+
+* make microformats icon colored
+
+### Bug Fixes:
+
+* small spacing tweak for body, border for footer
+
+* getting note by id instead of slug in mastodon worker, closes #21
+
 ## [v0.79.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.78.0...v0.79.0) (2022-01-31)
 
 
