@@ -1,14 +1,19 @@
 defmodule MirageWeb.PageController do
   use MirageWeb, :controller
 
-  def index(conn, _params) do
+  def index(conn, params) do
     user = Mirage.Accounts.get_user()
-    updates = Mirage.Content.list_updates()
+    page = Mirage.Content.list_updates(params)
 
     render(conn, "index.html",
       page_title: "Home",
       user: user,
-      updates: updates
+      page: page,
+      updates: page.entries,
+      page_number: page.page_number,
+      page_size: page.page_size,
+      total_pages: page.total_pages,
+      total_entries: page.total_entries
     )
   end
 

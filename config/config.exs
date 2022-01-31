@@ -75,6 +75,9 @@ config :mirage, Oban,
   plugins: [{Oban.Plugins.Pruner, max_age: 300}],
   queues: [webmention: 10, syndication: 5]
 
+config :scrivener_html,
+  routes_helper: Mirage.Router.Helpers
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

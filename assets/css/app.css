@@ -159,6 +159,16 @@ article.card.note, article.card.bookmark {
   }
 }
 
+ul.pagination {
+  @apply flex gap-3 mt-3;
+
+  & li {
+    & a {
+      @apply inline-block p-3 bg-white;
+    }
+  }
+}
+
 .dashboard {
   @apply grid grid-cols-1 lg:grid-cols-2 gap-3;
 

@@ -66,12 +66,12 @@ defmodule Mirage.Notes do
       [%Note{}, ...]
 
   """
-  def list_published_notes do
+  def list_published_notes(pagination_params \\ %{}) do
     Note
     |> where([n], not is_nil(n.published_at))
     |> order_by(desc: :published_at)
     |> with_preloads()
-    |> Repo.all()
+    |> Repo.paginate(pagination_params)
   end
 
   @doc """
