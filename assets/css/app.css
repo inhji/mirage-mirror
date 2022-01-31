@@ -1,3 +1,18 @@
+/*
+	This stylesheet uses:
+
+	- A modern reset by Andy (https://piccalil.li/blog/a-modern-css-reset/)
+	- The 7-1 Pattern by Sass Guidelines (https://sass-guidelin.es/#architecture)
+	- The CUBE CSS Methodology (https://cube.fyi)
+	- A spacing/size scale from Tailwind (https://tailwindcss.com/docs/width)
+	- Colors from 100Rabbits (https://github.com/hundredrabbits/Themes/blob/master/themes/pico8.svg)
+
+	More Reading:
+
+	- https://piccalil.li/blog/i-used-tailwind-for-the-u-in-cube-css-and-i-liked-it/
+*/
+
+
 @import "abstracts/variables";
 
 @import "base/reset";
