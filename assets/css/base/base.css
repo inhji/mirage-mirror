@@ -1,0 +1,14 @@
+body {
+	color: var(--text);
+	background-color: var(--background);
+}
+
+a {
+	color: var(--text);
+}
+
+
+
+.flow > * + * {
+  margin-top: var(--flow-space, --spacing-3);
+}

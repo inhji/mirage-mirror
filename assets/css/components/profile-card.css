@@ -1,0 +1,16 @@
+.profile-card {
+	--avatar-size: var(--spacing-32);
+
+	display: flex;
+	gap: var(--spacing-6);
+
+	& img {
+		width: var(--avatar-size);
+		height: var(--avatar-size);
+		border-radius: var(--avatar-size);
+	}
+
+	& section {
+
+	}
+}

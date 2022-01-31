@@ -1,5 +1,4 @@
-<ul class="flex w-full py-3 flex-col gap-3 md:gap-0 md:flex-row">
-  <li class="flex-1 block"><span class="p-3 empty:hidden"><%= @motd %></span></li>
+<ul>
 <%= if @current_user do %>
   <li><span class="p-3"><%= @current_user.email %></span></li>
   <li><%= active_link @conn, "Settings", to: Routes.user_settings_path(@conn, :edit), class: "p-3" %></li>

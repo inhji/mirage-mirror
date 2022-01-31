@@ -1,0 +1,13 @@
+<section class="max-w-prose mx-auto">
+	<h1>Tags</h1>
+
+	<section class="flex gap-3 flex-wrap">
+		<%= for tag <- @tags do %>
+			<%= link to: Routes.tag_path(@conn, :show, tag) do %>
+				<article class="tag">
+					<%= tag.title %> <span class="text-gray-500">(<%= Enum.count(tag.notes) %>)</span>
+				</article>
+			<% end %>
+		<% end %>
+	</section>
+</section>

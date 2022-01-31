@@ -8,6 +8,20 @@ defmodule Mirage.Tags do
 
   alias Mirage.Tags.Tag
 
+  @preloads [:notes]
+  defp with_preloads(query), do: preload(query, ^@preloads)
+
+  @doc """
+  Preloads a tag with all defined preloads.
+
+  ## Examples
+
+      iex> preload_tag(tag)
+      %Tag{}
+
+  """
+  def preload_tag(tag), do: Repo.preload(tag, @preloads)
+
   @doc """
   Returns the list of tags.
 
@@ -18,7 +32,9 @@ defmodule Mirage.Tags do
 
   """
   def list_tags do
-    Repo.all(Tag)
+    Tag
+    |> with_preloads()
+    |> Repo.all()
   end
 
   @doc """
@@ -35,7 +51,7 @@ defmodule Mirage.Tags do
       ** (Ecto.NoResultsError)
 
   """
-  def get_tag!(slug), do: Repo.get_by!(Tag, slug: slug)
+  def get_tag!(slug), do: Repo.get_by!(Tag, slug: slug) |> preload_tag()
 
   @doc """
   Gets a single tag.
@@ -50,7 +66,7 @@ defmodule Mirage.Tags do
       iex> get_tag(456)
       nil
   """
-  def get_tag(slug), do: Repo.get_by(Tag, slug: slug)
+  def get_tag(slug), do: Repo.get_by(Tag, slug: slug) |> preload_tag()
 
   @doc """
   Creates a tag.

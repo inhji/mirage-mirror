@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="app">
+<html lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -30,21 +30,21 @@
     <% else %>
       <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/public.js")}></script>
     <% end %>
+
+    <%# <script type="text/javascript">
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.add('dark')
+      } else {
+        document.documentElement.remove('dark')
+      }
+    </script> %>
   </head>
   <body>
-    <script type="text/javascript">
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.body.classList.add('dark')
-      } else {
-        document.body.classList.remove('dark')
-      }
-    </script>
-
-    <div id="wrapper" class="bg-gray-200 dark:bg-gray-800 flex flex-col selection:bg-accent1 selection:text-white">
-      <header class="bg-gray-50 dark:bg-gray-700 dark:text-gray-300 shadow-sm overflow-x-auto">
-        <nav class="flex container mx-auto">
-          <ul class="flex py-3">
-            <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index), class: "p-3 uppercase font-medium" %></li>
+    <div id="wrapper">
+      <header id="header">
+        <nav>
+          <ul>
+            <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index) %></li>
           </ul>
           <%= render "_content_menu.html", assigns %>        
           <div class="flex-1"></div>
@@ -56,8 +56,13 @@
         <%= @inner_content %>
       </main>
 
-      <footer class="flex-auto border-t dark:border-gray-700">
-        <nav class="flex container mx-auto">
+      <footer id="footer">
+        <nav>
+          <ul>
+            <li><%= @motd %></li>
+          </ul>
+
+          <div class="flex-1"></div>
           <%= render "_user_menu.html", assigns %>  
         </nav>
       </footer>

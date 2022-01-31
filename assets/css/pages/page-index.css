@@ -1,0 +1,5 @@
+#page-index {
+	& .updates {
+		margin-top: var(--spacing-8);
+	}
+}

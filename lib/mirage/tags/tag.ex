@@ -19,6 +19,8 @@ defmodule Mirage.Tags.Tag do
     field :icon, :string
     field :regex, :string
 
+    many_to_many :notes, Mirage.Notes.Note, join_through: "notes_tags"
+
     timestamps()
   end
 

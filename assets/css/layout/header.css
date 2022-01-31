@@ -1,0 +1,22 @@
+#header {
+	& nav {
+		display: flex;
+		gap: var(--spacing-3);
+	}
+
+	& ul {
+		display: flex;
+		gap: var(--spacing-3);
+		list-style: none;
+		padding: 0;
+	}
+
+	& a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+			text-decoration-color: var(--primary);
+		}
+	}
+}

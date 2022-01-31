@@ -1,0 +1,206 @@
+@import "openwebicons/css/openwebicons.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "_prosemirror";
+
+@font-face {
+  font-family: 'OpenWeb Icons';
+    src: url('../fonts/OpenWebIcons/openwebicons.eot');
+    src: url('../fonts/OpenWebIcons/openwebicons.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenWebIcons/openwebicons.woff2') format('woff2'),
+         url('../fonts/OpenWebIcons/openwebicons.woff') format('woff'),
+         url('../fonts/OpenWebIcons/openwebicons.ttf') format('truetype'),
+         url('../fonts/OpenWebIcons/openwebicons.svg#OpenWebIconsRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+
+  /* Base Styles */
+
+  html, body, #wrapper {
+    @apply min-h-screen;
+  }
+
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl font-bold my-6 text-gray-800 dark:text-gray-100;
+  }
+
+  h2 {
+    @apply text-2xl font-bold my-3 text-gray-800 dark:text-gray-100;
+  }
+
+  a {
+    @apply hover:underline decoration-accent1 decoration-2 underline-offset-4 dark:text-gray-300;
+  }
+
+  a.active {
+    @apply underline;
+  }
+
+  a[href*="//"]:after {
+    content: ' ↝';
+  }
+
+  #wrapper > footer {
+    @apply bg-gray-700 text-gray-200;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23333' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+    animation: animatedBackground 2000s linear infinite;
+  }
+
+  /* Forms */
+
+  form {
+    @apply flex flex-col gap-3;
+  
+    & fieldset {
+      @apply flex flex-col gap-1;
+    }
+
+    & label {
+      @apply dark:text-gray-200;
+    }
+  
+    & [type="text"], 
+    & [type="email"], 
+    & [type="url"], 
+    & [type="password"], 
+    & [type="number"], 
+    & [type="date"], 
+    & [type="datetime-local"], 
+    & [type="month"], 
+    & [type="search"], 
+    & [type="tel"], 
+    & [type="time"], 
+    & [type="week"], 
+    & [multiple], 
+    & textarea, 
+    & select {
+      @apply inline-block w-full rounded-sm dark:bg-gray-700 dark:text-gray-200;
+    }
+  
+    & .ProseMirror {
+      @apply p-3 bg-white border border-gray-500 dark:bg-gray-700;
+    }
+  }
+
+  /* Tables */
+  
+  table {
+    @apply w-full text-gray-800 dark:text-gray-300 table-auto border-collapse my-3;
+  
+    & thead {
+      @apply bg-gray-300 dark:bg-gray-700 dark:text-gray-300;
+    }
+  
+    & tbody {
+      @apply bg-gray-100 dark:bg-gray-800;
+    }
+  
+    & th, & td {
+      @apply border border-gray-300 dark:border-gray-900 p-4 text-left;
+    }
+  } 
+
+  /* Article and Freeform Content */
+
+  #content {
+    @apply hover:prose-a:decoration-accent2;
+
+    & a {
+      @apply decoration-accent2;
+    }
+  }
+}
+
+
+.button, 
+input[type=submit], 
+button[type=submit] {
+  @apply p-3 rounded-sm inline-block border border-gray-500 bg-gray-300 hover:bg-accent2 hover:no-underline dark:bg-gray-600 dark:text-gray-300 hover:dark:text-gray-800 hover:dark:bg-gray-400;
+}
+
+.card {
+  @apply bg-gray-100 dark:bg-gray-800 px-6 py-4 shadow-lg border-b dark:border-0 rounded-sm;
+}
+
+.tag {
+  @apply inline-block text-sm p-1 rounded shadow-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-400;
+}
+
+.alert {
+  @apply p-3 empty:hidden shadow mb-6;
+}
+
+
+article.card.note, article.card.bookmark {
+  @apply dark:shadow-none dark:py-4;
+
+  & header {
+    @apply mb-3 pb-5 border-b dark:border-gray-700;
+  }
+
+  & section.html {
+    @apply mx-auto prose dark:prose-invert;
+  }
+
+  & footer {
+    @apply flex flex-col my-6 py-6 border-y dark:border-gray-700 break-all;
+
+    & a {
+      @apply text-gray-500;
+    }
+  }
+}
+
+ul.pagination {
+  @apply flex gap-3 mt-3;
+
+  & li {
+    & a {
+      @apply inline-block p-3 bg-white;
+    }
+  }
+}
+
+.dashboard {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-3;
+
+  & details, & div {
+    @apply bg-gray-200 dark:bg-gray-800 dark:text-gray-300;
+
+    & summary {
+      @apply p-3 mb-3 bg-gray-100 dark:bg-gray-900 dark:text-gray-200;
+    }
+  }
+
+  & article {
+    @apply bg-white dark:bg-gray-900 mb-3;
+
+    & summary + div, & summary + pre {
+      @apply bg-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4;
+    }
+
+    & footer {
+      @apply p-4 border-t border-gray-200 dark:border-gray-600;
+    }
+  }
+}
+
+/* Animations */
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  /*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: -10000px 0;
+  }
+}
