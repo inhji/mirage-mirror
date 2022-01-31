@@ -1,10 +1,10 @@
-<figure class="p-author h-card flex mt-6 px-3 pb-3">
-  <img class="u-photo w-16 h-16 rounded-full shadow-lg" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
-  <div class="ml-3">
-    <h2 class="p-name m-0 text-base"s><%= @user.name %></h2>
-    <p class="text-gray-500">@<span class="p-nickname"><%= @user.handle %></span></p>
-    <p class="mt-1">
+<figure class="author-card | small | p-author h-card">
+  <img class="u-photo" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
+  <section>
+    <h2 class="p-name"s><%= @user.name %></h2>
+    <p>@<span class="p-nickname"><%= @user.handle %></span></p>
+    <p>
       <%= link "inhji.de", to: Routes.page_path(@conn, :index), class: "u-url u-uid", rel: "me" %>
     </p>
-  </div>
+  </section>
 </figure>

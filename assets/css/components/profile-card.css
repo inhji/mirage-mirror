@@ -1,5 +1,9 @@
-.profile-card {
+.author-card {
 	--avatar-size: var(--spacing-32);
+
+	&.small {
+		--avatar-size: var(--spacing-20);
+	}
 
 	display: flex;
 	gap: var(--spacing-6);
