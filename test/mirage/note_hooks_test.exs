@@ -31,5 +31,17 @@ defmodule Mirage.NoteHooksTest do
 
       assert_enqueued(worker: Mirage.Indie.WebmentionWorker, args: %{"id" => note.id})
     end
+
+    test "syndicate_to/2 runs the mastodon worker", %{note: note} do
+      {:ok, updated_note} =
+        Mirage.Notes.update_note_with_hooks(note, %{"syndication_targets" => ["mastodon"]})
+
+      {:ok, _published_note} = Mirage.Notes.publish_note(updated_note)
+
+      assert_enqueued(
+        worker: Mirage.Syndication.MastodonWorker,
+        args: %{"id" => note.id, "type" => "note"}
+      )
+    end
   end
 end
