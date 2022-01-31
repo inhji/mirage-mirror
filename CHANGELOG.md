@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.79.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.78.0...v0.79.0) (2022-01-31)
+
+
+
+
+### Features:
+
+* Add pagination
+
 ## [v0.78.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.77.0...v0.78.0) (2022-01-30)
 
 
