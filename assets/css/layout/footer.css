@@ -1,4 +1,6 @@
 #footer {
+	border-top: 2px solid var(--secondary);
+
 	& nav {
 		display: flex;
 		gap: var(--spacing-3);
