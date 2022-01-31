@@ -10,7 +10,7 @@ defmodule Mirage.Syndication.MastodonWorker do
   end
 
   def perform(%Oban.Job{args: %{"id" => id, "type" => "note"} = _args}) do
-    note = Mirage.Notes.get_note!(id)
+    note = Mirage.Notes.get_note_by_id!(id)
     url = Routes.note_url(MirageWeb.Endpoint, :show, id)
     status_text = get_text(note.content_sanitized, url)
 
