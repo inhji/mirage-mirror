@@ -3,17 +3,6 @@
     <h1 class="p-name">
       <%= link @note.title, to: Routes.note_path(@conn, :show, @note), class: "u-uid u-url" %>
     </h1>
-
-    <%= if @note.published_at do %>
-      <time datetime={@note.published_at} title={@note.published_at} class="tag | dt-published">
-        <%= datetime_for_display(@note.published_at) %></time>
-    <% end %>
-
-    <span class="tag | p-category"><%= @note.list.title %></span>
-
-    <%= for tag <- @note.tags do %>
-      <span class="tag | p-category"><%= tag.title %></span>
-    <% end %>
   </header>
 
   <section class="html | e-content">
@@ -22,48 +11,60 @@
 
   <!-- The elements need to contain no whitespace between them, otherwise the empty:border-0 style will not work. You might check the status of this: https://caniuse.com/mdn-css_selectors_empty_matches_whitespace -->
   <footer>
-    <%= if @note.in_reply_to do %>
-      <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
-    <% end %>
-    <%= if @note.watch_of do %>
-      <%= link "🎞️ #{@note.watch_of}", 
-        to: @note.watch_of, 
-        class: "u-watch-of", 
-        title: "Watch of" %>
-    <% end %>
-    <%= if @note.read_of do %>
-      <%= link "📘 #{@note.read_of}", 
-        to: @note.read_of, 
-        class: "u-read-of", 
-        title: "Read of" %>
-    <% end %>
-    <%= if @note.listen_of do %>
-      <%= link "🎧 #{@note.listen_of}", 
-        to: @note.listen_of, 
-        class: "u-listen-of", 
-        title: "Listen of" %>
-    <% end %>
-    <%= if @note.bookmark_of do %>
-      <%= link "🔖 #{@note.bookmark_of}", 
-        to: @note.bookmark_of, 
-        class: "u-bookmark-of", 
-        title: "Bookmark of" %>
-    <% end %>
-    <%= if @note.like_of do %>
-      <%= link "❤️ #{@note.like_of}", 
-        to: @note.like_of, 
-        class: "u-like-of", 
-        title: "Like of" %>
-    <% end %>
-    <%= if @note.repost_of do %>
-      <%= link "🔁 #{@note.repost_of}", 
-        to: @note.repost_of, 
-        class: "u-repost-of", 
-        title: "Repost of" %>
-    <% end %>
-    <%= link to: Routes.note_path(MirageWeb.Endpoint, :microformats, @note) do %>
-      <i class="icon-microformats-colored"></i>
-    <% end %>
+    <section class="tags">
+      <%= if @note.published_at do %>
+        <time datetime={@note.published_at} title={@note.published_at} class="tag | dt-published">
+          <%= datetime_for_display(@note.published_at) %></time>
+      <% end %>
+
+      <span class="tag | p-category"><%= @note.list.title %></span>
+
+      <%= for tag <- @note.tags do %>
+        <span class="tag | p-category"><%= tag.title %></span>
+      <% end %>
+    </section>
+
+    <section class="indie">
+      <%= if @note.in_reply_to do %>
+        <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
+      <% end %>
+      <%= if @note.watch_of do %>
+        <%= link "🎞️ #{@note.watch_of}", 
+          to: @note.watch_of, 
+          class: "u-watch-of", 
+          title: "Watch of" %>
+      <% end %>
+      <%= if @note.read_of do %>
+        <%= link "📘 #{@note.read_of}", 
+          to: @note.read_of, 
+          class: "u-read-of", 
+          title: "Read of" %>
+      <% end %>
+      <%= if @note.listen_of do %>
+        <%= link "🎧 #{@note.listen_of}", 
+          to: @note.listen_of, 
+          class: "u-listen-of", 
+          title: "Listen of" %>
+      <% end %>
+      <%= if @note.bookmark_of do %>
+        <%= link "🔖 #{@note.bookmark_of}", 
+          to: @note.bookmark_of, 
+          class: "u-bookmark-of", 
+          title: "Bookmark of" %>
+      <% end %>
+      <%= if @note.like_of do %>
+        <%= link "❤️ #{@note.like_of}", 
+          to: @note.like_of, 
+          class: "u-like-of", 
+          title: "Like of" %>
+      <% end %>
+      <%= if @note.repost_of do %>
+        <%= link "🔁 #{@note.repost_of}", 
+          to: @note.repost_of, 
+          class: "u-repost-of", 
+          title: "Repost of" %>
+      <% end %>
+    </section>
 
     <aside class="hidden">
       <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>
