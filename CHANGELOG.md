@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.83.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.82.0...v0.83.0) (2022-02-01)
+
+
+
+
+### Features:
+
+* tweak theme
+
+* include openwebicons
+
+* add markdown styles
+
 ## [v0.82.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.81.0...v0.82.0) (2022-02-01)
 
 
