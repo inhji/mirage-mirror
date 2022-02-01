@@ -1,11 +1,11 @@
 html.theme-default {
 	.tag {
-		background: #a4b4a4;
+		background: var(--secondary);
 	}
 
 	& .pagination {
 		li > a {
-			background: #a4b4a4;
+			background: var(--secondary);
 		}
 
 		li.active > a, li > a:hover {
