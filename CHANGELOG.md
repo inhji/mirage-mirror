@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.82.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.81.0...v0.82.0) (2022-02-01)
+
+
+
+
+### Features:
+
+* add tag, article, default theme and helpers
+
+* include author-card in note article
+
+* add theme-default class to html
+
+### Bug Fixes:
+
+* readd dark theme script
+
 ## [v0.81.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.80.0...v0.81.0) (2022-01-31)
 
 
