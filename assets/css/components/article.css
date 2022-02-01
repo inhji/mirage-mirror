@@ -1,0 +1,9 @@
+article.article {
+	& header {
+		margin-bottom: var(--spacing-6);
+	}
+
+	& footer {
+		margin-top: var(--spacing-6);
+	}
+}

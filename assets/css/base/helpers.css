@@ -1,0 +1,7 @@
+.flow > * + * {
+  margin-top: var(--flow-space, --spacing-3);
+}
+
+.hidden {
+	display: none;
+}

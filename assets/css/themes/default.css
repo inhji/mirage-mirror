@@ -1,0 +1,15 @@
+html.theme-default {
+	.tag {
+		background: #a4b4a4;
+	}
+
+	& .pagination {
+		li > a {
+			background: #a4b4a4;
+		}
+
+		li.active > a, li > a:hover {
+			background: var(--primary);
+		}
+	}
+}

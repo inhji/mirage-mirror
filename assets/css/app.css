@@ -19,6 +19,7 @@
 @import "base/flex";
 @import "base/base";
 @import "base/typography";
+@import "base/helpers";
 
 @import "layout/wrapper";
 @import "layout/header";
@@ -26,5 +27,9 @@
 @import "layout/content";
 
 @import "components/profile-card";
+@import "components/tag";
+@import "components/article";
 
 @import "pages/page-index";
+
+@import "themes/default";
