@@ -17,13 +17,11 @@
   <section class="updates | h-feed | flow">
   <%= for update <- @updates do %>
     <%= if is_note?(update) do %>
-      <article class="h-entry note card mt-10">
-        <%= render MirageWeb.NoteView, "note.html", Map.put(assigns, :note, update) %>
-      </article>
+      <%= render MirageWeb.NoteView, "note.html", Map.put(assigns, :note, update) %>
     <% end %>
   <% end %>
+  </section>
 
   <%= pagination_links @page %>
-  </section>
 </section>
 

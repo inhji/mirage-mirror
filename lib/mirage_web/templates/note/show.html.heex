@@ -12,5 +12,4 @@
 
 <article class="h-entry card note mx-auto max-w-prose">
   <%= render "note.html", assigns %>
-  <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>
 </article>
