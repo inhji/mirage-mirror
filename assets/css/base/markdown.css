@@ -1,0 +1,5 @@
+.markdown, .html {
+	p {
+		margin-bottom: var(--spacing-2);
+	}
+}
