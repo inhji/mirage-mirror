@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.83.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.83.0...v0.83.1) (2022-02-01)
+
+
+
+
+### Bug Fixes:
+
+* include markdown.css
+
 ## [v0.83.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.82.0...v0.83.0) (2022-02-01)
 
 
