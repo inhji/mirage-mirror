@@ -31,13 +31,13 @@
       <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/public.js")}></script>
     <% end %>
 
-    <%# <script type="text/javascript">
+    <script type="text/javascript">
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.add('dark')
+        document.documentElement.classList.add('dark')
       } else {
-        document.documentElement.remove('dark')
+        document.documentElement.classList.remove('dark')
       }
-    </script> %>
+    </script>
   </head>
   <body>
     <div id="wrapper">
