@@ -3,9 +3,17 @@
     <details open="open">
       <summary>
         <span>ꟿirage</span>
-        <span>🚗</span>
       </summary>
       <aside>
+        <section>
+          <strong>Menu</strong>
+          <ul>
+            <li><%= active_link @conn, "Home", to: Routes.page_path(@conn, :index) %></li>
+            <li><%= active_link @conn, "About", to: Routes.page_path(@conn, :about) %></li>
+            <li><%= active_link @conn, "Feeds", to: Routes.feed_path(@conn, :index) %></li>
+          </ul>
+        </section>
+
         <section>
           <strong>Content</strong>
           <ul>
@@ -14,14 +22,6 @@
             <li><%= active_link @conn, "Tags", to: Routes.admin_tag_path(@conn, :index) %></li>
             <li><%= active_link @conn, "Lists", to: Routes.admin_list_path(@conn, :index) %></li>
             <% end %>
-          </ul>
-        </section>
-
-        <section>
-          <strong>Menu</strong>
-          <ul>
-            <li><%= active_link @conn, "Feeds", to: Routes.feed_path(@conn, :index) %></li>
-            <li><%= active_link @conn, "About", to: Routes.page_path(@conn, :about) %></li>
           </ul>
         </section>
 

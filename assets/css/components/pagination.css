@@ -1,0 +1,10 @@
+.pagination {
+	li > a {
+		background: var(--color-pagination-bg);
+	}
+
+	li.active > a, 
+	li > a:hover {
+		background: var(--color-pagination-bg-hover);
+	}
+}

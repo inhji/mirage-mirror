@@ -15,21 +15,22 @@
 @import "abstracts/colors";
 @import "abstracts/variables";
 
-@import "base/reset";
-@import "base/flex";
 @import "base/base";
-@import "base/typography";
+@import "base/flex";
 @import "base/helpers";
 @import "base/markdown";
+@import "base/reset";
+@import "base/typography";
 
-@import "layout/wrapper";
-@import "layout/header";
-@import "layout/footer";
 @import "layout/content";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/wrapper";
 
+@import "components/article";
+@import "components/pagination";
 @import "components/profile-card";
 @import "components/tag";
-@import "components/article";
 
 @import "pages/page-index";
 

@@ -1,16 +1,1 @@
-html.theme-default {
-	.tag {
-		background: var(--primary-100);
-	}
-
-	& .pagination {
-		li > a {
-			background: var(--primary-100);
-		}
-
-		li.active > a, 
-		li > a:hover {
-			background: var(--primary-200);
-		}
-	}
-}
+html.theme-default {}

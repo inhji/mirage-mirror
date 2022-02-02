@@ -6,12 +6,19 @@
 			margin: var(--spacing-3) 0;
 		}
 
+		& summary::marker {
+			display: none;
+			content: '';
+		}
+
 		& aside {
 			display: flex;
+			flex-wrap: wrap;
 			gap: var(--spacing-4);
-			/* background: var(--primary-100); */
+			background: var(--color-nav-bg);
 			margin: 0 calc(var(--spacing-3) * -1);
 			padding: var(--spacing-3);
+			border-radius: 10px 10px 10px 10px;
 		}
 	}
 
@@ -36,6 +43,7 @@
 		& a {
 			text-decoration: none;
 			padding: var(--spacing-2);
+			color: var(--color-nav-link);
 
 			&:hover {
 				text-decoration: underline;
