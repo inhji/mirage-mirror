@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.86.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.85.0...v0.86.0) (2022-02-02)
+
+
+
+
+### Features:
+
+* first pass at an actual theme
+
 ## [v0.85.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.84.0...v0.85.0) (2022-02-02)
 
 
