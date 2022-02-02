@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.85.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.84.0...v0.85.0) (2022-02-02)
+
+
+
+
+### Features:
+
+* add dotgrid file for mirage logo
+
+* experiment with a new header inspired by blog.jim-nielsen.com
+
+* work on color system
+
 ## [v0.84.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.83.1...v0.84.0) (2022-02-01)
 
 
