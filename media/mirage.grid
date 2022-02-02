@@ -1,0 +1,116 @@
+{
+  "settings": {
+    "size": {
+      "width": 855,
+      "height": 630
+    }
+  },
+  "layers": [
+    [
+      {
+        "type": "line",
+        "vertices": [
+          {
+            "x": 135,
+            "y": 600
+          },
+          {
+            "x": 180,
+            "y": 420
+          },
+          {
+            "x": 270,
+            "y": 420
+          },
+          {
+            "x": 300,
+            "y": 525
+          },
+          {
+            "x": 330,
+            "y": 420
+          },
+          {
+            "x": 420,
+            "y": 420
+          },
+          {
+            "x": 450,
+            "y": 525
+          },
+          {
+            "x": 480,
+            "y": 420
+          },
+          {
+            "x": 540,
+            "y": 420
+          },
+          {
+            "x": 495,
+            "y": 600
+          },
+          {
+            "x": 405,
+            "y": 600
+          },
+          {
+            "x": 375,
+            "y": 480
+          },
+          {
+            "x": 345,
+            "y": 600
+          },
+          {
+            "x": 255,
+            "y": 600
+          },
+          {
+            "x": 225,
+            "y": 480
+          },
+          {
+            "x": 195,
+            "y": 600
+          },
+          {
+            "x": 135,
+            "y": 600
+          }
+        ]
+      }
+    ],
+    [],
+    []
+  ],
+  "styles": [
+    {
+      "thickness": 3,
+      "strokeLinecap": "round",
+      "strokeLinejoin": "bevel",
+      "color": "#0a0a0a",
+      "fill": "none",
+      "mirror_style": 0,
+      "transform": "rotate(45)"
+    },
+    {
+      "thickness": 15,
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "color": "#4a4a4a",
+      "fill": "none",
+      "mirror_style": 0,
+      "transform": "rotate(45)"
+    },
+    {
+      "thickness": 15,
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "color": "#6a6a6a",
+      "fill": "none",
+      "mirror_style": 0,
+      "transform": "rotate(45)"
+    }
+  ]
+}
