@@ -1,15 +1,18 @@
 html.theme-default {
+	--color-heading: red;
+
 	.tag {
-		background: var(--secondary);
+		background: var(--primary-100);
 	}
 
 	& .pagination {
 		li > a {
-			background: var(--secondary);
+			background: var(--primary-100);
 		}
 
-		li.active > a, li > a:hover {
-			background: var(--primary);
+		li.active > a, 
+		li > a:hover {
+			background: var(--primary-200);
 		}
 	}
 }

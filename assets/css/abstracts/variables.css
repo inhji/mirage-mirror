@@ -1,9 +1,4 @@
 :root {
-	--background: #fff1e8;
-	--primary: #ff78a9;
-	--secondary: #83769c;
-	--text: #120926;
-
 	--spacing-0: 0;
 	--spacing-1: 0.25rem;
 	--spacing-2: 0.5rem;
@@ -21,4 +16,6 @@
 	--spacing-36: 9rem;
 
 	--font-size: var(--spacing-4);
+	--font-base: sans-serif;
+	--font-heading: serif;
 }

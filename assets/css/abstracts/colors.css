@@ -1,0 +1,30 @@
+:root {
+	--background: #fff1e8;
+
+	--primary-100: hsl(270, 50%, 90%);
+	--primary-200: hsl(270, 50%, 80%);
+	--primary-300: hsl(270, 50%, 70%);
+	--primary-400: hsl(270, 50%, 60%);
+	--primary-500: hsl(270, 50%, 50%);
+	--primary-600: hsl(270, 50%, 40%);
+	--primary-700: hsl(270, 50%, 30%);
+	--primary-800: hsl(270, 50%, 20%);
+	--primary-900: hsl(270, 50%, 10%);
+
+	--black: #120926;
+	--gray-10: #383048;
+	--gray-9: #4b445a;
+	--gray-8: #5f596d;
+	--gray-7: #746f80;
+	--gray-6: #8a8594;
+	--gray-5: #a09ca8;
+	--gray-4: #b7b4bd;
+	--gray-3: #cfcdd3;
+	--gray-2: #e7e6e9;
+	--gray-1: white;
+	--white: white;
+
+	--color-heading: var(--gray-10);
+	--color-text: var(--gray-9);
+	--color-link: var(--gray-10);
+}

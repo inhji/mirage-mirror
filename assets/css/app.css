@@ -14,6 +14,7 @@
 
 @import "openwebicons/css/openwebicons";
 
+@import "abstracts/colors";
 @import "abstracts/variables";
 
 @import "base/reset";

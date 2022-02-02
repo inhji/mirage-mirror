@@ -1,9 +1,9 @@
 body {
-	color: var(--text);
+	color: var(--color-text);
 	background-color: var(--background);
 	padding: 0 var(--spacing-3);
 }
 
 a {
-	color: var(--text);
+	color: var(--color-link);
 }
