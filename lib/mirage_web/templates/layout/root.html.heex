@@ -41,16 +41,7 @@
   </head>
   <body>
     <div id="wrapper">
-      <header id="header">
-        <nav>
-          <ul>
-            <li><%= active_link @conn, "ꟿirage", to: Routes.page_path(@conn, :index) %></li>
-          </ul>
-          <%= render "_content_menu.html", assigns %>        
-          <div class="flex-1"></div>
-          <%= render "_misc_menu.html", assigns %>
-        </nav>
-      </header>
+      <%= render "_header.html", assigns %>
       
       <main id="content" class="container mx-auto px-3 my-10 grow shrink-0">
         <%= @inner_content %>

@@ -1,3 +1,5 @@
+@custom-media --biig (min-width: 30rem);
+
 :root {
 	--spacing-0: 0;
 	--spacing-1: 0.25rem;

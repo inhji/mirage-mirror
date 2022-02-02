@@ -1,0 +1,41 @@
+<header id="header">
+  <nav>
+    <details open="open">
+      <summary>
+        <span>ꟿirage</span>
+        <span>🚗</span>
+      </summary>
+      <aside>
+        <section>
+          <strong>Content</strong>
+          <ul>
+            <%= if @current_user do %>
+            <li><%= active_link @conn, "Notes", to: Routes.admin_note_path(@conn, :index) %></li>
+            <li><%= active_link @conn, "Tags", to: Routes.admin_tag_path(@conn, :index) %></li>
+            <li><%= active_link @conn, "Lists", to: Routes.admin_list_path(@conn, :index) %></li>
+            <% end %>
+          </ul>
+        </section>
+
+        <section>
+          <strong>Menu</strong>
+          <ul>
+            <li><%= active_link @conn, "Feeds", to: Routes.feed_path(@conn, :index) %></li>
+            <li><%= active_link @conn, "About", to: Routes.page_path(@conn, :about) %></li>
+          </ul>
+        </section>
+
+        <%= if @current_user do %>
+        <section>
+          <strong>User</strong>
+          <ul>
+            <li><%= active_link @conn, "Settings", to: Routes.user_settings_path(@conn, :edit) %></li>
+            <li><%= active_link @conn, "Dashboard", to: Routes.admin_dashboard_path(@conn, :index) %></li>
+            <li><%= active_link @conn, "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %></li>
+          </ul>
+        </section>
+        <% end %>
+      </aside>
+    </details>    
+  </nav>
+</header>

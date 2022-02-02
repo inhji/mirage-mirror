@@ -1,5 +1,5 @@
 :root {
-	--background: #fff1e8;
+	--background: hsl(23.5, 100%, 95.5%);
 
 	--primary-100: hsl(270, 50%, 90%);
 	--primary-200: hsl(270, 50%, 80%);
@@ -26,5 +26,5 @@
 
 	--color-heading: var(--gray-10);
 	--color-text: var(--gray-9);
-	--color-link: var(--gray-10);
+	--color-link: var(--primary-600);
 }

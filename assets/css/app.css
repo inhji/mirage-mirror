@@ -12,8 +12,6 @@
 	- https://piccalil.li/blog/i-used-tailwind-for-the-u-in-cube-css-and-i-liked-it/
 */
 
-@import "openwebicons/css/openwebicons";
-
 @import "abstracts/colors";
 @import "abstracts/variables";
 

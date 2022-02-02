@@ -1,5 +1,4 @@
-<ul class="flex py-3">
-  <li><%= active_link @conn, "Feeds", to: Routes.feed_path(@conn, :index), class: "p-3" %></li>
-  <li><%= active_link @conn, "About", to: Routes.page_path(@conn, :about), class: "p-3" %></li>
-  <li><a href="#" class="dark-mode-toggle p-3">🌗</a></li>
+<ul>
+  <li><%= active_link @conn, "Feeds", to: Routes.feed_path(@conn, :index) %></li>
+  <li><%= active_link @conn, "About", to: Routes.page_path(@conn, :about) %></li>
 </ul>

@@ -1,6 +1,4 @@
 html.theme-default {
-	--color-heading: red;
-
 	.tag {
 		background: var(--primary-100);
 	}
