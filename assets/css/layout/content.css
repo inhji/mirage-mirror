@@ -1,5 +1,6 @@
 #content {
 	--flow-space: var(--spacing-12);
 
-	max-width: 45rem;
+	/* This pushes the footer to the bottom of the page to make a sticky footer */
+	flex: 1;
 }

@@ -1,4 +1,9 @@
 #wrapper {
 	max-width: 65rem;
 	margin: 0 auto;
+
+	/* Make the wrapper occupy the whole height of the page */
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
 }
