@@ -5,6 +5,25 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.90.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.89.0...v0.90.0) (2022-02-03)
+
+
+
+
+### Features:
+
+* only make public pages 45rem wide, clean up, fix missing hcard on home
+
+* Sticky footer
+
+* form and table styles
+
+* light button styles
+
+### Bug Fixes:
+
+* remove surrounding span from buttons
+
 ## [v0.89.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.88.0...v0.89.0) (2022-02-03)
 
 
