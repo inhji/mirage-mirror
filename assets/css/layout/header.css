@@ -4,11 +4,20 @@
 	& details {
 		& summary {
 			margin: var(--spacing-3) 0;
+			font-weight: bold;
+
+			&:first-letter {
+				/* color: var(--primary-700); */
+			}
 		}
 
 		& summary::marker {
-			display: none;
-			content: '';
+			color: var(--primary-500);
+			content: '';
+		}
+
+		&[open] summary::marker {
+			content: '';
 		}
 
 		& aside {

@@ -2,4 +2,5 @@
 	background: var(--color-tag-bg);
 	padding: var(--spacing-1);
 	border-radius: var(--spacing-1);
+	font-size: var(--text-sm);
 }

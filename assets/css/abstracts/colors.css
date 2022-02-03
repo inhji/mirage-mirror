@@ -2,6 +2,7 @@
 	--background: hsl(23.5, 100%, 96%);
 	--background-dark: hsl(23.5, 100%, 93%);
 
+	--primary-50: hsl(0, 50%, 95%);
 	--primary-100: hsl(0, 50%, 90%);
 	--primary-200: hsl(0, 50%, 80%);
 	--primary-300: hsl(0, 50%, 70%);
@@ -32,7 +33,7 @@
 	--color-nav-bg: var(--background-dark);
 	--color-nav-link: var(--primary-500);
 
-	--color-tag-bg: var(--background-dark);
+	--color-tag-bg: var(--primary-100);
 
 	--color-pagination-bg: var(--primary-100);
 	--color-pagination-bg-hover: var(--primary-100);

@@ -17,8 +17,10 @@
 	--spacing-32: 8rem;
 	--spacing-36: 9rem;
 
-	--font-base: sans-serif;
-	--font-heading: serif;
+	--font-base: 'Inter', sans-serif;
+	--font-base-var: 'Inter var', sans-serif;
+	--font-heading: 'Inter', sans-serif;
+	--font-features: 'calt', 'ss01', 'ss02', 'case', 'frac', 'tnum';
 
 	/*
 	If changing the font size, ex. in a media query,

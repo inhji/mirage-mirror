@@ -2,12 +2,10 @@ defmodule MirageWeb.PageController do
   use MirageWeb, :controller
 
   def index(conn, params) do
-    user = Mirage.Accounts.get_user()
     page = Mirage.Content.list_updates(params)
 
     render(conn, "index.html",
       page_title: "Home",
-      user: user,
       page: page,
       updates: page.entries,
       page_number: page.page_number,
@@ -18,6 +16,7 @@ defmodule MirageWeb.PageController do
   end
 
   def about(conn, _params) do
-    render(conn, "about.html", page_title: "About")
+    user = Mirage.Accounts.get_user()
+    render(conn, "about.html", page_title: "About", user: user)
   end
 end

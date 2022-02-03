@@ -3,14 +3,7 @@
     <h1 class="p-name">
       <%= link @note.title, to: Routes.note_path(@conn, :show, @note), class: "u-uid u-url" %>
     </h1>
-  </header>
 
-  <section class="html | e-content">
-    <%= raw Mirage.Markdown.render(@note.content) %>
-  </section>
-
-  <!-- The elements need to contain no whitespace between them, otherwise the empty:border-0 style will not work. You might check the status of this: https://caniuse.com/mdn-css_selectors_empty_matches_whitespace -->
-  <footer>
     <section class="tags">
       <%= if @note.published_at do %>
         <time datetime={@note.published_at} title={@note.published_at} class="tag | dt-published">
@@ -23,7 +16,14 @@
         <span class="tag | p-category"><%= tag.title %></span>
       <% end %>
     </section>
+  </header>
 
+  <section class="html | e-content">
+    <%= raw Mirage.Markdown.render(@note.content) %>
+  </section>
+
+  <!-- The elements need to contain no whitespace between them, otherwise the empty:border-0 style will not work. You might check the status of this: https://caniuse.com/mdn-css_selectors_empty_matches_whitespace -->
+  <footer>
     <section class="indie">
       <%= if @note.in_reply_to do %>
         <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
