@@ -49,8 +49,8 @@
       <td><%= note.published_at %></td>
 
       <td>
-        <span><%= link "Edit", to: Routes.admin_note_path(MirageWeb.Endpoint, :edit, note), class: "button text-sm p-2" %></span>
-        <span><%= link "Delete", to: Routes.admin_note_path(MirageWeb.Endpoint, :delete, note), method: :delete, data: [confirm: "Are you sure?"], class: "button text-sm p-2" %></span>
+        <%= link "Edit", to: Routes.admin_note_path(MirageWeb.Endpoint, :edit, note), class: "button" %>
+        <%= link "Delete", to: Routes.admin_note_path(MirageWeb.Endpoint, :delete, note), method: :delete, data: [confirm: "Are you sure?"], class: "button" %>
       </td>
     </tr>
 <% end %>

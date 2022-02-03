@@ -14,8 +14,8 @@
       <td><%= link list.title, to: Routes.admin_list_path(@conn, :show, list) %></td>
       <td><%= raw Mirage.Markdown.render(list.content) %></td>
       <td>
-        <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list), class: "button text-sm p-2" %></span>
-        <span><%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"], class: "button text-sm p-2" %></span>
+        <%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list), class: "button" %>
+        <%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"], class: "button" %>
       </td>
     </tr>
 <% end %>
