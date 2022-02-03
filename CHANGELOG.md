@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.89.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.88.0...v0.89.0) (2022-02-03)
+
+
+
+
+### Features:
+
+* prettier pagination
+
+### Bug Fixes:
+
+* remove tnum feature from inter
+
 ## [v0.88.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.87.0...v0.88.0) (2022-02-03)
 
 
