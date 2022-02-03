@@ -1,19 +1,4 @@
 <section id="page-index">
-  <figure class="author-card | h-card">
-    <img class="u-photo" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
-    <section>
-      <h2 class="p-name">
-        <%= link @user.name, to: Routes.page_path(@conn, :index), class: "u-url u-uid", rel: "me"  %>
-      </h2>
-      <p>
-        @<span class="p-nickname"><%= @user.handle %></span>
-      </p>
-      <div class="p-note">
-        <%= raw Mirage.Markdown.render(@user.bio) %>
-      </div>
-    </section>
-  </figure>
-
   <section class="updates | h-feed | flow">
   <%= for update <- @updates do %>
     <%= if is_note?(update) do %>

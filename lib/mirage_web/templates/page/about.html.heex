@@ -1,8 +1,23 @@
 <article class="max-w-prose mx-auto">
-	<h1>👋 About</h1>
+	<h1>About</h1>
+
+	<section class="author-card | h-card">
+	  <img class="u-photo" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
+	  <section>
+	    <h2 class="p-name">
+	      <%= link @user.name, to: Routes.page_path(@conn, :index), class: "u-url u-uid", rel: "me"  %>
+	    </h2>
+	    <p>
+	      @<span class="p-nickname"><%= @user.handle %></span>
+	    </p>
+	    <div class="p-note">
+	      <%= raw Mirage.Markdown.render(@user.bio) %>
+	    </div>
+	  </section>
+	</section>
 
 	<section class="prose dark:prose-invert mt-6">
-		<h2>About me</h2>
+		<h2>👋 About me</h2>
 
 		<p>Introductions are complicated. In real life, I'd just say, <em>"Hi, I'm Jonathan"</em> and the rest would drip out in further conversations naturally.</p>
 
@@ -12,7 +27,7 @@
 	</section>
 
 	<section class="prose dark:prose-invert mt-6">	
-		<h2>About this site</h2>
+		<h2>💻 About this site</h2>
 
 		<p>This site is a cms, a personal website, a playground. The name comes from <a href="https://chillhop.bandcamp.com/album/mirage">an album</a> that might be right up your alley if you're into chill-hop</p>
 
