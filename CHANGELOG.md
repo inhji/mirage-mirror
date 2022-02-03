@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.88.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.87.0...v0.88.0) (2022-02-03)
+
+
+
+
+### Features:
+
+* move h-card to about page
+
+* improve theming and header
+
+* bring back inter
+
 ## [v0.87.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.86.0...v0.87.0) (2022-02-03)
 
 

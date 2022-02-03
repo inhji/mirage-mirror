@@ -1,7 +1,7 @@
 defmodule Mirage.MixProject do
   use Mix.Project
 
-  @version "0.87.0"
+  @version "0.88.0"
 
   def project do
     [
