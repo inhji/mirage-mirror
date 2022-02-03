@@ -1,10 +1,13 @@
-<figure class="author-card | p-author h-card | small">
+<section class="author-card | h-card">
   <img class="u-photo" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
   <section>
-    <h2 class="p-name"s><%= @user.name %></h2>
-    <p>@<span class="p-nickname"><%= @user.handle %></span></p>
-    <p>
-      <%= link "inhji.de", to: Routes.page_path(@conn, :index), class: "u-url u-uid", rel: "me" %>
-    </p>
+    <h2 class="p-name">
+      <%= link @user.name, to: Routes.page_path(@conn, :index), class: "p-name u-url u-uid", rel: "me" %>
+      <small class="muted">@<span class="p-nickname"><%= @user.handle %></span></small>
+    </h2>
+
+    <div class="p-note">
+      <%= raw Mirage.Markdown.render(@user.bio) %>
+    </div>
   </section>
-</figure>
+</section>

@@ -1,4 +1,8 @@
 <section id="page-index">
+  <div class="hidden">
+    <%= render MirageWeb.SharedView, "author_card.html", assigns %>
+  </div>
+
   <section class="updates | h-feed | flow">
   <%= for update <- @updates do %>
     <%= if is_note?(update) do %>

@@ -27,11 +27,14 @@
 			background: var(--color-nav-bg);
 			margin: 0 calc(var(--spacing-3) * -1);
 			padding: var(--spacing-3);
-			border-radius: 10px 10px 10px 10px;
+			border-radius: var(--border-radius-lg);
 		}
 	}
 
 	& section {
+		/* Removes the default section margin */
+		margin: 0;
+
 		& strong {
 			padding: var(--spacing-2);
 		}

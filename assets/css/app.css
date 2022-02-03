@@ -34,6 +34,9 @@
 @import "components/tag";
 
 @import "pages/page-index";
+@import "pages/page-about";
+@import "pages/page-follow";
+@import "pages/page-note";
 
 @import "themes/default";
 

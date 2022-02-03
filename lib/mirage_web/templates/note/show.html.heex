@@ -1,15 +1,17 @@
-<%= if @current_user do %>
-<aside class="mb-10 block max-w-prose mx-auto">
-  <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, @note), class: "button" %></span>
-  <%= if is_nil(@note.published_at) do %>
-  <span><%= link "Publish", to: Routes.admin_note_path(@conn, :publish, @note), class: "button" %></span>
-  <% else %>
-  <span><%= link "Unpublish", to: Routes.admin_note_path(@conn, :unpublish, @note), class: "button" %></span>
+<section id="page-note">
+  <%= if @current_user do %>
+  <aside class="mb-10 block max-w-prose mx-auto">
+    <span><%= link "Edit", to: Routes.admin_note_path(@conn, :edit, @note), class: "button" %></span>
+    <%= if is_nil(@note.published_at) do %>
+    <span><%= link "Publish", to: Routes.admin_note_path(@conn, :publish, @note), class: "button" %></span>
+    <% else %>
+    <span><%= link "Unpublish", to: Routes.admin_note_path(@conn, :unpublish, @note), class: "button" %></span>
+    <% end %>
+    <span><%= link "Back", to: Routes.admin_note_path(@conn, :index), class: "button" %></span>
+  </aside>
   <% end %>
-  <span><%= link "Back", to: Routes.admin_note_path(@conn, :index), class: "button" %></span>
-</aside>
-<% end %>
 
-<article class="h-entry card note mx-auto max-w-prose">
-  <%= render "note.html", assigns %>
-</article>
+  <article class="h-entry card note mx-auto max-w-prose">
+    <%= render "note.html", assigns %>
+  </article>
+</section>

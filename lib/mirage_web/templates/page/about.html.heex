@@ -1,20 +1,7 @@
-<article class="max-w-prose mx-auto">
+<section id="page-about">
 	<h1>About</h1>
 
-	<section class="author-card | h-card">
-	  <img class="u-photo" src={Routes.static_path(@conn, "/images/avatar.jpg")} >
-	  <section>
-	    <h2 class="p-name">
-	      <%= link @user.name, to: Routes.page_path(@conn, :index), class: "u-url u-uid", rel: "me"  %>
-	    </h2>
-	    <p>
-	      @<span class="p-nickname"><%= @user.handle %></span>
-	    </p>
-	    <div class="p-note">
-	      <%= raw Mirage.Markdown.render(@user.bio) %>
-	    </div>
-	  </section>
-	</section>
+	<%= render MirageWeb.SharedView, "author_card.html", assigns %>
 
 	<section class="prose dark:prose-invert mt-6">
 		<h2>👋 About me</h2>
@@ -37,4 +24,4 @@
 
 		<p>But I believe it can grow to the point where I feel good about it and keep it around, tend it like a garden and fill it with content like this.</p>
 	</section>
-</article>
+</section>

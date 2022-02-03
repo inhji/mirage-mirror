@@ -17,6 +17,10 @@
 	--spacing-32: 8rem;
 	--spacing-36: 9rem;
 
+	--border-radius-lg: var(--spacing-3);
+	--border-radius: var(--spacing-2);
+	--border-radius-sm: var(--spacing-1);
+
 	--font-base: 'Inter', sans-serif;
 	--font-base-var: 'Inter var', sans-serif;
 	--font-heading: 'Inter', sans-serif;

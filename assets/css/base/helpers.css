@@ -5,3 +5,7 @@
 .hidden {
 	display: none;
 }
+
+.muted {
+	color: var(--color-text-muted);
+}
