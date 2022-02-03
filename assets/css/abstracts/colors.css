@@ -36,5 +36,8 @@
 	--color-tag-bg: var(--primary-100);
 
 	--color-pagination-bg: var(--primary-100);
-	--color-pagination-bg-hover: var(--primary-100);
+	--color-pagination-bg-hover: var(--primary-200);
+
+	--color-button-bg: var(--primary-100);
+	--color-button-bg-hover: var(--primary-200);
 }

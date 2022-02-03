@@ -1,0 +1,10 @@
+.button {
+	display: inline-block;
+	padding: var(--spacing-1);
+	background: var(--color-button-bg);
+	text-decoration: none;
+
+	&:hover {
+		background: var(--color-button-bg-hover);
+	}
+}
