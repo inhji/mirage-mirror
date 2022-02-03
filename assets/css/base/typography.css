@@ -25,17 +25,33 @@ h1, h2, h3, .h1, .h2, .h3 {
   }
 }
 
-h1, .h1 {
-	font-size: var(--spacing-8);
+.text-xxxl {
+  font-size: var(--text-xxxl);
+}
+
+h1, .h1, .text-xxl {
+	font-size: var(--text-xxl);
   margin: var(--spacing-3) 0;
 }
 
-h2, .h2 {
-  font-size: var(--spacing-6);
+h2, .h2, .text-xl {
+  font-size: var(--text-xl);
   margin: var(--spacing-2) 0 var(--spacing-3);
 }
 
-h3, .h3 {
-  font-size: var(--spacing-6);
+h3, .h3, .text-lg {
+  font-size: var(--text-lg);
   margin: var(--spacing-3) 0;
+}
+
+.text-md {
+  font-size: var(--text-md);
+}
+
+.text-sm, small {
+  font-size: var(--text-sm);
+}
+
+.text-xs {
+  font-size: var(--text-md);
 }

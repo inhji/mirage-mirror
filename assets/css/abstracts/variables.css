@@ -17,7 +17,23 @@
 	--spacing-32: 8rem;
 	--spacing-36: 9rem;
 
-	--font-size: var(--spacing-4);
 	--font-base: sans-serif;
 	--font-heading: serif;
+
+	/*
+	If changing the font size, ex. in a media query,
+	change the --font-size variable, not the ratio. 
+	Also keep the 1em in the --text-xx variables intact.
+
+	*/
+	--font-size: 1rem;
+	--font-scale-ratio: 1.2;
+
+  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  --text-sm: calc(1em / var(--text-scale-ratio));
+  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
 }
