@@ -27,7 +27,7 @@
 
 	*/
 	--font-size: 1rem;
-	--font-scale-ratio: 1.2;
+	--text-scale-ratio: 1.2;
 
   --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
   --text-sm: calc(1em / var(--text-scale-ratio));
