@@ -7,3 +7,37 @@ body {
 a {
 	color: var(--color-link);
 }
+
+form {
+	& fieldset {
+	  border-radius: 5px;
+	  margin-bottom: 5px;
+	  display: flex;
+	  flex-direction: column;
+	}
+
+	& textarea {
+		width: 100%;
+	}
+}
+
+table {
+	border-collapse: collapse;
+	vertical-align: middle;
+	width: 100%;
+	margin-bottom: var(--spacing-3);
+}
+
+table th, table td {
+	text-align: left;
+	/* border-bottom: var(--border); */
+	padding: var(--spacing-1);
+}
+
+table th p, table td p {
+	margin: 0;
+}
+
+table thead {
+	/* color: var(--f-med); */
+}
