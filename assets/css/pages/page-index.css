@@ -2,17 +2,4 @@
 	& .updates {
 		margin-top: var(--spacing-8);
 	}
-
-	& .pagination {
-		display: flex;
-		list-style: none;
-		padding: 0;
-		gap: var(--spacing-3);
-
-		& li > a {			
-			display: inline-block;
-			padding: var(--spacing-3) var(--spacing-5);
-			text-decoration: none;
-		}
-	}
 }

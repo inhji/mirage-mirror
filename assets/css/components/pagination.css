@@ -1,10 +1,23 @@
 .pagination {
-	li > a {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	gap: var(--spacing-3);
+
+	& li > a {
 		background: var(--color-pagination-bg);
+		display: inline-block;
+		height: var(--spacing-12);
+		width: var(--spacing-12);
+		line-height: var(--spacing-12);
+		text-decoration: none;
+		text-align: center;
+		padding: 0;
+		border-radius: var(--spacing-12);
 	}
 
-	li.active > a, 
-	li > a:hover {
+	& li.active > a, 
+	& li > a:hover {
 		background: var(--color-pagination-bg-hover);
 	}
 }
