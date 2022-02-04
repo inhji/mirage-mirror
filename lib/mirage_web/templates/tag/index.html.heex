@@ -1,13 +1,13 @@
-<section class="max-w-prose mx-auto">
+<section>
 	<h1>Tags</h1>
 
-	<section class="flex gap-3 flex-wrap">
+	<section class="tag-cloud">
 		<%= for tag <- @tags do %>
-			<%= link to: Routes.tag_path(@conn, :show, tag) do %>
-				<article class="tag">
-					<%= tag.title %> <span class="text-gray-500">(<%= Enum.count(tag.notes) %>)</span>
-				</article>
-			<% end %>
+			<span class="tag" data-count={Enum.count(tag.notes)}>
+				<%= link to: Routes.tag_path(@conn, :show, tag) do %>
+						<%= tag.title %> (<%= Enum.count(tag.notes) %>)
+				<% end %>
+			</span>
 		<% end %>
 	</section>
 </section>
