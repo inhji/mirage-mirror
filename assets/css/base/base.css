@@ -34,7 +34,9 @@ table {
 
 table th, table td {
 	text-align: left;
-	padding: var(--spacing-1);
+	padding: var(--spacing-3);
+	border-bottom: 1px solid var(--background-darker);
+	border-top: 1px solid var(--background-darker);
 }
 
 table th p, table td p {
@@ -42,5 +44,5 @@ table th p, table td p {
 }
 
 table thead {
-	/* color: var(--f-med); */
+	background: var(--background-dark);
 }
