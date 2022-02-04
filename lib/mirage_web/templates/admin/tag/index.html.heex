@@ -4,10 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Slug</th>
-      <th>Content</th>
-      <th>Content html</th>
-      <th>Icon</th>
+      <th>Tagged</th>
       <th>Regex</th>
 
       <th></th>
@@ -17,10 +14,7 @@
 <%= for tag <- @tags do %>
     <tr>
       <td><%= tag.title %></td>
-      <td><%= tag.slug %></td>
-      <td><%= tag.content %></td>
-      <td><%= tag.content_html %></td>
-      <td><%= tag.icon %></td>
+      <td><%= Enum.count(tag.notes) %></td>
       <td><%= tag.regex %></td>
 
       <td>

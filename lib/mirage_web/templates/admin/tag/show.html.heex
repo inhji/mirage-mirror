@@ -1,38 +1,17 @@
-<h1>Show Tag</h1>
+<h1><%= @tag.title %></h1>
 
-<ul>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @tag.title %>
-  </li>
+<section>
+  <h2>Tagged with <%= @tag.title %> (<%= Enum.count(@tag.notes) %>)</h2>
 
-  <li>
-    <strong>Slug:</strong>
-    <%= @tag.slug %>
-  </li>
-
-  <li>
-    <strong>Content:</strong>
-    <%= @tag.content %>
-  </li>
-
-  <li>
-    <strong>Content html:</strong>
-    <%= @tag.content_html %>
-  </li>
-
-  <li>
-    <strong>Icon:</strong>
-    <%= @tag.icon %>
-  </li>
-
-  <li>
-    <strong>Regex:</strong>
-    <%= @tag.regex %>
-  </li>
-
-</ul>
+  <ul>
+  <%= for note <- @tag.notes do %>
+    <li>
+      <%= link note.title, to: Routes.note_path(@conn, :show, note) %>
+    </li>
+  <% end %>
+  </ul>
+</section>
 
 <span><%= link "Edit", to: Routes.admin_tag_path(@conn, :edit, @tag) %></span> |
 <span><%= link "Back", to: Routes.admin_tag_path(@conn, :index) %></span>
