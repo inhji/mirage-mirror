@@ -1,8 +1,9 @@
 .button {
 	display: inline-block;
-	padding: var(--spacing-1);
+	padding: var(--spacing-2);
 	background: var(--color-button-bg);
 	text-decoration: none;
+	border-radius: var(--border-radius-sm);
 
 	&:hover {
 		background: var(--color-button-bg-hover);
