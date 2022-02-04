@@ -34,6 +34,10 @@ h1, .h1, .text-xxl {
     font-weight: 500;
     color: var(--primary-600);
   }
+
+  & a:hover {
+    color: var(--primary-600);
+  }
 }
 
 h2, .h2, .text-xl {
