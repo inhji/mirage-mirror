@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.92.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.91.0...v0.92.0) (2022-02-04)
+
+
+
+
+### Features:
+
+* first few a11y tweaks
+
 ## [v0.91.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.90.0...v0.91.0) (2022-02-04)
 
 
