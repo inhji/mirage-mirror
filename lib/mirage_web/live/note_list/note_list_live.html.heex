@@ -46,7 +46,7 @@
     <tr>
       <td><%= link note.title, to: Routes.admin_note_path(MirageWeb.Endpoint, :show, note) %></td>
       <td><%= link note.list.title, to: Routes.admin_list_path(MirageWeb.Endpoint, :show, note.list) %></td>
-      <td><%= note.published_at %></td>
+      <td><%=  datetime_from_now(note.published_at) %></td>
 
       <td>
         <%= link "Edit", to: Routes.admin_note_path(MirageWeb.Endpoint, :edit, note), class: "button" %>
