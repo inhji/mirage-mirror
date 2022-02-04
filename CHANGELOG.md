@@ -5,6 +5,27 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.93.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.92.0...v0.93.0) (2022-02-04)
+
+
+
+
+### Features:
+
+* oh my lord this is crazy
+
+* cheap styling for tag index and show
+
+* add proper styling to tag form
+
+* add datetime_from_now helper
+
+* add border radius and slightly more padding to buttons
+
+* change h1 title colors on hover
+
+* add proper table styles
+
 ## [v0.92.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.91.0...v0.92.0) (2022-02-04)
 
 
