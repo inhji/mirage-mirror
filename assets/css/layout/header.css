@@ -20,7 +20,7 @@
 			content: '';
 		}
 
-		& aside {
+		& nav {
 			display: flex;
 			flex-wrap: wrap;
 			gap: var(--spacing-4);
@@ -31,10 +31,7 @@
 		}
 	}
 
-	& section {
-		/* Removes the default section margin */
-		margin: 0;
-
+	& div {
 		& strong {
 			padding: var(--spacing-2);
 		}
