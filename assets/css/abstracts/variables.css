@@ -23,8 +23,10 @@
 
 	--font-base: 'Inter', sans-serif;
 	--font-base-var: 'Inter var', sans-serif;
+	--font-base-features: 'calt', 'ss01', 'ss02', 'case', 'frac';
 	--font-heading: 'Inter', sans-serif;
-	--font-features: 'calt', 'ss01', 'ss02', 'case', 'frac';
+	--font-code: 'Cascadia Code', monospace;
+	--font-code-features: 'calt', 'ss01';
 
 	/*
 	If changing the font size, ex. in a media query,

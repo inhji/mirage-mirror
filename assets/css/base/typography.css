@@ -1,7 +1,7 @@
 html {
 	font-size: var(--font-size);
 	font-family: var(--font-base);
-  font-feature-settings: var(--font-features);
+  font-feature-settings: var(--font-base-features);
 }
 
 @supports (font-variation-settings: normal) {
@@ -60,4 +60,9 @@ h3, .h3, .text-lg {
 
 .text-xs {
   font-size: var(--text-md);
+}
+
+pre, code {
+  font-family: var(--font-code);
+  font-feature-settings: var(--font-code-features);
 }
