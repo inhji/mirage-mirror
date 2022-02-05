@@ -1,14 +1,14 @@
-<section class="dashboard">
-	<section class="col-span-1 col-start-1">
-		<h1 class="m-0">Dashboard</h1>
-	</section>
+<section id="page-dashboard">
+	<h1 class="m-0">Dashboard</h1>
 
-	<section class="col-span-1 col-start-1 lg:col-start-2">
-		<details>
-			<summary>
-				<strong>📑 Latest Logs (<%= Enum.count(@logs) %>)</strong>
-			</summary>
+	<ul class="tab-group">
+		 <li><a href="#tab-logs">📑 Latest Logs (<%= Enum.count(@logs) %>)</a></li>
+		 <li><a href="#tab-jobs">👩‍🏭 Latest Jobs (<%= Enum.count(@jobs) %>)</a></li>
+	</ul>
 
+	<div class="tab-container">
+		
+		<div id="tab-logs">
 			<%= for log <- @logs do %>
 			<article class={log.level}>
 				<details>
@@ -22,13 +22,9 @@
 				</details>
 			</article>
 			<% end %>
-		</details>	
+		</div>
 
-		<details>
-			<summary>
-				<strong>👩‍🏭 Latest Jobs (<%= Enum.count(@jobs) %>)</strong>
-			</summary>
-
+		<div id="tab-jobs">
 			<%= for job <- @jobs do %>
 			<article class={job.state}>
 				<details>
@@ -45,6 +41,7 @@
 				</details>
 			</article>
 			<% end %>
-		</details>	
-	</section>
+		</div>
+
+	</div>
 </section>
