@@ -62,6 +62,16 @@ defmodule Mirage.Mastodon do
     })
   end
 
+  defp handle_response({:error, %OAuth2.Response{body: body, status_code: status}}) do
+    Logger.info("Request ended with status #{status}!")
+    Logger.info("Response Body: #{inspect(body)}")
+
+    Mirage.Logger.info("Request to Mastodon sent!", %{
+      status: status,
+      body: body
+    })
+  end
+
   defp handle_response({:error, %OAuth2.Error{reason: reason}}) do
     Logger.warn("Request ended with error!")
     Logger.info("Response Error: #{inspect(reason)}")
