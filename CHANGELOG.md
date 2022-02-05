@@ -5,6 +5,25 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.97.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.96.0...v0.97.0) (2022-02-05)
+
+
+
+
+### Features:
+
+* add expanding textarea
+
+* add shame.css
+
+* remove uneeded js, remove prose mirror
+
+* add blockquote styles
+
+### Bug Fixes:
+
+* weird textarea bug
+
 ## [v0.96.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.95.0...v0.96.0) (2022-02-05)
 
 
