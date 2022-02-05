@@ -20,21 +20,10 @@
   </fieldset>
 
   <fieldset>
-    <%= label f, :content %>
-    <div id="editor" class="prose dark:prose-invert"></div>
-
-    <div>
-      <%= label f, :editor_prose do %>
-        <span>Prose</span>
-        <%= radio_button f, :editor, "prose" %>
-      <% end %>
-      <%= label f, :editor_markdown do %>
-        <span>Markdown</span>
-        <%= radio_button f, :editor, "markdown", checked: true %>
-      <% end %>
-    </div>    
-
-    <%= hidden_input f, :content %>
+    <%= label f, :content, "Content" %>
+    <div class="grow-wrap">
+      <%= textarea f, :content, onInput: "this.parentNode.dataset.replicatedValue = this.value" %>
+    </div>
     <%= error_tag f, :content %>
   </fieldset>
 
