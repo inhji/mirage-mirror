@@ -18,6 +18,10 @@ section {
 	margin-bottom: var(--spacing-3);
 }
 
+details {
+	padding: var(--spacing-3);
+}
+
 form {
 	& fieldset {
 	  border-radius: var(--border-radius);
@@ -28,6 +32,14 @@ form {
 
 	& textarea {
 		width: 100%;
+	}
+
+	input,
+	select,
+	button,
+	textarea {
+		border: 1px solid var(--primary-200);
+		padding: var(--spacing-2);
 	}
 }
 
