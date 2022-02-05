@@ -8,6 +8,8 @@
     <%= if is_note?(update) do %>
       <%= render MirageWeb.NoteView, "note.html", Map.put(assigns, :note, update) %>
     <% end %>
+
+    <hr class="divider" />
   <% end %>
   </section>
 

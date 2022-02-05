@@ -1,0 +1,22 @@
+hr.divider {
+	color: transparent;
+	border-top: 1px solid var(--primary-200);
+	height: 1px;
+
+	&:after {
+		color: var(--primary-500);
+
+		content: "⁙";
+		display: inline-block;
+		position: relative;
+		top: -0.9rem;
+		left: calc(50% - 0.5rem);
+		font-size: 1rem;
+		padding: 0 0.25em;
+		background: var(--background);
+	}
+
+	&:last-of-type {
+		display: none;
+	}
+}
