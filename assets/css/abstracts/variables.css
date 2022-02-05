@@ -1,4 +1,11 @@
-@custom-media --biig (min-width: 30rem);
+/*
+	Media Queries based on
+	https://tailwindcss.com/docs/screens#configuring-custom-screens
+*/
+
+@custom-media --smol (min-width: 640px);
+@custom-media --based (min-width: 768px);
+@custom-media --biig (min-width: 1024px);
 
 :root {
 	--spacing-0: 0;
