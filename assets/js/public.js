@@ -1,5 +1,6 @@
-import darkMode from "./dark"
+// Not needed rn
+// import darkMode from "./dark"
 
-document.addEventListener("DOMContentLoaded", function () {
-	darkMode()
-})
+// document.addEventListener("DOMContentLoaded", function () {
+// 	darkMode()
+// })
