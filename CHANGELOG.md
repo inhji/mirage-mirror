@@ -5,6 +5,27 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.96.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.95.0...v0.96.0) (2022-02-05)
+
+
+
+
+### Features:
+
+* small style tweaks
+
+* style list filter
+
+* add tabs, segment dashboard into tabs
+
+* add post divider
+
+* add new logo variation
+
+* add form-reset
+
+* add more custom media
+
 ## [v0.95.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.94.0...v0.95.0) (2022-02-05)
 
 
