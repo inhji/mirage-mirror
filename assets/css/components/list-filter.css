@@ -1,0 +1,24 @@
+.list-filter {
+	padding: var(--spacing-3);
+	margin: var(--spacing-3) 0; 
+	background: var(--background-dark);
+
+	& form {
+		display: flex;		
+		gap: var(--spacing-3);
+		flex-direction: column;
+
+		@media (--biig) {
+			flex-direction: row;
+		}
+
+		& label {
+			display: flex;
+			flex-direction: column;
+
+			& span {
+				padding: var(--spacing-1) var(--spacing-2);
+			}
+		}
+	}
+}
