@@ -142,6 +142,9 @@ textarea
 	
 	/* Turn off scroll bars in IE unless needed */
 	overflow:auto;
+
+	/* Fix swallowing of new lines for whatever reason */
+	white-space: pre-wrap;
 }
 
 /* Selects
