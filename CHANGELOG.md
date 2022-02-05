@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.94.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.93.0...v0.94.0) (2022-02-05)
+
+
+
+
+### Features:
+
+* enable oauth2 logging for now
+
+* add pre styles
+
+* show mastodon token
+
+* add styling for inline code
+
+* add cascadia as code font
+
 ## [v0.93.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.92.0...v0.93.0) (2022-02-04)
 
 
