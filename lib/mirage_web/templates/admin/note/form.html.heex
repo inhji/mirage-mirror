@@ -52,7 +52,7 @@
 
   <fieldset>
     <%= label f, :syndication_targets %>
-    <%= multiple_select f, :syndication_targets, @targets %>
+    <%= multiple_select f, :syndication_targets, @targets, selected: targets_to_list(@note.syndications) %>
     <%= error_tag f, :syndication_targets %>
   </fieldset>
 
