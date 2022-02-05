@@ -8,6 +8,12 @@ a {
 	color: var(--color-link);
 }
 
+pre {
+	padding: var(--spacing-2);
+	background: var(--background-dark);
+	white-space: pre-wrap;
+}
+
 section {
 	margin-bottom: var(--spacing-3);
 }
