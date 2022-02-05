@@ -82,36 +82,6 @@ defmodule Mirage.Mastodon do
     })
   end
 
-  def client(token \\ nil) do
-    host = get_config(:instance_url)
-    id = get_config(:client_id)
-    secret = get_config(:client_secret)
-
-    client =
-      OAuth2.Client.new(
-        client_id: id,
-        client_secret: secret,
-        site: host,
-        redirect_uri: @redirect_uri,
-        params: %{
-          scope: @scope
-        },
-        token: token
-      )
-
-    client =
-      case token do
-        nil ->
-          client
-
-        token ->
-          Map.put(client, :token, OAuth2.AccessToken.new(token))
-      end
-
-    client
-    |> OAuth2.Client.put_serializer("application/json", Jason)
-  end
-
   @doc """
   Returns the authorize url for the mastodon instance and client.
 
@@ -156,6 +126,36 @@ defmodule Mirage.Mastodon do
         IO.inspect(error)
         {:error, %{error: 500, message: error}}
     end
+  end
+
+  def client(token \\ nil) do
+    host = get_config(:instance_url)
+    id = get_config(:client_id)
+    secret = get_config(:client_secret)
+
+    client =
+      OAuth2.Client.new(
+        client_id: id,
+        client_secret: secret,
+        site: host,
+        redirect_uri: @redirect_uri,
+        params: %{
+          scope: @scope
+        },
+        token: token
+      )
+
+    client =
+      case token do
+        nil ->
+          client
+
+        token ->
+          Map.put(client, :token, OAuth2.AccessToken.new(token))
+      end
+
+    client
+    |> OAuth2.Client.put_serializer("application/json", Jason)
   end
 
   defp get_config(key) do
