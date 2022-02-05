@@ -118,6 +118,14 @@
 
   <h2 id="mastodon_settings" class="mt-10">Mastodon Settings</h2>
 
+  <h3>Current Token</h3>
+
+  <%= if is_nil(@mastodon_token) do %>
+    <pre>No token yet.</pre>
+  <% else %>
+    <pre><%= @mastodon_token.token %></pre>
+  <% end %>
+
   <.form let={f} for={:mastodon_token} action={Routes.user_settings_path(@conn, :update)} id="update_mastodon_user_token" method="PUT">
 
     <%= hidden_input f, :action, name: "action", value: "update_mastodon_user_token" %>
