@@ -22,6 +22,19 @@ details {
 	padding: var(--spacing-3);
 }
 
+blockquote {
+	border-left: 3px solid var(--primary-500);
+	padding-left: var(--spacing-3);
+
+	& p:first-of-type::before {
+		content: "“";
+	}
+
+	& p:last-of-type::after {
+		content: "”";
+	} 
+}
+
 form {
 	& fieldset {
 	  border-radius: var(--border-radius);
