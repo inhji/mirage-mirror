@@ -48,7 +48,7 @@ defmodule MirageWeb.UserSettingsController do
     with {:ok, token} <- Mirage.Mastodon.get_token(auth_code),
          {:ok, _token} <- Mirage.Mastodon.save_token(user, token) do
       conn
-      |> put_flash(:info, "Mastodon token was saved.")
+      |> put_flash(:info, "Mastodon token '#{token}' was saved.")
       |> redirect(to: Routes.user_settings_path(conn, :edit))
     else
       {:error, %{error: error, message: message}} ->
