@@ -35,6 +35,7 @@ defmodule Mirage.Mastodon do
 
       token
       |> client()
+      |> OAuth2.Client.put_header("Content-Type", "application/x-www-form-urlencoded")
       |> OAuth2.Client.post("/api/v1/statuses", params)
       |> handle_response()
     else
