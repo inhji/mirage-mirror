@@ -19,7 +19,8 @@ defmodule MirageWeb.Admin.NoteController do
     render(conn, "new.html",
       changeset: changeset,
       page_title: "New Note",
-      tags: []
+      tags: [],
+      selected_targets: []
     )
   end
 
@@ -34,7 +35,8 @@ defmodule MirageWeb.Admin.NoteController do
         render(conn, "new.html",
           changeset: changeset,
           page_title: "New Note",
-          tags: []
+          tags: [],
+          selected_targets: []
         )
     end
   end
@@ -52,7 +54,8 @@ defmodule MirageWeb.Admin.NoteController do
       changeset: changeset,
       page_title: "Edit Note",
       note: note,
-      tags: note.tags
+      tags: note.tags,
+      selected_targets: note.syndications
     )
   end
 
@@ -70,7 +73,8 @@ defmodule MirageWeb.Admin.NoteController do
           changeset: changeset,
           page_title: "Edit Note",
           note: note,
-          tags: note.tags
+          tags: note.tags,
+          selected_targets: note.syndications
         )
     end
   end
