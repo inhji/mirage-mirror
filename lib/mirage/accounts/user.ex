@@ -4,7 +4,9 @@ defmodule Mirage.Accounts.User do
   """
 
   use Ecto.Schema
+  use Waffle.Ecto.Schema
   import Ecto.Changeset
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "users" do
@@ -20,6 +22,8 @@ defmodule Mirage.Accounts.User do
 
     field :pub_key, :string, redact: true
     field :priv_key, :string, redact: true
+
+    field :avatar, Mirage.Accounts.UserUploader.Type
 
     # List Settings/Assigns 
     belongs_to :microblog_list, Mirage.Lists.List
@@ -107,6 +111,7 @@ defmodule Mirage.Accounts.User do
   def profile_changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :handle, :bio, :motd])
+    |> cast_attachments(attrs, [:avatar], allow_paths: true)
   end
 
   @doc """

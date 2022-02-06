@@ -13,7 +13,7 @@
 
   <h2 id="update_profile" class="mt-10">Update profile</h2>
 
-  <.form let={f} for={@profile_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_profile">
+  <.form let={f} for={@profile_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_profile" multipart>
     <%= if @profile_changeset.action do %>
       <div class="alert alert-danger">
         <p>Oops, something went wrong! Please check the errors below.</p>
@@ -38,6 +38,12 @@
       <%= label f, :bio %>
       <%= textarea f, :bio %>
       <%= error_tag f, :bio %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :avatar %>
+      <%= file_input f, :avatar %>
+      <%= error_tag f, :avatar %>
     </fieldset>
 
     <fieldset>

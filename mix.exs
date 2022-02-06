@@ -76,6 +76,8 @@ defmodule Mirage.MixProject do
       {:tesla, "~> 1.4"},
       {:timex, "~> 3.7"},
       {:tzdata, "~> 1.1"},
+      {:waffle, "~> 1.1"},
+      {:waffle_ecto, "~> 0.0.11"},
       {:webmentions, "~> 2.0.0"}
     ]
   end

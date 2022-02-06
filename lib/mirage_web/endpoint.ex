@@ -15,6 +15,12 @@ defmodule MirageWeb.Endpoint do
       connect_info: [session: @session_options]
     ]
 
+  # Serve uploads at /uploads
+  plug Plug.Static,
+    at: "/uploads",
+    from: Path.expand("./priv/waffle/public"),
+    gzip: false
+
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest
