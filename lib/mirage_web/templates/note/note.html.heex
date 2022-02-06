@@ -7,13 +7,13 @@
     <section class="tags">
       <%= if @note.published_at do %>
         <time datetime={@note.published_at} title={@note.published_at} class="tag | dt-published">
-          <%= datetime_for_display(@note.published_at) %></time>
+          <%= datetime_from_now(@note.published_at) %></time>
       <% end %>
 
       <span class="tag | p-category"><%= @note.list.title %></span>
 
       <%= for tag <- @note.tags do %>
-        <span class="tag | p-category"><%= tag.title %></span>
+        <%= link tag.title, to: Routes.tag_path(@conn, :show, tag), class: "tag | p-category" %>
       <% end %>
     </section>
   </header>

@@ -1,0 +1,15 @@
+<section>
+	<h1>Tagged with “<%= @tag.title %>”</h1>
+
+	<div class="content html">
+	  <%= raw @tag.content_html %>
+	</div>
+
+	<h2>Notes</h2>
+
+	<ul>
+		<%= for note <- @tag.notes do %>
+		<li><%= link note.title, to: Routes.note_path(@conn, :show, note) %> <%=  %></li>
+		<% end %>
+	</ul>
+</section>
