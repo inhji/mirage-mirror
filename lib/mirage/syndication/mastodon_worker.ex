@@ -11,8 +11,7 @@ defmodule Mirage.Syndication.MastodonWorker do
 
   def perform(%Oban.Job{args: %{"id" => id, "type" => "note"} = _args}) do
     note = Mirage.Notes.get_note_by_id!(id)
-    url = Routes.note_url(MirageWeb.Endpoint, :show, note)
-    status_text = get_text(note.content_sanitized, url)
+    status_text = get_text(note)
 
     case Mirage.Mastodon.post_status(get_token(), status_text) do
       {:ok, url} ->
@@ -35,7 +34,16 @@ defmodule Mirage.Syndication.MastodonWorker do
     token
   end
 
-  defp get_text(content, url) do
-    "#{content} \n(Originally posted at #{url})"
+  defp get_text(note) do
+    url = Routes.note_url(MirageWeb.Endpoint, :show, note)
+
+    external_url =
+      if not is_nil(note.url) do
+        "#{note.url}\n"
+      else
+        ""
+      end
+
+    "#{external_url}#{note.content_sanitized}\n(Originally posted at #{url})"
   end
 end
