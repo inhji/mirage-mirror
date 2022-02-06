@@ -2,21 +2,18 @@
   <h1><%= @list.title %></h1>
 </header>
 
-<section class="content html">
+<div class="content html">
   <%= raw Mirage.Markdown.render(@list.content) %>
-</section>
+</div>
 
 <h2>Notes</h2>
 
-<section class="notes flex flex-wrap gap-3">
+<ul>
   <%= for note <- @list.notes do %>
-    <article class="p-3 card">
-      <header>
-        <%= link note.title, to: Routes.admin_note_path(@conn, :show, note) %>
-      </header>
-    </article>
+  <li><%= link note.title, to: Routes.admin_note_path(@conn, :show, note) %>
+  </li>
   <% end %>
-</section>
+</ul>
 
 <section class="mt-6">
   <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, @list), class: "button" %></span>
