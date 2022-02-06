@@ -13,20 +13,20 @@
         </ul>
       </div>
 
-      <%= if @current_user do %>
-      <div>
-        <strong>Content</strong>
-        <ul>
-          <li><%= active_link @conn, "Notes", to: Routes.admin_note_path(@conn, :index) %></li>
-          <li><%= active_link @conn, "Tags", to: Routes.admin_tag_path(@conn, :index) %></li>
-          <li><%= active_link @conn, "Lists", to: Routes.admin_list_path(@conn, :index) %></li>
-        </ul>
-      </div>
-      <% else %>
       <div>
         <strong>Content</strong>
         <ul>
           <li><%= active_link @conn, "Tags", to: Routes.tag_path(@conn, :index) %></li>
+        </ul>
+      </div>
+
+      <%= if @current_user do %>
+      <div>
+        <strong>Admin</strong>
+        <ul>
+          <li><%= active_link @conn, "Notes", to: Routes.admin_note_path(@conn, :index) %></li>
+          <li><%= active_link @conn, "Tags", to: Routes.admin_tag_path(@conn, :index) %></li>
+          <li><%= active_link @conn, "Lists", to: Routes.admin_list_path(@conn, :index) %></li>
         </ul>
       </div>
       <% end %>
