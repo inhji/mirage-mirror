@@ -5,11 +5,11 @@
 	  <%= raw @tag.content_html %>
 	</div>
 
-	<h2>Notes</h2>
+	<h2><%= Enum.count(@tag.notes) %> Note(s)</h2>
 
 	<ul>
 		<%= for note <- @tag.notes do %>
-		<li><%= link note.title, to: Routes.note_path(@conn, :show, note) %> <%=  %></li>
+		<li><%= link note.title, to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) || "(unpublished)" %></li>
 		<% end %>
 	</ul>
 </section>
