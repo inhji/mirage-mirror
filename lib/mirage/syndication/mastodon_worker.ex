@@ -25,6 +25,6 @@ defmodule Mirage.Syndication.MastodonWorker do
   end
 
   defp get_text(content, url) do
-    "#{content} \n\n(Originally posted at #{url})"
+    "#{content} \n(Originally posted at #{url})"
   end
 end
