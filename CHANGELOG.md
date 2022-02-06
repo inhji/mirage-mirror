@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.100.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.99.0...v0.100.0) (2022-02-06)
+
+
+
+
+### Features:
+
+* show syndications for notes, for now logged in user only
+
+* update note_syndication with url when posse was successful
+
+### Bug Fixes:
+
+* url in posse'd copy
+
+* remove one new line from posse'd copy
+
 ## [v0.99.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.98.0...v0.99.0) (2022-02-06)
 
 
