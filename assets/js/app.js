@@ -22,3 +22,8 @@
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
 import "./livesocket"
+import TableSaw from "tablesaw"
+
+document.addEventListener("DOMContentLoaded", () => {
+	TableSaw.init()
+})

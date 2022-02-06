@@ -46,8 +46,9 @@
 
 @import "themes/default";
 
-@import "vendor/inter";
 @import "vendor/cascadia";
+@import "vendor/inter";
 @import "vendor/openwebicons";
+@import "vendor/tablesaw";
 
 @import "shame";
