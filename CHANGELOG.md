@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.104.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.103.0...v0.104.0) (2022-02-06)
+
+
+
+
+### Features:
+
+* exclude notes whose title begin with @ from published notes
+
+* use code font for textareas
+
+* add light versions of cascadia
+
+* move logout link to bottom
+
+* rounded corners for tabs
+
 ## [v0.103.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.102.0...v0.103.0) (2022-02-06)
 
 
