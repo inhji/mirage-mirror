@@ -27,8 +27,6 @@
 
     <%= if @current_user do %>
       <script defer phx-track-static src={Routes.static_path(@conn, "/assets/app.js")}></script>
-    <% else %>
-      <script defer phx-track-static src={Routes.static_path(@conn, "/assets/public.js")}></script>
     <% end %>
   </head>
   <body>

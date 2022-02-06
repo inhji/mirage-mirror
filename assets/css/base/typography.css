@@ -4,12 +4,6 @@ html {
   font-feature-settings: var(--font-base-features);
 }
 
-@supports (font-variation-settings: normal) {
-  html { 
-    font-family: var(--font-base-var);
-  }
-}
-
 h1, h2, h3, .h1, .h2, .h3 {
   font-family: var(--font-heading);
   font-weight: 400;

@@ -21,25 +21,4 @@
 
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
-import "alpinejs"
 import "./livesocket"
-import darkMode from "./dark"
-
-// Establish Phoenix Socket and LiveView configuration.
-import createEditor from "./editor"
-
-document.addEventListener("DOMContentLoaded", function () {
-	// Initialize prosemirror for all editorElements
-	// A #editor div as container is required 
-	// const editorElements = ["#note_content", "#list_content", "#bookmark_content"]
-	// editorElements.forEach(async el => {
-	// 	const $el = document.querySelector(el)
-	// 	if ($el && document.querySelector("#editor")) {
-	// 		createEditor($el)
-	// 	}
-	// })
-
-	// darkMode()
-	
-})
-

@@ -4,7 +4,7 @@ module.exports = {
     'postcss-import': {},
     'postcss-nested': {},
     'postcss-custom-media': {},
-    tailwindcss: {},
-    autoprefixer: {},
+    'autoprefixer': {},
+    'postcss-csso': {}
   }
 }

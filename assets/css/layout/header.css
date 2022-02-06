@@ -4,11 +4,8 @@
 	& details {
 		& summary {
 			margin: var(--spacing-3) 0;
+			margin-left: calc(var(--spacing-3) * -1);
 			font-weight: bold;
-
-			&:first-letter {
-				/* color: var(--primary-700); */
-			}
 		}
 
 		& summary::marker {
