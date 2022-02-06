@@ -1,0 +1,789 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "OpenWeb Icons";
+  src: url("../fonts/OpenWebIcons/openwebicons.eot");
+  src: url("../fonts/OpenWebIcons/openwebicons.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenWebIcons/openwebicons.woff2") format("woff2"), url("../fonts/OpenWebIcons/openwebicons.woff") format("woff"), url("../fonts/OpenWebIcons/openwebicons.ttf") format("truetype"), url("../fonts/OpenWebIcons/openwebicons.svg#openweb_iconsregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^=icon-]:before, [class*=" icon-"]:before,
+[class^=openwebicons-]:before, [class*=" openwebicons-"]:before {
+  font-family: "OpenWeb Icons";
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  vertical-align: center;
+  speak: none;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+a [class^=icon-], a [class*=" icon-"],
+a [class^=openwebicons-], a [class*=" openwebicons-"] {
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+li[class^=icon-], li[class*=" icon-"],
+li[class^=openwebicons-], li[class*=" openwebicons-"] {
+  display: block;
+}
+
+.icon-apml:before,
+.openwebicons-apml:before {
+  content: "";
+}
+
+.icon-open-share:before,
+.openwebicons-open-share:before {
+  content: "";
+}
+
+.icon-open-share-simple:before,
+.openwebicons-open-share-simple:before {
+  content: "";
+}
+
+.icon-share:before,
+.openwebicons-share:before {
+  content: "";
+}
+
+.icon-share-simple:before,
+.openwebicons-share-simple:before {
+  content: "";
+}
+
+.icon-feed:before,
+.openwebicons-feed:before {
+  content: "";
+}
+
+.icon-feed-simple:before,
+.openwebicons-feed-simple:before {
+  content: "";
+}
+
+.icon-ostatus:before,
+.openwebicons-ostatus:before {
+  content: "";
+}
+
+.icon-ostatus-simple:before,
+.openwebicons-ostatus-simple:before {
+  content: "";
+}
+
+.icon-opml:before,
+.openwebicons-opml:before {
+  content: "";
+}
+
+.icon-activity:before,
+.openwebicons-activity:before {
+  content: "";
+}
+
+.icon-activity-simple:before,
+.openwebicons-activity-simple:before {
+  content: "";
+}
+
+.icon-microformats:before,
+.openwebicons-microformats:before {
+  content: "";
+}
+
+.icon-geo:before,
+.openwebicons-geo:before {
+  content: "";
+}
+
+.icon-opensearch:before,
+.openwebicons-opensearch:before {
+  content: "";
+}
+
+.icon-oauth:before,
+.openwebicons-oauth:before {
+  content: "";
+}
+
+.icon-openid:before,
+.openwebicons-openid:before {
+  content: "";
+}
+
+.icon-semantic-web:before,
+.openwebicons-semantic-web:before {
+  content: "";
+}
+
+.icon-rdf:before,
+.openwebicons-rdf:before {
+  content: "";
+}
+
+.icon-rdfa:before,
+.openwebicons-rdfa:before {
+  content: "";
+}
+
+.icon-owl:before,
+.openwebicons-owl:before {
+  content: "";
+}
+
+.icon-dataportability:before,
+.openwebicons-dataportability:before {
+  content: "";
+}
+
+.icon-federated:before,
+.openwebicons-federated:before {
+  content: "";
+}
+
+.icon-web-intents:before,
+.openwebicons-web-intents:before {
+  content: "";
+}
+
+.icon-open-web:before,
+.openwebicons-open-web:before {
+  content: "";
+}
+
+.icon-xmpp:before,
+.openwebicons-xmpp:before {
+  content: "";
+}
+
+.icon-html5:before,
+.openwebicons-html5:before {
+  content: "";
+}
+
+.icon-css3:before,
+.openwebicons-css3:before {
+  content: "";
+}
+
+.icon-connectivity:before,
+.openwebicons-connectivity:before {
+  content: "";
+}
+
+.icon-semantics:before,
+.openwebicons-semantics:before {
+  content: "";
+}
+
+.icon-3deffects:before,
+.openwebicons-3deffects:before {
+  content: "";
+}
+
+.icon-device-access:before,
+.openwebicons-device-access:before {
+  content: "";
+}
+
+.icon-multimedia:before,
+.openwebicons-multimedia:before {
+  content: "";
+}
+
+.icon-offline-storage:before,
+.openwebicons-offline-storage:before {
+  content: "";
+}
+
+.icon-perfintegration:before,
+.openwebicons-perfintegration:before {
+  content: "";
+}
+
+.icon-git:before,
+.openwebicons-git:before {
+  content: "";
+}
+
+.icon-webhooks:before,
+.openwebicons-webhooks:before {
+  content: "";
+}
+
+.icon-osi:before,
+.openwebicons-osi:before {
+  content: "";
+}
+
+.icon-opensource:before,
+.openwebicons-opensource:before {
+  content: "";
+}
+
+.icon-opengraph:before,
+.openwebicons-opengraph:before {
+  content: "";
+}
+
+.icon-epub:before,
+.openwebicons-epub:before {
+  content: "";
+}
+
+.icon-qr:before,
+.openwebicons-qr:before {
+  content: "";
+}
+
+.icon-foaf:before,
+.openwebicons-foaf:before {
+  content: "";
+}
+
+.icon-info-card:before,
+.openwebicons-info-card:before {
+  content: "";
+}
+
+.icon-browserid:before,
+.openwebicons-browserid:before {
+  content: "";
+}
+
+.icon-remote-storage:before,
+.openwebicons-remote-storage:before {
+  content: "";
+}
+
+.icon-persona:before,
+.openwebicons-persona:before {
+  content: "";
+}
+
+.icon-odata:before,
+.openwebicons-odata:before {
+  content: "";
+}
+
+.icon-markdown:before,
+.openwebicons-markdown:before {
+  content: "";
+}
+
+.icon-tosdr:before,
+.openwebicons-tosdr:before {
+  content: "";
+}
+
+.icon-pub:before,
+.openwebicons-pub:before {
+  content: "";
+}
+
+.icon-sub:before,
+.openwebicons-sub:before {
+  content: "";
+}
+
+.icon-hubbub:before,
+.openwebicons-hubbub:before {
+  content: "";
+}
+
+.icon-pubsubhubbub:before,
+.openwebicons-pubsubhubbub:before {
+  content: "";
+}
+
+.icon-cc:before,
+.openwebicons-cc:before {
+  content: "";
+}
+
+.icon-cc-by:before,
+.openwebicons-cc-by:before {
+  content: "";
+}
+
+.icon-cc-nc:before,
+.openwebicons-cc-nc:before {
+  content: "";
+}
+
+.icon-cc-nc-eu:before,
+.openwebicons-cc-nc-eu:before {
+  content: "";
+}
+
+.icon-cc-nc-jp:before,
+.openwebicons-cc-nc-jp:before {
+  content: "";
+}
+
+.icon-cc-sa:before,
+.openwebicons-cc-sa:before {
+  content: "";
+}
+
+.icon-cc-nd:before,
+.openwebicons-cc-nd:before {
+  content: "";
+}
+
+.icon-cc-public:before,
+.openwebicons-cc-public:before {
+  content: "";
+}
+
+.icon-cc-zero:before,
+.openwebicons-cc-zero:before {
+  content: "";
+}
+
+.icon-cc-share:before,
+.openwebicons-cc-share:before {
+  content: "";
+}
+
+.icon-cc-remix:before,
+.openwebicons-cc-remix:before {
+  content: "";
+}
+
+.icon-hatom:before,
+.openwebicons-hatom:before {
+  content: "";
+}
+
+.icon-hresume:before,
+.openwebicons-hresume:before {
+  content: "";
+}
+
+.icon-hcard-add:before,
+.openwebicons-hcard-add:before {
+  content: "";
+}
+
+.icon-hcard-download:before,
+.openwebicons-hcard-download:before {
+  content: "";
+}
+
+.icon-indieweb:before,
+.openwebicons-indieweb:before {
+  content: "";
+}
+
+.icon-indiewebcamp:before,
+.openwebicons-indiewebcamp:before {
+  content: "";
+}
+
+.icon-webfinger:before,
+.openwebicons-webfinger:before {
+  content: "";
+}
+
+.icon-bitcoin:before,
+.openwebicons-bitcoin:before {
+  content: "";
+}
+
+.icon-bitcoin-simple:before,
+.openwebicons-bitcoin-simple:before {
+  content: "";
+}
+
+.icon-svg:before,
+.openwebicons-svg:before {
+  content: "";
+}
+
+.icon-json-ld:before,
+.openwebicons-json-ld:before {
+  content: "";
+}
+
+.icon-tent:before,
+.openwebicons-tent:before {
+  content: "";
+}
+
+.icon-copyleft:before,
+.openwebicons-copyleft:before {
+  content: "";
+}
+
+.icon-gnu:before,
+.openwebicons-gnu:before {
+  content: "";
+}
+
+.icon-ofl-attribution:before,
+.openwebicons-ofl-attribution:before {
+  content: "";
+}
+
+.icon-ofl-share:before,
+.openwebicons-ofl-share:before {
+  content: "";
+}
+
+.icon-ofl-renaming:before,
+.openwebicons-ofl-renaming:before {
+  content: "";
+}
+
+.icon-ofl-selling:before,
+.openwebicons-ofl-selling:before {
+  content: "";
+}
+
+.icon-ofl-embedding:before,
+.openwebicons-ofl-embedding:before {
+  content: "";
+}
+
+.icon-webmention:before,
+.openwebicons-webmention:before {
+  content: "";
+}
+
+.icon-javascript:before,
+.openwebicons-javascript:before {
+  content: "";
+}
+
+.icon-wtfpl:before,
+.openwebicons-wtfpl:before {
+  content: "";
+}
+
+.icon-ofl:before,
+.openwebicons-ofl:before {
+  content: "";
+}
+
+.icon-wordpress:before,
+.openwebicons-wordpress:before {
+  content: "";
+}
+
+.icon-owncloud:before,
+.openwebicons-owncloud:before {
+  content: "";
+}
+
+.icon-cccs:before,
+.openwebicons-cccs:before {
+  content: "";
+}
+
+.icon-barcamp:before,
+.openwebicons-barcamp:before {
+  content: "";
+}
+
+.icon-indiehosters:before,
+.openwebicons-indiehosters:before {
+  content: "";
+}
+
+.icon-known:before,
+.openwebicons-known:before {
+  content: "";
+}
+
+.icon-mozilla:before,
+.openwebicons-mozilla:before {
+  content: "";
+}
+
+.icon-unhosted:before,
+.openwebicons-unhosted:before {
+  content: "";
+}
+
+.icon-diaspora:before,
+.openwebicons-diaspora:before {
+  content: "";
+}
+
+.icon-indie:before,
+.openwebicons-indie:before {
+  content: "";
+}
+
+.icon-ghost:before,
+.openwebicons-ghost:before {
+  content: "";
+}
+
+.icon-webplattform:before,
+.openwebicons-webplattform:before {
+  content: "";
+}
+
+.icon-opensourcedesign:before,
+.openwebicons-opensourcedesign:before {
+  content: "";
+}
+
+.icon-opendesign:before,
+.openwebicons-opendesign:before {
+  content: "";
+}
+
+.icon-gnusocial:before,
+.openwebicons-gnusocial:before {
+  content: "";
+}
+
+.icon-gnusocial-simple:before,
+.openwebicons-gnusocial-simple:before {
+  content: "";
+}
+
+.icon-mastodon:before,
+.openwebicons-mastodon:before {
+  content: "";
+}
+
+.icon-jsonfeed:before,
+.openwebicons-jsonfeed:before {
+  content: "";
+}
+
+.icon-pump-io:before,
+.openwebicons-pump-io:before {
+  content: "";
+}
+
+.icon-friendica:before,
+.openwebicons-friendica:before {
+  content: "";
+}
+
+.icon-hubzilla:before,
+.openwebicons-hubzilla:before {
+  content: "";
+}
+
+.icon-fediverse:before,
+.openwebicons-fediverse:before {
+  content: "";
+}
+
+.icon-mastodon-simple:before,
+.openwebicons-mastodon-simple:before {
+  content: "";
+}
+
+.icon-activitypub:before,
+.openwebicons-activitypub:before {
+  content: "";
+}
+
+.icon-wapuu:before,
+.openwebicons-wapuu:before {
+  content: "";
+}
+
+.icon-micro-blog:before,
+.openwebicons-micro-blog:before {
+  content: "";
+}
+
+.icon-indieauth:before,
+.openwebicons-indieauth:before {
+  content: "";
+}
+
+.icon-freesoftware:before,
+.openwebicons-freesoftware:before {
+  content: "";
+}
+
+.icon-id4me:before,
+.openwebicons-id4me:before {
+  content: "";
+}
+
+.icon-movim:before,
+.openwebicons-movim:before {
+  content: "";
+}
+
+.icon-pleroma:before,
+.openwebicons-pleroma:before {
+  content: "";
+}
+
+.icon-pixelfed:before,
+.openwebicons-pixelfed:before {
+  content: "";
+}
+
+.icon-apml-colored:before,
+.openwebicons-apml-colored:before {
+  content: "";
+  color: #AFDD63;
+}
+
+.icon-open-share-colored:before,
+.openwebicons-open-share-colored:before {
+  content: "";
+  color: #538439;
+}
+
+.icon-share-colored:before,
+.openwebicons-share-colored:before {
+  content: "";
+  color: #538439;
+}
+
+.icon-feed-colored:before,
+.openwebicons-feed-colored:before {
+  content: "";
+  color: #EA680B;
+}
+
+.icon-ostatus-colored:before,
+.openwebicons-ostatus-colored:before {
+  content: "";
+  color: #FF6600;
+}
+
+.icon-opml-colored:before,
+.openwebicons-opml-colored:before {
+  content: "";
+  color: #2490A1;
+}
+
+.icon-activity-colored:before,
+.openwebicons-activity-colored:before {
+  content: "";
+  color: #4FB2D9;
+}
+
+.icon-microformats-colored:before,
+.openwebicons-microformats-colored:before {
+  content: "";
+  color: #85BC07;
+}
+
+.icon-geo-colored:before,
+.openwebicons-geo-colored:before {
+  content: "";
+  color: #990000;
+}
+
+.icon-opensearch-colored:before,
+.openwebicons-opensearch-colored:before {
+  content: "";
+  color: #5050f3;
+}
+
+.icon-html5-colored:before,
+.openwebicons-html5-colored:before {
+  content: "";
+  color: #E34C26;
+}
+
+.icon-git-colored:before,
+.openwebicons-git-colored:before {
+  content: "";
+  color: #F05133;
+}
+
+.icon-osi-colored:before,
+.openwebicons-osi-colored:before {
+  content: "";
+  color: #3DA639;
+}
+
+.icon-opensource-colored:before,
+.openwebicons-opensource-colored:before {
+  content: "";
+  color: #3DA639;
+}
+
+.icon-epub-colored:before,
+.openwebicons-epub-colored:before {
+  content: "";
+  color: #85b916;
+}
+
+.icon-info-card-colored:before,
+.openwebicons-info-card-colored:before {
+  content: "";
+  color: #BF84E5;
+}
+
+.icon-remote-storage-colored:before,
+.openwebicons-remote-storage-colored:before {
+  content: "";
+  color: #ff4e09;
+}
+
+.icon-odata-colored:before,
+.openwebicons-odata-colored:before {
+  content: "";
+  color: #EA680B;
+}
+
+.icon-pub-colored:before,
+.openwebicons-pub-colored:before {
+  content: "";
+  color: #99cc00;
+}
+
+.icon-sub-colored:before,
+.openwebicons-sub-colored:before {
+  content: "";
+  color: #ffff00;
+}
+
+.icon-hubbub-colored:before,
+.openwebicons-hubbub-colored:before {
+  content: "";
+  color: #ff6fcf;
+}
+
+.icon-javascript-colored:before,
+.openwebicons-javascript-colored:before {
+  content: "";
+  color: #f0db4f;
+}
+
+.icon-gnusocial-colored:before,
+.openwebicons-gnusocial-colored:before {
+  content: "";
+  color: #a22430;
+}
+
+.icon-mastodon-colored:before,
+.openwebicons-mastodon-colored:before {
+  content: "";
+  color: #2b90d9;
+}
+
+.icon-mastodon-simple-colored:before,
+.openwebicons-mastodon-simple-colored:before {
+  content: "";
+  color: #2b90d9;
+}
+
+.icon-id4me-colored:before,
+.openwebicons-id4me-colored:before {
+  content: "";
+  color: #007A9D;
+}
+
+/*# sourceMappingURL=openwebicons.css.map */
