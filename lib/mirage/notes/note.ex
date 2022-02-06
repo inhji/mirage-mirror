@@ -20,6 +20,10 @@ defmodule Mirage.Notes.Note do
     field :content_html, :string
     field :content_sanitized, :string
 
+    field :excerpt, :string
+    field :excerpt_html, :string
+    field :excerpt_sanitized, :string
+
     field :published_at, :naive_datetime
 
     field :viewed_at, :naive_datetime
@@ -89,6 +93,8 @@ defmodule Mirage.Notes.Note do
     |> Mirage.Notes.NoteSlug.unique_constraint()
     |> Mirage.Markdown.maybe_render(:content, :content_html)
     |> Mirage.Markdown.maybe_sanitize(:content_html, :content_sanitized)
+    |> Mirage.Markdown.maybe_render(:excerpt, :excerpt_html)
+    |> Mirage.Markdown.maybe_sanitize(:excerpt_html, :excerpt_sanitized)
     |> copy_url()
   end
 
