@@ -117,6 +117,7 @@ defmodule Mirage.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.deploy": [
         "cmd npm run deploy --prefix assets",
+        "esbuild.install",
         "esbuild default --minify",
         "phx.digest"
       ],
