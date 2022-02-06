@@ -51,9 +51,14 @@ form {
 	select,
 	button,
 	textarea {
-		font-family: sans-serif;
 		border: 1px solid var(--primary-200);
 		padding: var(--spacing-2);
+	}
+
+	textarea {
+		font-family: var(--font-code);
+		font-weight: 300;
+		font-feature-settings: var(--font-code-features);
 	}
 }
 
