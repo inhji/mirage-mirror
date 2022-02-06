@@ -66,6 +66,16 @@
       <% end %>
     </section>
 
+    <%= if @current_user do %>
+    <section>
+      <ul>
+      <%= for synd <- @note.syndications do %>
+        <li><%= link synd.type, to: syndication_url(synd) %></li>
+      <% end %>
+      </ul>
+    </section>
+    <% end %>
+
     <aside class="hidden">
       <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>
     </aside>
