@@ -69,6 +69,7 @@ defmodule Mirage.Notes do
   def list_published_notes(pagination_params \\ %{}) do
     Note
     |> where([n], not is_nil(n.published_at))
+    |> where([n], not like(n.title, "@%"))
     |> order_by(desc: :published_at)
     |> with_preloads()
     |> Repo.paginate(pagination_params)
