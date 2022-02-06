@@ -20,6 +20,6 @@ defmodule Mirage.TagsFixtures do
       })
       |> Mirage.Tags.create_tag()
 
-    tag
+    tag |> Mirage.Tags.preload_tag()
   end
 end

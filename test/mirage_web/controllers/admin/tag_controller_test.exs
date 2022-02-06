@@ -41,7 +41,7 @@ defmodule MirageWeb.Admin.TagControllerTest do
       assert redirected_to(conn) == Routes.admin_tag_path(conn, :show, id)
 
       conn = get(conn, Routes.admin_tag_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Tag"
+      assert html_response(conn, 200) =~ @create_attrs.title
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -67,7 +67,7 @@ defmodule MirageWeb.Admin.TagControllerTest do
       assert redirected_to(conn) == Routes.admin_tag_path(conn, :show, tag)
 
       conn = get(conn, Routes.admin_tag_path(conn, :show, tag))
-      assert html_response(conn, 200) =~ "some updated content"
+      assert html_response(conn, 200) =~ "some updated title"
     end
 
     test "renders errors when data is invalid", %{conn: conn, tag: tag} do

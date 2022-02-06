@@ -9,7 +9,7 @@ defmodule MirageWeb.UserRegistrationControllerTest do
       response = html_response(conn, 200)
       assert response =~ "<h1>Register</h1>"
       assert response =~ "Log in</a>"
-      assert response =~ "Register</a>"
+      assert response =~ "Register</button>"
     end
 
     test "redirects if already logged in", %{conn: conn} do
@@ -34,7 +34,6 @@ defmodule MirageWeb.UserRegistrationControllerTest do
       # Now do a logged in request and assert on the menu
       conn = get(conn, "/")
       response = html_response(conn, 200)
-      assert response =~ email
       assert response =~ "Settings</a>"
       assert response =~ "Log out</a>"
     end
