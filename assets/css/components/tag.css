@@ -3,6 +3,7 @@
 	padding: var(--spacing-1);
 	border-radius: var(--border-radius-sm);
 	font-size: var(--text-sm);
+	text-decoration: none;
 
 	&:hover {
 		background: var(--primary-200);
