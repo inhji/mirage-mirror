@@ -14,7 +14,18 @@ defmodule Mirage.Syndication.MastodonWorker do
     url = Routes.note_url(MirageWeb.Endpoint, :show, note)
     status_text = get_text(note.content_sanitized, url)
 
-    Mirage.Mastodon.post_status(get_token(), status_text)
+    case Mirage.Mastodon.post_status(get_token(), status_text) do
+      {:ok, url} ->
+        syndication =
+          note.syndications
+          |> Enum.filter(fn syn -> syn.type == :mastodon end)
+          |> List.first()
+
+        Mirage.NoteSyndications.update_syndication(syndication, %{url: url})
+
+      {:error, _} ->
+        Logger.warn("Not updating syndication because of previous error")
+    end
   end
 
   defp get_token() do

@@ -10,19 +10,23 @@ defmodule Mirage.Mastodon do
   end
 
   def post_status(token, status_text) do
-    do_post_status(token, %{
+    args = %{
       status: status_text,
       visibility: @default_visibility
-    })
+    }
+
+    do_post_status(token, args)
   end
 
   def post_status_with_cw(token, status_text, content_warning) do
-    do_post_status(token, %{
+    args = %{
       status: status_text,
       visibility: @default_visibility,
       sensitive: true,
       spoiler_text: content_warning
-    })
+    }
+
+    do_post_status(token, args)
   end
 
   defp do_post_status(token, params) do
@@ -40,6 +44,7 @@ defmodule Mirage.Mastodon do
       |> handle_response()
     else
       Logger.warn("Mastodon was disabled by config.")
+      {:error, :noop}
     end
   end
 
@@ -51,35 +56,30 @@ defmodule Mirage.Mastodon do
       status: 200,
       body: body
     })
+
+    {:ok, body["url"]}
   end
 
-  defp handle_response({:ok, %OAuth2.Response{body: body, status_code: status}}) do
+  defp handle_response({_, %OAuth2.Response{body: body, status_code: status}}) do
     Logger.info("Request ended with status #{status}!")
     Logger.info("Response Body: #{inspect(body)}")
 
-    Mirage.Logger.info("Request to Mastodon sent!", %{
+    Mirage.Logger.error("Error while sending to request Mastodon!", %{
       status: status,
       body: body
     })
-  end
 
-  defp handle_response({:error, %OAuth2.Response{body: body, status_code: status}}) do
-    Logger.info("Request ended with status #{status}!")
-    Logger.info("Response Body: #{inspect(body)}")
-
-    Mirage.Logger.info("Request to Mastodon sent!", %{
-      status: status,
-      body: body
-    })
+    {:error, nil}
   end
 
   defp handle_response({:error, %OAuth2.Error{reason: reason}}) do
-    Logger.warn("Request ended with error!")
-    Logger.info("Response Error: #{inspect(reason)}")
+    Logger.info("Request ended with reason #{reason}!")
 
-    Mirage.Logger.info("Request to Mastodon sent!", %{
+    Mirage.Logger.error("Error while sending to request Mastodon!", %{
       reason: reason
     })
+
+    {:error, nil}
   end
 
   @doc """
