@@ -1,4 +1,5 @@
-.button {
+.button,
+button[type=submit] {
 	display: inline-block;
 	padding: var(--spacing-2);
 	background: var(--color-button-bg);
