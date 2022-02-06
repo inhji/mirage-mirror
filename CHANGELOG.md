@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.98.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.97.0...v0.98.0) (2022-02-06)
+
+
+
+
+### Features:
+
+* remove a lot of js, tailwind, switch to pure postcss
+
 ## [v0.97.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.96.0...v0.97.0) (2022-02-05)
 
 
