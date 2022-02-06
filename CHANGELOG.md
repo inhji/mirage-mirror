@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.101.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.100.0...v0.101.0) (2022-02-06)
+
+
+
+
+### Features:
+
+* add openwebicons, show syndications
+
 ## [v0.100.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.99.0...v0.100.0) (2022-02-06)
 
 
