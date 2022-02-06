@@ -5,6 +5,31 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.99.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.98.0...v0.99.0) (2022-02-06)
+
+
+
+
+### Features:
+
+* rename tag show page to /tagged-with/:id
+
+* improve list show page
+
+* hide a few form fields by default, add excerpt field
+
+* link tags and add proper tag page
+
+* add excerpt field
+
+* add spacing to form labels
+
+### Bug Fixes:
+
+* remove decoration for tags that are links
+
+* correct textarea border color
+
 ## [v0.98.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.97.0...v0.98.0) (2022-02-06)
 
 
