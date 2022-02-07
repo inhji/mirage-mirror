@@ -42,6 +42,15 @@ defmodule Mirage.Notes do
     |> Repo.all()
   end
 
+  def list_pages() do
+    Note
+    |> with_preloads()
+    |> where([n], not is_nil(n.published_at))
+    |> where([n], like(n.title, "@%"))
+    |> order_by(desc: :title)
+    |> Repo.all()
+  end
+
   @doc """
   Returns the list of notes sorted by `MirageWeb.Live.NoteListParams`
 
