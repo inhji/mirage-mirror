@@ -10,15 +10,19 @@ defmodule Mirage.Mastodon do
   end
 
   def post_status(token, status_text) do
+    hash = get_hash(status_text)
+
     args = %{
       status: status_text,
       visibility: @default_visibility
     }
 
-    do_post_status(token, args)
+    do_post_status(token, args, hash)
   end
 
   def post_status_with_cw(token, status_text, content_warning) do
+    hash = get_hash(status_text)
+
     args = %{
       status: status_text,
       visibility: @default_visibility,
@@ -26,10 +30,10 @@ defmodule Mirage.Mastodon do
       spoiler_text: content_warning
     }
 
-    do_post_status(token, args)
+    do_post_status(token, args, hash)
   end
 
-  defp do_post_status(token, params) do
+  defp do_post_status(token, params, hash) do
     mastodon_enabled = get_config(:enabled)
 
     if mastodon_enabled do
@@ -40,6 +44,7 @@ defmodule Mirage.Mastodon do
       token
       |> client()
       |> OAuth2.Client.put_header("Content-Type", "application/x-www-form-urlencoded")
+      |> OAuth2.Client.put_header("Idempotency-Key", hash)
       |> OAuth2.Client.post("/api/v1/statuses", params)
       |> handle_response()
     else
@@ -161,5 +166,9 @@ defmodule Mirage.Mastodon do
   defp get_config(key) do
     config = Application.get_env(:mirage, :mastodon)
     Keyword.get(config, key)
+  end
+
+  defp get_hash(str) do
+    :crypto.hash(:sha256, str) |> Base.encode16() |> String.downcase()
   end
 end
