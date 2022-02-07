@@ -26,6 +26,12 @@
   </fieldset>
 
   <fieldset>
+    <%= label f, :tags_string %>
+    <%= text_input f, :tags_string, value: tags_to_string(@tags) %>
+    <%= error_tag f, :tags_string %>
+  </fieldset>
+
+  <fieldset>
     <%= label f, :syndication_targets %>
     <%= multiple_select f, :syndication_targets, @targets, selected: targets_to_list(@selected_targets) %>
     <%= error_tag f, :syndication_targets %>
@@ -34,11 +40,6 @@
   <details>
     <summary>Moar ghosts 'n' stuff</summary>
     <section>
-      <fieldset>
-        <%= label f, :tags_string %>
-        <%= text_input f, :tags_string, value: tags_to_string(@tags) %>
-        <%= error_tag f, :tags_string %>
-      </fieldset>
 
       <fieldset>
         <%= label f, :slug, "Slug ⚠️", title: "This will change the permalink of this note!" %>
