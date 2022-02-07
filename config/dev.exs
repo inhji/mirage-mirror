@@ -46,7 +46,7 @@ config :mirage, MirageWeb.Endpoint,
 config :git_ops,
   mix_project: Mix.Project.get!(),
   changelog_file: "CHANGELOG.md",
-  repository_url: "http://10.0.0.11/inhji/mirage2.git",
+  repository_url: "http://git.inhji.de/inhji/mirage.git",
   types: [],
   # Instructs the tool to manage your mix version in your `mix.exs` file
   # See below for more information
