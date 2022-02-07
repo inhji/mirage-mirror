@@ -21,8 +21,6 @@ defmodule Mirage.Accounts.UserUploader do
 
   # Override the storage directory:
   def storage_dir(_version, {_file, _scope}) do
-    # date_string = Timex.format!(scope.inserted_at, "{YYYY}-{0M}-{0D}")
-    # "images/#{date_string}/#{scope.id}"
     "uploads/avatar"
   end
 end

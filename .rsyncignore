@@ -1,7 +1,8 @@
 - .git
-- _build
-- deps
-- assets/node_modules
 - .env
 - .env.sh
 - .elixir_ls
+- _build
+- deps
+- assets/node_modules
+- priv/waffle

@@ -14,12 +14,6 @@ if config_env() == :prod do
       For example: ecto://USER:PASS@HOST/DATABASE
       """
 
-  config :mirage, Mirage.Repo,
-    # ssl: true,
-    # socket_options: [:inet6],
-    url: database_url,
-    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
-
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
   # want to use a different value for prod and you most likely don't want
@@ -39,28 +33,12 @@ if config_env() == :prod do
       It should look like: example.com
       """
 
-  config :mirage, MirageWeb.Endpoint,
-    url: [host: host, port: 443, scheme: "https"],
-    http: [
-      # Enable IPv6 and bind on all interfaces.
-      # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
-      # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
-      # for details about using IPv6 vs IPv4 and loopback vs public addresses.
-      ip: {0, 0, 0, 0, 0, 0, 0, 0},
-      port: String.to_integer(System.get_env("PORT") || "4000")
-    ],
-    secret_key_base: secret_key_base,
-    cache_static_manifest: "priv/static/cache_manifest.json",
-    server: true
-
   tzdata_dir =
     System.get_env("TZDATA_DIR") ||
       raise """
       environment variable TZDATA_DIR is missing.
       It should look like: /opt/mirage_data/tzdata
       """
-
-  config :tzdata, :data_dir, tzdata_dir
 
   instance_host =
     System.get_env("MASTODON_HOST") ||
@@ -83,10 +61,42 @@ if config_env() == :prod do
       It should look like: 0000000000000000000000000000000000000000000
       """
 
+  upload_dir =
+    System.get_env("UPLOAD_DIR") ||
+      raise """
+      environment variable UPLOAD_DIR is missing.
+      For example: /opt/mirage/uploads
+      """
+
+  config :mirage, MirageWeb.Endpoint,
+    url: [host: host, port: 443, scheme: "https"],
+    http: [
+      # Enable IPv6 and bind on all interfaces.
+      # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
+      # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
+      # for details about using IPv6 vs IPv4 and loopback vs public addresses.
+      ip: {0, 0, 0, 0, 0, 0, 0, 0},
+      port: String.to_integer(System.get_env("PORT") || "4000")
+    ],
+    secret_key_base: secret_key_base,
+    cache_static_manifest: "priv/static/cache_manifest.json",
+    server: true
+
+  config :mirage, Mirage.Repo,
+    # ssl: true,
+    # socket_options: [:inet6],
+    url: database_url,
+    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+
+  config :tzdata, :data_dir, tzdata_dir
+
   config :mirage, :mastodon,
     instance_host: instance_host,
     client_id: client_id,
     client_secret: client_secret
+
+  config :waffle,
+    storage_dir_prefix: upload_dir
 
   # ## Using releases
   #
