@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.110.0](http://git.inhji.de/inhji/mirage.git/compare/v0.109.0...v0.110.0) (2022-02-07)
+
+
+
+
+### Features:
+
+* clean up fonts
+
 ## [v0.109.0](http://git.inhji.de/inhji/mirage.git/compare/v0.108.0...v0.109.0) (2022-02-07)
 
 
