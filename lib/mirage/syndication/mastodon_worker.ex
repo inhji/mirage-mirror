@@ -37,6 +37,24 @@ defmodule Mirage.Syndication.MastodonWorker do
   defp get_text(note) do
     url = Routes.note_url(MirageWeb.Endpoint, :show, note)
 
+    content =
+      if note.excerpt_sanitized
+         |> to_string()
+         |> String.length() > 0 do
+        note.content_sanitized
+      else
+        note.excerpt_sanitized
+      end
+
+    sliced = String.slice(content, 0..400)
+
+    content =
+      if content !== sliced do
+        sliced <> ".."
+      else
+        content
+      end
+
     external_url =
       if not is_nil(note.url) do
         "#{note.url}\n"
@@ -44,6 +62,6 @@ defmodule Mirage.Syndication.MastodonWorker do
         ""
       end
 
-    "#{external_url}#{note.content_sanitized}\n(Originally posted at #{url})"
+    "#{external_url}#{content}\n(Originally posted at #{url})"
   end
 end
