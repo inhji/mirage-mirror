@@ -19,9 +19,7 @@
 
   <fieldset>
     <%= label f, :content %>
-    <div class="grow-wrap">
-      <%= textarea f, :content, rows: 5, onInput: "this.parentNode.dataset.replicatedValue = this.value" %>
-    </div>
+    <%= textarea f, :content, autosize: true %>
     <%= error_tag f, :content %>
   </fieldset>
 
