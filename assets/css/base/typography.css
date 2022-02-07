@@ -6,7 +6,7 @@ html {
 
 h1, h2, h3, .h1, .h2, .h3 {
   font-family: var(--font-heading);
-  font-weight: 400;
+  font-weight: 700;
   color: var(--color-heading);
 
   & a {
@@ -21,11 +21,9 @@ h1, h2, h3, .h1, .h2, .h3 {
 
 h1, .h1, .text-xxl {
 	font-size: var(--text-xxl);
-  font-weight: 500;
   margin: var(--spacing-3) 0;
 
   &:first-letter {
-    font-weight: 500;
     color: var(--primary-600);
   }
 
