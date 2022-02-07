@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.105.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.105.0...v0.105.1) (2022-02-07)
+
+
+
+
+### Bug Fixes:
+
+* first try of making uploading work
+
 ## [v0.105.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.104.0...v0.105.0) (2022-02-06)
 
 
