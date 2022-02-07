@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.111.0](http://git.inhji.de/inhji/mirage.git/compare/v0.110.0...v0.111.0) (2022-02-07)
+
+
+
+
+### Features:
+
+* send idempotency-key for mastodon
+
+* slice text at 400 to make it fit into mastodon post
+
+* move tag input out of details for note form
+
+### Bug Fixes:
+
+* use slugify_downcase for finding tags to remove
+
 ## [v0.110.0](http://git.inhji.de/inhji/mirage.git/compare/v0.109.0...v0.110.0) (2022-02-07)
 
 
