@@ -5,6 +5,25 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.109.0](http://git.inhji.de/inhji/mirage.git/compare/v0.108.0...v0.109.0) (2022-02-07)
+
+
+
+
+### Features:
+
+* dont show meta data for pages
+
+* remove old static avatar
+
+* add autosize to correctly resize textareas on input
+
+* try to reduce font loading
+
+### Bug Fixes:
+
+* git repo url for git_ops
+
 ## [v0.108.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.107.2...v0.108.0) (2022-02-07)
 
 
