@@ -9,7 +9,7 @@
 
 	<ul>
 		<%= for note <- @tag.notes do %>
-		<li><%= link note.title, to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) || "(unpublished)" %></li>
+		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) || "(unpublished)" %></li>
 		<% end %>
 	</ul>
 </section>

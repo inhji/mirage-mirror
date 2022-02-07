@@ -10,6 +10,9 @@
           <li><%= active_link @conn, "Home", to: Routes.page_path(@conn, :index) %></li>
           <li><%= active_link @conn, "About", to: Routes.page_path(@conn, :about) %></li>
           <li><%= active_link @conn, "Feeds", to: Routes.feed_path(@conn, :index) %></li>
+          <%= for page <- @pages do %>
+          <li><%= active_link @conn, note_title(page), to: Routes.note_path(@conn, :show, page) %></li>
+          <% end %>     
         </ul>
       </div>
 
