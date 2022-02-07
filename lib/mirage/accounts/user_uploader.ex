@@ -21,6 +21,6 @@ defmodule Mirage.Accounts.UserUploader do
 
   # Override the storage directory:
   def storage_dir(_version, {_file, _scope}) do
-    "avatar"
+    "uploads/avatar"
   end
 end
