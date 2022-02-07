@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.107.1](http://10.0.0.11/inhji/mirage2.git/compare/v0.107.0...v0.107.1) (2022-02-07)
+
+
+
+
+### Bug Fixes:
+
+* tighter menu
+
+* remove prosemirror from all forms
+
 ## [v0.107.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.106.1...v0.107.0) (2022-02-07)
 
 
