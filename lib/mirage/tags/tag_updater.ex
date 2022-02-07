@@ -89,7 +89,7 @@ defmodule Mirage.Tags.TagUpdater do
   end
 
   defp remove_tag(schema, tag) do
-    slug = Slugger.slugify(tag)
+    slug = Slugger.slugify_downcase(tag)
 
     if tag = Tags.get_tag(slug) do
       case schema do
@@ -100,6 +100,7 @@ defmodule Mirage.Tags.TagUpdater do
           {:ok, _} = NoteTags.delete_note_tag(note_tag)
       end
     else
+      Logger.warn("Tag with slug #{slug} was not removed.")
       nil
     end
   end
