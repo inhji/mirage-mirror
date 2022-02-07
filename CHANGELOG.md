@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.108.0](http://10.0.0.11/inhji/mirage2.git/compare/v0.107.2...v0.108.0) (2022-02-07)
+
+
+
+
+### Features:
+
+* show published pages in header, hide the page sign @ in titles
+
+* leave some crumbs for my future self :)
+
+* assign @pages to layout
+
+* add list_pages
+
+* add tablesaw to all admin tables, dont collapse action buttons
+
 ## [v0.107.2](http://10.0.0.11/inhji/mirage2.git/compare/v0.107.1...v0.107.2) (2022-02-07)
 
 
