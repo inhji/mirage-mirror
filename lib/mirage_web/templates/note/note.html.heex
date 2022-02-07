@@ -4,6 +4,8 @@
       <%= link note_title(@note), to: Routes.note_path(@conn, :show, @note), class: "u-uid u-url" %>
     </h1>
 
+    <%# dont show date, tags, list when used as a page %>
+    <%= if not page? @note do  %>
     <section class="tags">
       <%= if @note.published_at do %>
         <time datetime={@note.published_at} title={@note.published_at} class="tag | dt-published">
@@ -16,6 +18,7 @@
         <%= link tag.title, to: Routes.tag_path(@conn, :show, tag), class: "tag | p-category" %>
       <% end %>
     </section>
+    <% end %>
   </header>
 
   <section class="html | e-content">
