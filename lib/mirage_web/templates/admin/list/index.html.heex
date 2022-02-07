@@ -1,6 +1,6 @@
 <h1>Listing Lists</h1>
 
-<table>
+<table class="tablesaw tablesaw-stack" data-tablesaw-mode="stack">
   <thead>
     <tr>
       <th>Title</th>
@@ -9,16 +9,16 @@
     </tr>
   </thead>
   <tbody>
-<%= for list <- @lists do %>
+  <%= for list <- @lists do %>
     <tr>
       <td><%= link list.title, to: Routes.admin_list_path(@conn, :show, list) %></td>
       <td><%= raw Mirage.Markdown.render(list.content) %></td>
-      <td>
+      <td class="actions">
         <%= link "Edit", to: Routes.admin_list_path(@conn, :edit, list), class: "button" %>
         <%= link "Delete", to: Routes.admin_list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"], class: "button" %>
       </td>
     </tr>
-<% end %>
+  <% end %>
   </tbody>
 </table>
 

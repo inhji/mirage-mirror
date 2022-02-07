@@ -41,7 +41,7 @@
     </tr>
   </thead>
   <tbody>
-<%= for note <- @notes do %>
+  <%= for note <- @notes do %>
     <tr>
       <td>
         <strong class="tablesaw-cell-label">Title</strong>
@@ -59,15 +59,14 @@
         <strong class="tablesaw-cell-label">Published At</strong>
         <span class="tablesaw-cell-content">
           <%=  datetime_from_now(note.published_at) %>
-        </span>
-        
+        </span>       
       </td>
 
-      <td>
+      <td class="actions">
         <%= link "Edit", to: Routes.admin_note_path(MirageWeb.Endpoint, :edit, note), class: "button" %>
         <%= link "Delete", to: Routes.admin_note_path(MirageWeb.Endpoint, :delete, note), method: :delete, data: [confirm: "Are you sure?"], class: "button" %>
       </td>
     </tr>
-<% end %>
+  <% end %>
   </tbody>
 </table>

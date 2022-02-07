@@ -1,6 +1,6 @@
 <h1>Listing Tags</h1>
 
-<table>
+<table class="tablesaw tablesaw-stack" data-tablesaw-mode="stack">
   <thead>
     <tr>
       <th>Title</th>
@@ -11,19 +11,19 @@
     </tr>
   </thead>
   <tbody>
-<%= for tag <- @tags do %>
+  <%= for tag <- @tags do %>
     <tr>
       <td><%= tag.title %></td>
       <td><%= Enum.count(tag.notes) %></td>
       <td><%= tag.regex %></td>
 
-      <td>
-        <span><%= link "Show", to: Routes.admin_tag_path(@conn, :show, tag) %></span>
-        <span><%= link "Edit", to: Routes.admin_tag_path(@conn, :edit, tag) %></span>
-        <span><%= link "Delete", to: Routes.admin_tag_path(@conn, :delete, tag), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      <td class="actions">
+        <span><%= link "Show", to: Routes.admin_tag_path(@conn, :show, tag), class: "button" %></span>
+        <span><%= link "Edit", to: Routes.admin_tag_path(@conn, :edit, tag), class: "button" %></span>
+        <span><%= link "Delete", to: Routes.admin_tag_path(@conn, :delete, tag), method: :delete, data: [confirm: "Are you sure?"], class: "button" %></span>
       </td>
     </tr>
-<% end %>
+  <% end %>
   </tbody>
 </table>
 
