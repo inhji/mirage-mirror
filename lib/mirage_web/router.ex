@@ -3,6 +3,7 @@ defmodule MirageWeb.Router do
 
   import MirageWeb.UserAuth
   import MirageWeb.UserInfo
+  import MirageWeb.SiteInfo, only: [fetch_pages: 2]
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -15,6 +16,7 @@ defmodule MirageWeb.Router do
     plug :fetch_user_identities
     plug :fetch_indie_config
     plug :fetch_motd
+    plug :fetch_pages
   end
 
   pipeline :api do
