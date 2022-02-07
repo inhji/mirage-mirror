@@ -33,11 +33,11 @@ if config_env() == :prod do
       It should look like: example.com
       """
 
-  tzdata_dir =
-    System.get_env("TZDATA_DIR") ||
+  data_dir =
+    System.get_env("DATA_DIR") ||
       raise """
-      environment variable TZDATA_DIR is missing.
-      It should look like: /opt/mirage_data/tzdata
+      environment variable DATA_DIR is missing.
+      It should look like: /opt/mirage_data
       """
 
   instance_host =
@@ -61,13 +61,6 @@ if config_env() == :prod do
       It should look like: 0000000000000000000000000000000000000000000
       """
 
-  upload_dir =
-    System.get_env("UPLOAD_DIR") ||
-      raise """
-      environment variable UPLOAD_DIR is missing.
-      For example: /opt/mirage/uploads
-      """
-
   config :mirage, MirageWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
     http: [
@@ -88,7 +81,7 @@ if config_env() == :prod do
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
-  config :tzdata, :data_dir, tzdata_dir
+  config :tzdata, :data_dir, Path.join([data_dir, "tzdata"])
 
   config :mirage, :mastodon,
     instance_host: instance_host,
@@ -96,7 +89,7 @@ if config_env() == :prod do
     client_secret: client_secret
 
   config :waffle,
-    storage_dir_prefix: upload_dir
+    storage_dir_prefix: Path.join([data_dir, "uploads"])
 
   # ## Using releases
   #
