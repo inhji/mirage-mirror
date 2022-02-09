@@ -12,6 +12,7 @@ pre {
 	padding: var(--spacing-2);
 	background: var(--background-dark);
 	white-space: pre-wrap;
+	word-break: break-all;
 }
 
 section {
