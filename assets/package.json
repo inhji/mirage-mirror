@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "autosize": "^5.0.1",
+    "lolight": "^1.4.0",
     "tablesaw": "^3.1.2"
   }
 }

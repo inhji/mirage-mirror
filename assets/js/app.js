@@ -24,9 +24,12 @@ import "phoenix_html"
 import "./livesocket"
 import TableSaw from "tablesaw"
 import Autosize from "autosize"
+import lolight from "lolight"
 
 document.addEventListener("DOMContentLoaded", () => {
 	Autosize(document.querySelectorAll("textarea[autosize]"))
-
 	TableSaw.init()
+	
+	lolight("pre code")
 })
+
