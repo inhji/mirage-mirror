@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.112.0](http://git.inhji.de/inhji/mirage.git/compare/v0.111.0...v0.112.0) (2022-02-09)
+
+
+
+
+### Features:
+
+* add lolight syntax highlighting
+
+### Bug Fixes:
+
+* break words in pre
+
 ## [v0.111.0](http://git.inhji.de/inhji/mirage.git/compare/v0.110.0...v0.111.0) (2022-02-07)
 
 
