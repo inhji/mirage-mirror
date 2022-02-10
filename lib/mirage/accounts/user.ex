@@ -28,6 +28,8 @@ defmodule Mirage.Accounts.User do
     # List Settings/Assigns 
     belongs_to :microblog_list, Mirage.Lists.List
     belongs_to :journal_list, Mirage.Lists.List
+    belongs_to :like_list, Mirage.Lists.List
+    belongs_to :bookmark_list, Mirage.Lists.List
 
     timestamps()
   end
