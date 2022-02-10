@@ -48,11 +48,6 @@ defmodule Mirage.Notes.Note do
 
     many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
 
-    # Trigger field for the `publish` hook.
-    field :should_publish, :boolean,
-      virtual: true,
-      default: false
-
     # Trigger field for the `syndicate_to` hook.
     field :syndication_targets, {:array, :string},
       virtual: true,
@@ -84,7 +79,6 @@ defmodule Mirage.Notes.Note do
       :read_of,
       :listen_of,
       :watch_of,
-      :should_publish,
       :syndication_targets
     ])
     |> validate_required([:title, :content, :list_id, :user_id])

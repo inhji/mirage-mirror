@@ -42,6 +42,7 @@ defmodule Mirage.Indie.MicropubHandler do
 
     tags = Attributes.get_tags(props) |> Enum.join(",")
     user = Mirage.Accounts.get_user()
+    should_publish? = Attributes.is_published?(props)
 
     attrs = %{
       "title" => title,
@@ -56,18 +57,25 @@ defmodule Mirage.Indie.MicropubHandler do
       "repost_of" => Attributes.get_reposted_url(props),
       "like_of" => Attributes.get_liked_url(props),
       "bookmark_of" => Attributes.get_bookmarked_url(props),
-      "should_publish" => Attributes.is_published?(props),
       "syndication_targets" => Attributes.get_syndication_targets(props)
     }
 
     case Mirage.Notes.create_note_with_hooks(attrs) do
       {:ok, note} ->
         Logger.info("Note created!")
+        maybe_publish(note, should_publish?)
+
         {:ok, :created, Routes.note_url(MirageWeb.Endpoint, :show, note)}
 
       {:error, error} ->
         Logger.error(error)
         {:error, :internal_server_error}
+    end
+  end
+
+  def maybe_publish(note, should_publish?) do
+    if should_publish? do
+      Mirage.Notes.publish_note(note)
     end
   end
 
