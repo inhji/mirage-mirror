@@ -5,7 +5,7 @@
 
   <section class="updates | h-feed | flow">
   <%= for update <- @updates do %>
-    <%= if is_note?(update) do %>
+    <%= if note?(update) do %>
       <%= render MirageWeb.NoteView, "note.html", Map.put(assigns, :note, update) %>
     <% end %>
 

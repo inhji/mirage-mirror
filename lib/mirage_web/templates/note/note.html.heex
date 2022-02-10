@@ -21,9 +21,11 @@
     <% end %>
   </header>
 
+  <%= unless like?(@note) do %>
   <section class="html | e-content">
     <%= raw Mirage.Markdown.render(@note.content) %>
   </section>
+  <% end %>
 
   <!-- The elements need to contain no whitespace between them, otherwise the empty:border-0 style will not work. You might check the status of this: https://caniuse.com/mdn-css_selectors_empty_matches_whitespace -->
   <footer>
