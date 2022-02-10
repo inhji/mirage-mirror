@@ -119,7 +119,10 @@ defmodule Mirage.Accounts.User do
   """
   def settings_changeset(user, attrs) do
     user
-    |> cast(attrs, [:microblog_list_id, :journal_list_id])
+    |> cast(attrs, [
+      :microblog_list_id,
+      :journal_list_id
+    ])
   end
 
   @doc """

@@ -36,19 +36,33 @@ defmodule Mirage.Indie.MicropubHandler do
     end
   end
 
+  def get_list(user, post_type) do
+    case post_type do
+      :like ->
+        user.like_list_id
+
+      :bookmark ->
+        user.bookmark_list_id
+
+      _ ->
+        user.microblog_list_id
+    end
+  end
+
   def create_post(props, post_type) do
+    user = Mirage.Accounts.get_user()
     title = get_title(props, post_type)
     content = get_content(props, post_type)
+    list_id = get_list(user, post_type)
 
     tags = Attributes.get_tags(props) |> Enum.join(",")
-    user = Mirage.Accounts.get_user()
     should_publish? = Attributes.is_published?(props)
 
     attrs = %{
       "title" => title,
       "content" => content,
       "user_id" => user.id,
-      "list_id" => user.microblog_list_id,
+      "list_id" => list_id,
       "tags_string" => tags,
       "read_of" => Attributes.get_read_url(props),
       "watch_of" => Attributes.get_watched_url(props),

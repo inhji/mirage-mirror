@@ -117,6 +117,18 @@
       <%= error_tag f, :journal_list_id %>
     </fieldset>
 
+    <fieldset>
+      <%= label f, :bookmark_list_id %>
+      <%= select f, :bookmark_list_id, @lists, prompt: [key: "Choose a list"] %>
+      <%= error_tag f, :bookmark_list_id %>
+    </fieldset>
+
+    <fieldset>
+      <%= label f, :like_list_id %>
+      <%= select f, :like_list_id, @lists, prompt: [key: "Choose a list"] %>
+      <%= error_tag f, :like_list_id %>
+    </fieldset>
+
     <div>
       <%= submit "Save Settings" %>
     </div>
