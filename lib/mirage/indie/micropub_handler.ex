@@ -11,9 +11,10 @@ defmodule Mirage.Indie.MicropubHandler do
   def handle_create(_type, properties, access_token) do
     Logger.info("plug_micropub/handle_create")
 
-    with :ok <- Token.verify(access_token, "create", hostname()) do
+    with :ok <- Token.verify(access_token, "create", hostname()),
+         {:ok, post_type} <- Attributes.get_post_type(properties) do
       Mirage.Logger.info("Creating new post from micropub", properties)
-      create_post(properties)
+      create_post(properties, post_type)
     else
       error ->
         Logger.error("Error in handle_create: #{inspect(error)}")
@@ -21,9 +22,23 @@ defmodule Mirage.Indie.MicropubHandler do
     end
   end
 
-  def create_post(props) do
-    title = Attributes.get_title(props) || timestamp_as_string()
-    content = Attributes.get_content(props)
+  def get_title(props, _post_type) do
+    Attributes.get_title(props) || timestamp_as_string()
+  end
+
+  def get_content(props, post_type) do
+    case post_type do
+      :like ->
+        "❤️"
+
+      _ ->
+        Attributes.get_content(props)
+    end
+  end
+
+  def create_post(props, post_type) do
+    title = get_title(props, post_type)
+    content = get_content(props, post_type)
 
     tags = Attributes.get_tags(props) |> Enum.join(",")
     user = Mirage.Accounts.get_user()

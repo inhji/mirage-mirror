@@ -1,6 +1,9 @@
 defmodule Mirage.Indie.Attributes do
   def get_post_type(properties) do
     cond do
+      Map.has_key?(properties, "like-of") ->
+        {:ok, :like}
+
       Map.has_key?(properties, "bookmark-of") ->
         {:ok, :bookmark}
 
