@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.114.1](http://git.inhji.de/inhji/mirage.git/compare/v0.114.0...v0.114.1) (2022-02-10)
+
+
+
+
+### Bug Fixes:
+
+* cast new lists in changeset
+
 ## [v0.114.0](http://git.inhji.de/inhji/mirage.git/compare/v0.113.0...v0.114.0) (2022-02-10)
 
 
