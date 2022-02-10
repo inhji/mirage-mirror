@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.113.0](http://git.inhji.de/inhji/mirage.git/compare/v0.112.0...v0.113.0) (2022-02-10)
+
+
+
+
+### Features:
+
+* consolidate note type check functions into view_helpers
+
+* dont show content for likes
+
+* automatically publish notes from micropub_handler
+
+* honor post type, add automatic content for likes
+
 ## [v0.112.0](http://git.inhji.de/inhji/mirage.git/compare/v0.111.0...v0.112.0) (2022-02-09)
 
 
