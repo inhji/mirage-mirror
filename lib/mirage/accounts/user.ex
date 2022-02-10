@@ -121,7 +121,9 @@ defmodule Mirage.Accounts.User do
     user
     |> cast(attrs, [
       :microblog_list_id,
-      :journal_list_id
+      :journal_list_id,
+      :like_list_id,
+      :bookmark_list_id
     ])
   end
 
