@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.114.2](http://git.inhji.de/inhji/mirage.git/compare/v0.114.1...v0.114.2) (2022-02-10)
+
+
+
+
+### Bug Fixes:
+
+* add fields to the user schema
+
 ## [v0.114.1](http://git.inhji.de/inhji/mirage.git/compare/v0.114.0...v0.114.1) (2022-02-10)
 
 
