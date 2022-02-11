@@ -81,9 +81,9 @@
         <td><%= user_identity.public %></td>
 
         <td>
-          <span><%= link "Show", to: Routes.user_identity_path(@conn, :show, user_identity) %></span>
-          <span><%= link "Edit", to: Routes.user_identity_path(@conn, :edit, user_identity) %></span>
-          <span><%= link "Delete", to: Routes.user_identity_path(@conn, :delete, user_identity), method: :delete, data: [confirm: "Are you sure?"] %></span>
+          <span><%= link "Show", to: Routes.user_identity_path(@conn, :show, user_identity), class: "button" %></span>
+          <span><%= link "Edit", to: Routes.user_identity_path(@conn, :edit, user_identity), class: "button" %></span>
+          <span><%= link "Delete", to: Routes.user_identity_path(@conn, :delete, user_identity), method: :delete, data: [confirm: "Are you sure?"], class: "button" %></span>
         </td>
       </tr>
     <% end %>

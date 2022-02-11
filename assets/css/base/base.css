@@ -50,7 +50,6 @@ form {
 
 	input,
 	select,
-	button,
 	textarea {
 		border: 1px solid var(--primary-200);
 		padding: var(--spacing-2);

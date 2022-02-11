@@ -1,10 +1,13 @@
 .button,
-button[type=submit] {
+button {
+	color: var(--primary-700);
 	display: inline-block;
 	padding: var(--spacing-2);
 	background: var(--color-button-bg);
 	text-decoration: none;
 	border-radius: var(--border-radius-sm);
+	border: 1px solid var(--primary-200);
+	cursor: pointer;
 
 	&:hover {
 		background: var(--color-button-bg-hover);
