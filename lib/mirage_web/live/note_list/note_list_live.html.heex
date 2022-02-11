@@ -1,4 +1,4 @@
-<details phx-update="ignore" class="list-filter">
+<details phx-update="ignore" class="list-filter" open="open">
   <summary class="dark:text-gray-300">Filter</summary>
   
   <.form let={f} for={@changeset} phx-change="handle_change" class="flex flex-col xl:flex-row gap-6">
@@ -24,10 +24,10 @@
 
     <label for="show_list">
     	<span>Search</span>
-      <%= text_input f, :search_query, placeholder: "Search", phx_debounce: "100" %>
+      <%= text_input f, :search_query, placeholder: "Search", phx_debounce: "100", autofocus: "true" %>
     </label>
 
-    <a href="#" phx-click="handle_reset">Reset</a>
+    <a href="#" phx-click="handle_reset" class="button">Reset</a>
   </.form>
 </details>
 
