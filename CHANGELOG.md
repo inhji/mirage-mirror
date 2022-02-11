@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.115.0](http://git.inhji.de/inhji/mirage.git/compare/v0.114.2...v0.115.0) (2022-02-11)
+
+
+
+
+### Features:
+
+* expand note filter and autofocus search
+
+* improve button styles
+
+### Bug Fixes:
+
+* replace align-items: end; with flex-end;
+
 ## [v0.114.2](http://git.inhji.de/inhji/mirage.git/compare/v0.114.1...v0.114.2) (2022-02-10)
 
 
