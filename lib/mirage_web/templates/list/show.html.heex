@@ -1,0 +1,15 @@
+<section>
+	<h1>Listed in “<%= @list.title %>”</h1>
+
+	<div class="content html">
+	  <%= raw @list.content_html %>
+	</div>
+
+	<h2><%= Enum.count(@list.notes) %> Note(s)</h2>
+
+	<ul>
+		<%= for note <- @list.notes do %>
+		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) || "(unpublished)" %></li>
+		<% end %>
+	</ul>
+</section>
