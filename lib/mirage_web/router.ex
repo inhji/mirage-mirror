@@ -39,6 +39,8 @@ defmodule MirageWeb.Router do
     get "/tags", TagController, :index
     get "/tagged-with/:id", TagController, :show
 
+    get "/listed-in/:id", ListController, :show
+
     get "/notes", NoteController, :index
     get "/notes/:id/microformats", NoteController, :microformats
     get "/notes/:id", NoteController, :show
