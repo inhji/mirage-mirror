@@ -12,38 +12,6 @@
 	& a {
 		text-decoration: none;
 	}
-
-	&[data-count="0"] {
-		background: var(--primary-50);
-	}
-
-	&[data-count="1"],
-	&[data-count="2"],
-	&[data-count="3"]
-	{
-		background: var(--primary-100);
-	}
-
-	&[data-count="4"],
-	&[data-count="5"],
-	&[data-count="6"]
-	{
-		background: var(--primary-200);
-	}
-
-	&[data-count="7"],
-	&[data-count="8"],
-	&[data-count="9"]
-	{
-		background: var(--primary-300);
-		& a { color: var(--primary-50); }
-	}
-
-	&[data-count="10"]
-	{
-		background: var(--primary-400);
-		& a { color: var(--primary-50); }
-	}
 }
 
 .tag-cloud {
@@ -51,4 +19,37 @@
 	gap: var(--spacing-3);
 	flex-wrap: wrap;
 
+	.tag {
+		&[data-count="0"] {
+			background: var(--primary-50);
+		}
+
+		&[data-count="1"],
+		&[data-count="2"],
+		&[data-count="3"]
+		{
+			background: var(--primary-100);
+		}
+
+		&[data-count="4"],
+		&[data-count="5"],
+		&[data-count="6"]
+		{
+			background: var(--primary-200);
+		}
+
+		&[data-count="7"],
+		&[data-count="8"],
+		&[data-count="9"]
+		{
+			background: var(--primary-300);
+			& a { color: var(--primary-50); }
+		}
+
+		&[data-count="10"]
+		{
+			background: var(--primary-400);
+			& a { color: var(--primary-50); }
+		}
+	}
 }
