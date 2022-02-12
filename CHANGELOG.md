@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.117.0](http://git.inhji.de/inhji/mirage.git/compare/v0.116.0...v0.117.0) (2022-02-12)
+
+
+
+
+### Features:
+
+* add page, like partials for index page
+
+* improve structure of settings page
+
 ## [v0.116.0](http://git.inhji.de/inhji/mirage.git/compare/v0.115.0...v0.116.0) (2022-02-12)
 
 
