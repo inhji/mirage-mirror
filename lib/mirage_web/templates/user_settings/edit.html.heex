@@ -1,235 +1,251 @@
-<section class="max-w-prose mx-auto">
-  <h1>Settings</h1>
+<section id="page-settings" class="flow">
+  <header>
+    <h1>Settings</h1>
 
-  <ul class="list-disc pl-10">
-    <li><a href="#update_profile">Update Profile</a></li>
-    <li><a href="#edit_identities">Edit Identities</a></li>
-    <li><a href="#change_settings">Change Site Settings</a></li>
-    <li><a href="#mastodon_settings">Mastodon Settings</a></li>
-    <li><a href="#change_email">Change Email</a></li>
-    <li><a href="#change_password">Change Password</a></li>
-    <li><a href="#public_key">Public Key</a></li>
-  </ul>
+    <ul>
+      <li><a href="#update_profile">Update Profile</a></li>
+      <li><a href="#edit_identities">Edit Identities</a></li>
+      <li><a href="#change_settings">Change Site Settings</a></li>
+      <li><a href="#mastodon_settings">Mastodon Settings</a></li>
+      <li><a href="#change_email">Change Email</a></li>
+      <li><a href="#change_password">Change Password</a></li>
+      <li><a href="#public_key">Public Key</a></li>
+    </ul>
+  </header>
 
-  <h2 id="update_profile" class="mt-10">Update profile</h2>
+  <section id="update_profile">
+    <h2>Update profile</h2>
 
-  <.form let={f} for={@profile_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_profile" multipart>
-    <%= if @profile_changeset.action do %>
-      <div class="alert alert-danger">
-        <p>Oops, something went wrong! Please check the errors below.</p>
+    <.form let={f} for={@profile_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_profile" multipart>
+      <%= if @profile_changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
+
+      <%= hidden_input f, :action, name: "action", value: "update_profile" %>
+
+      <fieldset>
+        <%= label f, :handle %>
+        <%= text_input f, :handle, required: true %>
+        <%= error_tag f, :handle %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :name %>
+        <%= text_input f, :name %>
+        <%= error_tag f, :name %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :bio %>
+        <%= textarea f, :bio %>
+        <%= error_tag f, :bio %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :avatar %>
+        <%= file_input f, :avatar %>
+        <%= error_tag f, :avatar %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :motd, "MOTD, seperated by newline" %>
+        <%= textarea f, :motd %>
+        <%= error_tag f, :motd %>
+      </fieldset>
+
+      <div>
+        <%= submit "Update profile" %>
       </div>
-    <% end %>
+    </.form>
+  </section>
 
-    <%= hidden_input f, :action, name: "action", value: "update_profile" %>
+  <section id="edit_identities">
+    <h2>Edit Indentities</h2>
 
-    <fieldset>
-      <%= label f, :handle %>
-      <%= text_input f, :handle, required: true %>
-      <%= error_tag f, :handle %>
-    </fieldset>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Rel</th>
+          <th>Active</th>
+          <th>Public</th>
 
-    <fieldset>
-      <%= label f, :name %>
-      <%= text_input f, :name %>
-      <%= error_tag f, :name %>
-    </fieldset>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <%= for user_identity <- @user_identities do %>
+        <tr>
+          <td><%= user_identity.name %></td>
+          <td><%= user_identity.value %></td>
+          <td><%= user_identity.rel %></td>
+          <td><%= user_identity.active %></td>
+          <td><%= user_identity.public %></td>
 
-    <fieldset>
-      <%= label f, :bio %>
-      <%= textarea f, :bio %>
-      <%= error_tag f, :bio %>
-    </fieldset>
+          <td>
+            <span><%= link "Show", to: Routes.user_identity_path(@conn, :show, user_identity), class: "button" %></span>
+            <span><%= link "Edit", to: Routes.user_identity_path(@conn, :edit, user_identity), class: "button" %></span>
+            <span><%= link "Delete", to: Routes.user_identity_path(@conn, :delete, user_identity), method: :delete, data: [confirm: "Are you sure?"], class: "button" %></span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-    <fieldset>
-      <%= label f, :avatar %>
-      <%= file_input f, :avatar %>
-      <%= error_tag f, :avatar %>
-    </fieldset>
-
-    <fieldset>
-      <%= label f, :motd, "MOTD, seperated by newline" %>
-      <%= textarea f, :motd %>
-      <%= error_tag f, :motd %>
-    </fieldset>
-
-    <div>
-      <%= submit "Update profile" %>
+    <div class="mt-3">
+      <%= link "New User identity", to: Routes.user_identity_path(@conn, :new), class: "button" %>
     </div>
-  </.form>
+  </section>
 
-  <h2 id="edit_identities" class="mt-10">Edit Indentities</h2>
+  <section id="change_settings">
+    <h2>Change Site Settings</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-        <th>Rel</th>
-        <th>Active</th>
-        <th>Public</th>
+    <.form let={f} for={@settings_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_settings">
+      <%= if @settings_changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
 
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    <%= for user_identity <- @user_identities do %>
-      <tr>
-        <td><%= user_identity.name %></td>
-        <td><%= user_identity.value %></td>
-        <td><%= user_identity.rel %></td>
-        <td><%= user_identity.active %></td>
-        <td><%= user_identity.public %></td>
+      <%= hidden_input f, :action, name: "action", value: "update_settings" %>
 
-        <td>
-          <span><%= link "Show", to: Routes.user_identity_path(@conn, :show, user_identity), class: "button" %></span>
-          <span><%= link "Edit", to: Routes.user_identity_path(@conn, :edit, user_identity), class: "button" %></span>
-          <span><%= link "Delete", to: Routes.user_identity_path(@conn, :delete, user_identity), method: :delete, data: [confirm: "Are you sure?"], class: "button" %></span>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+      <fieldset>
+        <%= label f, :microblog_list_id %>
+        <%= select f, :microblog_list_id, @lists, prompt: [key: "Choose a list"] %>
+        <%= error_tag f, :microblog_list_id %>
+      </fieldset>
 
-  <div class="mt-3">
-    <%= link "New User identity", to: Routes.user_identity_path(@conn, :new), class: "button" %>
-  </div>
+      <fieldset>
+        <%= label f, :journal_list_id %>
+        <%= select f, :journal_list_id, @lists, prompt: [key: "Choose a list"] %>
+        <%= error_tag f, :journal_list_id %>
+      </fieldset>
 
-  <h2 id="change_settings" class="mt-10">Change Site Settings</h2>
+      <fieldset>
+        <%= label f, :bookmark_list_id %>
+        <%= select f, :bookmark_list_id, @lists, prompt: [key: "Choose a list"] %>
+        <%= error_tag f, :bookmark_list_id %>
+      </fieldset>
 
-  <.form let={f} for={@settings_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_settings">
-    <%= if @settings_changeset.action do %>
-      <div class="alert alert-danger">
-        <p>Oops, something went wrong! Please check the errors below.</p>
+      <fieldset>
+        <%= label f, :like_list_id %>
+        <%= select f, :like_list_id, @lists, prompt: [key: "Choose a list"] %>
+        <%= error_tag f, :like_list_id %>
+      </fieldset>
+
+      <div>
+        <%= submit "Save Settings" %>
       </div>
+    </.form>
+  </section>
+
+  <section id="mastodon_settings">
+    <h2>Mastodon Settings</h2>
+
+    <h3>Current Token</h3>
+
+    <%= if is_nil(@mastodon_token) do %>
+      <pre>No token yet.</pre>
+    <% else %>
+      <pre><%= @mastodon_token.token %></pre>
     <% end %>
 
-    <%= hidden_input f, :action, name: "action", value: "update_settings" %>
+    <.form let={f} for={:mastodon_token} action={Routes.user_settings_path(@conn, :update)} id="update_mastodon_user_token" method="PUT">
 
-    <fieldset>
-      <%= label f, :microblog_list_id %>
-      <%= select f, :microblog_list_id, @lists, prompt: [key: "Choose a list"] %>
-      <%= error_tag f, :microblog_list_id %>
-    </fieldset>
+      <%= hidden_input f, :action, name: "action", value: "update_mastodon_user_token" %>
 
-    <fieldset>
-      <%= label f, :journal_list_id %>
-      <%= select f, :journal_list_id, @lists, prompt: [key: "Choose a list"] %>
-      <%= error_tag f, :journal_list_id %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :link, "First authenticate here:" %>
+        <%= link Mirage.Mastodon.authorize_url(), to: Mirage.Mastodon.authorize_url(), target: "_blank" %>
+      </fieldset>
 
-    <fieldset>
-      <%= label f, :bookmark_list_id %>
-      <%= select f, :bookmark_list_id, @lists, prompt: [key: "Choose a list"] %>
-      <%= error_tag f, :bookmark_list_id %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :auth_code %>
+        <%= text_input f, :auth_code %>
+        <%= error_tag f, :auth_code %>
+      </fieldset>
 
-    <fieldset>
-      <%= label f, :like_list_id %>
-      <%= select f, :like_list_id, @lists, prompt: [key: "Choose a list"] %>
-      <%= error_tag f, :like_list_id %>
-    </fieldset>
-
-    <div>
-      <%= submit "Save Settings" %>
-    </div>
-  </.form>
-
-  <h2 id="mastodon_settings" class="mt-10">Mastodon Settings</h2>
-
-  <h3>Current Token</h3>
-
-  <%= if is_nil(@mastodon_token) do %>
-    <pre>No token yet.</pre>
-  <% else %>
-    <pre><%= @mastodon_token.token %></pre>
-  <% end %>
-
-  <.form let={f} for={:mastodon_token} action={Routes.user_settings_path(@conn, :update)} id="update_mastodon_user_token" method="PUT">
-
-    <%= hidden_input f, :action, name: "action", value: "update_mastodon_user_token" %>
-
-    <fieldset>
-      <%= label f, :link, "First authenticate here:" %>
-      <%= link Mirage.Mastodon.authorize_url(), to: Mirage.Mastodon.authorize_url(), target: "_blank" %>
-    </fieldset>
-
-    <fieldset>
-      <%= label f, :auth_code %>
-      <%= text_input f, :auth_code %>
-      <%= error_tag f, :auth_code %>
-    </fieldset>
-
-    <div>
-      <%= submit "Save Token" %>
-    </div>
-
-  </.form>
-
-  <h2 id="change_email" class="mt-10">Change email</h2>
-
-  <.form let={f} for={@email_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_email">
-    <%= if @email_changeset.action do %>
-      <div class="alert alert-danger">
-        <p>Oops, something went wrong! Please check the errors below.</p>
+      <div>
+        <%= submit "Save Token" %>
       </div>
-    <% end %>
 
-    <%= hidden_input f, :action, name: "action", value: "update_email" %>
+    </.form>
+  </section>
 
-    <fieldset>
-      <%= label f, :email %>
-      <%= email_input f, :email, required: true %>
-      <%= error_tag f, :email %>
-    </fieldset>
+  <section id="change_email">
+    <h2>Change email</h2>
 
-    <fieldset>
-      <%= label f, :current_password, for: "current_password_for_email" %>
-      <%= password_input f, :current_password, required: true, name: "current_password", id: "current_password_for_email" %>
-      <%= error_tag f, :current_password %>
-    </fieldset>
+    <.form let={f} for={@email_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_email">
+      <%= if @email_changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
 
-    <div>
-      <%= submit "Change email" %>
-    </div>
-  </.form>
+      <%= hidden_input f, :action, name: "action", value: "update_email" %>
 
-  <h2 id="change_password" class="mt-10">Change password</h2>
+      <fieldset>
+        <%= label f, :email %>
+        <%= email_input f, :email, required: true %>
+        <%= error_tag f, :email %>
+      </fieldset>
 
-  <.form let={f} for={@password_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_password">
-    <%= if @password_changeset.action do %>
-      <div class="alert alert-danger">
-        <p>Oops, something went wrong! Please check the errors below.</p>
+      <fieldset>
+        <%= label f, :current_password, for: "current_password_for_email" %>
+        <%= password_input f, :current_password, required: true, name: "current_password", id: "current_password_for_email" %>
+        <%= error_tag f, :current_password %>
+      </fieldset>
+
+      <div>
+        <%= submit "Change email" %>
       </div>
-    <% end %>
+    </.form>
+  </section>
 
-    <%= hidden_input f, :action, name: "action", value: "update_password" %>
+  <section id="change_password">
+    <h2>Change password</h2>
 
-    <fieldset>
-      <%= label f, :password, "New password" %>
-      <%= password_input f, :password, required: true %>
-      <%= error_tag f, :password %>
-    </fieldset>
+    <.form let={f} for={@password_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_password">
+      <%= if @password_changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
 
-    <fieldset>
-      <%= label f, :password_confirmation, "Confirm new password" %>
-      <%= password_input f, :password_confirmation, required: true %>
-      <%= error_tag f, :password_confirmation %>
-    </fieldset>
+      <%= hidden_input f, :action, name: "action", value: "update_password" %>
 
-    <fieldset>
-      <%= label f, :current_password, for: "current_password_for_password" %>
-      <%= password_input f, :current_password, required: true, name: "current_password", id: "current_password_for_password" %>
-      <%= error_tag f, :current_password %>
-    </fieldset>
+      <fieldset>
+        <%= label f, :password, "New password" %>
+        <%= password_input f, :password, required: true %>
+        <%= error_tag f, :password %>
+      </fieldset>
 
-    <div>
-      <%= submit "Change password" %>
+      <fieldset>
+        <%= label f, :password_confirmation, "Confirm new password" %>
+        <%= password_input f, :password_confirmation, required: true %>
+        <%= error_tag f, :password_confirmation %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :current_password, for: "current_password_for_password" %>
+        <%= password_input f, :current_password, required: true, name: "current_password", id: "current_password_for_password" %>
+        <%= error_tag f, :current_password %>
+      </fieldset>
+
+      <div>
+        <%= submit "Change password" %>
+      </div>
+    </.form>
+  </section>
+
+  <section id="public_key">
+    <h2>Public Key</h2>
+
+    <div class="prose dark:prose-invert">
+      <pre><%= @user.pub_key %></pre>
     </div>
-  </.form>
-
-  <h2 id="public_key" class="mt-10">Public Key</h2>
-
-  <div class="prose dark:prose-invert">
-    <pre><%= @user.pub_key %></pre>
-  </div>
+  </section>
 </section>
