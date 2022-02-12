@@ -5,6 +5,27 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.116.0](http://git.inhji.de/inhji/mirage.git/compare/v0.115.0...v0.116.0) (2022-02-12)
+
+
+
+
+### Features:
+
+* break up note into partials to allow form composability in the future
+
+* add public list templates
+
+* add public urls for lists
+
+* only show published notes in list and tag listings, closes #40
+
+### Bug Fixes:
+
+* spacing in article tags
+
+* color tags only in tag cloud
+
 ## [v0.115.0](http://git.inhji.de/inhji/mirage.git/compare/v0.114.2...v0.115.0) (2022-02-11)
 
 
