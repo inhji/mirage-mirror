@@ -1,7 +1,9 @@
 <section class="meta">
   <%= if @note.published_at do %>
-    <time datetime={@note.published_at} title={@note.published_at} class="tag | dt-published">
-      <%= datetime_from_now(@note.published_at) %></time>
+    <%= link to: Routes.note_path(@conn, :show, @note), class: "tag | u-uid u-url" do %>
+      <time datetime={@note.published_at} title={@note.published_at} class="dt-published">
+        <%= datetime_from_now(@note.published_at) %></time>
+    <% end %>
   <% end %>
 
   <span class="tag | p-category">

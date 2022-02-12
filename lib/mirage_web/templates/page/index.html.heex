@@ -5,9 +5,7 @@
 
   <section class="updates | h-feed | flow">
   <%= for update <- @updates do %>
-    <%= if note?(update) do %>
-      <%= render MirageWeb.NoteView, "note.html", Map.put(assigns, :note, update) %>
-    <% end %>
+    <%= render_update(update, assigns) %>
 
     <hr class="divider" />
   <% end %>
