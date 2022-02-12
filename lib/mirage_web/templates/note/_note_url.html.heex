@@ -1,0 +1,41 @@
+<section class="indie">
+  <%= if @note.in_reply_to do %>
+    <%= link "↩️ #{@note.in_reply_to}", to: @note.in_reply_to, class: "u-in-reply-to", title: "In reply to" %>
+  <% end %>
+  <%= if @note.watch_of do %>
+    <%= link "🎞️ #{@note.watch_of}", 
+      to: @note.watch_of, 
+      class: "u-watch-of", 
+      title: "Watch of" %>
+  <% end %>
+  <%= if @note.read_of do %>
+    <%= link "📘 #{@note.read_of}", 
+      to: @note.read_of, 
+      class: "u-read-of", 
+      title: "Read of" %>
+  <% end %>
+  <%= if @note.listen_of do %>
+    <%= link "🎧 #{@note.listen_of}", 
+      to: @note.listen_of, 
+      class: "u-listen-of", 
+      title: "Listen of" %>
+  <% end %>
+  <%= if @note.bookmark_of do %>
+    <%= link "🔖 #{@note.bookmark_of}", 
+      to: @note.bookmark_of, 
+      class: "u-bookmark-of", 
+      title: "Bookmark of" %>
+  <% end %>
+  <%= if @note.like_of do %>
+    <%= link "❤️ #{@note.like_of}", 
+      to: @note.like_of, 
+      class: "u-like-of", 
+      title: "Like of" %>
+  <% end %>
+  <%= if @note.repost_of do %>
+    <%= link "🔁 #{@note.repost_of}", 
+      to: @note.repost_of, 
+      class: "u-repost-of", 
+      title: "Repost of" %>
+  <% end %>
+</section>

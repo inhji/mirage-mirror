@@ -1,0 +1,12 @@
+<section class="syndications">
+  <ul>
+  <%= for synd <- @note.syndications do %>
+    <li>
+      <%= link to: syndication_url(synd), class: "tag" do %>
+        <i class={syndication_icon(synd)}></i>
+        <span><%= syndication_text(synd) %></span>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+</section>
