@@ -28,6 +28,13 @@ defmodule Mirage.Notes do
   def preload_note(note), do: Repo.preload(note, @preloads)
 
   @doc """
+  Defines the query other entities should preload notes with
+  """
+  def preload_query() do
+    from n in Mirage.Notes.Note, where: not is_nil(n.published_at)
+  end
+
+  @doc """
   Returns the list of notes.
 
   ## Examples

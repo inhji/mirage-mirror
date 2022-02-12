@@ -8,7 +8,7 @@ defmodule Mirage.Tags do
 
   alias Mirage.Tags.Tag
 
-  @preloads [:notes]
+  @preloads [notes: Mirage.Notes.preload_query()]
   defp with_preloads(query), do: preload(query, ^@preloads)
 
   @doc """
