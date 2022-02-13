@@ -3,6 +3,9 @@ defmodule Mirage.Notes.NoteImage do
   use Waffle.Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
+  @derive {Phoenix.Param, key: :slug}
   schema "notes_images" do
     field :title, :string
     field :slug, Mirage.Notes.NoteSlug.Type
@@ -21,15 +24,11 @@ defmodule Mirage.Notes.NoteImage do
   def changeset(image, attrs) do
     image
     |> cast(attrs, [:title, :content, :note_id])
+    |> cast_attachments(attrs, [:filename], allow_paths: true)
     |> unique_constraint(:title)
-    |> Mirage.Notes.NoteSlug.maybe_generate_slug()
-    |> Mirage.Notes.NoteSlug.unique_constraint()
+    |> Mirage.Notes.NoteImageSlug.maybe_generate_slug()
+    |> Mirage.Notes.NoteImageSlug.unique_constraint()
     |> Mirage.Markdown.maybe_render(:content, :content_html)
     |> validate_required([:title, :note_id])
-  end
-
-  def image_changeset(image, attrs) do
-    image
-    |> cast_attachments(attrs, [:filename], allow_paths: true)
   end
 end
