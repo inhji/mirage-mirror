@@ -14,7 +14,7 @@
 <%= for note_image <- @note_images do %>
     <tr>
       <td>
-        <img src={image_link(note_image)} width={100} height={100}>
+        <img src={image_link(note_image)}>
       </td>
       <td><%= note_image.title %></td>
       <td><pre><%= image_markdown(note_image) %></pre></td>

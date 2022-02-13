@@ -11,4 +11,9 @@ article.article {
 		display: flex;
 		gap: var(--spacing-1);
 	}
+
+	img {
+		border-radius: var(--border-radius-sm);
+		border: 1px solid var(--primary-200);
+	}
 }
