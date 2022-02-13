@@ -14,6 +14,8 @@ defmodule Mirage.Repo.Migrations.CreateNoteImages do
       add :content_html, :string
 
       add :note_id, references(:notes, on_delete: :nothing, type: :binary_id)
+
+      timestamps()
     end
 
     create index(:notes_images, [:note_id])
