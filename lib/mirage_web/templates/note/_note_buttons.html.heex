@@ -5,5 +5,5 @@
   <% else %>
   <span><%= link "Unpublish", to: Routes.admin_note_path(@conn, :unpublish, @note), class: "button" %></span>
   <% end %>
-  <span><%= link "Back", to: Routes.admin_note_path(@conn, :index), class: "button" %></span>
+  <span><%= link "Images (#{Enum.count(@note.images)})", to: Routes.admin_note_image_path(@conn, :index, @note), class: "button" %></span>
 </aside>
