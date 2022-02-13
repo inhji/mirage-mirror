@@ -1,11 +1,7 @@
 <article class="article | h-entry">
   <header>
     <%= render "_note_header.html", assigns %>
-
-    <%# dont show date, tags, list when used as a page %>
-    <%= if not page? @note do  %>
     <%= render "_note_meta.html", assigns %>
-    <% end %>
   </header>
 
   <%= render "_note_content.html", assigns %>
