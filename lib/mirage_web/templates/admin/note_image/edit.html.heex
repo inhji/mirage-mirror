@@ -1,0 +1,5 @@
+<h1>Edit Note image</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.admin_note_image_path(@conn, :update, @note, @note_image)) %>
+
+<span><%= link "Back", to: Routes.admin_note_image_path(@conn, :index, @note) %></span>

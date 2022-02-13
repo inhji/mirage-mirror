@@ -1,0 +1,32 @@
+<h1>Listing Notes images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Link</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for note_image <- @note_images do %>
+    <tr>
+      <td>
+        <img src={image_link(note_image)} width={100} height={100}>
+      </td>
+      <td><%= note_image.title %></td>
+      <td><pre><%= image_markdown(note_image) %></pre></td>
+
+      <td class="actions">
+        <span><%= link "Show", to: Routes.admin_note_image_path(@conn, :show, @note, note_image), class: "button" %></span>
+        <span><%= link "Edit", to: Routes.admin_note_image_path(@conn, :edit, @note, note_image), class: "button" %></span>
+        <span><%= link "Delete", to: Routes.admin_note_image_path(@conn, :delete, @note, note_image), method: :delete, data: [confirm: "Are you sure?"], class: "button" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Note image", to: Routes.admin_note_image_path(@conn, :new, @note), class: "button" %></span>

@@ -1,0 +1,11 @@
+<h1>Show Note image</h1>
+
+<section>
+	<img src={image_link(@note_image, :horiz)} class="flex-1" />
+	<pre><%= image_markdown(@note_image, :horiz) %></pre>
+	<img src={image_link(@note_image, :vert)} class="flex-1" />
+	<pre><%= image_markdown(@note_image, :vert) %></pre>
+</section>
+
+<span><%= link "Edit", to: Routes.admin_note_image_path(@conn, :edit, @note, @note_image) %></span> |
+<span><%= link "Back", to: Routes.admin_note_image_path(@conn, :index, @note) %></span>

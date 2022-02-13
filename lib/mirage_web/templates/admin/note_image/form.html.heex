@@ -1,0 +1,31 @@
+<.form let={f} for={@changeset} action={@action} multipart={true}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= hidden_input f, :note_id, value: @note.id %>
+
+  <fieldset>
+    <%= label f, :title %>
+    <%= text_input f, :title %>
+    <%= error_tag f, :title %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :content %>
+    <%= textarea f, :content, autosize: true %>
+    <%= error_tag f, :content %>
+  </fieldset>
+
+  <fieldset>
+    <%= label f, :filename %>
+    <%= file_input f, :filename %>
+    <%= error_tag f, :filename %>
+  </fieldset>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+</.form>

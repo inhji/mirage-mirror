@@ -59,6 +59,7 @@ defmodule MirageWeb.Router do
     resources "/notes", NoteController
     get "/notes/:id/publish", NoteController, :publish
     get "/notes/:id/unpublish", NoteController, :unpublish
+    resources "/notes/:id/images", NoteImageController, param: "image_id"
 
     resources "/lists", ListController
     get "/lists/:id/publish", ListController, :publish
