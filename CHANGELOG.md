@@ -5,6 +5,33 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.118.0](http://git.inhji.de/inhji/mirage.git/compare/v0.117.0...v0.118.0) (2022-02-13)
+
+
+
+
+### Features:
+
+* show amount of images on a note
+
+* Add templates and controller for note images
+
+* add thumb image version
+
+* add images to note schema and preload them
+
+* add flex helper class
+
+* add note_image migration and schema + uploader
+
+### Bug Fixes:
+
+* add missing timestamp for note  images
+
+* image paths in dev
+
+* make note_image key a guid
+
 ## [v0.117.0](http://git.inhji.de/inhji/mirage.git/compare/v0.116.0...v0.117.0) (2022-02-12)
 
 
