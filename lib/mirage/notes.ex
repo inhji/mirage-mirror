@@ -13,7 +13,7 @@ defmodule Mirage.Notes do
   alias Mirage.Repo
   alias Mirage.Notes.{Note, NoteHooks}
 
-  @preloads [:list, :tags, :user, :syndications]
+  @preloads [:list, :tags, :user, :syndications, :images]
   defp with_preloads(query), do: preload(query, ^@preloads)
 
   @doc """

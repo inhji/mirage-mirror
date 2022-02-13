@@ -45,6 +45,7 @@ defmodule Mirage.Notes.Note do
     belongs_to :user, Mirage.Accounts.User
 
     has_many :syndications, Mirage.Notes.NoteSyndication
+    has_many :images, Mirage.Notes.NoteImage
 
     many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
 
