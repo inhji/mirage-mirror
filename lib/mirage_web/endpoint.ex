@@ -18,7 +18,7 @@ defmodule MirageWeb.Endpoint do
   # Serve uploads at /uploads
   plug Plug.Static,
     at: "/uploads",
-    from: Path.expand("./priv/waffle/public"),
+    from: Path.expand("./priv/waffle/public/uploads"),
     gzip: false
 
   # Serve at "/" the static files from "priv/static" directory.
