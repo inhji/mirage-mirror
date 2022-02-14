@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.122.0](http://git.inhji.de/inhji/mirage.git/compare/v0.121.0...v0.122.0) (2022-02-14)
+
+
+
+
+### Features:
+
+* improve posse text for notes
+
+### Bug Fixes:
+
+* tag wrapping and whitespace, closes #43
+
 ## [v0.121.0](http://git.inhji.de/inhji/mirage.git/compare/v0.120.0...v0.121.0) (2022-02-14)
 
 
