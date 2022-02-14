@@ -9,6 +9,7 @@ article.article {
 
 	.meta {
 		display: flex;
+		flex-wrap: wrap;
 		gap: var(--spacing-1);
 	}
 
