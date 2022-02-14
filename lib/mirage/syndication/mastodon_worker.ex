@@ -11,7 +11,7 @@ defmodule Mirage.Syndication.MastodonWorker do
 
   def perform(%Oban.Job{args: %{"id" => id, "type" => "note"} = _args}) do
     note = Mirage.Notes.get_note_by_id!(id)
-    status_text = get_text(note)
+    status_text = get_text(note, "note")
 
     case Mirage.Mastodon.post_status(get_token(), status_text) do
       {:ok, url} ->
@@ -34,34 +34,38 @@ defmodule Mirage.Syndication.MastodonWorker do
     token
   end
 
-  defp get_text(note) do
+  defp get_text(note, _type) do
+    max_length = 400
     url = Routes.note_url(MirageWeb.Endpoint, :show, note)
 
     content =
-      if note.excerpt_sanitized
-         |> to_string()
-         |> String.length() > 0 do
-        note.content_sanitized
-      else
-        note.excerpt_sanitized
-      end
-
-    sliced = String.slice(content, 0..400)
-
-    content =
-      if content !== sliced do
-        sliced <> ".."
-      else
-        content
-      end
+      note
+      |> get_content()
+      |> ellipsize_content(max_length)
 
     external_url =
-      if not is_nil(note.url) do
-        "#{note.url}\n"
-      else
-        ""
-      end
+      if is_nil(note.url),
+        do: "",
+        else: "#{note.url}\n"
 
     "#{external_url}#{content}\n(Originally posted at #{url})"
+  end
+
+  defp get_content(note) do
+    if note.excerpt_sanitized
+       |> to_string()
+       |> String.length() > 0 do
+      note.content_sanitized
+    else
+      note.excerpt_sanitized
+    end
+  end
+
+  defp ellipsize_content(content, max_length) do
+    if String.length(content) >= max_length do
+      String.slice(content, 0..(max_length - 2)) <> ".."
+    else
+      content
+    end
   end
 end
