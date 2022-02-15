@@ -20,6 +20,7 @@ defmodule Mirage.Tags.Tag do
     field :regex, :string
 
     many_to_many :notes, Mirage.Notes.Note, join_through: "notes_tags"
+    many_to_many :notes_unpublished, Mirage.Notes.Note, join_through: "notes_tags"
 
     timestamps()
   end
