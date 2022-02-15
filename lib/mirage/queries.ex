@@ -4,10 +4,10 @@ defmodule Mirage.Queries do
   def order_by_query(query, opts) do
     case opts["order_by"] do
       "published_at_desc" ->
-        query |> order_by([n], desc: n.published_at)
+        query |> order_by([n], desc_nulls_last: n.published_at)
 
       "published_at_asc" ->
-        query |> order_by([n], asc: n.published_at)
+        query |> order_by([n], asc_nulls_last: n.published_at)
 
       "inserted_at_desc" ->
         query |> order_by([n], desc: n.inserted_at)
