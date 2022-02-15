@@ -38,13 +38,13 @@ defmodule Mirage.References do
     path =
       case type do
         "tag" ->
-          "/nothing"
+          Routes.tag_path(MirageWeb.Endpoint, :show, slug)
 
         "list" ->
-          Routes.admin_list_path(MirageWeb.Endpoint, :show, slug)
+          Routes.list_path(MirageWeb.Endpoint, :show, slug)
 
         _ ->
-          Routes.admin_note_path(MirageWeb.Endpoint, :show, slug)
+          Routes.note_path(MirageWeb.Endpoint, :show, slug)
       end
 
     do_get_link(title, path)
