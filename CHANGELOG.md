@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.125.2](http://git.inhji.de/inhji/mirage.git/compare/v0.125.1...v0.125.2) (2022-02-15)
+
+
+
+
+### Bug Fixes:
+
+* clean up migrations, remove traces of bookmarks
+
+* prevent crashes when no user is registered
+
 ## [v0.125.1](http://git.inhji.de/inhji/mirage.git/compare/v0.125.0...v0.125.1) (2022-02-15)
 
 
