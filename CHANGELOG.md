@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.125.4](http://git.inhji.de/inhji/mirage.git/compare/v0.125.3...v0.125.4) (2022-02-15)
+
+
+
+
+### Bug Fixes:
+
+* path for referenced entities
+
 ## [v0.125.3](http://git.inhji.de/inhji/mirage.git/compare/v0.125.2...v0.125.3) (2022-02-15)
 
 
