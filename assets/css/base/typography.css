@@ -1,7 +1,10 @@
 html { 
+  font-family: var(--font-base); 
   font-size: var(--font-size);
-  font-family: var(--font-base-var); 
   font-feature-settings: var(--font-base-features);
+}
+@supports (font-variation-settings: normal) {
+  html { font-family: var(--font-base-var); }
 }
 
 h1, h2, h3, .h1, .h2, .h3 {
