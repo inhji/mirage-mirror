@@ -6,14 +6,13 @@ defmodule Mirage.Repo.Migrations.AddContentSanitizedToBookmark do
       add :content_sanitized, :text
     end
 
-    flush()
-
-    repo().all(Mirage.Bookmarks.Bookmark)
-    |> Enum.each(fn bookmark -> 
-      text = HtmlSanitizeEx.strip_tags(bookmark.content_html) 
-      changeset = Ecto.Changeset.cast(bookmark, %{content_sanitized: text}, [:content_sanitized])
-      repo().update(changeset)
-    end)
+    # flush()
+    # repo().all(Mirage.Bookmarks.Bookmark)
+    # |> Enum.each(fn bookmark -> 
+    #   text = HtmlSanitizeEx.strip_tags(bookmark.content_html) 
+    #   changeset = Ecto.Changeset.cast(bookmark, %{content_sanitized: text}, [:content_sanitized])
+    #   repo().update(changeset)
+    # end)
   end
 
   def down do

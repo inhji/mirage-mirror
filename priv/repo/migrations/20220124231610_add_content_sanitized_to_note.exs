@@ -6,14 +6,13 @@ defmodule Mirage.Repo.Migrations.AddContentSanitizedToNote do
       add :content_sanitized, :text
     end
 
-    flush()
-
-    repo().all(Mirage.Notes.Note)
-    |> Enum.each(fn note -> 
-      text = HtmlSanitizeEx.strip_tags(note.content_html) 
-      changeset = Ecto.Changeset.cast(note, %{content_sanitized: text}, [:content_sanitized])
-      repo().update(changeset)
-    end)
+    # flush()
+    # repo().all(Mirage.Notes.Note)
+    # |> Enum.each(fn note -> 
+    #   text = HtmlSanitizeEx.strip_tags(note.content_html) 
+    #   changeset = Ecto.Changeset.cast(note, %{content_sanitized: text}, [:content_sanitized])
+    #   repo().update(changeset)
+    # end)
   end
 
   def down do
