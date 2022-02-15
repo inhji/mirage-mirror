@@ -36,6 +36,7 @@
     <tr>
       <th>Title</th>
       <th>List</th>
+      <th>Created</th>
       <th>Published</th>
       <th>Actions</th>
     </tr>
@@ -54,6 +55,12 @@
         <span class="tablesaw-cell-content">
           <%= link note.list.title, to: Routes.admin_list_path(MirageWeb.Endpoint, :show, note.list) %>
         </span>
+      </td>
+      <td>
+        <strong class="tablesaw-cell-label">Created At</strong>
+        <span class="tablesaw-cell-content">
+          <%=  datetime_from_now(note.inserted_at) %>
+        </span>       
       </td>
       <td>
         <strong class="tablesaw-cell-label">Published At</strong>
