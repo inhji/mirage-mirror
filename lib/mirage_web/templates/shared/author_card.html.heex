@@ -1,5 +1,7 @@
 <section class="author-card | h-card">
+  <%= if @user.avatar do %>
   <img class="u-photo" src={Mirage.Accounts.UserUploader.url({@user.avatar, @user}, :square)} >
+  <% end %>
   <section>
     <h2>
       <%= link @user.name, to: Routes.page_path(@conn, :index), class: "p-name u-url u-uid", rel: "me" %>

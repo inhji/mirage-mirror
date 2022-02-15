@@ -1,7 +1,14 @@
 <section id="page-index">
+  <%= if @user do %>
   <div class="hidden">
     <%= render MirageWeb.SharedView, "author_card.html", assigns %>
   </div>
+  <% else %>
+  <div>
+    <h1>Woah, woah.</h1>
+    <p>Looks like this is your first visit here. You better register yourself.</p>
+  </div>
+  <% end %>
 
   <section class="updates | h-feed | flow">
   <%= for update <- @updates do %>
