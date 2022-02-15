@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.123.0](http://git.inhji.de/inhji/mirage.git/compare/v0.122.0...v0.123.0) (2022-02-15)
+
+
+
+
+### Features:
+
+* show unpublished notes in a tag separately, dont show empty tags to logged out users
+
+* add notes_unpublished to tags
+
+* add all inter variants again
+
 ## [v0.122.0](http://git.inhji.de/inhji/mirage.git/compare/v0.121.0...v0.122.0) (2022-02-14)
 
 
