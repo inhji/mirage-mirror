@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.125.0](http://git.inhji.de/inhji/mirage.git/compare/v0.124.0...v0.125.0) (2022-02-15)
+
+
+
+
+### Features:
+
+* put nulls last when sorting for published
+
 ## [v0.124.0](http://git.inhji.de/inhji/mirage.git/compare/v0.123.0...v0.124.0) (2022-02-15)
 
 
