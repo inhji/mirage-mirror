@@ -52,12 +52,15 @@ defmodule Mirage.Syndication.MastodonWorker do
   end
 
   defp get_content(note) do
-    if note.excerpt_sanitized
-       |> to_string()
-       |> String.length() > 0 do
-      note.content_sanitized
-    else
-      note.excerpt_sanitized
+    cond do
+      note.excerpt_sanitized == nil ->
+        note.content_sanitized
+
+      String.length(note.excerpt_sanitized) > 0 ->
+        note.content_sanitized
+
+      true ->
+        note.excerpt_sanitized
     end
   end
 
