@@ -9,7 +9,17 @@
 
 	<ul>
 		<%= for note <- @tag.notes do %>
-		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) || "(unpublished)" %></li>
+		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) %></li>
 		<% end %>
 	</ul>
+
+	<%= if has_unpublished_notes?(@conn, @tag) do %>
+	<h3>Unpublished</h3>
+
+	<ul>
+		<%= for note <- @tag.notes_unpublished do %>
+		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %></li>
+		<% end %>
+	</ul>
+	<% end %>
 </section>
