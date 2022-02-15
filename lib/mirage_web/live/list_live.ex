@@ -5,10 +5,10 @@ defmodule MirageWeb.Live.ListLive do
   def order_by() do
     [
       {"Default Order", "default"},
-      {"Publish Date, Newest First", "published_at_desc"},
-      {"Publish Date, Oldest First", "published_at_asc"},
       {"Creation Date, Newest First", "inserted_at_desc"},
-      {"Creation Date, Oldest First", "inserted_at_asc"}
+      {"Publish Date, Newest First", "published_at_desc"},
+      {"Creation Date, Oldest First", "inserted_at_asc"},
+      {"Publish Date, Oldest First", "published_at_asc"}
     ]
   end
 
