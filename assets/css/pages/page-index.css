@@ -1,6 +1,4 @@
 #page-index {
-	max-width: 45rem;
-	
 	& .updates {
 		margin-top: var(--spacing-3);
 		margin-bottom: var(--spacing-12);

@@ -24,8 +24,4 @@
 		border-radius: var(--avatar-size);
 		outline: 1px solid var(--gray-5);
 	}
-
-	& section {
-
-	}
 }

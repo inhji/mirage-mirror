@@ -1,0 +1,5 @@
+aside#sidebar {
+	background: var(--background-dark);
+	border-radius: var(--border-radius-lg);
+	padding: var(--spacing-6);
+}

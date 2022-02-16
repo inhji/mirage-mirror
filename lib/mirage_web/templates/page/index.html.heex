@@ -1,23 +1,30 @@
-<section id="page-index">
-  <%= if @user do %>
-  <div class="hidden">
-    <%= render MirageWeb.SharedView, "author_card.html", assigns %>
-  </div>
-  <% else %>
-  <div>
-    <h1>Woah, woah.</h1>
-    <p>Looks like this is your first visit here. You better register yourself.</p>
-  </div>
-  <% end %>
+<div class="page-wrapper">
+  <section id="page-index">
+    <%= if @user do %>
+    <div class="hidden">
+      <%= render MirageWeb.SharedView, "author_card.html", assigns %>
+    </div>
+    <% else %>
+    <div>
+      <h1>Woah, woah.</h1>
+      <p>Looks like this is your first visit here. You better register yourself.</p>
+    </div>
+    <% end %>
 
-  <section class="updates | h-feed | flow">
-  <%= for update <- @updates do %>
-    <%= render_update(update, assigns) %>
+    <section class="updates | h-feed | flow">
+    <%= for update <- @updates do %>
+      <%= render_update(update, assigns) %>
 
-    <hr class="divider" />
-  <% end %>
+      <hr class="divider" />
+    <% end %>
+    </section>
+
+    <%= pagination_links @page %>
   </section>
 
-  <%= pagination_links @page %>
-</section>
+  <aside id="sidebar">
+    <%= render MirageWeb.SharedView, "author_card.html", assigns %>
+  </aside>
+</div>
+
 
