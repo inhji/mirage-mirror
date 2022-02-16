@@ -2,4 +2,24 @@ aside#sidebar {
 	background: var(--background-dark);
 	border-radius: var(--border-radius-lg);
 	padding: var(--spacing-6);
+
+	& ul.social {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		& li {
+			background: var(--primary-100);
+			
+			& a {
+				display: block;
+				text-decoration: none;
+				padding: var(--spacing-2);
+
+				&:hover {
+					background: var(--primary-200);
+				}
+			}
+		}
+	}
 }
