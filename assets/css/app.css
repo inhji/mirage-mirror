@@ -30,12 +30,12 @@
 
 @import "components/alert";
 @import "components/article";
+@import "components/author-card";
 @import "components/button";
 @import "components/divider";
 @import "components/grow-wrap";
 @import "components/list-filter";
 @import "components/pagination";
-@import "components/profile-card";
 @import "components/syndications";
 @import "components/tabs";
 @import "components/tag";
