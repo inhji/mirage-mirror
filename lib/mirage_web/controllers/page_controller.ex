@@ -16,10 +16,4 @@ defmodule MirageWeb.PageController do
       total_entries: page.total_entries
     )
   end
-
-  def about(conn, _params) do
-    user = Mirage.Accounts.get_user()
-
-    render(conn, "about.html", page_title: "About", user: user)
-  end
 end
