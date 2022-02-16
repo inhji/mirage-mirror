@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.126.0](http://git.inhji.de/inhji/mirage.git/compare/v0.125.4...v0.126.0) (2022-02-16)
+
+
+
+
+### Features:
+
+* add page-wrapper, sidebar
+
+* remove about page
+
+* fix author-card name and improve avatar responsiveness
+
 ## [v0.125.4](http://git.inhji.de/inhji/mirage.git/compare/v0.125.3...v0.125.4) (2022-02-15)
 
 
