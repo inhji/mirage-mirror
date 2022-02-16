@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.127.0](http://git.inhji.de/inhji/mirage.git/compare/v0.126.0...v0.127.0) (2022-02-16)
+
+
+
+
+### Features:
+
+* add social links
+
+* remove static about link
+
+### Bug Fixes:
+
+* revert build script
+
 ## [v0.126.0](http://git.inhji.de/inhji/mirage.git/compare/v0.125.4...v0.126.0) (2022-02-16)
 
 
