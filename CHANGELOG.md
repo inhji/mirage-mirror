@@ -5,6 +5,33 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.128.0](http://git.inhji.de/inhji/mirage.git/compare/v0.127.0...v0.128.0) (2022-02-17)
+
+
+
+
+### Features:
+
+* render excerpt for index page feed
+
+* add optional_assigns/1
+
+* improve identity table
+
+* show bools a emoji
+
+* add flex-col and flex-row helpers
+
+### Bug Fixes:
+
+* actually cast excerpt in note changeset
+
+* remove duplicate filtering by active
+
+* identity back link and button styles
+
+* simplify social link styles
+
 ## [v0.127.0](http://git.inhji.de/inhji/mirage.git/compare/v0.126.0...v0.127.0) (2022-02-16)
 
 
