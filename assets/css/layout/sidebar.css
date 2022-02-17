@@ -8,16 +8,15 @@ aside#sidebar {
 		padding: 0;
 		list-style: none;
 
-		& li {
-			background: var(--primary-100);
-			
+		& li {		
 			& a {
 				display: block;
 				text-decoration: none;
 				padding: var(--spacing-2);
+				border-radius: var(--border-radius-sm);
 
 				&:hover {
-					background: var(--primary-200);
+					background: var(--primary-100);
 				}
 			}
 		}
