@@ -83,7 +83,8 @@
           <td><%= user_identity.value %></td>
           <td><%= user_identity.rel %></td>
           <td><%= user_identity.active %></td>
-          <td><%= user_identity.public %></td>
+          <td><%= emoji_bool(user_identity.active) %></td>
+          <td><%= emoji_bool(user_identity.public) %></td>
 
           <td>
             <span><%= link "Show", to: Routes.user_identity_path(@conn, :show, user_identity), class: "button" %></span>

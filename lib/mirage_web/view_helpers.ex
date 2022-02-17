@@ -32,4 +32,11 @@ defmodule MirageWeb.ViewHelpers do
 
   def reply?(%Note{url: url, url_type: "reply_of"}) when is_binary(url), do: true
   def reply?(_), do: false
+
+  def emoji_bool(bool) do
+    case bool do
+      true -> "✅"
+      false -> "⭕️"
+    end
+  end
 end
