@@ -6,3 +6,11 @@
 	display: flex;
 	flex: 1;
 }
+
+.flex-col {
+	flex-direction: column;
+}
+
+.flex-row {
+	flex-direction: row;
+}
