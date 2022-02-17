@@ -10,7 +10,7 @@ defmodule Mirage.ListsFixtures do
   Generate a list.
   """
   def list_fixture(attrs \\ %{}) do
-    insert(:list, attrs) 
+    insert(:list, attrs)
     |> Mirage.Lists.preload_list()
   end
 

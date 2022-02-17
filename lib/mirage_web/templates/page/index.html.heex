@@ -13,7 +13,7 @@
 
     <section class="updates | h-feed | flow">
     <%= for update <- @updates do %>
-      <%= render_update(update, assigns) %>
+      <%= render_update(update, assigns, %{preview: true}) %>
 
       <hr class="divider" />
     <% end %>

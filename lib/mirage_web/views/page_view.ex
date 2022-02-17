@@ -2,8 +2,13 @@ defmodule MirageWeb.PageView do
   use MirageWeb, :view
   import Scrivener.HTML
 
-  def render_update(%Mirage.Notes.Note{} = update, assigns) do
-    new_assigns = Map.put(assigns, :note, update)
+  def render_update(%Mirage.Notes.Note{} = update, assigns, options \\ %{}) do
+    is_preview = Map.get_lazy(options, :preview, fn -> false end)
+
+    new_assigns =
+      assigns
+      |> Map.put(:note, update)
+      |> Map.put(:preview, is_preview)
 
     cond do
       like?(update) ->

@@ -9,7 +9,7 @@ defmodule Mirage.Repo.Migrations.CreateNoteImages do
 
       add :title, :string
       add :slug, :string
-      
+
       add :content, :string
       add :content_html, :string
 

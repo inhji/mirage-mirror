@@ -1,3 +1,7 @@
 <section class="html | e-content">
-  <%= raw Mirage.Markdown.render(@note.content) %>
+  <%= if @preview and @note.excerpt do %>
+    <%= raw Mirage.Markdown.render(@note.excerpt) %>
+  <% else %>
+    <%= raw Mirage.Markdown.render(@note.content) %>
+  <% end %>
 </section>
