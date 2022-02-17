@@ -69,6 +69,7 @@ defmodule Mirage.Notes.Note do
       :title,
       :slug,
       :content,
+      :excerpt,
       :published_at,
       :list_id,
       :tags_string,
