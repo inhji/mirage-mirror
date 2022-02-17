@@ -26,7 +26,7 @@
     <%= render MirageWeb.SharedView, "author_card.html", assigns %>
 
     <ul class="social">
-    <%= for identity <- Enum.filter(@identities, fn i -> i.active and i.public end) do %>
+    <%= for identity <- Enum.filter(@identities, fn i -> i.public end) do %>
       <li><%= link identity.name, to: identity.value, target: "_blank" %></li>
     <% end %> 
     </ul>
