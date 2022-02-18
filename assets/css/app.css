@@ -46,12 +46,13 @@
 @import "pages/page-follow";
 @import "pages/page-note";
 
-@import "themes/default";
-
 @import "vendor/cascadia";
 @import "vendor/inter";
 @import "vendor/openwebicons";
 @import "vendor/lolight";
 @import "vendor/tablesaw";
+
+@import "themes/default";
+@import "themes/night";
 
 @import "shame";

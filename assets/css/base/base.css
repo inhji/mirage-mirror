@@ -39,6 +39,7 @@ blockquote {
 form {
 	& fieldset {
 	  border-radius: var(--border-radius);
+	  border: 1px solid var(--primary-200);
 	  margin-bottom: var(--spacing-2);
 	  display: flex;
 	  flex-direction: column;
@@ -51,6 +52,7 @@ form {
 	input,
 	select,
 	textarea {
+		color: var(--primary-800);
 		border: 1px solid var(--primary-200);
 		padding: var(--spacing-2);
 	}
