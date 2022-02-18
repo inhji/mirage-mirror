@@ -22,3 +22,8 @@ echo ""
 echo "Generating release"
 echo "--------------------------"
 MIX_ENV=prod mix release --overwrite
+
+echo ""
+echo "Generating docs"
+echo "--------------------------"
+MIX_ENV=prod mix docs
