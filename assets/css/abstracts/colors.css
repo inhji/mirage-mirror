@@ -26,9 +26,9 @@
 	--gray-1: white;
 	--white: white;
 
-	--color-heading: var(--gray-10);
-	--color-text: var(--gray-9);
-	--color-text-muted: var(--gray-7);
+	--color-heading: var(--primary-700);
+	--color-text: var(--primary-900);
+	--color-text-muted: var(--primary-700);
 	--color-link: var(--primary-600);
 
 	--color-nav-bg: var(--background-dark);
