@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.129.0](http://git.inhji.de/inhji/mirage.git/compare/v0.128.0...v0.129.0) (2022-02-18)
+
+
+
+
+### Features:
+
+* add and activate night theme
+
+* update deps
+
 ## [v0.128.0](http://git.inhji.de/inhji/mirage.git/compare/v0.127.0...v0.128.0) (2022-02-17)
 
 
