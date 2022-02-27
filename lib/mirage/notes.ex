@@ -74,6 +74,7 @@ defmodule Mirage.Notes do
     |> list_query(opts)
     |> search_query(opts)
     |> order_by_query(opts)
+    |> limit_query(opts)
     |> Repo.all()
   end
 

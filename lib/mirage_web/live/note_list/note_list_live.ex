@@ -3,7 +3,7 @@ defmodule MirageWeb.NoteListLive do
   alias MirageWeb.Live.ListLive
 
   def mount(_params, _info, socket) do
-    notes = Mirage.Notes.list_notes()
+    notes = Mirage.Notes.list_notes(%{limit: 10})
 
     {:ok,
      socket
@@ -11,7 +11,8 @@ defmodule MirageWeb.NoteListLive do
        notes: notes,
        changeset: ListLive.note_changeset(),
        lists: ListLive.lists(),
-       order_by: ListLive.order_by()
+       order_by: ListLive.order_by(),
+       limit: ListLive.limit()
      })}
   end
 

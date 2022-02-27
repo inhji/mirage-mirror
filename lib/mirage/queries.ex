@@ -20,6 +20,20 @@ defmodule Mirage.Queries do
     end
   end
 
+  def limit_query(query, opts) do
+    case opts["limit"] do
+      nil ->
+        query
+
+      "all" ->
+        query
+
+      limit ->
+        query |> limit(^limit)
+        
+    end
+  end
+
   def search_query(query, opts) do
     case opts["search_query"] do
       "" ->
@@ -42,6 +56,7 @@ defmodule Mirage.Queries do
   def list_query(query, opts) do
     case opts["show_list"] do
       "all" -> query
+      nil -> query
       list_id -> query |> where([n], n.list_id == ^list_id)
     end
   end

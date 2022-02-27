@@ -12,6 +12,15 @@ defmodule MirageWeb.Live.ListLive do
     ]
   end
 
+  def limit() do
+    [
+      {"10", "10"},
+      {"25", "25"},
+      {"50", "50"},
+      {"All", "all"}
+    ]
+  end
+
   def lists() do
     lists =
       Mirage.Lists.list_lists()
