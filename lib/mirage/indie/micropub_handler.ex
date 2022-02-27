@@ -12,9 +12,10 @@ defmodule Mirage.Indie.MicropubHandler do
     Logger.info("plug_micropub/handle_create")
 
     with :ok <- Token.verify(access_token, "create", hostname()),
-         {:ok, post_type} <- Attributes.get_post_type(properties) do
-      Mirage.Logger.info("Creating new post from micropub", properties)
-      create_post(properties, post_type)
+         {:ok, post_type} <- Attributes.get_post_type(properties),
+         {:ok, note} <- create_post(properties, post_type) do
+      Mirage.Logger.info("Created a new post from micropub", properties)
+      {:ok, :created, Routes.note_url(MirageWeb.Endpoint, :show, note)}
     else
       error ->
         Logger.error("Error in handle_create: #{inspect(error)}")
@@ -22,32 +23,7 @@ defmodule Mirage.Indie.MicropubHandler do
     end
   end
 
-  def get_title(props, _post_type) do
-    Attributes.get_title(props) || timestamp_as_string()
-  end
-
-  def get_content(props, post_type) do
-    case post_type do
-      :like ->
-        "❤️"
-
-      _ ->
-        Attributes.get_content(props)
-    end
-  end
-
-  def get_list(user, post_type) do
-    case post_type do
-      :like ->
-        user.like_list_id
-
-      :bookmark ->
-        user.bookmark_list_id
-
-      _ ->
-        user.microblog_list_id
-    end
-  end
+  def create_post(props), do: create_post(props, :note)
 
   def create_post(props, post_type) do
     user = Mirage.Accounts.get_user()
@@ -74,12 +50,14 @@ defmodule Mirage.Indie.MicropubHandler do
       "syndication_targets" => Attributes.get_syndication_targets(props)
     }
 
+    Logger.info("Syndication Targets: #{Attributes.get_syndication_targets(props)}")
+
     case Mirage.Notes.create_note_with_hooks(attrs) do
       {:ok, note} ->
         Logger.info("Note created!")
         maybe_publish(note, should_publish?)
 
-        {:ok, :created, Routes.note_url(MirageWeb.Endpoint, :show, note)}
+        {:ok, note}
 
       {:error, error} ->
         Logger.error(error)
@@ -87,9 +65,33 @@ defmodule Mirage.Indie.MicropubHandler do
     end
   end
 
-  def maybe_publish(note, should_publish?) do
-    if should_publish? do
-      Mirage.Notes.publish_note(note)
+  def maybe_publish(note, true), do: Mirage.Notes.publish_note(note)
+  def maybe_publish(_note, false), do: nil
+
+  def get_title(props, _post_type) do
+    Attributes.get_title(props) || timestamp_as_string()
+  end
+
+  def get_content(props, post_type) do
+    case post_type do
+      :like ->
+        "❤️"
+
+      _ ->
+        Attributes.get_content(props)
+    end
+  end
+
+  def get_list(user, post_type) do
+    case post_type do
+      :like ->
+        user.like_list_id
+
+      :bookmark ->
+        user.bookmark_list_id
+
+      _ ->
+        user.microblog_list_id
     end
   end
 

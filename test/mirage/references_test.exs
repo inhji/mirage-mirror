@@ -64,7 +64,7 @@ defmodule Mirage.ReferencesTest do
       assert {:ok, %Note{} = note1} =
                Notes.update_note(note1, %{content: "this is a link to [[some-note]]"})
 
-      assert "this is a link to [some-note](/admin/notes/some-note)" ==
+      assert "this is a link to [some-note](/notes/some-note)" ==
                replace_references(note1.content)
     end
 
@@ -72,7 +72,7 @@ defmodule Mirage.ReferencesTest do
       assert {:ok, %Note{} = note1} =
                Notes.update_note(note1, %{content: "this is a link to [[some-note|A Title]]"})
 
-      assert "this is a link to [A Title](/admin/notes/some-note)" ==
+      assert "this is a link to [A Title](/notes/some-note)" ==
                replace_references(note1.content)
     end
 
@@ -80,7 +80,7 @@ defmodule Mirage.ReferencesTest do
       assert {:ok, %Note{} = note1} =
                Notes.update_note(note1, %{content: "this is a link to [[some-other-note]]"})
 
-      assert "this is a link to [some-other-note](/admin/notes/some-other-note)" ==
+      assert "this is a link to [some-other-note](/notes/some-other-note)" ==
                replace_references(note1.content)
     end
 
@@ -90,7 +90,7 @@ defmodule Mirage.ReferencesTest do
                  content: "this is a link to [[some-other-note|Another title]]"
                })
 
-      assert "this is a link to [Another title](/admin/notes/some-other-note)" ==
+      assert "this is a link to [Another title](/notes/some-other-note)" ==
                replace_references(note1.content)
     end
 
@@ -100,7 +100,7 @@ defmodule Mirage.ReferencesTest do
                  content: "this is a link to [[list:some-list|Another title]]"
                })
 
-      assert "this is a link to [Another title](/admin/lists/some-list)" ==
+      assert "this is a link to [Another title](/listed-in/some-list)" ==
                replace_references(note1.content)
     end
   end

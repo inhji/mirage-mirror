@@ -7,6 +7,24 @@ defmodule Mirage.Notes.Note do
   import Ecto.Changeset
 
   @public_fields [:title, :slug, :content, :content_html, :published_at, :views, :viewed_at]
+  @cast_fields [
+    :title,
+    :slug,
+    :content,
+    :excerpt,
+    :published_at,
+    :list_id,
+    :tags_string,
+    :user_id,
+    :in_reply_to,
+    :bookmark_of,
+    :like_of,
+    :repost_of,
+    :read_of,
+    :listen_of,
+    :watch_of,
+    :syndication_targets
+  ]
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
@@ -65,24 +83,7 @@ defmodule Mirage.Notes.Note do
   @doc false
   def changeset(note, attrs) do
     note
-    |> cast(attrs, [
-      :title,
-      :slug,
-      :content,
-      :excerpt,
-      :published_at,
-      :list_id,
-      :tags_string,
-      :user_id,
-      :in_reply_to,
-      :bookmark_of,
-      :like_of,
-      :repost_of,
-      :read_of,
-      :listen_of,
-      :watch_of,
-      :syndication_targets
-    ])
+    |> cast(attrs, @cast_fields)
     |> validate_required([:title, :content, :list_id, :user_id])
     |> unique_constraint(:title)
     |> Mirage.Notes.NoteSlug.maybe_generate_slug()

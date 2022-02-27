@@ -30,7 +30,6 @@ defmodule Mirage.Queries do
 
       limit ->
         query |> limit(^limit)
-        
     end
   end
 

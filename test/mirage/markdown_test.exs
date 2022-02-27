@@ -7,7 +7,7 @@ defmodule Mirage.MarkdownTest do
     test "render/1 cleans weird escapes from remark before anything else" do
       str = "this is a string with a \\[\\[link]] from markdown"
 
-      assert render(str) =~ "/admin/notes/link"
+      assert render(str) =~ "/notes/link"
     end
   end
 end

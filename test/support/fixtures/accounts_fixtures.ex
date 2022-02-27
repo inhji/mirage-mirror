@@ -19,7 +19,10 @@ defmodule Mirage.AccountsFixtures do
       handle: valid_user_handle(),
       pub_key: "Some Public Key",
       priv_key: "Some Private Key",
-      microblog_list_id: list.id
+      microblog_list_id: list.id,
+      bookmark_list_id: list.id,
+      journal_list_id: list.id,
+      like_list_id: list.id
     })
   end
 

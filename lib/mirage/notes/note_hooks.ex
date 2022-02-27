@@ -49,8 +49,13 @@ defmodule Mirage.Notes.NoteHooks do
   def create_syndications(note, attrs) do
     Logger.info("Existing syndication targets: '#{Enum.count(note.syndications)}'")
 
-    if Map.has_key?(attrs, @targets_key) and
-         not Enum.empty?(attrs[@targets_key]) do
+    has_key = Map.has_key?(attrs, @targets_key)
+    has_entries = not Enum.empty?(attrs[@targets_key])
+
+    Logger.info("Has Syndication Key: #{has_key}")
+    Logger.info("Has Syndication Entries: #{has_entries}")
+
+    if has_key and has_entries do
       Logger.info("New syndication targets: '#{attrs[@targets_key]}'")
 
       Enum.map(attrs[@targets_key], fn target ->
@@ -63,6 +68,8 @@ defmodule Mirage.Notes.NoteHooks do
                 note_id: note.id,
                 type: String.to_existing_atom(target)
               })
+
+            Logger.info("Syndication for '#{target}' created!")
 
             syndication
 
@@ -87,13 +94,19 @@ defmodule Mirage.Notes.NoteHooks do
   end
 
   def syndicate_to(note, _attrs) do
-    # Only send webmentions if note is already published
+    # Only syndicate if note is already published
     if !!note.published_at do
       targets = note.syndications
 
       Logger.info("Active syndication targets: #{inspect(targets)}")
 
-      target = Enum.find(targets, nil, fn t -> t.type == :mastodon end)
+      # Find the note's target that is of type mastodon
+      # and does not have a url yet. This makes sure syndications 
+      # are not done more than once.
+      target =
+        Enum.find(targets, nil, fn t ->
+          t.type == :mastodon and t.url == nil
+        end)
 
       # Only publish to mastodon if syndication target is present
       if not is_nil(target) do
