@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.131.0](http://git.inhji.de/inhji/mirage.git/compare/v0.130.3...v0.131.0) (2022-02-27)
+
+
+
+
+### Features:
+
+* improve logging, fix syndication from micropub, update some tests
+
+* Add limit param for note list live
+
 ## [v0.130.3](http://git.inhji.de/inhji/mirage.git/compare/v0.130.2...v0.130.3) (2022-02-18)
 
 
