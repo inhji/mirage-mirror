@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.131.1](http://git.inhji.de/inhji/mirage.git/compare/v0.131.0...v0.131.1) (2022-02-28)
+
+
+
+
+### Bug Fixes:
+
+* update plug_micropub to use master of my fork
+
 ## [v0.131.0](http://git.inhji.de/inhji/mirage.git/compare/v0.130.3...v0.131.0) (2022-02-27)
 
 
