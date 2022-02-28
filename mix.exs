@@ -64,7 +64,7 @@ defmodule Mirage.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.17.0"},
       {:plug_cowboy, "~> 2.5"},
-      {:plug_micropub, "~> 0.1.0"},
+      {:plug_micropub, github: "inhji/plug_micropub"},
       {:postgrex, ">= 0.0.0"},
       {:rsa_ex, "~> 0.4"},
       {:scrivener_ecto, "~> 2.7"},
