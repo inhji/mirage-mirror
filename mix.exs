@@ -78,7 +78,7 @@ defmodule Mirage.MixProject do
       {:tzdata, "~> 1.1"},
       {:waffle, "~> 1.1"},
       {:waffle_ecto, "~> 0.0.11"},
-      {:webmentions, "~> 2.0.0"}
+      {:webmentions, "~> 3.0.0"}
     ]
   end
 
