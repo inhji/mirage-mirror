@@ -5,6 +5,25 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.132.0](http://git.inhji.de/inhji/mirage.git/compare/v0.131.1...v0.132.0) (2022-03-02)
+
+
+
+
+### Features:
+
+* hide title when note is microblog
+
+* move note meta to bottom
+
+### Bug Fixes:
+
+* crash in note hooks when no syndications are present
+
+* remove note syndications component
+
+* default limit not applying
+
 ## [v0.131.1](http://git.inhji.de/inhji/mirage.git/compare/v0.131.0...v0.131.1) (2022-02-28)
 
 
