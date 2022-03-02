@@ -50,7 +50,8 @@ defmodule Mirage.Notes.NoteHooks do
     Logger.info("Existing syndication targets: '#{Enum.count(note.syndications)}'")
 
     has_key = Map.has_key?(attrs, @targets_key)
-    has_entries = not Enum.empty?(attrs[@targets_key])
+    entries = Map.get(attrs, @targets_key, [])
+    has_entries = not Enum.empty?(entries)
 
     Logger.info("Has Syndication Key: #{has_key}")
     Logger.info("Has Syndication Entries: #{has_entries}")
