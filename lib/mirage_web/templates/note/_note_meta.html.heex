@@ -14,7 +14,7 @@
 <% end %>
 
 <%= for synd <- @note.syndications do %>
-  <%= link to: syndication_url(synd), class: "tag" do %>
+  <%= link to: syndication_url(synd), class: "tag | u-syndication" do %>
     <i class={syndication_icon(synd)}></i>
     <span><%= syndication_text(synd) %></span>
   <% end %>
