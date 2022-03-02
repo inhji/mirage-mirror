@@ -24,6 +24,9 @@ defmodule MirageWeb.ViewHelpers do
   def note?(%Mirage.Notes.Note{}), do: true
   def note?(_), do: false
 
+  def microblog?(%Mirage.Notes.Note{title: title}), do: Regex.match?(~r/^\d+$/, title)
+  def microblog?(_), do: false
+
   def bookmark?(%Note{url: url, url_type: "bookmark_of"}) when is_binary(url), do: true
   def bookmark?(_), do: false
 

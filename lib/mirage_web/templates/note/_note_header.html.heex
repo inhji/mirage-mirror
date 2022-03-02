@@ -1,5 +1,7 @@
+<%= if not microblog?(@note) do %>
 <h1 class="p-name">
   <%= link note_title(@note), 
     to: Routes.note_path(@conn, :show, @note), 
     class: "u-uid u-url" %>
 </h1>
+<% end %>
