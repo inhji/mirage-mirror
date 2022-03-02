@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.133.0](http://git.inhji.de/inhji/mirage.git/compare/v0.132.0...v0.133.0) (2022-03-02)
+
+
+
+
+### Features:
+
+* mark up syndications with u-syndication
+
 ## [v0.132.0](http://git.inhji.de/inhji/mirage.git/compare/v0.131.1...v0.132.0) (2022-03-02)
 
 
