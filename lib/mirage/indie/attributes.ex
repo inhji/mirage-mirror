@@ -56,6 +56,9 @@ defmodule Mirage.Indie.Attributes do
   def get_syndication_targets(%{"mp-syndicate-to" => targets}), do: targets
   def get_syndication_targets(_), do: []
 
+  def get_channel(%{"mp-channel" => [channel]}), do: channel
+  def get_channel(_), do: nil
+
   def has_target?(%{"mp-syndicate-to" => targets}, name),
     do: Enum.any?(targets, fn t -> t == name end)
 

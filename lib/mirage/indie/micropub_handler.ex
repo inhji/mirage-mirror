@@ -1,9 +1,7 @@
 defmodule Mirage.Indie.MicropubHandler do
   require Logger
   alias MirageWeb.Router.Helpers, as: Routes
-  alias Mirage.Indie.{Attributes, Token}
-
-  @syndication_targets Application.compile_env!(:mirage, [:indie, :supported_targets])
+  alias Mirage.Indie.{Attributes, Token, Micropub}
 
   @behaviour PlugMicropub.HandlerBehaviour
 
@@ -13,7 +11,7 @@ defmodule Mirage.Indie.MicropubHandler do
 
     with :ok <- Token.verify(access_token, "create", hostname()),
          {:ok, post_type} <- Attributes.get_post_type(properties),
-         {:ok, note} <- create_post(properties, post_type) do
+         {:ok, note} <- Micropub.create_post(properties, post_type) do
       Mirage.Logger.info("Created a new post from micropub", properties)
       {:ok, :created, Routes.note_url(MirageWeb.Endpoint, :show, note)}
     else
@@ -23,110 +21,16 @@ defmodule Mirage.Indie.MicropubHandler do
     end
   end
 
-  def create_post(props), do: create_post(props, :note)
-
-  def create_post(props, post_type) do
-    user = Mirage.Accounts.get_user()
-    title = get_title(props, post_type)
-    content = get_content(props, post_type)
-    list_id = get_list(user, post_type)
-
-    tags = Attributes.get_tags(props) |> Enum.join(",")
-    should_publish? = Attributes.is_published?(props)
-
-    attrs = %{
-      "title" => title,
-      "content" => content,
-      "user_id" => user.id,
-      "list_id" => list_id,
-      "tags_string" => tags,
-      "read_of" => Attributes.get_read_url(props),
-      "watch_of" => Attributes.get_watched_url(props),
-      "listen_of" => Attributes.get_listened_url(props),
-      "in_reply_to" => Attributes.get_reply_to(props),
-      "repost_of" => Attributes.get_reposted_url(props),
-      "like_of" => Attributes.get_liked_url(props),
-      "bookmark_of" => Attributes.get_bookmarked_url(props),
-      "syndication_targets" => Attributes.get_syndication_targets(props)
-    }
-
-    Logger.info("Syndication Targets: #{Attributes.get_syndication_targets(props)}")
-
-    case Mirage.Notes.create_note_with_hooks(attrs) do
-      {:ok, note} ->
-        Logger.info("Note created!")
-        maybe_publish(note, should_publish?)
-
-        {:ok, note}
-
-      {:error, error} ->
-        Logger.error(error)
-        {:error, :internal_server_error}
-    end
-  end
-
-  def maybe_publish(note, true), do: Mirage.Notes.publish_note(note)
-  def maybe_publish(_note, false), do: nil
-
-  def get_title(props, _post_type) do
-    Attributes.get_title(props) || timestamp_as_string()
-  end
-
-  def get_content(props, post_type) do
-    case post_type do
-      :like ->
-        "❤️"
-
-      _ ->
-        Attributes.get_content(props)
-    end
-  end
-
-  def get_list(user, post_type) do
-    case post_type do
-      :like ->
-        user.like_list_id
-
-      :bookmark ->
-        user.bookmark_list_id
-
-      _ ->
-        user.microblog_list_id
-    end
-  end
-
   @impl true
   def handle_syndicate_to_query(access_token) do
     Logger.info("plug_micropub/handle_syndicate_to_query")
 
     case Token.verify(access_token, nil, hostname()) do
       :ok ->
-        {:ok,
-         %{
-           "syndicate-to" => convert_targets(@syndication_targets)
-         }}
+        Micropub.get_syndication_response()
 
       error ->
         Logger.error("Error in handle_syndicate_to_query: #{inspect(error)}")
-        {:error, :unhandled_error}
-    end
-  end
-
-  @impl true
-  def handle_channel_query(access_token) do
-    Logger.info("plug_micropub/handle_channel_query")
-
-    lists = Mirage.Lists.list_published_lists()
-
-    case Token.verify(access_token, nil, hostname()) do
-      :ok ->
-        {:ok,
-         %{
-           "channel" => convert_lists(lists)
-         }}
-
-      error ->
-        Logger.error("Error in handle_channel_query: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
@@ -137,13 +41,24 @@ defmodule Mirage.Indie.MicropubHandler do
 
     case Token.verify(access_token, nil, hostname()) do
       :ok ->
-        {:ok,
-         %{
-           "syndicate-to" => convert_targets(@syndication_targets)
-         }}
+        Micropub.get_syndication_response()
 
       error ->
         Logger.error("Error in handle_config_query: #{inspect(error)}")
+        {:error, :unhandled_error}
+    end
+  end
+
+  @impl true
+  def handle_channel_query(access_token) do
+    Logger.info("plug_micropub/handle_channel_query")
+
+    case Token.verify(access_token, nil, hostname()) do
+      :ok ->
+        Micropub.get_channel_response()
+
+      error ->
+        Logger.error("Error in handle_channel_query: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
@@ -178,23 +93,5 @@ defmodule Mirage.Indie.MicropubHandler do
     |> Routes.url()
     |> URI.parse()
     |> Map.get(:host)
-  end
-
-  defp timestamp_as_string() do
-    DateTime.utc_now()
-    |> DateTime.to_unix()
-    |> to_string()
-  end
-
-  defp convert_lists(lists) do
-    Enum.map(lists, fn list ->
-      %{uid: list, name: list}
-    end)
-  end
-
-  defp convert_targets(targets) do
-    Enum.map(targets, fn target ->
-      %{uid: target, name: target}
-    end)
   end
 end
