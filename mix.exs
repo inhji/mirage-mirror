@@ -64,7 +64,7 @@ defmodule Mirage.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.17.0"},
       {:plug_cowboy, "~> 2.5"},
-      {:plug_micropub, github: "inhji/plug_micropub"},
+      {:plug_micropub, github: "inhji/plug_micropub", branch: "add_channels_extension"},
       {:postgrex, ">= 0.0.0"},
       {:rsa_ex, "~> 0.4"},
       {:scrivener_ecto, "~> 2.7"},
@@ -78,7 +78,7 @@ defmodule Mirage.MixProject do
       {:tzdata, "~> 1.1"},
       {:waffle, "~> 1.1"},
       {:waffle_ecto, "~> 0.0.11"},
-      {:webmentions, "~> 2.0.0"}
+      {:webmentions, "~> 3.0.0"}
     ]
   end
 
