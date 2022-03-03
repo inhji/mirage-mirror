@@ -88,12 +88,12 @@ defmodule Mirage.Indie.Micropub do
   end
 
   def get_syndication_response() do
-    {:ok, %{"syndicate-to" => convert_targets(@syndication_targets)}}
+    convert_targets(@syndication_targets)
   end
 
   def get_channel_response() do
-    lists = Mirage.Lists.list_published_lists()
-    {:ok, %{"channel" => convert_lists(lists)}}
+    lists = Mirage.Lists.list_published_lists()    
+   	convert_lists(lists)
   end
 
   defp convert_lists(lists) do

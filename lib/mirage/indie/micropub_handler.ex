@@ -27,10 +27,24 @@ defmodule Mirage.Indie.MicropubHandler do
 
     case Token.verify(access_token, nil, hostname()) do
       :ok ->
-        Micropub.get_syndication_response()
+        {:ok, %{"syndicate-to" => Micropub.get_syndication_response()}}
 
       error ->
         Logger.error("Error in handle_syndicate_to_query: #{inspect(error)}")
+        {:error, :unhandled_error}
+    end
+  end
+
+  @impl true
+  def handle_channel_query(access_token) do
+    Logger.info("plug_micropub/handle_channel_query")
+
+    case Token.verify(access_token, nil, hostname()) do
+      :ok ->
+        {:ok, %{"channels" => Micropub.get_channel_response()}}
+
+      error ->
+        Logger.error("Error in handle_channel_query: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
@@ -43,22 +57,14 @@ defmodule Mirage.Indie.MicropubHandler do
       :ok ->
         Micropub.get_syndication_response()
 
+        {:ok,
+         %{
+           "syndicate-to" => Micropub.get_syndication_response(),
+           "channels" => Micropub.get_channel_response()
+         }}
+
       error ->
         Logger.error("Error in handle_config_query: #{inspect(error)}")
-        {:error, :unhandled_error}
-    end
-  end
-
-  @impl true
-  def handle_channel_query(access_token) do
-    Logger.info("plug_micropub/handle_channel_query")
-
-    case Token.verify(access_token, nil, hostname()) do
-      :ok ->
-        Micropub.get_channel_response()
-
-      error ->
-        Logger.error("Error in handle_channel_query: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
