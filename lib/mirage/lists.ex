@@ -28,6 +28,22 @@ defmodule Mirage.Lists do
   end
 
   @doc """
+  Returns the list of published lists.
+
+  ## Examples
+
+      iex> list_published_lists()
+      [%List{}, ...]
+
+  """
+  def list_published_lists do
+    List
+    |> where([l], is_nil(l.published_at) == false)
+    |> with_preloads()
+    |> Repo.all()
+  end
+
+  @doc """
   Gets a single list.
 
   Raises `Ecto.NoResultsError` if the List does not exist.
