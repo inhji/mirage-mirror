@@ -95,7 +95,7 @@ defmodule Mirage.Indie.MicropubHandler do
     end
   end
 
-  # @impl true
+  @impl true
   def handle_syndicate_to_query(access_token) do
     Logger.info("plug_micropub/handle_syndicate_to_query")
 
@@ -108,6 +108,25 @@ defmodule Mirage.Indie.MicropubHandler do
 
       error ->
         Logger.error("Error in handle_syndicate_to_query: #{inspect(error)}")
+        {:error, :unhandled_error}
+    end
+  end
+
+  @impl true
+  def handle_channel_query(access_token) do
+    Logger.info("plug_micropub/handle_channel_query")
+
+    lists = Mirage.Lists.list_published_lists()
+
+    case Token.verify(access_token, nil, hostname()) do
+      :ok ->
+        {:ok,
+         %{
+           "channel" => convert_lists(lists)
+         }}
+
+      error ->
+        Logger.error("Error in handle_channel_query: #{inspect(error)}")
         {:error, :unhandled_error}
     end
   end
@@ -141,7 +160,7 @@ defmodule Mirage.Indie.MicropubHandler do
 
   @impl true
   def handle_undelete(_url, _access_token) do
-    {:error, {:error, :insufficient_scope}}
+    {:error, :insufficient_scope}
   end
 
   @impl true
@@ -165,6 +184,12 @@ defmodule Mirage.Indie.MicropubHandler do
     DateTime.utc_now()
     |> DateTime.to_unix()
     |> to_string()
+  end
+
+  defp convert_lists(lists) do
+    Enum.map(lists, fn list ->
+      %{uid: list, name: list}
+    end)
   end
 
   defp convert_targets(targets) do
