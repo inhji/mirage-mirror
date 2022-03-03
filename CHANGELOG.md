@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.134.0](http://git.inhji.de/inhji/mirage.git/compare/v0.133.0...v0.134.0) (2022-03-03)
+
+
+
+
+### Features:
+
+* handle channel callback
+
+* Add list_published_lists
+
+### Bug Fixes:
+
+* Merge remote-tracking branch 'gh/master'
+
 ## [v0.133.0](http://git.inhji.de/inhji/mirage.git/compare/v0.132.0...v0.133.0) (2022-03-02)
 
 
