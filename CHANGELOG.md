@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.136.0](http://git.inhji.de/inhji/mirage.git/compare/v0.135.1...v0.136.0) (2022-03-04)
+
+
+
+
+### Features:
+
+* include tags in mastodon posts
+
 ## [v0.135.1](http://git.inhji.de/inhji/mirage.git/compare/v0.135.0...v0.135.1) (2022-03-03)
 
 
