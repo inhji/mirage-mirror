@@ -1,6 +1,6 @@
 <h1>Listing Notes images</h1>
 
-<table>
+<table class="tablesaw tablesaw-stack" data-tablesaw-mode="stack">
   <thead>
     <tr>
       <th>Image</th>
@@ -17,7 +17,7 @@
         <img src={image_link(note_image)}>
       </td>
       <td><%= note_image.title %></td>
-      <td><pre><%= image_markdown(note_image) %></pre></td>
+      <td><pre><%= image_markdown(note_image, :original) %></pre></td>
 
       <td class="actions">
         <span><%= link "Show", to: Routes.admin_note_image_path(@conn, :show, @note, note_image), class: "button" %></span>
