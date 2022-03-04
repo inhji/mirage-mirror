@@ -30,3 +30,4 @@
 </table>
 
 <span><%= link "New Note image", to: Routes.admin_note_image_path(@conn, :new, @note), class: "button" %></span>
+<span><%= link "Back to Note", to: Routes.note_path(@conn, :show, @note), class: "button" %></span>
