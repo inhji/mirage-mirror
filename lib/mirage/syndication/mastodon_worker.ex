@@ -48,7 +48,12 @@ defmodule Mirage.Syndication.MastodonWorker do
         do: "",
         else: "#{note.url}\n"
 
-    "#{external_url}#{content}\n(Originally posted at #{url})"
+    tags =
+      if Enum.empty?(note.tags),
+        do: "",
+        else: get_tags(note.tags) <> "\n"
+
+    "#{external_url}#{content}#{tags}\n(Originally posted at #{url})"
   end
 
   defp get_content(note) do
@@ -62,6 +67,12 @@ defmodule Mirage.Syndication.MastodonWorker do
       true ->
         note.excerpt_sanitized
     end
+  end
+
+  defp get_tags(tag_list) do
+    tag_list
+    |> Enum.map(fn tag -> "##{tag}" end)
+    |> Enum.join(" ")
   end
 
   defp ellipsize_content(content, max_length) do
