@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.137.0](http://git.inhji.de/inhji/mirage.git/compare/v0.136.0...v0.137.0) (2022-03-04)
+
+
+
+
+### Features:
+
+* add tablesaw to note image table
+
+* Add back to note button to note images
+
 ## [v0.136.0](http://git.inhji.de/inhji/mirage.git/compare/v0.135.1...v0.136.0) (2022-03-04)
 
 
