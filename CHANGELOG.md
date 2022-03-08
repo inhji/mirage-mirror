@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.137.1](http://git.inhji.de/inhji/mirage.git/compare/v0.137.0...v0.137.1) (2022-03-08)
+
+
+
+
+### Bug Fixes:
+
+* hashtag generation in mastodon worker
+
 ## [v0.137.0](http://git.inhji.de/inhji/mirage.git/compare/v0.136.0...v0.137.0) (2022-03-04)
 
 
