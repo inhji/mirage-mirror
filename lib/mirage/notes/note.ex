@@ -95,7 +95,7 @@ defmodule Mirage.Notes.Note do
     |> copy_url()
   end
 
-  def copy_url(changeset) do
+  defp copy_url(changeset) do
     url_fields = [
       :like_of,
       :bookmark_of,
@@ -119,5 +119,9 @@ defmodule Mirage.Notes.Note do
           {:halt, changeset}
       end
     end)
+  end
+
+  def has_datetitle?(%__MODULE__{title: title}) do
+    Regex.match?(~r/^\d+$/, title)
   end
 end
