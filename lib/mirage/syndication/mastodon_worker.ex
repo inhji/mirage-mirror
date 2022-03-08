@@ -35,7 +35,7 @@ defmodule Mirage.Syndication.MastodonWorker do
   end
 
   defp get_text(note, _type) do
-    max_length = 400
+    max_length = 300
     url = Routes.note_url(MirageWeb.Endpoint, :show, note)
 
     content =
@@ -48,12 +48,17 @@ defmodule Mirage.Syndication.MastodonWorker do
         do: "",
         else: "#{note.url}\n"
 
+    title =
+      if Mirage.Notes.Note.has_datetitle?(note),
+        do: "",
+        else: note.title
+
     tags =
       if Enum.empty?(note.tags),
         do: "",
         else: get_tags(note.tags) <> "\n"
 
-    "#{external_url}#{content}#{tags}\n(Originally posted at #{url})"
+    "#{external_url}\n#{title}\n#{content}#{tags}\n(#{url})"
   end
 
   defp get_content(note) do
