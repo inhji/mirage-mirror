@@ -71,7 +71,7 @@ defmodule Mirage.Syndication.MastodonWorker do
 
   defp get_tags(tag_list) do
     tag_list
-    |> Enum.map(fn tag -> "##{tag}" end)
+    |> Enum.map(fn tag -> "##{tag.title}" end)
     |> Enum.join(" ")
   end
 
