@@ -21,6 +21,7 @@ defmodule Mirage.Tags.Tag do
 
     many_to_many :notes, Mirage.Notes.Note, join_through: "notes_tags"
     many_to_many :notes_unpublished, Mirage.Notes.Note, join_through: "notes_tags"
+    many_to_many :notes_published, Mirage.Notes.Note, join_through: "notes_tags"
 
     timestamps()
   end

@@ -10,6 +10,7 @@ defmodule Mirage.Tags do
 
   @preloads [
     notes: Mirage.Notes.preload_query(),
+    notes_published: Mirage.Notes.preload_query(:published),
     notes_unpublished: Mirage.Notes.preload_query(:unpublished)
   ]
   defp with_preloads(query), do: preload(query, ^@preloads)

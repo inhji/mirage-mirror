@@ -31,11 +31,15 @@ defmodule Mirage.Notes do
   Defines the query other entities should preload notes with
   """
   def preload_query() do
+    from(n in Mirage.Notes.Note)
+  end
+
+  def preload_query(:published) do
     from(n in Mirage.Notes.Note, where: not is_nil(n.published_at))
   end
 
   def preload_query(:unpublished) do
-    from n in Mirage.Notes.Note, where: is_nil(n.published_at)
+    from(n in Mirage.Notes.Note, where: is_nil(n.published_at))
   end
 
   @doc """
@@ -107,10 +111,11 @@ defmodule Mirage.Notes do
   """
   def search_notes(query_string) do
     q =
-      from n in Note,
+      from(n in Note,
         where: contains(n.content, ^query_string),
         or_where: contains(n.title, ^query_string),
         preload: ^@preloads
+      )
 
     Repo.all(q)
   end
