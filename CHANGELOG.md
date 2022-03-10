@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.139.0](http://git.inhji.de/inhji/mirage.git/compare/v0.138.0...v0.139.0) (2022-03-10)
+
+
+
+
+### Features:
+
+* Add notes_published preload
+
+* remove autosize
+
+### Bug Fixes:
+
+* table styles for tables with tablesaw
+
+* update favicon
+
 ## [v0.138.0](http://git.inhji.de/inhji/mirage.git/compare/v0.137.1...v0.138.0) (2022-03-08)
 
 
