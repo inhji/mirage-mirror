@@ -39,7 +39,7 @@
 
       <fieldset>
         <%= label f, :bio %>
-        <%= textarea f, :bio %>
+        <%= textarea f, :bio, rows: 7 %>
         <%= error_tag f, :bio %>
       </fieldset>
 
@@ -51,7 +51,7 @@
 
       <fieldset>
         <%= label f, :motd, "MOTD, seperated by newline" %>
-        <%= textarea f, :motd %>
+        <%= textarea f, :motd, rows: 5 %>
         <%= error_tag f, :motd %>
       </fieldset>
 
