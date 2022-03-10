@@ -73,6 +73,13 @@ table {
 		background: var(--background-dark);
 	}
 
+	& tbody {
+		& tr {
+			// This overrides some of tablesaws default styles..
+			border-bottom: 2px solid var(--background-dark) !important;
+		}
+	}
+
 	& th, & td {
 		text-align: left;
 		padding: var(--spacing-3);
