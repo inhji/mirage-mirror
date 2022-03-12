@@ -65,7 +65,15 @@ defmodule Mirage.Notes.Note do
     has_many :syndications, Mirage.Notes.NoteSyndication
     has_many :images, Mirage.Notes.NoteImage
 
-    many_to_many :tags, Mirage.Tags.Tag, join_through: "notes_tags"
+    many_to_many :tags, Mirage.Tags.Tag, join_through: Mirage.Notes.NoteTag
+
+    many_to_many :links_from, Mirage.Notes.Note,
+      join_through: Mirage.Notes.NoteNote,
+      join_keys: [source_id: :id, target_id: :id]
+
+    many_to_many :links_to, Mirage.Notes.Note,
+      join_through: Mirage.Notes.NoteNote,
+      join_keys: [source_id: :id, target_id: :id]
 
     # Trigger field for the `syndicate_to` hook.
     field :syndication_targets, {:array, :string},
