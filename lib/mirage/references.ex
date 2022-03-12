@@ -55,8 +55,12 @@ defmodule Mirage.References do
   end
 
   defp map_to_tuple([placeholder, type, note_slug]),
-    do: {placeholder, type, note_slug, note_slug}
+    do: {placeholder, get_reference_type(type), note_slug, note_slug}
 
   defp map_to_tuple([placeholder, type, note_slug, title]),
-    do: {placeholder, type, note_slug, title}
+    do: {placeholder, get_reference_type(type), note_slug, title}
+
+  defp get_reference_type(nil), do: "note"
+  defp get_reference_type(""), do: "note"
+  defp get_reference_type(type), do: type
 end

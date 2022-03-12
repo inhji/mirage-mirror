@@ -14,10 +14,10 @@ defmodule Mirage.ReferencesTest do
 
   describe "get_references" do
     test "get_references/1 finds references" do
-      assert [{"[[test]]", "", "test", "test"}] ==
+      assert [{"[[test]]", "note", "test", "test"}] ==
                get_references("this is a [[test]]")
 
-      assert [{"[[test|Some Title]]", "", "test", "Some Title"}] ==
+      assert [{"[[test|Some Title]]", "note", "test", "Some Title"}] ==
                get_references("this is a [[test|Some Title]]")
 
       assert [{"[[tag:test]]", "tag", "test", "test"}] ==
@@ -32,21 +32,24 @@ defmodule Mirage.ReferencesTest do
 
     test "get_references/1 finds self references" do
       str = "this is a link to [[some-note]]"
-      result = [{"[[some-note]]", "", "some-note", "some-note"}]
+      result = [{"[[some-note]]", "note", "some-note", "some-note"}]
 
       assert result == get_references(str)
     end
 
     test "get_references/1 finds self references with title" do
       str = "this is a link to [[some-note|Some Note]]"
-      result = [{"[[some-note|Some Note]]", "", "some-note", "Some Note"}]
+      result = [{"[[some-note|Some Note]]", "note", "some-note", "Some Note"}]
 
       assert result == get_references(str)
     end
 
     test "get_references/1 finds references to other notes" do
       str = "this is a link to [[some-other-note|Some other note]]"
-      result = [{"[[some-other-note|Some other note]]", "", "some-other-note", "Some other note"}]
+
+      result = [
+        {"[[some-other-note|Some other note]]", "note", "some-other-note", "Some other note"}
+      ]
 
       assert result == get_references(str)
     end
