@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.141.0](http://git.inhji.de/inhji/mirage.git/compare/v0.140.0...v0.141.0) (2022-03-13)
+
+
+
+
+### Features:
+
+* show links for logged in user below the note
+
+* first pass of note_note references
+
+* prepare for note note links
+
+* add note as the default reference type
+
 ## [v0.140.0](http://git.inhji.de/inhji/mirage.git/compare/v0.139.0...v0.140.0) (2022-03-10)
 
 
