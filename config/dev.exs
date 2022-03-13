@@ -45,7 +45,9 @@ config :mirage, MirageWeb.Endpoint,
 
 config :git_ops,
   mix_project: Mix.Project.get!(),
+  # This is the file where your changelog will be created and updated
   changelog_file: "CHANGELOG.md",
+  # This url will be used as a base url for the links in your changelog file
   repository_url: "http://git.inhji.de/inhji/mirage.git",
   types: [],
   # Instructs the tool to manage your mix version in your `mix.exs` file
