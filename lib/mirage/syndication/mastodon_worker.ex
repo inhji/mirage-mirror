@@ -75,9 +75,7 @@ defmodule Mirage.Syndication.MastodonWorker do
   end
 
   defp get_tags(tag_list) do
-    tag_list
-    |> Enum.map(fn tag -> "##{tag.title}" end)
-    |> Enum.join(" ")
+    Enum.map_join(tag_list, fn tag -> "##{tag.title}" end, " ")
   end
 
   defp ellipsize_content(content, max_length) do

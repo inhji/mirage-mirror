@@ -128,7 +128,6 @@ defmodule Mirage.Mastodon do
         {:error, %{error: error, message: message}}
 
       {:error, error} ->
-        IO.inspect(error)
         {:error, %{error: 500, message: error}}
     end
   end

@@ -1,6 +1,6 @@
 defmodule Mirage.Indie.Micropub do
-	alias Mirage.Indie.{Attributes}
-	require Logger
+  alias Mirage.Indie.{Attributes}
+  require Logger
 
   @syndication_targets Application.compile_env!(:mirage, [:indie, :supported_targets])
 
@@ -10,7 +10,7 @@ defmodule Mirage.Indie.Micropub do
     user = Mirage.Accounts.get_user()
     title = get_title(props, post_type)
     content = get_content(props, post_type)
-	  list_id = get_list(props, user, post_type)
+    list_id = get_list(props, user, post_type)
     tags = Attributes.get_tags(props) |> Enum.join(",")
     should_publish? = Attributes.is_published?(props)
 
@@ -66,25 +66,23 @@ defmodule Mirage.Indie.Micropub do
   end
 
   def get_list(props, user, post_type) do
-  	# channel is a list_id
-  	channel = Attributes.get_channel(props)
+    # channel is a list_id
+    channel = Attributes.get_channel(props)
 
-  	if is_nil(channel) do
-  		case post_type do
-  		  :like ->
-  		    user.like_list_id
+    if is_nil(channel) do
+      case post_type do
+        :like ->
+          user.like_list_id
 
-  		  :bookmark ->
-  		    user.bookmark_list_id
+        :bookmark ->
+          user.bookmark_list_id
 
-  		  _ ->
-  		    user.microblog_list_id
-  		end
-
-  	else
-  		channel
-
-  	end  
+        _ ->
+          user.microblog_list_id
+      end
+    else
+      channel
+    end
   end
 
   def get_syndication_response() do
@@ -92,8 +90,8 @@ defmodule Mirage.Indie.Micropub do
   end
 
   def get_channel_response() do
-    lists = Mirage.Lists.list_published_lists()    
-   	convert_lists(lists)
+    lists = Mirage.Lists.list_published_lists()
+    convert_lists(lists)
   end
 
   defp convert_lists(lists) do

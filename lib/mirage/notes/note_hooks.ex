@@ -79,29 +79,29 @@ defmodule Mirage.Notes.NoteHooks do
     if has_key and has_entries do
       Logger.info("New syndication targets: '#{attrs[@targets_key]}'")
 
-      Enum.map(attrs[@targets_key], fn target ->
-        case Mirage.NoteSyndications.get_syndication(note, target) do
-          nil ->
-            Logger.info("Creating new syndication for target '#{target}'")
-
-            {:ok, syndication} =
-              Mirage.NoteSyndications.create_syndication(%{
-                note_id: note.id,
-                type: String.to_existing_atom(target)
-              })
-
-            Logger.info("Syndication for '#{target}' created!")
-
-            syndication
-
-          syndication ->
-            Logger.info("Syndication for '#{target}' already exists.")
-
-            syndication
-        end
+      Enum.each(attrs[@targets_key], fn target ->
+        do_create_syndication(note, target)
       end)
 
       {:ok, note}
+    end
+  end
+
+  def do_create_syndication(note, target) do
+    case Mirage.NoteSyndications.get_syndication(note, target) do
+      nil ->
+        Logger.info("Creating new syndication for target '#{target}'")
+
+        {:ok, _syndication} =
+          Mirage.NoteSyndications.create_syndication(%{
+            note_id: note.id,
+            type: String.to_existing_atom(target)
+          })
+
+        Logger.info("Syndication for '#{target}' created!")
+
+      _syndication ->
+        Logger.info("Syndication for '#{target}' already exists.")
     end
   end
 

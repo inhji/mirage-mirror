@@ -30,7 +30,6 @@ defmodule Mirage.Notes.NoteUploader do
 
   # Override the persisted filenames:
   def filename(version, {_file, scope}) do
-    IO.inspect(scope)
     slug = Slugger.slugify_downcase(scope.title)
     "#{slug}/#{version}"
   end
