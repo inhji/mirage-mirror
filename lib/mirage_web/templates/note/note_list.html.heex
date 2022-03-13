@@ -1,0 +1,8 @@
+<section class="card-list">
+<%= for note <- @notes do %>
+	<a href={Routes.note_path(@conn, :show, note)}>
+		<strong><%= note.title %></strong>
+		<p><%= datetime_from_now(note.published_at) || "(Unpublished)" %></p>
+	</a>
+<% end %>
+</section>

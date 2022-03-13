@@ -1,15 +1,21 @@
-<section>
-	<h1>Listed in “<%= @list.title %>”</h1>
+<header>
+  <h1>Listed in <%= @list.title %></h1>
+</header>
 
-	<div class="content html">
-	  <%= raw @list.content_html %>
-	</div>
+<div class="content html">
+  <%= raw Mirage.Markdown.render(@list.content) %>
+</div>
 
-	<h2><%= Enum.count(@list.notes) %> Note(s)</h2>
+<h2>Notes</h2>
 
-	<ul>
-		<%= for note <- @list.notes do %>
-		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) || "(unpublished)" %></li>
-		<% end %>
-	</ul>
+<%= render MirageWeb.NoteView, "note_list.html", Map.put(assigns, :notes, @list.notes) %>
+
+<section class="mt-6">
+  <span><%= link "Edit", to: Routes.admin_list_path(@conn, :edit, @list), class: "button" %></span>
+  <%= if is_nil(@list.published_at) do %>
+  <span><%= link "Publish", to: Routes.admin_list_path(@conn, :publish, @list), class: "button" %></span>
+  <% else %>
+  <span><%= link "Unpublish", to: Routes.admin_list_path(@conn, :unpublish, @list), class: "button" %></span>
+  <% end %>
+  <span><%= link "Back", to: Routes.admin_list_path(@conn, :index), class: "button" %></span>
 </section>

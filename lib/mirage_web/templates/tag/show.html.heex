@@ -6,20 +6,10 @@
 	</div>
 
 	<h2><%= Enum.count(@tag.notes) %> Note(s)</h2>
-
-	<ul>
-		<%= for note <- @tag.notes do %>
-		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %> <%= datetime_from_now(note.published_at) %></li>
-		<% end %>
-	</ul>
+	<%= render MirageWeb.NoteView, "note_list.html", Map.put(assigns, :notes, @tag.notes) %>
 
 	<%= if has_unpublished_notes?(@conn, @tag) do %>
 	<h3>Unpublished</h3>
-
-	<ul>
-		<%= for note <- @tag.notes_unpublished do %>
-		<li><%= link note_title(note), to: Routes.note_path(@conn, :show, note) %></li>
-		<% end %>
-	</ul>
+	<%= render MirageWeb.NoteView, "note_list.html", Map.put(assigns, :notes, @tag.notes_unpublished) %>
 	<% end %>
 </section>

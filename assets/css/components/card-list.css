@@ -1,0 +1,25 @@
+.card-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-3);
+
+	& > a {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		background: var(--background-dark);
+		padding: var(--spacing-3);
+		text-decoration: none;
+		color: var(--color-text);
+		border-radius: var(--border-radius);
+		border: 1px solid var(--primary-200);
+
+		&:hover {
+			background: var(--primary-100);
+		}
+
+		& p {
+			color: var(--color-text-muted);
+		}
+	}
+}

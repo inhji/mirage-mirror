@@ -33,6 +33,7 @@
 @import "components/article";
 @import "components/author-card";
 @import "components/button";
+@import "components/card-list";
 @import "components/divider";
 @import "components/grow-wrap";
 @import "components/list-filter";
