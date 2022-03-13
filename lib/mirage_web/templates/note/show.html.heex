@@ -6,4 +6,8 @@
   <article class="note | h-entry">
     <%= render "note.html", assigns %>
   </article>
+
+  <%= if @current_user do %>
+    <%= render "_note_links.html", assigns %>
+  <% end %>
 </section>

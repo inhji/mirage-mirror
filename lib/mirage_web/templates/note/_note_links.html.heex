@@ -1,0 +1,23 @@
+<aside>
+	<%= if not Enum.empty?(@note.links_from) do %>
+	<details>
+		<summary>Links from this note (<%= Enum.count(@note.links_from) %>)</summary>
+		<ul>
+		<%= for link <- @note.links_from do %>
+			<li><%= link link.title, to: Routes.note_path(@conn, :show, link) %></li>
+		<% end %>
+		</ul>
+	</details>
+	<% end %>
+
+	<%= if not Enum.empty?(@note.links_to) do %>
+	<details>
+		<summary>Links to this note (<%= Enum.count(@note.links_to) %>)</summary>
+		<ul>
+		<%= for link <- @note.links_to do %>
+			<li><%= link link.title, to: Routes.note_path(@conn, :show, link) %></li>
+		<% end %>
+		</ul>
+	</details>
+	<% end %>
+</aside>
