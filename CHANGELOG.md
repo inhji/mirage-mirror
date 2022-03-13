@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.142.0](http://git.inhji.de/inhji/mirage.git/compare/v0.141.1...v0.142.0) (2022-03-13)
+
+
+
+
+### Features:
+
+* add card-list component for tags, lists, etc
+
+* add public search
+
 ## [v0.141.1](http://git.inhji.de/inhji/mirage.git/compare/v0.141.0...v0.141.1) (2022-03-13)
 
 
