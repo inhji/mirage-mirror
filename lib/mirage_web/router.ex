@@ -44,6 +44,8 @@ defmodule MirageWeb.Router do
     get "/notes", NoteController, :index
     get "/notes/:id/microformats", NoteController, :microformats
     get "/notes/:id", NoteController, :show
+
+    get "/search", SearchController, :index
   end
 
   scope path: "/pub", as: :activity_pub, alias: MirageWeb.ActivityPub do

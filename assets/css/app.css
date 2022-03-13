@@ -45,6 +45,7 @@
 @import "pages/page-index";
 @import "pages/page-follow";
 @import "pages/page-note";
+@import "pages/page-search";
 
 @import "vendor/cascadia";
 @import "vendor/inter";

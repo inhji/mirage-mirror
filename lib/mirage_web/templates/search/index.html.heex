@@ -1,0 +1,6 @@
+<section id="page-search">
+	<h1>search for <%= @query %></h1>
+
+	<% sorted_notes = Enum.sort_by(@notes, fn n -> n.updated_at end, :desc) %>
+	<%= render MirageWeb.NoteView, "note_list.html", Map.put(assigns, :notes, sorted_notes) %>
+</section>
