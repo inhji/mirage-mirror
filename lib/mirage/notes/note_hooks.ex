@@ -56,11 +56,13 @@ defmodule Mirage.Notes.NoteHooks do
     Logger.info("Existing links to: #{Enum.count(note.links_to)}")
 
     references_to_add = new_reference_slugs -- old_reference_slugs
-    Logger.info("Adding #{Enum.count(references_to_add)} references")
+    Logger.info("Adding #{Enum.count(references_to_add)} references:")
+    Logger.info(inspect(references_to_add))
     NoteLinkUpdater.add_note_links(note, references_to_add)
 
     references_to_remove = old_reference_slugs -- new_reference_slugs
     Logger.info("Removing #{Enum.count(references_to_remove)} references")
+    Logger.info(inspect(references_to_remove))
     NoteLinkUpdater.remove_note_links(note, references_to_remove)
 
     {:ok, note}

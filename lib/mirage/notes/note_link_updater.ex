@@ -3,9 +3,10 @@ defmodule Mirage.Notes.NoteLinkUpdater do
 
   def add_note_links(origin_note, slugs) do
     Enum.each(slugs, fn slug ->
-      note_note = get_note_note(origin_note, slug)
+      linked_note = Mirage.Notes.get_note!(slug)
+      attrs = get_attrs(origin_note.id, linked_note.id)
 
-      case note_note do
+      case Mirage.NoteNotes.create_note_note(attrs) do
         {:ok, _note_note} ->
           Logger.info("Reference to '#{slug}' created")
 
@@ -17,7 +18,9 @@ defmodule Mirage.Notes.NoteLinkUpdater do
 
   def remove_note_links(origin_note, slugs) do
     Enum.each(slugs, fn slug ->
-      note_note = get_note_note(origin_note, slug)
+      linked_note = Mirage.Notes.get_note!(slug)
+      attrs = get_attrs(origin_note.id, linked_note.id)
+      note_note = Mirage.NoteNotes.get_note_note(attrs)
 
       case Mirage.NoteNotes.delete_note_note(note_note) do
         {:ok, _note_note} ->
@@ -27,12 +30,6 @@ defmodule Mirage.Notes.NoteLinkUpdater do
           Logger.warn(error)
       end
     end)
-  end
-
-  defp get_note_note(origin_note, slug) do
-    linked_note = Mirage.Notes.get_note!(slug)
-    attrs = get_attrs(origin_note.id, linked_note.id)
-    Mirage.NoteNotes.get_note_note(attrs)
   end
 
   defp get_attrs(origin_id, linked_id) do
