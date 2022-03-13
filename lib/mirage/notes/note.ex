@@ -69,11 +69,13 @@ defmodule Mirage.Notes.Note do
 
     many_to_many :links_from, Mirage.Notes.Note,
       join_through: Mirage.Notes.NoteNote,
-      join_keys: [source_id: :id, target_id: :id]
+      join_keys: [source_id: :id, target_id: :id],
+      unique: true
 
     many_to_many :links_to, Mirage.Notes.Note,
       join_through: Mirage.Notes.NoteNote,
-      join_keys: [source_id: :id, target_id: :id]
+      join_keys: [target_id: :id, source_id: :id],
+      unique: true
 
     # Trigger field for the `syndicate_to` hook.
     field :syndication_targets, {:array, :string},

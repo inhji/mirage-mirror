@@ -14,11 +14,13 @@ defmodule Mirage.Notes.NoteHooks do
 
   require Logger
   alias Mirage.{Notes, Hooks}
+  alias Mirage.Notes.NoteLinkUpdater
 
   @targets_key "syndication_targets"
 
   def run_update_hooks(note, attrs) do
     update_hooks = [
+      &update_references/2,
       &update_tags/2,
       &create_syndications/2
     ]
@@ -44,6 +46,24 @@ defmodule Mirage.Notes.NoteHooks do
      note
      |> Notes.preload_note()
      |> Mirage.Tags.TagUpdater.update_tags(attrs)}
+  end
+
+  def update_references(note, attrs) do
+    new_reference_slugs = Mirage.References.get_reference_ids(attrs["content"])
+    old_reference_slugs = Enum.map(note.links_from, fn n -> n.slug end)
+
+    Logger.info("Existing links from: #{Enum.count(note.links_from)}")
+    Logger.info("Existing links to: #{Enum.count(note.links_to)}")
+
+    references_to_add = new_reference_slugs -- old_reference_slugs
+    Logger.info("Adding #{Enum.count(references_to_add)} references")
+    NoteLinkUpdater.add_note_links(note, references_to_add)
+
+    references_to_remove = old_reference_slugs -- new_reference_slugs
+    Logger.info("Removing #{Enum.count(references_to_remove)} references")
+    NoteLinkUpdater.remove_note_links(note, references_to_remove)
+
+    {:ok, note}
   end
 
   def create_syndications(note, attrs) do

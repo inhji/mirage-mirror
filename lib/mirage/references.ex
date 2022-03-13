@@ -23,6 +23,13 @@ defmodule Mirage.References do
     |> Enum.map(&map_to_tuple/1)
   end
 
+  def get_reference_ids(string, filter_type \\ "note") do
+    string
+    |> get_references()
+    |> Enum.filter(fn {_, type, _, _} = _ref -> type == filter_type end)
+    |> Enum.map(fn {_, _, note_slug, _} = _ref -> note_slug end)
+  end
+
   @doc """
   Finds and replaces references with the matching url
   """

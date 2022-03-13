@@ -4,7 +4,14 @@ defmodule Mirage.ReferencesTest do
   alias Mirage.Notes
   alias Mirage.Notes.Note
   import Mirage.NotesFixtures
-  import Mirage.References, only: [get_references: 1, replace_references: 1]
+
+  import Mirage.References,
+    only: [
+      get_references: 1,
+      replace_references: 1,
+      get_reference_ids: 1,
+      get_reference_ids: 2
+    ]
 
   setup do
     note1 = note_fixture(title: "some note")
@@ -105,6 +112,13 @@ defmodule Mirage.ReferencesTest do
 
       assert "this is a link to [Another title](/listed-in/some-list)" ==
                replace_references(note1.content)
+    end
+  end
+
+  describe "get_reference_ids" do
+    test "get_reference_ids/1" do
+      ids = get_reference_ids("this is a [[test]]")
+      assert ids == ["test"]
     end
   end
 end

@@ -15,7 +15,7 @@ defmodule Mirage.Notes.NoteNote do
   @doc false
   def changeset(note_note, attrs) do
     note_note
-    |> cast(attrs, [:source, :target])
-    |> validate_required([:source, :target])
+    |> cast(attrs, [:source_id, :target_id])
+    |> validate_required([:source_id, :target_id])
   end
 end
