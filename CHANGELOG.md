@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.142.1](http://git.inhji.de/inhji/mirage.git/compare/v0.142.0...v0.142.1) (2022-03-13)
+
+
+
+
+### Bug Fixes:
+
+* improve flex grow and shrink props for card-list
+
 ## [v0.142.0](http://git.inhji.de/inhji/mirage.git/compare/v0.141.1...v0.142.0) (2022-03-13)
 
 
