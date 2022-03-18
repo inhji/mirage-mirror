@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.142.2](http://git.inhji.de/inhji/mirage.git/compare/v0.142.1...v0.142.2) (2022-03-18)
+
+
+
+
+### Bug Fixes:
+
+* update earmark and ex_doc
+
 ## [v0.142.1](http://git.inhji.de/inhji/mirage.git/compare/v0.142.0...v0.142.1) (2022-03-13)
 
 
