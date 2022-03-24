@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.143.0](http://git.inhji.de/inhji/mirage.git/compare/v0.142.2...v0.143.0) (2022-03-24)
+
+
+
+
+### Features:
+
+* use env vars in deploy script
+
+* add UPLOAD_DIR env var
+
 ## [v0.142.2](http://git.inhji.de/inhji/mirage.git/compare/v0.142.1...v0.142.2) (2022-03-18)
 
 
