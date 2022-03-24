@@ -40,6 +40,13 @@ if config_env() == :prod do
       It should look like: /opt/mirage_data
       """
 
+  upload_dir =
+    System.get_env("UPLOAD_DIR") ||
+      raise """
+      environment variable UPLOAD_DIR is missing.
+      It should look like: /var/www/mirage/files
+      """
+
   instance_host =
     System.get_env("MASTODON_HOST") ||
       raise """
@@ -89,7 +96,7 @@ if config_env() == :prod do
     client_secret: client_secret
 
   config :waffle,
-    storage_dir_prefix: Path.join([data_dir, "uploads"])
+    storage_dir_prefix: upload_dir
 
   # ## Using releases
   #
