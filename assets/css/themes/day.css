@@ -13,6 +13,11 @@
 	--primary-800: hsl(0, 50%, 20%);
 	--primary-900: hsl(0, 50%, 10%);
 
+	--color-border: var(--primary-200);
+
+	--color-alert-bg: var(--primary-100);
+	--color-footer-bg: var(--background-dark);
+
 	--color-heading: var(--primary-700);
 	--color-text: var(--primary-900);
 	--color-text-muted: var(--primary-700);

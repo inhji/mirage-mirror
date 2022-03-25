@@ -13,7 +13,15 @@
 	--gray-1: white;
 	--white: white;
 
+	--background: var(--white);
+	--background-dark: var(--gray-2);
+
 	--primary: var(--blue);
+
+	--color-border: var(--gray-3);
+
+	--color-alert-bg: var(--gray-2);
+	--color-footer-bg: var(--gray-2);
 
 	--color-heading: var(--gray-7);
 	--color-text: var(--gray-9);

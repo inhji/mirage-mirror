@@ -12,7 +12,7 @@
 		text-decoration: none;
 		color: var(--color-text);
 		border-radius: var(--border-radius);
-		border: 1px solid var(--primary-200);
+		border: var(--border);
 
 		&:hover {
 			background: var(--primary-100);

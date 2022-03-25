@@ -1,6 +1,6 @@
 #footer {
-	border-top: 2px solid var(--secondary);
-	background: var(--background-dark);
+	border-top: 2px solid var(--color-border);
+	background: var(--color-footer-bg);
 	margin: var(--spacing-12) calc(var(--spacing-3) * -1) 0;	
 	padding: 0 var(--spacing-3);
 

@@ -11,15 +11,15 @@ table {
 	& tbody {
 		& tr {
 			/* This overrides some of tablesaws default styles.. */
-			border-bottom: 2px solid var(--background-dark) !important;
+			border-bottom: 2px solid var(--color-border) !important;
 		}
 	}
 
 	& th, & td {
 		text-align: left;
 		padding: var(--spacing-3);
-		border-bottom: 1px solid var(--background-darker);
-		border-top: 1px solid var(--background-darker);	
+		border-bottom: 1px solid var(--color-border);
+		border-top: 1px solid var(--color-border);	
 	}
 
 	& td.actions {

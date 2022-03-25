@@ -24,6 +24,8 @@
 	--spacing-32: 8rem;
 	--spacing-36: 9rem;
 
+	--color-border: var(--gray-3);
+	--border: 1px solid var(--color-border);
 	--border-radius-lg: var(--spacing-3);
 	--border-radius: var(--spacing-2);
 	--border-radius-sm: var(--spacing-1);

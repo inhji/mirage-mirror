@@ -15,6 +15,6 @@ article.article {
 
 	img {
 		border-radius: var(--border-radius-sm);
-		border: 1px solid var(--primary-200);
+		border: var(--border);
 	}
 }

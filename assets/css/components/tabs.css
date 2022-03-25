@@ -31,7 +31,7 @@
 			left: 1px;
 			text-decoration: none;
 
-			border: 1px solid var(--primary-200);
+			border: var(--border);
 
 			&:hover {
 				/* color: var(--primary-50); */
@@ -53,7 +53,7 @@
 		top: -1px; 
 		left: 0; 
 		width: 100%;
-		border: 1px solid var(--primary-200);
+		border: var(--border);
 
 		&:not(:target) {
 			display: none;

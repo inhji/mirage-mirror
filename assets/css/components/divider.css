@@ -1,10 +1,10 @@
 hr.divider {
 	color: transparent;
-	border-top: 1px solid var(--primary-200);
+	border-top: var(--border);
 	height: 1px;
 
 	&:after {
-		color: var(--primary-500);
+		color: var(--color-border);
 
 		content: "⁙";
 		display: inline-block;
