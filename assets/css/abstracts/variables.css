@@ -30,7 +30,7 @@
 
 	--font-base: 'Inter', sans-serif;
 	--font-base-var: 'Inter var', sans-serif;
-	--font-base-features: 'calt', 'ss01', 'ss02', 'case', 'frac';
+	--font-base-features: 'calt', 'ss01', 'zero', 'case', 'frac';
 
 	--font-heading: var(--font-base-var);
 	--font-code: 'Cascadia Code', monospace;

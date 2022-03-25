@@ -1,4 +1,5 @@
 .tag {
+	color: var(--color-tag-text);
 	background: var(--color-tag-bg);
 	padding: var(--spacing-1);
 	border-radius: var(--border-radius-sm);
@@ -7,11 +8,12 @@
 	white-space: nowrap;
 
 	&:hover {
-		background: var(--primary-200);
+		background: var(--color-tag-bg-hover);
 	}
 
 	& a {
 		text-decoration: none;
+		color: var(--color-tag-text);
 	}
 }
 

@@ -17,6 +17,14 @@
 	& .theme-selector {
 		float: right;
 
+		& a[data-theme=default] {
+			color: #0d6efd;
+		}
+
+		& a[data-theme=blood] {
+			color: #d34;
+		}
+
 		& a[data-theme=night] {
 			color: hsl(220, 20%, 50%);
 		}

@@ -12,4 +12,22 @@
 	--primary-700: hsl(220, 20%, 70%);
 	--primary-800: hsl(220, 20%, 80%);
 	--primary-900: hsl(220, 20%, 90%);
+
+	--color-heading: var(--primary-700);
+	--color-text: var(--primary-900);
+	--color-text-muted: var(--primary-700);
+	--color-link: var(--primary-600);
+
+	--color-nav-bg: var(--background-dark);
+	--color-nav-link: var(--primary-500);
+
+	--color-tag-bg: var(--primary-100);
+	--color-tag-bg-hover: var(--primary-200);
+	--color-tag-text: var(--primary-500);
+
+	--color-pagination-bg: var(--primary-100);
+	--color-pagination-bg-hover: var(--primary-200);
+
+	--color-button-bg: var(--primary-100);
+	--color-button-bg-hover: var(--primary-200);
 }

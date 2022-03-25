@@ -1,18 +1,5 @@
 :root {
-	--background: hsl(23.5, 100%, 96%);
-	--background-dark: hsl(23.5, 100%, 93%);
-
-	--primary-50: hsl(0, 50%, 95%);
-	--primary-100: hsl(0, 50%, 90%);
-	--primary-200: hsl(0, 50%, 80%);
-	--primary-300: hsl(0, 50%, 70%);
-	--primary-400: hsl(0, 50%, 60%);
-	--primary-500: hsl(0, 50%, 50%);
-	--primary-600: hsl(0, 50%, 40%);
-	--primary-700: hsl(0, 50%, 30%);
-	--primary-800: hsl(0, 50%, 20%);
-	--primary-900: hsl(0, 50%, 10%);
-
+	--blue: #0d6efd;
 	--black: #120926;
 	--gray-10: #383048;
 	--gray-9: #4b445a;
@@ -26,20 +13,24 @@
 	--gray-1: white;
 	--white: white;
 
-	--color-heading: var(--primary-700);
-	--color-text: var(--primary-900);
-	--color-text-muted: var(--primary-700);
-	--color-link: var(--primary-600);
+	--primary: var(--blue);
 
-	--color-nav-bg: var(--background-dark);
-	--color-nav-link: var(--primary-500);
+	--color-heading: var(--gray-7);
+	--color-text: var(--gray-9);
+	--color-text-muted: var(--gray-7);
+	--color-link: var(--primary);
 
-	--color-tag-bg: var(--primary-100);
+	--color-tag-bg: var(--gray-2);
+	--color-tag-bg-hover: var(--gray-5);
+	--color-tag-text: var(--gray-8);
 
-	--color-pagination-bg: var(--primary-100);
-	--color-pagination-bg-hover: var(--primary-200);
+	--color-nav-bg: var(--gray-2);
+	--color-nav-link: var(--primary);
 
-	--color-button-bg: var(--primary-100);
-	--color-button-bg-hover: var(--primary-200);
+	--color-pagination-bg: var(--gray-2);
+	--color-pagination-bg-hover: var(--gray-3);
+
+	--color-button-bg: var(--gray-2);
+	--color-button-bg-hover: var(--gray-3);
 }
 
