@@ -9,7 +9,7 @@ html {
 
 h1, h2, h3, .h1, .h2, .h3 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 250;
   color: var(--color-heading);
 
   & a {
