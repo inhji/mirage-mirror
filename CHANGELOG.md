@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.146.0](http://git.inhji.de/inhji/mirage.git/compare/v0.145.1...v0.146.0) (2022-03-25)
+
+
+
+
+### Features:
+
+* add border, alert, footer, background to themes
+
 ## [v0.145.1](http://git.inhji.de/inhji/mirage.git/compare/v0.145.0...v0.145.1) (2022-03-25)
 
 
