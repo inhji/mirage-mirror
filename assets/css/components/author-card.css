@@ -21,7 +21,5 @@
 	& img {
 		width: var(--avatar-size);
 		height: var(--avatar-size);
-		border-radius: var(--avatar-size);
-		outline: 1px solid var(--gray-5);
 	}
 }
