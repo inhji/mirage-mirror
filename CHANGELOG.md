@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.144.0](http://git.inhji.de/inhji/mirage.git/compare/v0.143.0...v0.144.0) (2022-03-25)
+
+
+
+
+### Features:
+
+* new theme selector
+
+* set heading weight to 250
+
+### Bug Fixes:
+
+* load js for everybody \o/
+
 ## [v0.143.0](http://git.inhji.de/inhji/mirage.git/compare/v0.142.2...v0.143.0) (2022-03-24)
 
 
