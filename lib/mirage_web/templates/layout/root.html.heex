@@ -24,10 +24,7 @@
       href={Routes.feed_path(@conn, :show, "home")} />
 
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
-
-    <%= if @current_user do %>
-      <script defer phx-track-static src={Routes.static_path(@conn, "/assets/app.js")}></script>
-    <% end %>
+    <script defer phx-track-static src={Routes.static_path(@conn, "/assets/app.js")}></script>
 
     <script>
       document.documentElement.dataset.theme = localStorage.theme
