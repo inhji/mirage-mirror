@@ -23,36 +23,42 @@
 	flex-wrap: wrap;
 
 	.tag {
-		&[data-count="0"] {
-			background: var(--primary-50);
-		}
-
+		&[data-count="0"],
 		&[data-count="1"],
 		&[data-count="2"],
-		&[data-count="3"]
-		{
-			background: var(--primary-100);
-		}
-
+		&[data-count="3"],
 		&[data-count="4"],
-		&[data-count="5"],
-		&[data-count="6"]
+		&[data-count="5"]
 		{
-			background: var(--primary-200);
+			background: var(--gray-1);
 		}
 
+		&[data-count="6"],
 		&[data-count="7"],
 		&[data-count="8"],
-		&[data-count="9"]
+		&[data-count="9"],
+		&[data-count="10"],
+		&[data-count="11"]
 		{
-			background: var(--primary-300);
-			& a { color: var(--primary-50); }
+			background: var(--gray-2);
 		}
 
-		&[data-count="10"]
+		&[data-count="12"],
+		&[data-count="13"],
+		&[data-count="14"],
+		&[data-count="15"],
+		&[data-count="16"],
+		&[data-count="17"],
+		&[data-count="18"],
+		&[data-count="19"],
+		&[data-count="20"],
+		&[data-count="21"],
+		&[data-count="22"],
+		&[data-count="23"],
+		&[data-count="24"],
+		&[data-count="25"]
 		{
-			background: var(--primary-400);
-			& a { color: var(--primary-50); }
+			background: var(--gray-3);
 		}
 	}
 }
