@@ -17,6 +17,7 @@
 
 @import "base/reset";
 @import "base/form-reset";
+@import "base/form";
 @import "base/base";
 @import "base/flex";
 @import "base/helpers";

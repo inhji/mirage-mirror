@@ -1,0 +1,27 @@
+form {
+	& fieldset {
+	  border-radius: var(--border-radius-sm);
+	  border: var(--border);
+	  margin-bottom: var(--spacing-2);
+	  display: flex;
+	  flex-direction: column;
+
+	  & label {
+	  	margin-bottom: var(--spacing-2);
+	  }
+	}
+
+	input,
+	select,
+	textarea {
+		color: var(--color-text);
+		border-bottom: 2px solid var(--color-border);
+		padding: var(--spacing-2);
+	}
+
+	textarea {
+		font-family: var(--font-code);
+		font-feature-settings: var(--font-code-features);
+		resize: vertical;
+	}
+}

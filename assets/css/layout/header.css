@@ -4,8 +4,6 @@
 	& form#search {
 		& input {
 			padding: 0;
-			border: 0;
-			border-bottom: 1px solid var(--primary-200);
 			margin-left: var(--spacing-2);
 		}
 	}
