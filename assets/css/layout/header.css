@@ -42,7 +42,7 @@
 		}
 
 		& summary::marker {
-			color: var(--primary-500);
+			color: var(--color-nav-toggle);
 			content: '';
 		}
 

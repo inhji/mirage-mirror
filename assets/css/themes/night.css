@@ -22,6 +22,7 @@
 	--color-text: var(--primary-900);
 	--color-text-muted: var(--primary-700);
 	--color-link: var(--primary-600);
+	--color-nav-toggle: var(--primary-500);
 
 	--color-nav-bg: var(--background-dark);
 	--color-nav-link: var(--primary-500);

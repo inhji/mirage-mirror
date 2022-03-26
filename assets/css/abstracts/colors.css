@@ -27,6 +27,7 @@
 	--color-text: var(--gray-9);
 	--color-text-muted: var(--gray-7);
 	--color-link: var(--primary);
+	--color-nav-toggle: var(--primary);
 
 	--color-tag-bg: var(--gray-2);
 	--color-tag-bg-hover: var(--gray-5);
