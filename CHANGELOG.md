@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.147.0](http://git.inhji.de/inhji/mirage.git/compare/v0.146.0...v0.147.0) (2022-03-26)
+
+
+
+
+### Features:
+
+* improve form styles, add form.css
+
+* add color-nav-toggle var
+
+### Bug Fixes:
+
+* make nav spacing more consistent
+
+* improve pagination for mobile
+
 ## [v0.146.0](http://git.inhji.de/inhji/mirage.git/compare/v0.145.1...v0.146.0) (2022-03-25)
 
 
