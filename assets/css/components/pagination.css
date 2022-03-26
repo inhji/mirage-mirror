@@ -4,7 +4,7 @@
 	padding: 0;
 	gap: var(--spacing-3);
 
-	& li > a {
+	& li > a, & li > span {
 		background: var(--color-pagination-bg);
 		display: inline-block;
 		height: var(--spacing-12);

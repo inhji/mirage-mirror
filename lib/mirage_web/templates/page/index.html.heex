@@ -19,7 +19,9 @@
     <% end %>
     </section>
 
-    <%= pagination_links @page %>
+    <%= pagination_links @page, 
+      distance: 1, next: "→", previous: "←", 
+      first: false, last: false %>
   </section>
 
   <aside id="sidebar">
