@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.148.0](http://git.inhji.de/inhji/mirage.git/compare/v0.147.1...v0.148.0) (2022-04-19)
+
+
+
+
+### Features:
+
+* add sublime-project
+
+### Bug Fixes:
+
+* tag styles
+
 ## [v0.147.1](http://git.inhji.de/inhji/mirage.git/compare/v0.147.0...v0.147.1) (2022-03-26)
 
 
