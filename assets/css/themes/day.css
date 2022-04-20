@@ -2,6 +2,7 @@
 	--background: hsl(23.5, 100%, 96%);
 	--background-dark: hsl(23.5, 100%, 93%);
 
+
 	--primary-50: hsl(0, 50%, 95%);
 	--primary-100: hsl(0, 50%, 90%);
 	--primary-200: hsl(0, 50%, 80%);
@@ -12,6 +13,7 @@
 	--primary-700: hsl(0, 50%, 30%);
 	--primary-800: hsl(0, 50%, 20%);
 	--primary-900: hsl(0, 50%, 10%);
+	--primary: var(--primary-600);
 
 	--color-border: var(--primary-200);
 
@@ -34,6 +36,7 @@
 	--color-pagination-bg: var(--primary-100);
 	--color-pagination-bg-hover: var(--primary-200);
 
+	--color-button-text: var(--primary-800);
 	--color-button-bg: var(--primary-100);
 	--color-button-bg-hover: var(--primary-200);
 }

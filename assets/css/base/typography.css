@@ -9,7 +9,7 @@ html {
 
 h1, h2, h3, .h1, .h2, .h3 {
   font-family: var(--font-heading);
-  font-weight: 250;
+  font-weight: 300;
   color: var(--color-heading);
 
   & a {
@@ -27,11 +27,11 @@ h1, .h1, .text-xxl {
   margin: var(--spacing-3) 0;
 
   &:first-letter {
-    color: var(--primary-600);
+    color: var(--primary);
   }
 
   & a:hover {
-    color: var(--primary-600);
+    color: var(--primary);
   }
 }
 

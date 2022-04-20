@@ -14,21 +14,33 @@
 
 	& .theme-selector {
 		float: right;
+		line-height: 1.5rem;
+
 
 		& a[data-theme=default] {
-			color: #0d6efd;
+			color: var(--blue-600);
 		}
 
 		& a[data-theme=blood] {
-			color: #d34;
+			color: var(--rose-600);
 		}
 
 		& a[data-theme=night] {
-			color: hsl(220, 20%, 50%);
+			color: var(--gray-700);
 		}
 
 		& a[data-theme=day] {
 			color: hsl(0, 50%, 50%);
+		}
+
+		& a {
+			font-size: 150%;
+			transition: var(--transition);
+			vertical-align: text-top;
+		}
+
+		& a:hover {
+			font-size: 175%;
 		}
 	}
 
@@ -37,6 +49,7 @@
 			margin-bottom: var(--spacing-3);		
 			font-weight: bold;
 			margin-left: calc(var(--spacing-3) * -1);
+			margin-right: calc(var(--spacing-3) * -1);
 		}
 
 		& summary::marker {
@@ -66,6 +79,7 @@
 
 	& div {
 		& strong {
+			color: var(--color-heading);
 			padding: var(--spacing-3);
 		}
 	}

@@ -14,9 +14,11 @@ aside#sidebar {
 				text-decoration: none;
 				padding: var(--spacing-2);
 				border-radius: var(--border-radius-sm);
+				border: var(--border);
+				color: var(--color-text-muted);
 
 				&:hover {
-					background: var(--primary-100);
+					background: var(--gray-300);
 				}
 			}
 		}

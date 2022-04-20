@@ -24,7 +24,34 @@
 	--spacing-32: 8rem;
 	--spacing-36: 9rem;
 
-	--color-border: var(--gray-3);
+	--background: var(--gray-50);
+	--background-dark: var(--gray-200);
+	--primary: var(--blue-600);
+
+	--color-alert-bg: var(--gray-200);
+	--color-footer-bg: var(--gray-200);
+
+	--color-heading: var(--gray-700);
+	--color-text: var(--gray-900);
+	--color-text-muted: var(--gray-700);
+	--color-link: var(--primary);
+	--color-nav-toggle: var(--primary);
+
+	--color-tag-bg: var(--gray-200);
+	--color-tag-bg-hover: var(--gray-500);
+	--color-tag-text: var(--gray-800);
+
+	--color-nav-bg: var(--gray-200);
+	--color-nav-link: var(--primary);
+
+	--color-pagination-bg: var(--gray-200);
+	--color-pagination-bg-hover: var(--gray-300);
+
+	--color-button-text: var(--gray-700);
+	--color-button-bg: var(--gray-200);
+	--color-button-bg-hover: var(--gray-300);
+
+	--color-border: var(--gray-300);
 	--border: 1px solid var(--color-border);
 	--border-radius-lg: var(--spacing-3);
 	--border-radius: var(--spacing-2);
@@ -37,6 +64,8 @@
 	--font-heading: var(--font-base-var);
 	--font-code: 'Cascadia Code', monospace;
 	--font-code-features: 'calt', 'ss01';
+
+	--transition: all 150ms ease-out;
 
 	/*
 	If changing the font size, ex. in a media query,

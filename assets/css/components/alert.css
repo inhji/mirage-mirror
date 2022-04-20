@@ -1,5 +1,5 @@
 .alert {
-	color: var(--primary-600);
+	color: var(--primary);
 	padding: var(--spacing-3);
 	background: var(--color-alert-bg);
 	border: var(--border);

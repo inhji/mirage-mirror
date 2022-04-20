@@ -1,45 +1,57 @@
 :root {
-	--blue: #0d6efd;
-	--black: #120926;
-	--gray-10: #383048;
-	--gray-9: #4b445a;
-	--gray-8: #5f596d;
-	--gray-7: #746f80;
-	--gray-6: #8a8594;
-	--gray-5: #a09ca8;
-	--gray-4: #b7b4bd;
-	--gray-3: #cfcdd3;
-	--gray-2: #e7e6e9;
-	--gray-1: white;
-	--white: white;
+	--blue-50: #EFF6FF;
+	--blue-100: #DBEAFE;
+	--blue-200: #BFDBFE;
+	--blue-300: #93C5FD;
+	--blue-400: #60A5FA;
+	--blue-500: #3B82F6;
+	--blue-600: #2563EB;
+	--blue-700: #1D4ED8;
+	--blue-800: #1E40AF;
+	--blue-900: #1E3A8A;
 
-	--background: var(--white);
-	--background-dark: var(--gray-2);
+	--sky-50: #F0F9FF;
+	--sky-100: #E0F2FE;
+	--sky-200: #BAE6FD;
+	--sky-300: #7DD3FC;
+	--sky-400: #38BDF8;
+	--sky-500: #0EA5E9;
+	--sky-600: #0284C7;
+	--sky-700: #0369A1;
+	--sky-800: #075985;
+	--sky-900: #0C4A6E;
 
-	--primary: var(--blue);
+	--emerald-50: #ECFDF5;
+	--emerald-100: #D1FAE5;
+	--emerald-200: #A7F3D0;
+	--emerald-300: #6EE7B7;
+	--emerald-400: #34D399;
+	--emerald-500: #10B981;
+	--emerald-600: #059669;
+	--emerald-700: #047857;
+	--emerald-800: #065F46;
+	--emerald-900: #064E3B;
 
-	--color-border: var(--gray-3);
-
-	--color-alert-bg: var(--gray-2);
-	--color-footer-bg: var(--gray-2);
-
-	--color-heading: var(--gray-7);
-	--color-text: var(--gray-9);
-	--color-text-muted: var(--gray-7);
-	--color-link: var(--primary);
-	--color-nav-toggle: var(--primary);
-
-	--color-tag-bg: var(--gray-2);
-	--color-tag-bg-hover: var(--gray-5);
-	--color-tag-text: var(--gray-8);
-
-	--color-nav-bg: var(--gray-2);
-	--color-nav-link: var(--primary);
-
-	--color-pagination-bg: var(--gray-2);
-	--color-pagination-bg-hover: var(--gray-3);
-
-	--color-button-bg: var(--gray-2);
-	--color-button-bg-hover: var(--gray-3);
+	--rose-50: #FFF1F2;
+	--rose-100: #FFE4E6;
+	--rose-200: #FECDD3;
+	--rose-300: #FDA4AF;
+	--rose-400: #FB7185;
+	--rose-500: #F43F5E;
+	--rose-600: #E11D48;
+	--rose-700: #BE123C;
+	--rose-800: #9F1239;
+	--rose-900: #881337;
+	
+	--gray-50: #FAFAFA;
+	--gray-100: #F4F4F5;
+	--gray-200: #E4E4E7;
+	--gray-300: #D4D4D8;
+	--gray-400: #A1A1AA;
+	--gray-500: #71717A;
+	--gray-600: #52525B;
+	--gray-700: #3F3F46;
+	--gray-800: #27272A;
+	--gray-900: #18181B;
 }
 

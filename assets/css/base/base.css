@@ -24,7 +24,7 @@ details {
 }
 
 blockquote {
-	border-left: 3px solid var(--primary-500);
+	border-left: 3px solid var(--primary);
 	padding-left: var(--spacing-3);
 
 	& p:first-of-type::before {

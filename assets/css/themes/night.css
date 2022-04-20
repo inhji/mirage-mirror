@@ -1,39 +1,29 @@
 :root[data-theme="night"] {
-	--background: hsl(255, 30%, 10%);
-	--background-dark: hsl(255, 30%, 8%);
+	--background: var(--gray-900);
+	--background-dark: var(--gray-900);
 
-	--primary-50: hsl(220, 20%, 5%);
-	--primary-100: hsl(220, 20%, 10%);
-	--primary-200: hsl(220, 20%, 20%);
-	--primary-300: hsl(220, 20%, 30%);
-	--primary-400: hsl(220, 20%, 40%);
-	--primary-500: hsl(220, 20%, 50%);
-	--primary-600: hsl(220, 20%, 60%);
-	--primary-700: hsl(220, 20%, 70%);
-	--primary-800: hsl(220, 20%, 80%);
-	--primary-900: hsl(220, 20%, 90%);
+	--color-border: var(--gray-700);
 
-	--color-border: var(--primary-200);
+	--color-alert-bg: var(--gray-100);
+	--color-footer-bg: var(--background);
 
-	--color-alert-bg: var(--primary-100);
-	--color-footer-bg: var(--background-dark);
+	--color-heading: var(--primary);
+	--color-text: var(--gray-400);
+	--color-text-muted: var(--gray-500);
+	--color-link: var(--gray-500);
+	--color-nav-toggle: var(--primary);
 
-	--color-heading: var(--primary-700);
-	--color-text: var(--primary-900);
-	--color-text-muted: var(--primary-700);
-	--color-link: var(--primary-600);
-	--color-nav-toggle: var(--primary-500);
+	--color-nav-bg: var(--background);
+	--color-nav-link: var(--gray-500);
 
-	--color-nav-bg: var(--background-dark);
-	--color-nav-link: var(--primary-500);
+	--color-tag-bg: var(--background);
+	--color-tag-bg-hover: var(--background);
+	--color-tag-text: var(--gray-600);
 
-	--color-tag-bg: var(--primary-100);
-	--color-tag-bg-hover: var(--primary-200);
-	--color-tag-text: var(--primary-500);
+	--color-pagination-bg: var(--gray-900);
+	--color-pagination-bg-hover: var(--gray-800);
 
-	--color-pagination-bg: var(--primary-100);
-	--color-pagination-bg-hover: var(--primary-200);
-
-	--color-button-bg: var(--primary-100);
-	--color-button-bg-hover: var(--primary-200);
+	--color-button-text: var(--gray-500);
+	--color-button-bg: var(--gray-900);
+	--color-button-bg-hover: var(--gray-800);
 }

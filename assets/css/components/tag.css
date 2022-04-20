@@ -30,7 +30,7 @@
 		&[data-count="4"],
 		&[data-count="5"]
 		{
-			background: var(--gray-1);
+			background: var(--gray-100);
 		}
 
 		&[data-count="6"],
@@ -40,7 +40,7 @@
 		&[data-count="10"],
 		&[data-count="11"]
 		{
-			background: var(--gray-2);
+			background: var(--gray-200);
 		}
 
 		&[data-count="12"],
@@ -58,7 +58,7 @@
 		&[data-count="24"],
 		&[data-count="25"]
 		{
-			background: var(--gray-3);
+			background: var(--gray-300);
 		}
 	}
 }
