@@ -55,6 +55,12 @@
         <%= error_tag f, :motd %>
       </fieldset>
 
+      <fieldset>
+        <%= label f, :custom_css %>
+        <%= textarea f, :custom_css, rows: 5 %>
+        <%= error_tag f, :custom_css %>
+      </fieldset>
+
       <div>
         <%= submit "Update profile" %>
       </div>

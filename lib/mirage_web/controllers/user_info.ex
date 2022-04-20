@@ -41,6 +41,16 @@ defmodule MirageWeb.UserInfo do
     assign(conn, :motd, motd)
   end
 
+  def fetch_custom_css(conn, _opts) do
+    custom_css =
+      case Accounts.get_user() do
+        nil -> ""
+        user -> user.custom_css
+      end
+
+    assign(conn, :custom_css, custom_css)
+  end
+
   defp get_random_motd(nil), do: ""
   defp get_random_motd(""), do: ""
 

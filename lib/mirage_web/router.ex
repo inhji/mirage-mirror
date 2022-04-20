@@ -16,6 +16,7 @@ defmodule MirageWeb.Router do
     plug :fetch_user_identities
     plug :fetch_indie_config
     plug :fetch_motd
+    plug :fetch_custom_css
     plug :fetch_pages
   end
 

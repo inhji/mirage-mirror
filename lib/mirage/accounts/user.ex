@@ -14,6 +14,7 @@ defmodule Mirage.Accounts.User do
     field :handle, :string
     field :bio, :string, default: ""
     field :motd, :string, default: ""
+    field :custom_css, :string, default: ""
 
     field :email, :string
     field :password, :string, virtual: true, redact: true
@@ -112,7 +113,7 @@ defmodule Mirage.Accounts.User do
   """
   def profile_changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :handle, :bio, :motd])
+    |> cast(attrs, [:name, :handle, :bio, :motd, :custom_css])
     |> cast_attachments(attrs, [:avatar], allow_paths: true)
   end
 
