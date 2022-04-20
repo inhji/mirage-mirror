@@ -119,25 +119,31 @@
       <%= hidden_input f, :action, name: "action", value: "update_settings" %>
 
       <fieldset>
-        <%= label f, :microblog_list_id %>
+        <%= label f, :default_list_id, "1️⃣ Default List" %>
+        <%= select f, :default_list_id, @lists, prompt: [key: "Choose a list"] %>
+        <%= error_tag f, :default_list_id %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :microblog_list_id, "💬 Microblog List" %>
         <%= select f, :microblog_list_id, @lists, prompt: [key: "Choose a list"] %>
         <%= error_tag f, :microblog_list_id %>
       </fieldset>
 
       <fieldset>
-        <%= label f, :journal_list_id %>
+        <%= label f, :journal_list_id, "📖 Journal List" %>
         <%= select f, :journal_list_id, @lists, prompt: [key: "Choose a list"] %>
         <%= error_tag f, :journal_list_id %>
       </fieldset>
 
       <fieldset>
-        <%= label f, :bookmark_list_id %>
+        <%= label f, :bookmark_list_id, "🔖 Bookmark List" %>
         <%= select f, :bookmark_list_id, @lists, prompt: [key: "Choose a list"] %>
         <%= error_tag f, :bookmark_list_id %>
       </fieldset>
 
       <fieldset>
-        <%= label f, :like_list_id %>
+        <%= label f, :like_list_id, "💖 Like List" %>
         <%= select f, :like_list_id, @lists, prompt: [key: "Choose a list"] %>
         <%= error_tag f, :like_list_id %>
       </fieldset>
