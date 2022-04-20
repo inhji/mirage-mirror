@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.151.0](http://git.inhji.de/inhji/mirage.git/compare/v0.150.0...v0.151.0) (2022-04-20)
+
+
+
+
+### Features:
+
+* improve status formatting for mastodon
+
+* set mastodon visibility to public
+
 ## [v0.150.0](http://git.inhji.de/inhji/mirage.git/compare/v0.149.1...v0.150.0) (2022-04-20)
 
 
