@@ -43,22 +43,32 @@ defmodule Mirage.Syndication.MastodonWorker do
       |> get_content()
       |> ellipsize_content(max_length)
 
+    title_with_url = get_title_with_url(note)
+
+    tags =
+      if Enum.empty?(note.tags),
+        do: "",
+        else: get_tags(note.tags)
+
+    "#{title_with_url}#{content}#{tags}(#{url})"
+  end
+
+  defp get_title_with_url(note) do
     external_url =
       if is_nil(note.url),
         do: "",
-        else: "#{note.url}\n"
+        else: note.url
 
     title =
       if Mirage.Notes.Note.has_datetitle?(note),
         do: "",
         else: note.title
 
-    tags =
-      if Enum.empty?(note.tags),
-        do: "",
-        else: get_tags(note.tags) <> "\n"
-
-    "#{external_url}\n#{title}\n#{content}#{tags}\n(#{url})"
+    if title !== "" and external_url !== "" do
+      "#{title} #{external_url}"
+    else
+      title
+    end
   end
 
   defp get_content(note) do
@@ -74,15 +84,15 @@ defmodule Mirage.Syndication.MastodonWorker do
     end
   end
 
-  defp get_tags(tag_list) do
-    Enum.map_join(tag_list, " ", fn tag -> "##{tag.title}" end)
-  end
-
   defp ellipsize_content(content, max_length) do
     if String.length(content) >= max_length do
       String.slice(content, 0..(max_length - 2)) <> ".."
     else
       content
     end
+  end
+
+  defp get_tags(tag_list) do
+    Enum.map_join(tag_list, " ", fn tag -> "##{tag.title}" end)
   end
 end
