@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.150.0](http://git.inhji.de/inhji/mirage.git/compare/v0.149.1...v0.150.0) (2022-04-20)
+
+
+
+
+### Features:
+
+* overhaul themes
+
+* add default list setting
+
 ## [v0.149.1](http://git.inhji.de/inhji/mirage.git/compare/v0.149.0...v0.149.1) (2022-04-20)
 
 
