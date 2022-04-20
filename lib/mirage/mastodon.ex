@@ -3,7 +3,7 @@ defmodule Mirage.Mastodon do
 
   @redirect_uri "urn:ietf:wg:oauth:2.0:oob"
   @scope "read write"
-  @default_visibility "unlisted"
+  @default_visibility "public"
 
   def get_bookmarks(token) do
     OAuth2.Client.get(client(token), "/api/v1/bookmarks")
