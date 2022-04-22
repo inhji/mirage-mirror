@@ -1,0 +1,17 @@
+Unit]
+Description=Mirage
+
+[Service]
+Type=simple
+User=inhji
+Group=inhji
+Restart=on-failure
+
+EnvironmentFile=/home/inhji/www/mirage/app/.env
+WorkingDirectory=/home/inhji/www/mirage/app/_build/prod/rel/mirage/bin
+ExecStartPre=/home/inhji/www/mirage/app/_build/prod/rel/mirage/bin/mirage eval "Mirage.Release.migrate"
+ExecStart=/home/inhji/www/mirage/app/_build/prod/rel/mirage/bin/mirage start
+ExecStop=/home/inhji/www/mirage/app/_build/prod/rel/mirage/bin/mirage stop
+
+[Install]
+WantedBy=multi-user.target
