@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.152.0](http://git.inhji.de/inhji/mirage.git/compare/v0.151.0...v0.152.0) (2022-04-25)
+
+
+
+
+### Features:
+
+* set default list on new notes, hide a few optional properties
+
+* less annoying fieldset styles
+
+* add hr styles in note
+
+### Bug Fixes:
+
+* service file
+
 ## [v0.151.0](http://git.inhji.de/inhji/mirage.git/compare/v0.150.0...v0.151.0) (2022-04-20)
 
 
