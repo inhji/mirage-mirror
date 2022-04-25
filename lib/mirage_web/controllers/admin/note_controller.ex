@@ -15,16 +15,20 @@ defmodule MirageWeb.Admin.NoteController do
 
   def new(conn, _params) do
     changeset = Notes.change_note(%Note{})
+    user = Mirage.Accounts.get_user()
 
     render(conn, "new.html",
       changeset: changeset,
       page_title: "New Note",
       tags: [],
-      selected_targets: []
+      selected_targets: [],
+      default_list: user.default_list_id
     )
   end
 
   def create(conn, %{"note" => note_params}) do
+    user = Mirage.Accounts.get_user()
+
     case Notes.create_note_with_hooks(note_params) do
       {:ok, note} ->
         conn
@@ -36,7 +40,8 @@ defmodule MirageWeb.Admin.NoteController do
           changeset: changeset,
           page_title: "New Note",
           tags: [],
-          selected_targets: []
+          selected_targets: [],
+          default_list: user.default_list_id
         )
     end
   end
@@ -55,7 +60,8 @@ defmodule MirageWeb.Admin.NoteController do
       page_title: "Edit Note",
       note: note,
       tags: note.tags,
-      selected_targets: note.syndications
+      selected_targets: note.syndications,
+      default_list: nil
     )
   end
 
@@ -74,7 +80,8 @@ defmodule MirageWeb.Admin.NoteController do
           page_title: "Edit Note",
           note: note,
           tags: note.tags,
-          selected_targets: note.syndications
+          selected_targets: note.syndications,
+          default_list: nil
         )
     end
   end

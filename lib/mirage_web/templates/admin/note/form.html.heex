@@ -15,31 +15,31 @@
 
   <fieldset>
     <%= label f, :content, "Content" %>
-    <%= textarea f, :content, rows: 7 %>
+    <%= textarea f, :content, rows: 15 %>
     <%= error_tag f, :content %>
-  </fieldset>
-
-  <fieldset>
-    <%= label f, :list_id %>
-    <%= select f, :list_id, @lists, prompt: "Choose a value" %>
-    <%= error_tag f, :list_id %>
-  </fieldset>
-
-  <fieldset>
-    <%= label f, :tags_string %>
-    <%= text_input f, :tags_string, value: tags_to_string(@tags) %>
-    <%= error_tag f, :tags_string %>
-  </fieldset>
-
-  <fieldset>
-    <%= label f, :syndication_targets %>
-    <%= multiple_select f, :syndication_targets, @targets, selected: targets_to_list(@selected_targets) %>
-    <%= error_tag f, :syndication_targets %>
   </fieldset>
 
   <details>
     <summary>Moar ghosts 'n' stuff</summary>
     <section>
+
+      <fieldset>
+        <%= label f, :list_id %>
+        <%= select f, :list_id, @lists, prompt: "Choose a value", selected: @default_list %>
+        <%= error_tag f, :list_id %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :tags_string %>
+        <%= text_input f, :tags_string, value: tags_to_string(@tags) %>
+        <%= error_tag f, :tags_string %>
+      </fieldset>
+
+      <fieldset>
+        <%= label f, :syndication_targets %>
+        <%= multiple_select f, :syndication_targets, @targets, selected: targets_to_list(@selected_targets) %>
+        <%= error_tag f, :syndication_targets %>
+      </fieldset>
 
       <fieldset>
         <%= label f, :slug, "Slug ⚠️", title: "This will change the permalink of this note!" %>
