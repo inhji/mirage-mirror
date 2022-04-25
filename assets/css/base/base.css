@@ -15,6 +15,13 @@ pre {
 	word-break: break-all;
 }
 
+hr {
+	background: var(--background-dark);
+	border: none;
+	height: 2px;
+	margin: var(--spacing-3);
+}
+
 section {
 	margin-bottom: var(--spacing-3);
 }
