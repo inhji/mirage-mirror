@@ -2,12 +2,18 @@ defmodule Mirage.Notes.NoteUploader do
   use Waffle.Definition
   use Waffle.Ecto.Definition
 
-  @versions [:original, :horiz, :vert, :thumb]
+  @versions [:original, :horiz, :vert, :thumb, :full]
 
   # Whitelist file extensions:
   def validate({file, _}) do
     ~w(.jpg .jpeg .gif .png)
     |> Enum.member?(Path.extname(file.file_name) |> String.downcase())
+  end
+
+  def transform(:full, _) do
+    {:convert,
+     "-thumbnail 1280x1024^ -gravity center -extent 1280x1024 -colors 24 -dither FloydSteinberg -format png",
+     :png}
   end
 
   def transform(:thumb, _) do
