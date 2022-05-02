@@ -18,19 +18,19 @@ defmodule Mirage.Feeds do
 
   defp get_feed("home") do
     %{
-      title: "Home Feed",
+      title: "Inhji.de Home",
       entries: Mirage.Content.list_updates(),
       content_url: Routes.page_url(MirageWeb.Endpoint, :index),
-      feed_url: Routes.feed_url(MirageWeb.Endpoint, :show, "home")
+      feed_url: Routes.page_url(MirageWeb.Endpoint, :index)
     }
   end
 
   defp get_feed("notes") do
     %{
-      title: "Notes Feed",
+      title: "Inhji.de Notes",
       entries: Mirage.Notes.list_published_notes(),
       content_url: Routes.note_url(MirageWeb.Endpoint, :index),
-      feed_url: Routes.feed_url(MirageWeb.Endpoint, :show, "notes")
+      feed_url: Routes.page_url(MirageWeb.Endpoint, :index)
     }
   end
 
@@ -44,8 +44,8 @@ defmodule Mirage.Feeds do
          user
        ) do
     Feed.new(content_url, DateTime.utc_now(), title)
-    |> Feed.author(user.name, email: user.email)
-    |> Feed.link(feed_url, rel: "self")
+    |> Feed.author(user.name, email: user.email, uri: content_url)
+    |> Feed.link(feed_url)
     |> Feed.entries(Enum.map(entries, fn entry -> get_entry(entry) end))
     |> Feed.build()
     |> XmlBuilder.document()
@@ -61,6 +61,7 @@ defmodule Mirage.Feeds do
     |> Entry.published(published_at)
     |> Entry.content(entry.content, type: "text")
     |> Entry.content(entry.content_html, type: "html")
+    |> Entry.link(entry_url)
     |> Entry.build()
   end
 end
