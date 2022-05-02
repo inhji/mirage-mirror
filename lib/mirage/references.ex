@@ -15,7 +15,7 @@ defmodule Mirage.References do
   @hashid_reference_regex ~r/\[\[(?:(?<type>list|tag):)?(?<id>[\d\w-]+)(?:\|(?<title>[\w\d\s']+))?\]\]/
 
   @doc """
-  Returns a list of references in the string
+  Returns a list of references in `string`.
   """
   def get_references(string) do
     @hashid_reference_regex
@@ -23,6 +23,9 @@ defmodule Mirage.References do
     |> Enum.map(&map_to_tuple/1)
   end
 
+  @doc """
+  Returns a list of slugs that are referenced in `string`, optionally filtering by `filter_type`.
+  """
   def get_reference_ids(string, filter_type \\ "note") do
     string
     |> get_references()
@@ -31,7 +34,7 @@ defmodule Mirage.References do
   end
 
   @doc """
-  Finds and replaces references with the matching url
+  Finds and replaces references with the matching url in `string`.
   """
   def replace_references(string) do
     string
