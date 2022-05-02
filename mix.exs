@@ -36,14 +36,14 @@ defmodule Mirage.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:atomex, "~> 0.4.1"},
+      {:atomex, "~> 0.5.1"},
       {:bcrypt_elixir, "~> 3.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:earmark, "1.4.22"},
       {:ecto_autoslug_field, "~> 3.0"},
       {:ecto_sql, "~> 3.6"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
-      {:ex_doc, "~> 0.26", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false},
       {:ex_machina, "~> 2.7", only: :test},
       {:exvcr, "~> 0.11", only: :test},
       {:floki, ">= 0.30.0"},
