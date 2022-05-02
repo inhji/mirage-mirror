@@ -8,25 +8,9 @@
 @custom-media --biig (min-width: 1024px);
 
 :root {
-	--spacing-0: 0;
-	--spacing-1: 0.25rem;
-	--spacing-2: 0.5rem;
-	--spacing-3: 0.75rem;
-	--spacing-4: 1rem;
-	--spacing-5: 1.25rem;
-	--spacing-6: 1.5rem;
-	--spacing-8: 2rem;
-	--spacing-12: 3rem;
-	--spacing-16: 4rem;
-	--spacing-20: 5rem;
-	--spacing-24: 6rem;
-	--spacing-28: 7rem;
-	--spacing-32: 8rem;
-	--spacing-36: 9rem;
-
 	--background: var(--gray-50);
 	--background-dark: var(--gray-200);
-	--primary: var(--blue-600);
+	--primary: var(--sky-700);
 
 	--color-alert-bg: var(--gray-200);
 	--color-footer-bg: var(--gray-200);
@@ -38,7 +22,7 @@
 	--color-nav-toggle: var(--primary);
 
 	--color-tag-bg: var(--gray-200);
-	--color-tag-bg-hover: var(--gray-500);
+	--color-tag-bg-hover: var(--gray-300);
 	--color-tag-text: var(--gray-800);
 
 	--color-nav-bg: var(--gray-200);
@@ -66,6 +50,22 @@
 	--font-code-features: 'calt', 'ss01';
 
 	--transition: all 150ms ease-out;
+
+	--spacing-0: 0;
+	--spacing-1: 0.25rem;
+	--spacing-2: 0.5rem;
+	--spacing-3: 0.75rem;
+	--spacing-4: 1rem;
+	--spacing-5: 1.25rem;
+	--spacing-6: 1.5rem;
+	--spacing-8: 2rem;
+	--spacing-12: 3rem;
+	--spacing-16: 4rem;
+	--spacing-20: 5rem;
+	--spacing-24: 6rem;
+	--spacing-28: 7rem;
+	--spacing-32: 8rem;
+	--spacing-36: 9rem;
 
 	/*
 	If changing the font size, ex. in a media query,

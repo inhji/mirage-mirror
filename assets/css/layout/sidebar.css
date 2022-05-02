@@ -1,8 +1,4 @@
 aside#sidebar {
-	background: var(--background-dark);
-	border-radius: var(--border-radius-lg);
-	padding: var(--spacing-6);
-
 	& ul.social {
 		margin: 0;
 		padding: 0;
@@ -12,14 +8,8 @@ aside#sidebar {
 			& a {
 				display: block;
 				text-decoration: none;
-				padding: var(--spacing-2);
 				border-radius: var(--border-radius-sm);
-				border: var(--border);
 				color: var(--color-text-muted);
-
-				&:hover {
-					background: var(--gray-300);
-				}
 			}
 		}
 	}

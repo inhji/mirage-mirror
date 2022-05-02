@@ -1,13 +1,4 @@
 #footer {
-	border-top: 2px solid var(--color-border);
-	background: var(--color-footer-bg);
-	margin: var(--spacing-12) calc(var(--spacing-3) * -1) 0;	
-	padding: 0 var(--spacing-3);
-
-	@media (--biig) {
-		border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
-	}
-
 	& nav {
 		display: flex;
 		gap: var(--spacing-3);

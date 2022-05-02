@@ -8,6 +8,7 @@
 	white-space: nowrap;
 
 	&:hover {
+		transition: var(--transition);
 		background: var(--color-tag-bg-hover);
 	}
 

@@ -3,6 +3,7 @@ html {
   font-size: var(--font-size);
   font-feature-settings: var(--font-base-features);
 }
+
 @supports (font-variation-settings: normal) {
   html { font-family: var(--font-base-var); }
 }
@@ -26,12 +27,8 @@ h1, .h1, .text-xxl {
 	font-size: var(--text-xxl);
   margin: var(--spacing-3) 0;
 
-  &:first-letter {
-    color: var(--primary);
-  }
-
   & a:hover {
-    color: var(--primary);
+    text-decoration: underline;
   }
 }
 
