@@ -1,5 +1,19 @@
 defmodule Mirage.Queries do
+  @moduledoc """
+  Adds constraints to a note query:
+
+  - order_by
+  - limit
+  - search term
+  - published
+  - list
+  """
+
   import Ecto.Query, warn: false
+
+  def where_published(query), do: where(query, [n], not is_nil(n.published_at))
+
+  def where_unpublished(query), do: where(query, [n], is_nil(n.published_at))
 
   def order_by_query(query, opts) do
     case opts["order_by"] do

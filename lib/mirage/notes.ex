@@ -12,6 +12,7 @@ defmodule Mirage.Notes do
 
   alias Mirage.Repo
   alias Mirage.Notes.{Note, NoteHooks}
+  alias Mirage.Lists.List
 
   @preloads [
     :list,
@@ -43,11 +44,11 @@ defmodule Mirage.Notes do
   end
 
   def preload_query(:published) do
-    from(n in Mirage.Notes.Note, where: not is_nil(n.published_at))
+    Note |> where_published()
   end
 
   def preload_query(:unpublished) do
-    from(n in Mirage.Notes.Note, where: is_nil(n.published_at))
+    Note |> where_unpublished()
   end
 
   @doc """
@@ -66,10 +67,14 @@ defmodule Mirage.Notes do
   end
 
   def list_pages() do
+    user = Mirage.Accounts.get_user()
+
     Note
+    |> join(:inner, [n], l in List, on: [id: n.list_id])
     |> with_preloads()
-    |> where([n], not is_nil(n.published_at))
-    |> where([n], like(n.title, "@%"))
+    |> where_published()
+    |> where([l], not is_nil(l.published_at))
+    |> where([n], n.list_id == ^user.page_list_id)
     |> order_by(desc: :title)
     |> Repo.all()
   end
@@ -100,9 +105,11 @@ defmodule Mirage.Notes do
 
   """
   def list_published_notes(pagination_params \\ %{}) do
+    user = Mirage.Accounts.get_user()
+
     Note
-    |> where([n], not is_nil(n.published_at))
-    |> where([n], not like(n.title, "@%"))
+    |> where_published()
+    |> where([n], n.list_id != ^user.page_list_id)
     |> order_by(desc: :published_at)
     |> with_preloads()
     |> Repo.paginate(pagination_params)
@@ -144,7 +151,8 @@ defmodule Mirage.Notes do
   """
   def get_note!(slug),
     do:
-      Repo.get_by!(Note, slug: slug)
+      Note
+      |> Repo.get_by!(slug: slug)
       |> preload_note()
 
   @doc """
@@ -163,7 +171,8 @@ defmodule Mirage.Notes do
   """
   def get_note_by_id!(id),
     do:
-      Repo.get!(Note, id)
+      Note
+      |> Repo.get!(id)
       |> preload_note()
 
   @doc """
@@ -188,7 +197,8 @@ defmodule Mirage.Notes do
   Creates a note and runs the note hooks
   """
   def create_note_with_hooks(attrs \\ %{}) do
-    create_note(attrs)
+    attrs
+    |> create_note()
     |> NoteHooks.run_update_hooks(attrs)
   end
 
