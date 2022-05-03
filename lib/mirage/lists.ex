@@ -153,6 +153,9 @@ defmodule Mirage.Lists do
     List.changeset(list, attrs)
   end
 
+  @doc """
+  Formats a list for use in a select html element
+  """
   def for_select(%List{} = list) do
     [key: list.title, value: list.id]
   end

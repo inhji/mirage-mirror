@@ -1,8 +1,6 @@
 defmodule Mirage.Hooks do
   @moduledoc """
   Hooks are a way of executing additional functions or logic when entities are created.
-
-
   """
 
   require Logger

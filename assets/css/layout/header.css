@@ -1,5 +1,8 @@
 #header {
 	margin-bottom: var(--spacing-3);
+/* 	margin-left: calc(var(--spacing-3) * -1);
+	margin-right: calc(var(--spacing-3) * -1);
+	padding: 0 var(--spacing-3); */
 
 	& form#search {
 		& input {
@@ -16,8 +19,11 @@
 		float: right;
 		line-height: 1.5rem;
 
-
 		& a[data-theme=default] {
+			color: var(--sky-200);
+		}
+
+		& a[data-theme=night] {
 			color: var(--sky-700);
 		}
 
@@ -25,9 +31,6 @@
 			color: var(--rose-600);
 		}
 
-		& a[data-theme=night] {
-			color: var(--gray-700);
-		}
 
 		& a[data-theme=day] {
 			color: hsl(0, 50%, 50%);
@@ -37,10 +40,6 @@
 			font-size: 150%;
 			transition: var(--transition);
 			vertical-align: text-top;
-		}
-
-		& a:hover {
-			font-size: 175%;
 		}
 	}
 

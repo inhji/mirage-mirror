@@ -10,7 +10,7 @@
 :root {
 	--background: var(--gray-50);
 	--background-dark: var(--gray-200);
-	--primary: var(--sky-700);
+	--primary: var(--emerald-600);
 
 	--color-alert-bg: var(--gray-200);
 	--color-footer-bg: var(--gray-200);

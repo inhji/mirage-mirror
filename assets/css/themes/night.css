@@ -7,18 +7,18 @@
 	--color-alert-bg: var(--gray-100);
 	--color-footer-bg: var(--background);
 
-	--color-heading: var(--primary);
-	--color-text: var(--gray-400);
+	--color-heading: var(--gray-100);
+	--color-text: var(--gray-200);
 	--color-text-muted: var(--gray-500);
 	--color-link: var(--gray-500);
 	--color-nav-toggle: var(--primary);
 
 	--color-nav-bg: var(--background);
-	--color-nav-link: var(--gray-500);
+	--color-nav-link: var(--gray-400);
 
 	--color-tag-bg: var(--background);
-	--color-tag-bg-hover: var(--background);
-	--color-tag-text: var(--gray-600);
+	--color-tag-bg-hover: var(--gray-800);
+	--color-tag-text: var(--gray-400);
 
 	--color-pagination-bg: var(--gray-900);
 	--color-pagination-bg-hover: var(--gray-800);
