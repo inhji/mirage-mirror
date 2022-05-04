@@ -6,7 +6,7 @@
 			<%= if not Enum.empty?(tag.notes_published) or @current_user do %>
 			<span class="tag" data-count={note_count(@conn, tag)}>
 				<%= link to: Routes.tag_path(@conn, :show, tag) do %>
-						<%= tag.title %> (<%= note_count(@conn, tag) %>)
+					<%= tag.title %> (<%= note_count(@conn, tag) %>)
 				<% end %>
 			</span>
 			<% end %>

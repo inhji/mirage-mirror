@@ -9,7 +9,7 @@
 	<%= render MirageWeb.NoteView, "note_list.html", Map.put(assigns, :notes, @tag.notes) %>
 
 	<%= if has_unpublished_notes?(@conn, @tag) do %>
-	<h3>Unpublished</h3>
-	<%= render MirageWeb.NoteView, "note_list.html", Map.put(assigns, :notes, @tag.notes_unpublished) %>
+		<h3>Unpublished</h3>
+		<%= render MirageWeb.NoteView, "note_list.html", Map.put(assigns, :notes, @tag.notes_unpublished) %>
 	<% end %>
 </section>
