@@ -5,6 +5,19 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.157.0](http://git.inhji.de/inhji/mirage.git/compare/v0.156.0...v0.157.0) (2022-05-04)
+
+
+
+
+### Features:
+
+* order tags by title
+
+* show title or content snippet for note lists
+
+* improve card-list and tag styles
+
 ## [v0.156.0](http://git.inhji.de/inhji/mirage.git/compare/v0.155.0...v0.156.0) (2022-05-04)
 
 
