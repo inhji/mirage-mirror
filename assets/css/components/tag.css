@@ -22,18 +22,9 @@
 	display: flex;
 	gap: var(--spacing-3);
 	flex-wrap: wrap;
+	align-items: flex-start;
 
 	.tag {
-		&[data-count="0"],
-		&[data-count="1"],
-		&[data-count="2"],
-		&[data-count="3"],
-		&[data-count="4"],
-		&[data-count="5"]
-		{
-			background: var(--gray-100);
-		}
-
 		&[data-count="6"],
 		&[data-count="7"],
 		&[data-count="8"],
@@ -41,7 +32,7 @@
 		&[data-count="10"],
 		&[data-count="11"]
 		{
-			background: var(--gray-200);
+			font-size: var(--text-md);
 		}
 
 		&[data-count="12"],
@@ -59,7 +50,7 @@
 		&[data-count="24"],
 		&[data-count="25"]
 		{
-			background: var(--gray-300);
+			font-size: var(--text-lg);
 		}
 	}
 }
