@@ -66,6 +66,14 @@ defmodule Mirage.Notes do
     |> Repo.all()
   end
 
+  def list_bookmarks do
+    Note
+    |> with_preloads()
+    |> where([n], not is_nil(n.bookmark_of))
+    |> order_by(desc: :published_at)
+    |> Repo.all()
+  end
+
   def list_pages() do
     user = Mirage.Accounts.get_user()
 
