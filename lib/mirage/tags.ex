@@ -38,6 +38,7 @@ defmodule Mirage.Tags do
   def list_tags do
     Tag
     |> with_preloads()
+    |> order_by(:title)
     |> Repo.all()
   end
 
