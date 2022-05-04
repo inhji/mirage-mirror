@@ -26,10 +26,6 @@ section {
 	margin-bottom: var(--spacing-3);
 }
 
-details {
-	padding: var(--spacing-3);
-}
-
 blockquote {
 	border-left: 3px solid var(--primary);
 	padding-left: var(--spacing-3);

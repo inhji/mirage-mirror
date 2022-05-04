@@ -1,7 +1,8 @@
 <header id="header">
   <details open="true">
-    <summary>
-      <span role="banner">ꟿirage</span>
+    <summary class="flex">
+      <span class="icon"></span>
+      <span class="title | flex-1" role="banner">Mirage</span>
       <span class="theme-selector">
         <a href="#" class="theme-toggle" data-theme="default">●</a>
         <a href="#" class="theme-toggle" data-theme="night">●</a>
@@ -17,6 +18,7 @@
         <ul>
           <li><%= active_link @conn, "Home", to: Routes.page_path(@conn, :index) %></li>
           <li><%= active_link @conn, "Feeds", to: Routes.feed_path(@conn, :index) %></li>
+
           <%= for page <- @pages do %>
           <li><%= active_link @conn, note_title(page), to: Routes.note_path(@conn, :show, page) %></li>
           <% end %>     
@@ -37,14 +39,6 @@
           <li><%= active_link @conn, "Notes", to: Routes.admin_note_path(@conn, :index) %></li>
           <li><%= active_link @conn, "Tags", to: Routes.admin_tag_path(@conn, :index) %></li>
           <li><%= active_link @conn, "Lists", to: Routes.admin_list_path(@conn, :index) %></li>
-        </ul>
-      </div>
-      <% end %>
-
-      <%= if @current_user do %>
-      <div>
-        <strong>User</strong>
-        <ul>
           <li><%= active_link @conn, "Settings", to: Routes.user_settings_path(@conn, :edit) %></li>
           <li><%= active_link @conn, "Dashboard", to: Routes.admin_dashboard_path(@conn, :index) %></li>
         </ul>

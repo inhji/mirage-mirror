@@ -1,8 +1,9 @@
 #header {
 	margin-bottom: var(--spacing-3);
-/* 	margin-left: calc(var(--spacing-3) * -1);
+	margin-left: calc(var(--spacing-3) * -1);
 	margin-right: calc(var(--spacing-3) * -1);
-	padding: 0 var(--spacing-3); */
+	padding: 0 var(--spacing-3);
+	background: var(--color-nav-bg);
 
 	& form#search {
 		& input {
@@ -16,8 +17,7 @@
 	}
 
 	& .theme-selector {
-		float: right;
-		line-height: 1.5rem;
+		line-height: 125%;
 
 		& a[data-theme=default] {
 			color: var(--sky-200);
@@ -37,28 +37,36 @@
 		}
 
 		& a {
-			font-size: 150%;
-			transition: var(--transition);
+			font-size: 125%;
 			vertical-align: text-top;
 		}
 	}
 
 	& details {
+		padding: var(--spacing-3) var(--spacing-3) 0;
+
 		& summary {
 			margin-bottom: var(--spacing-3);		
 			font-weight: bold;
 			margin-left: calc(var(--spacing-3) * -1);
 			margin-right: calc(var(--spacing-3) * -1);
+
+			& .icon:before {
+				color: var(--color-text);
+				content: 'ꟿ';
+				transition: var(--transition);
+			}
+
+			& .title {
+				justify-content: center;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
 		}
 
-		& summary::marker {
-			color: var(--color-nav-toggle);
-			content: '';
-		}
-
-		&[open] summary::marker {
-			content: '';
-		}
+		&[open] summary .icon:before {
+			color: var(--color-nav-toggle);		
+		}	
 
 		& nav {
 			display: flex;
