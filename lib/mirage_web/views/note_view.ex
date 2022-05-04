@@ -9,4 +9,12 @@ defmodule MirageWeb.NoteView do
 
   def syndication_text(%{type: :mastodon}), do: "Mastodon"
   def syndication_text(%{type: _}), do: ""
+
+  def title_or_content(%{title: title, content_sanitized: content} = note) do
+    if Mirage.Notes.Note.has_datetitle?(note) do
+      String.slice(content, 0..30) <> ".."
+    else
+      title
+    end
+  end
 end
