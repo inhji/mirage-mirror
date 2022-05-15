@@ -1,4 +1,7 @@
 #footer {
+	background: var(--color-footer-bg);
+	padding: 0 var(--spacing-3);
+
 	& nav {
 		display: flex;
 		gap: var(--spacing-3);

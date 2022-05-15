@@ -2,6 +2,7 @@ hr.divider {
 	color: transparent;
 	border-top: var(--border);
 	height: 1px;
+	margin: var(--spacing-6) 0;
 
 	&:after {
 		color: var(--color-border);
