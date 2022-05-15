@@ -5,6 +5,23 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.159.0](http://git.inhji.de/inhji/mirage.git/compare/v0.158.0...v0.159.0) (2022-05-15)
+
+
+
+
+### Features:
+
+* add bookmark page
+
+* move rss link to sidebar
+
+* remove blood theme
+
+### Bug Fixes:
+
+* tweak header
+
 ## [v0.158.0](http://git.inhji.de/inhji/mirage.git/compare/v0.157.0...v0.158.0) (2022-05-15)
 
 
