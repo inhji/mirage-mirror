@@ -27,6 +27,7 @@
       <div>
         <strong>Content</strong>
         <ul>
+          <li><%= active_link @conn, "Bookmarks", to: Routes.note_path(@conn, :index_bookmark) %></li>
           <li><%= active_link @conn, "Tags", to: Routes.tag_path(@conn, :index) %></li>
         </ul>
       </div>

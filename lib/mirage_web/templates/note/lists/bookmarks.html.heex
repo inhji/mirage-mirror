@@ -1,0 +1,15 @@
+<section id="page-bookmarks">
+	<h2>Bookmarks</h2>
+
+	<%= for {date, notes} <- @notes do %>
+
+	<h3><%= date %></h3>
+
+	<ul>
+		<%= for note <- notes do %>
+			<li><%= link note.title, to: Routes.note_path(@conn, :show, note) %></li>
+		<% end %>
+	</ul>
+
+	<% end %>
+</section>
