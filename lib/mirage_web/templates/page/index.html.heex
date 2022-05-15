@@ -18,6 +18,7 @@
     <%= render MirageWeb.SharedView, "author_card.html", assigns %>
 
     <ul class="social">
+      <li><%= link "📜 RSS Feed", to: Routes.feed_path(@conn, :index) %></li>
       <%= for identity <- Enum.filter(@identities, fn i -> i.public end) do %>
         <li><%= link identity.name, to: identity.value, target: "_blank" %></li>
       <% end %> 
