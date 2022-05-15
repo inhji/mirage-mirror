@@ -94,13 +94,16 @@ defmodule Mirage.MixProject do
         Lists: [~r/Mirage\.Lists/],
         Notes: [~r/Mirage\.Notes/],
         Tags: [~r/Mirage\.Tags/],
+        Indie: [~r/Mirage\.Indie/],
         MirageWeb: [~r/MirageWeb/]
       ],
       nest_modules_by_prefix: [
         MirageWeb,
         Mirage.Lists,
         Mirage.Notes,
-        Mirage.Tags
+        Mirage.Tags,
+        Mirage.Accounts,
+        Mirage.Indie
       ]
     ]
   end
