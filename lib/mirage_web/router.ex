@@ -43,7 +43,6 @@ defmodule MirageWeb.Router do
     get "/listed-in/:id", ListController, :show
 
     get "/notes", NoteController, :index
-    get "/notes/:id/microformats", NoteController, :microformats
     get "/notes/:id", NoteController, :show
 
     get "/search", SearchController, :index
