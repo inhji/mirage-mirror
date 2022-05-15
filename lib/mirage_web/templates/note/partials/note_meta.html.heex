@@ -1,0 +1,27 @@
+<section class="meta">
+  <span class="tag"><%= note_icon(@note) %></span>
+
+  <%= if @note.published_at do %>
+    <%= link to: Routes.note_path(@conn, :show, @note), class: "tag | u-uid u-url" do %>
+      <time datetime={@note.published_at} title={@note.published_at} class="dt-published">
+        <%= datetime_from_now(@note.published_at) %></time>
+    <% end %>
+  <% end %>
+
+  <span class="tag | p-category">
+    <%= link @note.list.title, to: Routes.list_path(@conn, :show, @note.list) %>
+  </span>
+
+  <%= for tag <- @note.tags do %>
+    <%= link tag.title, to: Routes.tag_path(@conn, :show, tag), class: "tag | p-category" %>
+  <% end %>
+
+  <%= for synd <- @note.syndications do %>
+    <%= if has_syndication?(synd) do %>
+      <%= link to: syndication_url(synd), class: "tag | u-syndication" do %>
+        <i class={syndication_icon(synd)}></i>
+        <span><%= syndication_text(synd) %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+</section>

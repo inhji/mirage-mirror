@@ -41,6 +41,16 @@ defmodule MirageWeb.UserInfo do
     assign(conn, :motd, motd)
   end
 
+  def fetch_lists(conn, _opts) do
+    lists =
+      case Accounts.get_user() do
+        nil -> nil
+        user -> %{}
+      end
+
+    assign(conn, :lists, lists)
+  end
+
   def fetch_custom_css(conn, _opts) do
     custom_css =
       case Accounts.get_user() do

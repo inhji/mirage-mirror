@@ -1,3 +1,9 @@
+<%
+# Note content or excerpt
+# Used in:
+# - note.html
+# - page.html
+%>
 <section class="html | e-content">
   <%= if @preview and @note.excerpt do %>
     <%= raw Mirage.Markdown.render(@note.excerpt) %>

@@ -1,13 +1,10 @@
 <section id="page-note">
-  <%= if @current_user do %>
-    <%= render "_note_buttons.html", assigns %>
-  <% end %>
-
   <article class="note | h-entry">
     <%= render "note.html", assigns %>
   </article>
 
-  <%= if @current_user do %>
-    <%= render "_note_links.html", assigns %>
+  <%= if @current_user && @preview == false do %>
+    <%= render "partials/note_links.html", assigns %>
+    <%= render "partials/note_buttons.html", assigns %>
   <% end %>
 </section>

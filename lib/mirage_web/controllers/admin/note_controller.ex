@@ -48,7 +48,12 @@ defmodule MirageWeb.Admin.NoteController do
 
   def show(conn, %{"id" => id}) do
     note = Notes.get_note!(id)
-    render(conn, "show.html", note: note, page_title: note.title)
+
+    render(conn, "show.html",
+      note: note,
+      page_title: note.title,
+      preview: false
+    )
   end
 
   def edit(conn, %{"id" => id}) do

@@ -1,5 +1,5 @@
 defmodule Mirage.Indie.Micropub do
-  alias Mirage.Indie.{Attributes}
+  alias Mirage.Indie.Attributes
   require Logger
 
   @syndication_targets Application.compile_env!(:mirage, [:indie, :supported_targets])

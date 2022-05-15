@@ -8,6 +8,8 @@ defmodule Mirage.NotesTest do
   alias Mirage.Notes.Note
 
   describe "notes" do
+    setup :create_user
+
     @invalid_attrs %{
       content: nil,
       title: nil

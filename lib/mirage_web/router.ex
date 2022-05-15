@@ -18,6 +18,7 @@ defmodule MirageWeb.Router do
     plug :fetch_motd
     plug :fetch_custom_css
     plug :fetch_pages
+    plug :fetch_lists
   end
 
   pipeline :api do
@@ -42,7 +43,6 @@ defmodule MirageWeb.Router do
 
     get "/listed-in/:id", ListController, :show
 
-    get "/notes", NoteController, :index
     get "/notes/:id", NoteController, :show
 
     get "/search", SearchController, :index

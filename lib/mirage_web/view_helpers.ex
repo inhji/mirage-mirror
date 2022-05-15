@@ -42,11 +42,4 @@ defmodule MirageWeb.ViewHelpers do
       false -> "⭕️"
     end
   end
-
-  def optional_assigns(assigns) do
-    preview = Map.get_lazy(assigns, :preview, fn -> false end)
-
-    assigns
-    |> Map.put(:preview, preview)
-  end
 end

@@ -1,4 +1,4 @@
-defmodule Mirage.MicropubHandlerTest do
+defmodule Mirage.MicropubTest do
   use MirageWeb.ConnCase
   use Oban.Testing, repo: Mirage.Repo
 
@@ -7,7 +7,7 @@ defmodule Mirage.MicropubHandlerTest do
 
     test "sending a name and content creates a note" do
       {:ok, note} =
-        Mirage.Indie.MicropubHandler.create_post(%{
+        Mirage.Indie.Micropub.create_post(%{
           "name" => ["Some Title from Micropub #{System.unique_integer()}"],
           "content" => ["Some Content about the Indieweb"]
         })
@@ -17,7 +17,7 @@ defmodule Mirage.MicropubHandlerTest do
 
     test "sending only content creates a note with numeric title" do
       {:ok, note} =
-        Mirage.Indie.MicropubHandler.create_post(%{
+        Mirage.Indie.Micropub.create_post(%{
           "content" => ["Some more Content about the Indieweb"]
         })
 
@@ -27,7 +27,7 @@ defmodule Mirage.MicropubHandlerTest do
 
     test "sending a name and content creates a bookmark" do
       {:ok, note} =
-        Mirage.Indie.MicropubHandler.create_post(
+        Mirage.Indie.Micropub.create_post(
           %{
             "name" => ["Some Title from Micropub #{System.unique_integer()}"],
             "content" => ["Some more Content about the Indieweb"],
@@ -44,7 +44,7 @@ defmodule Mirage.MicropubHandlerTest do
 
     test "sending a like creates a like" do
       {:ok, note} =
-        Mirage.Indie.MicropubHandler.create_post(
+        Mirage.Indie.Micropub.create_post(
           %{
             "content" => ["Some more Content about the Indieweb"],
             "like-of" => ["https://inhji.de"]
@@ -60,7 +60,7 @@ defmodule Mirage.MicropubHandlerTest do
 
     test "sending a like with syndication targets creates a like and syndicates it" do
       {:ok, note} =
-        Mirage.Indie.MicropubHandler.create_post(
+        Mirage.Indie.Micropub.create_post(
           %{
             "content" => ["Some more Content about the Indieweb"],
             "like-of" => ["https://inhji.de"],

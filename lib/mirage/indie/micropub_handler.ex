@@ -1,4 +1,15 @@
 defmodule Mirage.Indie.MicropubHandler do
+  @moduledoc """
+  This module implements the `PlugMicropub.HandlerBehaviour`behaviour.
+
+  It handles all requests to the micropub endpoints. 
+  The real work is done by these modules: 
+
+  - `Mirage.Indie.Micropub`, 
+  - `Mirage.Indie.Token`, 
+  - `Mirage.Indie.Attributes`
+  """
+
   require Logger
   alias MirageWeb.Router.Helpers, as: Routes
   alias Mirage.Indie.{Attributes, Token, Micropub}

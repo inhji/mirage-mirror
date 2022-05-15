@@ -1,38 +1,28 @@
-<div class="page-wrapper">
-  <section id="page-index">
-    <%= if @user do %>
-    <div class="hidden">
-      <%= render MirageWeb.SharedView, "author_card.html", assigns %>
-    </div>
-    <% else %>
-    <div>
-      <h1>Woah, woah.</h1>
-      <p>Looks like this is your first visit here. You better register yourself.</p>
-    </div>
-    <% end %>
+<section class="page-wrapper">
+  <section id="page-index">   
+    <h2>Updates</h2>
 
     <section class="updates | h-feed | flow">
     <%= for update <- @updates do %>
-      <%= render_update(update, assigns, %{preview: true}) %>
+      <%= render MirageWeb.NoteView, "show.html", 
+        assigns 
+        |> Map.put(:preview, true) 
+        |> Map.put(:note, update) %>
 
       <hr class="divider" />
     <% end %>
     </section>
-
-    <%= pagination_links @page, 
-      distance: 1, next: "→", previous: "←", 
-      first: false, last: false %>
   </section>
 
   <aside id="sidebar">
     <%= render MirageWeb.SharedView, "author_card.html", assigns %>
 
     <ul class="social">
-    <%= for identity <- Enum.filter(@identities, fn i -> i.public end) do %>
-      <li><%= link identity.name, to: identity.value, target: "_blank" %></li>
-    <% end %> 
+      <%= for identity <- Enum.filter(@identities, fn i -> i.public end) do %>
+        <li><%= link identity.name, to: identity.value, target: "_blank" %></li>
+      <% end %> 
     </ul>
   </aside>
-</div>
+</section>
 
 

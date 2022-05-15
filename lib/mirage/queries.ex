@@ -10,10 +10,17 @@ defmodule Mirage.Queries do
   """
 
   import Ecto.Query, warn: false
+  alias Mirage.Lists.List
 
   def where_published(query), do: where(query, [n], not is_nil(n.published_at))
 
   def where_unpublished(query), do: where(query, [n], is_nil(n.published_at))
+
+  def where_in_list(query, list_id) do
+    query
+    |> join(:inner, [n], l in List, on: [id: n.list_id])
+    |> where([n], n.list_id == ^list_id)
+  end
 
   def order_by_query(query, opts) do
     case opts["order_by"] do

@@ -66,10 +66,35 @@ defmodule Mirage.Notes do
     |> Repo.all()
   end
 
-  def list_bookmarks do
+  def list_updates do
+    user = Mirage.Accounts.get_user()
+
     Note
     |> with_preloads()
-    |> where([n], not is_nil(n.bookmark_of))
+    |> where_published()
+    |> where_in_list(user.microblog_list_id)
+    |> order_by(desc: :published_at)
+    |> Repo.all()
+  end
+
+  def list_likes do
+    user = Mirage.Accounts.get_user()
+
+    Note
+    |> with_preloads()
+    |> where_published()
+    |> where_in_list(user.like_list_id)
+    |> order_by(desc: :published_at)
+    |> Repo.all()
+  end
+
+  def list_bookmarks do
+    user = Mirage.Accounts.get_user()
+
+    Note
+    |> with_preloads()
+    |> where_published()
+    |> where_in_list(user.bookmark_list_id)
     |> order_by(desc: :published_at)
     |> Repo.all()
   end
@@ -78,11 +103,9 @@ defmodule Mirage.Notes do
     user = Mirage.Accounts.get_user()
 
     Note
-    |> join(:inner, [n], l in List, on: [id: n.list_id])
     |> with_preloads()
     |> where_published()
-    |> where([l], not is_nil(l.published_at))
-    |> where([n], n.list_id == ^user.page_list_id)
+    |> where_in_list(user.page_list_id)
     |> order_by(desc: :title)
     |> Repo.all()
   end

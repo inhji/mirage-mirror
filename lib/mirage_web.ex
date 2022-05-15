@@ -31,6 +31,7 @@ defmodule MirageWeb do
     quote do
       use Phoenix.View,
         root: "lib/mirage_web/templates",
+        pattern: "**/*",
         namespace: MirageWeb
 
       # Import convenience functions from controllers

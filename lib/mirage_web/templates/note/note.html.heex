@@ -1,18 +1,17 @@
-<% assigns = optional_assigns(assigns) %>
-
 <article class="article | note | h-entry">
+  <%= unless microblog?(@note) do %>
   <header>
-    <%= render "_note_header.html", assigns %>
+    <%= render "partials/note_header.html", assigns %>
   </header>
+  <% end %>
 
-  <%= render "_note_content.html", assigns %>
+  <section class="content">
+    <%= render "partials/note_content.html", assigns %>
+  </section>
 
   <footer>
-    <%= render "_note_url.html", assigns %>
-
-    <section class="meta">
-      <%= render "_note_meta.html", assigns %>
-    </section>
+    <%= render "partials/note_url.html", assigns %>
+    <%= render "partials/note_meta.html", assigns %>
 
     <aside class="hidden">
       <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>

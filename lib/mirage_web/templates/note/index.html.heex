@@ -1,5 +1,0 @@
-<h1>Notes</h1>
-
-<%= for note <- @notes do %>
-  <%= link note.title, to: Routes.note_path(@conn, :show, note) %>
-<% end %>
