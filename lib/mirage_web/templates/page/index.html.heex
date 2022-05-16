@@ -2,14 +2,14 @@
   <section id="page-index">   
     <h2>Articles</h2>
 
-    <section class="articles | h-feed | flow">
+    <section class="articles">
     <%= for article <- @articles do %>
       <ul>
-        <li><%= link article.title, to: Routes.note_path(@conn, :show, article) %></li>
+        <li><%= link article.title, to: Routes.note_path(@conn, :show, article) %> <%= datetime_for_article(article.published_at) %></li>
       </ul>
     <% end %>
     </section>
-    
+
     <h2>Updates</h2>
 
     <section class="updates | h-feed | flow">

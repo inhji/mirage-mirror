@@ -5,6 +5,10 @@ defmodule MirageWeb.ViewHelpers do
     Timex.format!(datetime, "{D}. {Mshort} {YYYY}, {h24}:{m}")
   end
 
+  def datetime_for_article(datetime) do
+    Timex.format!(datetime, "{0D} {Mshort}")
+  end
+
   def datetime_from_now(nil), do: nil
   def datetime_from_now(datetime), do: Timex.from_now(datetime)
 
