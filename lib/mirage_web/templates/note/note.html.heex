@@ -1,4 +1,4 @@
-<article class="article | note | h-entry">
+<article class="article note | h-entry">
   <%= unless microblog?(@note) do %>
   <header>
     <h1>
@@ -7,9 +7,7 @@
   </header>
   <% end %>
 
-  <section class="content">
-    <%= render "partials/note_content.html", assigns %>
-  </section>
+  <%= render "partials/note_content.html", assigns %>
 
   <footer>
     <%= render "partials/note_url.html", assigns %>

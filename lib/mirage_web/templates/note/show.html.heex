@@ -1,7 +1,5 @@
 <section id="page-note">
-  <article class="note | h-entry">
-    <%= render "note.html", assigns %>
-  </article>
+  <%= render "note.html", assigns %>
 
   <%= if @current_user && @preview == false do %>
     <%= render "partials/note_links.html", assigns %>
