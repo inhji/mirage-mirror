@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.160.1](http://git.inhji.de/inhji/mirage.git/compare/v0.160.0...v0.160.1) (2022-05-16)
+
+
+
+
+### Bug Fixes:
+
+* big spacing for articles, add date to article list
+
 ## [v0.160.0](http://git.inhji.de/inhji/mirage.git/compare/v0.159.0...v0.160.0) (2022-05-16)
 
 
