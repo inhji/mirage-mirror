@@ -1,3 +1,7 @@
-<%= link note_title(@note), 
-  to: Routes.note_path(@conn, :show, @note), 
-  class: "u-uid u-url p-name" %>
+<%= if @preview do %>
+  <%= link note_title(@note), 
+    to: Routes.note_path(@conn, :show, @note), 
+    class: "u-uid u-url p-name" %>
+<% else %>
+  <%= note_title(@note) %>
+<% end %>
