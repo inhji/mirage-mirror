@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.160.0](http://git.inhji.de/inhji/mirage.git/compare/v0.159.0...v0.160.0) (2022-05-16)
+
+
+
+
+### Features:
+
+* rework homepage, show articles
+
+* add article list id
+
 ## [v0.159.0](http://git.inhji.de/inhji/mirage.git/compare/v0.158.0...v0.159.0) (2022-05-15)
 
 
