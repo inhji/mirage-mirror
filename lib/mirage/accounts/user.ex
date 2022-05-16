@@ -33,6 +33,7 @@ defmodule Mirage.Accounts.User do
     belongs_to :bookmark_list, Mirage.Lists.List
     belongs_to :default_list, Mirage.Lists.List
     belongs_to :page_list, Mirage.Lists.List
+    belongs_to :article_list, Mirage.Lists.List
 
     timestamps()
   end
@@ -130,7 +131,8 @@ defmodule Mirage.Accounts.User do
       :like_list_id,
       :bookmark_list_id,
       :default_list_id,
-      :page_list_id
+      :page_list_id,
+      :article_list_id
     ])
   end
 

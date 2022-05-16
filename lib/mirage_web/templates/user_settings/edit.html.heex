@@ -154,6 +154,12 @@
         <%= error_tag f, :page_list_id %>
       </fieldset>
 
+      <fieldset>
+        <%= label f, :article_list_id, "📄 Article List" %>
+        <%= select f, :article_list_id, @lists, prompt: [key: "Choose a list"] %>
+        <%= error_tag f, :article_list_id %>
+      </fieldset>
+
       <div>
         <%= submit "Save Settings" %>
       </div>
