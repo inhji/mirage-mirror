@@ -1,9 +1,15 @@
 .markdown, .html {
-	p {
+	& p {
 		margin-bottom: var(--spacing-2);
 	}
 
-	code.inline {
+	& code.inline {
 		color: var(--primary);
+	}
+
+	& .footnotes {
+		& p {
+			display: inline;
+		}
 	}
 }
