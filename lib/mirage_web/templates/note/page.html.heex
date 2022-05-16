@@ -1,13 +1,15 @@
 <article class="article | h-entry">
   <header>
-    <%= render "partials/note_header.html", assigns %>
+    <h1 class="u-uid u-url p-name">
+      <%= render "partials/note_header.html", assigns %>
+    </h1>
   </header>
 
   <%= render "partials/note_content.html", assigns %>
 
   <footer>
     <aside class="hidden">
-      <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>
+      <%= render MirageWeb.SharedView, "author_link.html", Map.put(assigns, :user, @note.user) %>
     </aside>
   </footer>
 </article>

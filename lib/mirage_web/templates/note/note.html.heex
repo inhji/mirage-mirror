@@ -1,7 +1,7 @@
 <article class="article note | h-entry">
   <%= unless microblog?(@note) do %>
   <header>
-    <h1>
+    <h1 class="u-uid u-url p-name">
       <%= render "partials/note_header.html", assigns %>
     </h1>
   </header>
@@ -14,7 +14,7 @@
     <%= render "partials/note_meta.html", assigns %>
 
     <aside class="hidden">
-      <%= render MirageWeb.SharedView, "author_card.html", Map.put(assigns, :user, @note.user) %>
+      <%= render MirageWeb.SharedView, "author_link.html", Map.put(assigns, :user, @note.user) %>
     </aside>
   </footer>
 </article>
