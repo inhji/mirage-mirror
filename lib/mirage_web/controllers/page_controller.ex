@@ -3,7 +3,8 @@ defmodule MirageWeb.PageController do
 
   def index(conn, _params) do
     render(conn, "index.html",
-      updates: Mirage.Notes.list_updates(),
+      updates: Mirage.Notes.list_updates(limit: 5),
+      articles: Mirage.Notes.list_articles(),
       user: Mirage.Accounts.get_user(),
       preview: false
     )

@@ -16,6 +16,8 @@ defmodule Mirage.Queries do
 
   def where_unpublished(query), do: where(query, [n], is_nil(n.published_at))
 
+  def where_in_list(query, nil), do: query
+
   def where_in_list(query, list_id) do
     query
     |> join(:inner, [n], l in List, on: [id: n.list_id])

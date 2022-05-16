@@ -66,13 +66,30 @@ defmodule Mirage.Notes do
     |> Repo.all()
   end
 
-  def list_updates do
+  def list_updates(opts \\ %{}) do
+    user = Mirage.Accounts.get_user()
+    query = Note
+
+    query =
+      if opts[:limit],
+        do: limit(query, ^opts[:limit]),
+        else: query
+
+    query
+    |> with_preloads()
+    |> where_published()
+    |> where_in_list(user.microblog_list_id)
+    |> order_by(desc: :published_at)
+    |> Repo.all()
+  end
+
+  def list_articles() do
     user = Mirage.Accounts.get_user()
 
     Note
     |> with_preloads()
     |> where_published()
-    |> where_in_list(user.microblog_list_id)
+    |> where_in_list(user.article_list_id)
     |> order_by(desc: :published_at)
     |> Repo.all()
   end
@@ -109,6 +126,45 @@ defmodule Mirage.Notes do
     |> order_by(desc: :title)
     |> Repo.all()
   end
+
+  # def list_notes(opts \\ []) do
+  #   query = album_query()
+
+  #   query =
+  #     if opts[:artist],
+  #       do: where(query, [a, ar, l], ar.id == ^opts[:artist]),
+  #       else: query
+
+  #   query =
+  #     if opts[:limit],
+  #       do: limit(query, ^opts[:limit]),
+  #       else: query
+
+  #   query =
+  #     if opts[:since],
+  #       do: where(query, [a, ar, l], l.listened_at > ^opts[:since]),
+  #       else: query
+
+  #   query =
+  #     if opts[:preload],
+  #       do: preload(query, [:listens, :artist]),
+  #       else: query
+
+  #   query =
+  #     if opts[:without_cover],
+  #       do: where(query, [a, ar, l], is_nil(a.discogs_id)),
+  #       else: query
+
+  #   album_ids =
+  #     query
+  #     |> Repo.all()
+  #     |> Enum.map(fn album -> album.id end)
+
+  #   Album
+  #   |> with_preloads()
+  #   |> where([a], a.id in ^album_ids)
+  #   |> Repo.all()
+  # end
 
   @doc """
   Returns the list of notes sorted by `MirageWeb.Live.NoteListParams`
