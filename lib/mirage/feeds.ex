@@ -4,34 +4,43 @@ defmodule Mirage.Feeds do
 
   @doc """
   Builds an rss/atom feed from the supplied entries
-
-  ## Note
-
-  This uses XmlBuilder directly instead of Atomex.generate_document because of 
-  https://github.com/Betree/atomex/pull/54
   """
   def render_feed(id, user) do
     id
-    |> get_feed()
+    |> get_feed(user)
     |> build_feed(user)
   end
 
-  defp get_feed("home") do
+  defp get_feed("notes", user) do
     %{
-      title: "Inhji.de Home",
-      entries: Mirage.Content.list_updates(),
+      title: "Inhji.de Notes",
+      entries:
+        Mirage.Notes.list_notes(
+          published: true,
+          list: user.microblog_list_id,
+          preload: true
+        ),
       content_url: Routes.page_url(MirageWeb.Endpoint, :index),
       feed_url: Routes.page_url(MirageWeb.Endpoint, :index)
     }
   end
 
-  defp get_feed("notes") do
+  defp get_feed("bookmarks", user) do
     %{
       title: "Inhji.de Notes",
-      entries: Mirage.Notes.list_published_notes(),
-      content_url: Routes.note_url(MirageWeb.Endpoint, :index),
+      entries:
+        Mirage.Notes.list_notes(
+          published: true,
+          list: user.bookmark_list_id,
+          preload: true
+        ),
+      content_url: Routes.page_url(MirageWeb.Endpoint, :index),
       feed_url: Routes.page_url(MirageWeb.Endpoint, :index)
     }
+  end
+
+  defp get_feed("home", user) do
+    get_feed("notes", user)
   end
 
   defp build_feed(
@@ -48,8 +57,7 @@ defmodule Mirage.Feeds do
     |> Feed.link(feed_url)
     |> Feed.entries(Enum.map(entries, fn entry -> get_entry(entry) end))
     |> Feed.build()
-    |> XmlBuilder.document()
-    |> XmlBuilder.generate()
+    |> Atomex.generate_document()
   end
 
   defp get_entry(%Mirage.Notes.Note{} = entry) do
