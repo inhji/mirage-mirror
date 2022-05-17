@@ -17,7 +17,7 @@ defmodule Mirage.NotesTest do
 
     test "list_notes/0 returns all notes" do
       note = note_fixture()
-      assert Notes.list_notes() == [note]
+      assert Notes.list_notes(preload: true) == [note]
     end
 
     test "search_notes/1 returns a list of results matching the search query" do
