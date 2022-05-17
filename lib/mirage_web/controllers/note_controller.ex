@@ -5,13 +5,19 @@ defmodule MirageWeb.NoteController do
     user = Mirage.Accounts.get_user()
 
     bookmarks =
-      Mirage.Notes.list_notes(published: true, list: user.bookmark_list_id)
+      Mirage.Notes.list_notes(
+        published: true,
+        list: user.bookmark_list_id,
+        preload: true
+      )
       |> Enum.group_by(fn note ->
         date = note.published_at || note.inserted_at
 
-        date
-        |> Timex.set(day: 1, hour: 0, minute: 0, second: 0)
-        |> Timex.format!("{Mshort} {YYYY}")
+        Timex.set(date, day: 1, hour: 0, minute: 0, second: 0)
+      end)
+      |> Enum.sort_by(fn {date, _note} -> date end, :desc)
+      |> Enum.map(fn {date, notes} ->
+        {Timex.format!(date, "{Mshort} '{YY}"), notes}
       end)
 
     render(conn, "lists/bookmarks.html",
