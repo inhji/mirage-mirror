@@ -22,6 +22,11 @@
   <details>
     <summary>Moar ghosts 'n' stuff</summary>
     <section>
+      <fieldset>
+        <%= label f, :url %>
+        <%= url_input f, :url %>
+        <%= error_tag f, :url %>
+      </fieldset>
 
       <fieldset>
         <%= label f, :list_id %>
@@ -58,12 +63,6 @@
   <details>
     <summary>Indieweb URLs</summary>
     <section class="flex flex-col gap-3">
-      <fieldset>
-        <%= label f, :url %>
-        <%= url_input f, :url %>
-        <%= error_tag f, :url %>
-      </fieldset>
-
       <fieldset>
         <%= label f, :url_type %>
         <%= text_input f, :url_type %>
