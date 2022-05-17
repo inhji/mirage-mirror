@@ -1,7 +1,7 @@
 body {
 	color: var(--color-text);
 	background-color: var(--background);
-	padding: 0 var(--spacing-3);
+	padding: 0;
 }
 
 a {
