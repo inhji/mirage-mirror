@@ -5,6 +5,21 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.164.0](http://git.inhji.de/inhji/mirage.git/compare/v0.163.0...v0.164.0) (2022-05-17)
+
+
+
+
+### Features:
+
+* finally fix this stupid spacing problem
+
+### Bug Fixes:
+
+* tweak title size for notes
+
+* divider
+
 ## [v0.163.0](http://git.inhji.de/inhji/mirage.git/compare/v0.162.0...v0.163.0) (2022-05-17)
 
 
