@@ -17,7 +17,7 @@ hr.divider {
 		background: var(--background);
 	}
 
-	&:last-of-type {
+	&:last-of-type:last-child {
 		display: none;
 	}
 }
