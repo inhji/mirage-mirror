@@ -25,6 +25,8 @@ h1, h2, h3, .h1, .h2, .h3 {
 
 h1, .h1, .text-xxl {
 	font-size: var(--text-xxl);
+  border-bottom: 2px solid var(--background-dark);
+  margin-bottom: var(--spacing-6);
 }
 
 h2, .h2, .text-xl {
