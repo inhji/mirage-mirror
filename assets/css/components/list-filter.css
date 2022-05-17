@@ -9,7 +9,7 @@
 		flex-direction: column;
 		align-items: flex-end;
 
-		@media (--biig) {
+		@media (--based) {
 			flex-direction: row;
 		}
 

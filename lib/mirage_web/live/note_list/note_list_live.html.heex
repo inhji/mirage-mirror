@@ -1,35 +1,15 @@
 <details id="note-list" phx-update="ignore" class="list-filter" open="open">
   <summary class="dark:text-gray-300">Filter</summary>
   
-  <.form let={f} for={@changeset} phx-change="handle_change" class="flex flex-col xl:flex-row gap-6">
-    <label for="show_published">
-      <span>Published</span>
-      <%= select f, :show_published, [
-      	"Show All": "all", 
-      	"Show Published": "published", 
-      	"Show Unpublished": "unpublished"] %>
-    </label>
-
+  <.form let={f} for={@changeset} phx-change="handle_change">
     <label for="show_list">
       <span>List</span>
-      <%= select f, :show_list, @lists %>
-    </label>
-
-    <label for="order_by">
-      <span>Order By</span>
-      <%= select f, :order_by, @order_by %>
+      <%= select f, :list, @lists %>
     </label>
 
     <label for="limit">
       <span>Limit</span>
       <%= select f, :limit, @limit %>
-    </label>
-
-    <div class="flex-1"></div>
-
-    <label for="show_list">
-    	<span>Search</span>
-      <%= text_input f, :search_query, placeholder: "Search", phx_debounce: "100", autofocus: "true" %>
     </label>
 
     <a href="#" phx-click="handle_reset" class="button">Reset</a>

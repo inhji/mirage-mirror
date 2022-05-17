@@ -1,23 +1,9 @@
 defmodule MirageWeb.Live.ListLive do
-  @doc """
-  Returns a list of possible item orders
-  """
-  def order_by() do
-    [
-      {"Default Order", "default"},
-      {"Creation Date, Newest First", "inserted_at_desc"},
-      {"Publish Date, Newest First", "published_at_desc"},
-      {"Creation Date, Oldest First", "inserted_at_asc"},
-      {"Publish Date, Oldest First", "published_at_asc"}
-    ]
-  end
-
   def limit() do
     [
       {"10", "10"},
       {"25", "25"},
-      {"50", "50"},
-      {"All", "all"}
+      {"50", "50"}
     ]
   end
 
