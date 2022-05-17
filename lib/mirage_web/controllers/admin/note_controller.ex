@@ -9,7 +9,7 @@ defmodule MirageWeb.Admin.NoteController do
   plug :assign_form_data
 
   def index(conn, _params) do
-    notes = Notes.list_notes()
+    notes = Notes.list_notes(preload: true)
     render(conn, "index.html", notes: notes, page_title: "Notes")
   end
 

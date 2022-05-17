@@ -2,8 +2,10 @@ defmodule MirageWeb.NoteController do
   use MirageWeb, :controller
 
   def index_bookmark(conn, _params) do
+    user = Mirage.Accounts.get_user()
+
     bookmarks =
-      Mirage.Notes.list_bookmarks()
+      Mirage.Notes.list_notes(published: true, list: user.bookmark_list_id)
       |> Enum.group_by(fn note ->
         date = note.published_at || note.inserted_at
 

@@ -7,12 +7,10 @@ defmodule Mirage.Notes do
   """
 
   import Ecto.Query, warn: false
-  import Mirage.Macros
   import Mirage.Queries
 
   alias Mirage.Repo
   alias Mirage.Notes.{Note, NoteHooks}
-  alias Mirage.Lists.List
 
   @preloads [
     :list,
@@ -54,152 +52,64 @@ defmodule Mirage.Notes do
   @doc """
   Returns the list of notes.
 
+  Takes the following option-keys:
+
+  - list
+  - limit
+
+  - published
+  - unpublished
+  - preload
+
   ## Examples
 
       iex> list_notes()
       [%Note{}, ...]
 
+      iex> list_notes(limit: 5, published: true)
+      [%Note{}, ...]
+
   """
-  def list_notes do
-    Note
-    |> with_preloads()
-    |> Repo.all()
+  def list_notes(opts \\ []) do
+    Repo.all(list_notes_query(opts))
   end
 
-  def list_updates(opts \\ %{}) do
-    user = Mirage.Accounts.get_user()
-    query = Note
+  def list_notes_query(opts \\ []) do
+    query =
+      Note
+      |> order_by(desc: :published_at, desc: :inserted_at)
+
+    query =
+      if opts[:list],
+        do: where_in_list(query, opts[:list]),
+        else: query
 
     query =
       if opts[:limit],
         do: limit(query, ^opts[:limit]),
         else: query
 
+    query =
+      if opts[:published],
+        do: where_published(query),
+        else: query
+
+    query =
+      if opts[:unpublished],
+        do: where_unpublished(query),
+        else: query
+
+    query =
+      if opts[:preload],
+        do: with_preloads(query),
+        else: query
+
+    query =
+      if opts[:search],
+        do: where_contains(query, opts[:search]),
+        else: query
+
     query
-    |> with_preloads()
-    |> where_published()
-    |> where_in_list(user.microblog_list_id)
-    |> order_by(desc: :published_at)
-    |> Repo.all()
-  end
-
-  def list_articles() do
-    user = Mirage.Accounts.get_user()
-
-    Note
-    |> with_preloads()
-    |> where_published()
-    |> where_in_list(user.article_list_id)
-    |> order_by(desc: :published_at)
-    |> Repo.all()
-  end
-
-  def list_likes do
-    user = Mirage.Accounts.get_user()
-
-    Note
-    |> with_preloads()
-    |> where_published()
-    |> where_in_list(user.like_list_id)
-    |> order_by(desc: :published_at)
-    |> Repo.all()
-  end
-
-  def list_bookmarks do
-    user = Mirage.Accounts.get_user()
-
-    Note
-    |> with_preloads()
-    |> where_published()
-    |> where_in_list(user.bookmark_list_id)
-    |> order_by(desc: :published_at)
-    |> Repo.all()
-  end
-
-  def list_pages() do
-    user = Mirage.Accounts.get_user()
-
-    Note
-    |> with_preloads()
-    |> where_published()
-    |> where_in_list(user.page_list_id)
-    |> order_by(desc: :title)
-    |> Repo.all()
-  end
-
-  # def list_notes(opts \\ []) do
-  #   query = album_query()
-
-  #   query =
-  #     if opts[:artist],
-  #       do: where(query, [a, ar, l], ar.id == ^opts[:artist]),
-  #       else: query
-
-  #   query =
-  #     if opts[:limit],
-  #       do: limit(query, ^opts[:limit]),
-  #       else: query
-
-  #   query =
-  #     if opts[:since],
-  #       do: where(query, [a, ar, l], l.listened_at > ^opts[:since]),
-  #       else: query
-
-  #   query =
-  #     if opts[:preload],
-  #       do: preload(query, [:listens, :artist]),
-  #       else: query
-
-  #   query =
-  #     if opts[:without_cover],
-  #       do: where(query, [a, ar, l], is_nil(a.discogs_id)),
-  #       else: query
-
-  #   album_ids =
-  #     query
-  #     |> Repo.all()
-  #     |> Enum.map(fn album -> album.id end)
-
-  #   Album
-  #   |> with_preloads()
-  #   |> where([a], a.id in ^album_ids)
-  #   |> Repo.all()
-  # end
-
-  @doc """
-  Returns the list of notes sorted by `MirageWeb.Live.NoteListParams`
-
-  *Internal use only*
-  """
-  def list_notes(opts) do
-    Note
-    |> with_preloads()
-    |> published_query(opts)
-    |> list_query(opts)
-    |> search_query(opts)
-    |> order_by_query(opts)
-    |> limit_query(opts)
-    |> Repo.all()
-  end
-
-  @doc """
-  Returns the list of published notes.
-
-  ## Examples
-
-      iex> list_notes()
-      [%Note{}, ...]
-
-  """
-  def list_published_notes(pagination_params \\ %{}) do
-    user = Mirage.Accounts.get_user()
-
-    Note
-    |> where_published()
-    |> where([n], n.list_id != ^user.page_list_id)
-    |> order_by(desc: :published_at)
-    |> with_preloads()
-    |> Repo.paginate(pagination_params)
   end
 
   @doc """
@@ -212,14 +122,7 @@ defmodule Mirage.Notes do
 
   """
   def search_notes(query_string) do
-    q =
-      from(n in Note,
-        where: contains(n.content, ^query_string),
-        or_where: contains(n.title, ^query_string),
-        preload: ^@preloads
-      )
-
-    Repo.all(q)
+    list_notes(search: query_string, preload: true)
   end
 
   @doc """
