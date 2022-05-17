@@ -5,6 +5,27 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.162.0](http://git.inhji.de/inhji/mirage.git/compare/v0.161.3...v0.162.0) (2022-05-17)
+
+
+
+
+### Features:
+
+* completely rework list_notes
+
+* show final url more prominently in note form
+
+* trim down note list live to something usable
+
+* improve feeds
+
+### Bug Fixes:
+
+* handle nil for references
+
+* outdated tests
+
 ## [v0.161.3](http://git.inhji.de/inhji/mirage.git/compare/v0.161.2...v0.161.3) (2022-05-16)
 
 
