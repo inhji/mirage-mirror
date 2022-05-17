@@ -17,6 +17,8 @@ defmodule Mirage.References do
   @doc """
   Returns a list of references in `string`.
   """
+  def get_references(nil), do: []
+
   def get_references(string) do
     @hashid_reference_regex
     |> Regex.scan(string, capture: :all)
