@@ -1,5 +1,7 @@
 name: Mirror
-on: [schedule]
+on: 
+  schedule:
+    - cron:  '0 */2 * * *'
 jobs:
   my_first_job:
     runs-on: ubuntu-latest
